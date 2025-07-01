@@ -28,14 +28,14 @@ const AboutUsSection = () => {
             </p>
             <div className="grid sm:grid-cols-2 gap-6 pt-6">
               <div className="flex items-start space-x-3">
-                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                <CheckCircle className="w-6 h-6 text-[#586e20] flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-semibold text-gray-900">Expert Team</h4>
                   <p className="text-gray-600 text-sm">Skilled professionals with proven expertise</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <Heart className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" />
+                <Heart className="w-6 h-6 text-[#586e20] flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-semibold text-gray-900">Customer First</h4>
                   <p className="text-gray-600 text-sm">Your success is our primary focus</p>

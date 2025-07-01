@@ -88,7 +88,7 @@ export default function ContactUsPage() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="Your phone (optional)"
+                placeholder="Your phone"
                 className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400"
               />
             </div>

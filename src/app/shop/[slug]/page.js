@@ -131,7 +131,10 @@ export default function OrthodexilProductPage() {
               >
                 <Minus size={16} />
               </button>
-              <span className="flex-1 text-center py-1 border border-gray-300 rounded text-sm">{quantity}</span>
+              <span className="flex-1 text-center py-1 border border-gray-300 rounded text-sm text-black">
+              {quantity}
+            </span>
+
               <button
                 onClick={() => setQuantity(quantity + 1)}
                 className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center hover:bg-[#82a133] hover:text-white transition"

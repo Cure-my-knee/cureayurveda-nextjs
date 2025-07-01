@@ -1,79 +1,85 @@
  import React from 'react';
-import { Award, Beaker, TestTube, Droplet, Heart, Shield } from 'lucide-react';
 import Title from '../ui/Title';
 
 const GuaranteeSection = () => {
-  const guarantees = [
-    {
-      icon: Award,
-      title: "LICENSED",
-      description: "We are licensed by the Ayush Ministry of India to legally manufacture and sell our approved product formulations pan India."
-    },
-    {
-      icon: Beaker,
-      title: "NO HARMFUL CHEMICALS",
-      description: "Our products are made from the best hemp/cannabis that grows naturally and does not contain any harmful chemicals."
-    },
-    {
-      icon: TestTube,
-      title: "LAB TESTED",
-      description: "We are third party tested. We use cutting edge, world class testing equipment to ensure our products are safe and healthy."
-    },
-    {
-      icon: Droplet,
-      title: "100% PURE",
-      description: "Quality control is central to our quest to bring you the very best products nature and science can offer."
-    },
-    {
-      icon: Heart,
-      title: "CRUELTY FREE",
-      description: "Our products have not been tested on animals and have caused no harm to living beings at any stage of production."
-    },
-    {
-      icon: Shield,
-      title: "GMP QUALITY",
-      description: "You can trust that the product you're using is safe, pure, and effective. GMP certified standards ensure emphasis on quality, inspection and continuous improvement."
-    }
-  ];
+ const guarantees = [
+  {
+    image: "/images/whychoose/whychoose12.png",
+    title: "LICENSED",
+     description: "Licensed to manufacture and sell approved product formulations."
+  },
+  {
+    image: "/images/whychoose/whychoose6.png",
+    title: "GLUTEN FREE",
+    description: "Made from natural hemp/cannabis without gluten-containing ingredients."
+  },
+  {
+    image: "/images/whychoose/whychoose3.png",
+    title: "SUGAR FREE",
+    description: "Third party tested with advanced equipment for safety and quality verification."
+  },
+  {
+    image: "/images/whychoose/whychoose4.png",
+    title: "NATURAL ACTIVE",
+    description: "Quality control processes focus on delivering products combining natural ingredients with scientific research."
+  },
+  {
+    image: "/images/whychoose/whychoose1.png",
+    title: "CRUELTY FREE",
+    description: "Not tested on animals, following ethical production practices."
+  },
+  {
+    image: "/images/whychoose/whychoose12.png",
+    title: "GMP QUALITY",
+    description: "GMP certified standards guide manufacturing for safe, pure, and effective products."
+  },
+  {
+    image: "/images/whychoose/whychoose15.png",
+    title: "ISO CERTIFIED",
+    description: "ISO certified manufacturing processes for consistent quality control."
+  },
+  {
+    image: "/images/whychoose/whychoose4.png",
+    title: "PLANT BASE",
+    description: "Products focus on plant-based ingredients with emphasis on quality and continuous improvement."
+  }
+];
 
   return (
     <div className="w-full bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          {/* <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-wider">
-            OUR GUARANTEE
-          </h2> */}
           <Title>
-            OUR GUARANTEE
+           QUALITY YOU CAN TRUST
           </Title>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        {/* Grid - 2 columns on mobile, 4 columns on desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {guarantees.map((item, index) => (
             <div
               key={index}
-              className="group text-center transition-all duration-300 ease-in-out transform hover:scale-105"
+              className="group text-center transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg bg-white rounded-lg p-4 sm:p-6"
             >
-              {/* Icon Container */}
-               <div className="group flex justify-center mb-6">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#586e20] flex items-center justify-center border-2 border-transparent transition-all duration-300 group-hover:bg-white group-hover:border-[#586e20]">
-                <item.icon 
-                  className="w-10 h-10 sm:w-12 sm:h-12 text-white transition-all duration-300 group-hover:text-[#586e20]"
-                />
+              {/* Image Container */}
+              <div className="flex justify-center mb-4 sm:mb-6">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-[#586e20] flex items-center justify-center border-2 border-transparent transition-all duration-300 group-hover:bg-white group-hover:border-[#586e20] overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 object-contain transition-all duration-300 filter brightness-0 invert group-hover:filter-none"
+                  />
+                </div>
               </div>
-            </div>
-
-
 
               {/* Title */}
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4 tracking-wide">
+              <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-900 mb-2 sm:mb-3 tracking-wide">
                 {item.title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-sm mx-auto">
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                 {item.description}
               </p>
             </div>

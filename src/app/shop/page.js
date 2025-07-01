@@ -20,57 +20,114 @@ const ShopPage = () => {
 
   const router = useRouter();
 
-  const products = [
+  // const products = [
+  //   {
+  //     id: "orthodexil-joint-pain-oil",
+  //     productImage: "/images/defaultproduct/productimage1.jpeg",
+  //     hoverImage: "/images/defaultproduct/productimage4.jpeg",
+  //     productName: "ORTHODEXIL - JOINT PAIN OIL",
+  //     price: "549",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "wholeleaf-pain-relief-spray",
+  //     productImage: "/images/defaultproduct/productimage2.jpeg",
+  //     hoverImage: "/images/defaultproduct/productimage4.jpeg",
+  //     productName: "WHOLELEAF - PAIN RELIEF SPRAY",
+  //     price: "399",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "natural-herbal-balm",
+  //     productImage: "/images/defaultproduct/productimage1.jpeg",
+  //     hoverImage: "/images/defaultproduct/productimage5.jpeg",
+  //     productName: "NATURAL - HERBAL BALM",
+  //     price: "299",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "ayurvedic-muscle-relief-oil",
+  //     productImage: "/images/defaultproduct/productimage2.jpeg",
+  //     hoverImage: "/images/defaultproduct/productimage6.jpeg",
+  //     productName: "AYURVEDIC - MUSCLE RELIEF OIL",
+  //     price: "449",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "organic-joint-care-cream",
+  //     productImage: "/images/defaultproduct/productimage1.jpeg",
+  //     hoverImage: "/images/defaultproduct/productimage6.jpeg",
+  //     productName: "ORGANIC - JOINT CARE CREAM",
+  //     price: "599",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "herbal-pain-relief-patches",
+  //     productImage: "https://www.wholeleaf.in/cdn/shop/products/strong_600x.png?v=1741249580",
+  //     hoverImage: "https://www.wholeleaf.in/cdn/shop/files/Relixi_Balm_3_copy_600x.jpg?v=1741166294",
+  //     productName: "HERBAL - PAIN RELIEF PATCHES",
+  //     price: "349",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   }
+  // ];
+
+   const products = [
     {
-      id: "orthodexil-joint-pain-oil",
+      id: "VedicCal",
       productImage: "/images/defaultproduct/productimage1.jpeg",
       hoverImage: "/images/defaultproduct/productimage4.jpeg",
-      productName: "ORTHODEXIL - JOINT PAIN OIL",
+      productName: "VedicCal",
       price: "549",
       currency: "₹",
       mrpText: "MRP"
     },
     {
-      id: "wholeleaf-pain-relief-spray",
-      productImage: "/images/defaultproduct/productimage2.jpeg",
+      id: "VedicFix",
+      productImage: "/images/defaultproduct/productimage1.jpeg",
       hoverImage: "/images/defaultproduct/productimage4.jpeg",
-      productName: "WHOLELEAF - PAIN RELIEF SPRAY",
+      productName: "VedicFix",
       price: "399",
       currency: "₹",
       mrpText: "MRP"
     },
     {
-      id: "natural-herbal-balm",
+      id: "VedicFix-Oil",
       productImage: "/images/defaultproduct/productimage1.jpeg",
       hoverImage: "/images/defaultproduct/productimage5.jpeg",
-      productName: "NATURAL - HERBAL BALM",
+      productName: "VedicFix Oil",
       price: "299",
       currency: "₹",
       mrpText: "MRP"
     },
     {
-      id: "ayurvedic-muscle-relief-oil",
+      id: "D-Vedic",
       productImage: "/images/defaultproduct/productimage2.jpeg",
       hoverImage: "/images/defaultproduct/productimage6.jpeg",
-      productName: "AYURVEDIC - MUSCLE RELIEF OIL",
+      productName: "D Vedic",
       price: "449",
       currency: "₹",
       mrpText: "MRP"
     },
     {
-      id: "organic-joint-care-cream",
+      id: "D-Vedic-Syrup",
       productImage: "/images/defaultproduct/productimage1.jpeg",
       hoverImage: "/images/defaultproduct/productimage6.jpeg",
-      productName: "ORGANIC - JOINT CARE CREAM",
+      productName: "D Vedic Syrup",
       price: "599",
       currency: "₹",
       mrpText: "MRP"
     },
     {
-      id: "herbal-pain-relief-patches",
-      productImage: "https://www.wholeleaf.in/cdn/shop/products/strong_600x.png?v=1741249580",
-      hoverImage: "https://www.wholeleaf.in/cdn/shop/files/Relixi_Balm_3_copy_600x.jpg?v=1741166294",
-      productName: "HERBAL - PAIN RELIEF PATCHES",
+      id: "Vedic-Shilajit",
+      productImage: "/images/defaultproduct/productimage4.jpeg",
+      hoverImage: "/images/defaultproduct/productimage6.jpeg",
+      productName: "Vedic Shilajit",
       price: "349",
       currency: "₹",
       mrpText: "MRP"

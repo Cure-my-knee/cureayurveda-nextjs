@@ -14,28 +14,48 @@ const FAQAccordion = () => {
     }));
   };
 
-  const faqData = [
-    {
-      question: "What is Next.js and why should I use it?",
-      answer: "Next.js is a React framework that provides features like server-side rendering, static site generation, and automatic code splitting. It's perfect for building fast, SEO-friendly web applications with minimal configuration.",
-    },
-    {
-      question: "How do I get started with Tailwind CSS?",
-      answer: "Tailwind CSS is a utility-first CSS framework. You can install it via npm, configure it in your project, and start using utility classes like 'bg-blue-500', 'text-white', and 'p-4' to style your components quickly and efficiently.",
-    },
-    {
-      question: "What are the benefits of using React hooks?",
-      answer: "React hooks allow you to use state and other React features in functional components. They make code more reusable, easier to test, and help you avoid the complexities of class components while maintaining clean, readable code.",
-    },
-    {
-      question: "How can I make my website mobile responsive?",
-      answer: "Use responsive design principles with CSS Grid, Flexbox, and media queries. Tailwind CSS makes this easier with responsive prefixes like 'sm:', 'md:', 'lg:', and 'xl:' that apply styles at different screen sizes.",
-    },
-    {
-      question: "What's the difference between SSR and SSG?",
-      answer: "Server-Side Rendering (SSR) generates pages on each request, while Static Site Generation (SSG) pre-builds pages at build time. SSG is faster for static content, while SSR is better for dynamic content that changes frequently.",
-    },
-  ];
+   const faqData = [
+  {
+    question: "What is Cure Ayurvedic?",
+    answer: "Cure Ayurvedic is an online platform offering authentic Ayurvedic products based on traditional Indian knowledge and natural ingredients. We aim to bring holistic wellness to your doorstep."
+  },
+  {
+    question: "Are Cure Ayurvedic products safe to use?",
+    answer: "Yes, all our products are made from natural ingredients and are formulated under strict quality control. However, if you have any medical condition or are pregnant, please consult your doctor before use."
+  },
+  {
+    question: "Do you offer consultation before buying a product?",
+    answer: "Yes, Cure Ayurvedic offers online consultations where our Ayurveda experts can suggest products based on your health needs and symptoms."
+  },
+  {
+    question: "What is your return and refund policy?",
+    answer: "We accept returns if the product received is damaged, defective, wrong, or expired. The product must be unused, unopened, and reported within 7 days of delivery. Full details are available in our Return & Refund Policy section."
+  },
+  {
+    question: "How long does delivery take?",
+    answer: "Orders are usually dispatched within 2-3 business days. Delivery time varies based on location, but generally takes 3-15 business days across India."
+  },
+  {
+    question: "Do you provide tracking for orders?",
+    answer: "Yes, once your order is shipped, we will send you a tracking link via SMS or email. You can also check your order status in the 'My Orders' section on our website."
+  },
+  {
+    question: "Can I cancel my order after placing it?",
+    answer: "Yes, you can cancel your order if it hasn’t been shipped yet. Please contact our support team by phone or email. Once shipped, the order cannot be cancelled, but you may return it as per our return policy."
+  },
+  {
+    question: "Do Cure Ayurvedic products cure diseases?",
+    answer: "No, our products are not intended to diagnose, treat, cure, or prevent any disease. They are Ayurvedic wellness products meant to support your health naturally."
+  },
+  {
+    question: "Is my personal data safe with Cure Ayurvedic?",
+    answer: "Yes, we take your privacy seriously. Your data is used only for processing your order and improving your experience. We never share your personal details with third parties except for delivery and payment purposes."
+  },
+  {
+    question: "How can I contact Cure Ayurvedic customer support?",
+    answer: "You can reach us through phone, email, or website chat. Visit our Contact Us page for more details."
+  }
+];
 
   return (
     <div className="pt-16 pb-8 bg-gradient-to-br from-slate-50 to-blue-50 px-4 sm:px-6 lg:px-8">

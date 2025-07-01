@@ -145,7 +145,7 @@ const SpotlightCarousel = () => {
               onClick={() => setCurrentSlide(index)}
               className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide
-                  ? 'bg-purple-500 scale-125'
+                  ? 'bg-[#586e20] scale-125'
                   : 'bg-gray-300 hover:bg-gray-400'
               }`}
             />

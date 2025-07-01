@@ -183,7 +183,7 @@ export default function Header() {
               <User size={20} />
             </Link>
             <Link 
-              href="/cart" 
+              href="/checkout" 
               className="p-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-full relative transition-all duration-200 hover:scale-110 group"
             >
               <ShoppingCart size={20} />

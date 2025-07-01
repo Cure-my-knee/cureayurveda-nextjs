@@ -142,11 +142,14 @@
 //   );
 // }
 
+ 
+
+
 'use client'
 import { useState } from 'react';
 import Button from '../components/ui/Button';
 import Link from 'next/link';
-import { registerUser } from '../api/auth/register/route';
+import { authAPI } from '../../lib/api/endpoints';
  
 
 export default function RegisterPage() {
@@ -227,11 +230,18 @@ export default function RegisterPage() {
         password: formData.password
       };
 
-      const response = await registerUser(userData);
+      const response = await authAPI.registerUser(userData);
       
       if (response.success) {
-        setSuccess('Account created successfully! Please log in.');
+        setSuccess(response.message || 'Account created successfully! Please log in.');
         console.log('User registered:', response.data);
+        
+        // Optional: Store tokens in localStorage or handle authentication
+        if (response.data?.accessToken) {
+          localStorage.setItem('accessToken', response.data.accessToken);
+          localStorage.setItem('refreshToken', response.data.refreshToken);
+          localStorage.setItem('user', JSON.stringify(response.data.user));
+        }
         
         // Clear form
         setFormData({
@@ -241,7 +251,7 @@ export default function RegisterPage() {
           password: ''
         });
         
-        // Optional: Redirect to login page after a delay
+        // Optional: Redirect to login page or dashboard after a delay
         setTimeout(() => {
           window.location.href = '/login'; // or use Next.js router
         }, 2000);
@@ -249,7 +259,19 @@ export default function RegisterPage() {
       
     } catch (error) {
       console.error('Registration error:', error);
-      setError(error.message || 'Registration failed. Please try again.');
+      
+      // Handle different error formats
+      let errorMessage = 'Registration failed. Please try again.';
+      
+      if (typeof error === 'string') {
+        errorMessage = error;
+      } else if (error?.message) {
+        errorMessage = error.message;
+      } else if (error?.error) {
+        errorMessage = error.error;
+      }
+      
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

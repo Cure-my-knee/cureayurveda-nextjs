@@ -147,7 +147,7 @@ export default function HeroSection() {
     },
     {
       id: 3,
-      backgroundImage: "https://www.wholeleaf.in/cdn/shop/files/new_hand_1900x.png?v=1624617150",
+      backgroundImage: "https://column.cosfa.co.jp/system/wp-content/uploads/2024/07/AdobeStock_317095763-1536x658.jpeg",
       title: "Authentic Ayurvedic Wellness",
       subtitle: "Rooted in Nature, Powered by Tradition",
       description: "Revitalize your body and mind with our carefully curated Ayurvedic medicines made from 100% natural herbs.",

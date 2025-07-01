@@ -29,7 +29,7 @@ const OurStorySection = () => {
                   STORY
                 </h2>
                 <p className="text-base text-gray-700 leading-relaxed">
-                  The story of <span className="font-semibold">KAMA AYURVEDA</span> began when its founder <span className="font-semibold">Vivek Sahni</span> rediscovered medicinal preparations from Vedic books with the guidance of an Ayurvedic guru in Kerala—the cradle of Ayurveda—back in <span className="font-semibold">2002</span>. Since then, he became an avid proponent of this ancestral wisdom.
+                  The story of <span className="font-semibold">CURE AYURVEDIC</span> began when its founder <span className="font-semibold"></span> rediscovered medicinal preparations from Vedic books with the guidance of an Ayurvedic guru in Kerala—the cradle of Ayurveda—back in <span className="font-semibold">2002</span>. Since then, he became an avid proponent of this ancestral wisdom.
                 </p>
               </div>
             </div>
@@ -61,7 +61,7 @@ const OurStorySection = () => {
             <div className="max-w-md">
               <div className="group cursor-pointer">
                 <h2 className="text-2xl md:text-3xl font-light text-gray-800 mb-2 transform transition-transform duration-500 group-hover:-translate-y-1">
-                  KAMA AYURVEDA
+                  CURE AYURVEDIC
                   <br />
                   PROMOTES
                 </h2>

@@ -5,6 +5,8 @@ import Crt from '../components/layout/Crt';
 import GuaranteeSection from '../components/about/GuranteeSection';
 import AboutUsSection from '../components/about/AboutUsSection';
 import OurStorySection from '../components/about/OurStorySection';
+import OurMission from '../components/about/OurMission';
+ 
 
 const AboutUsPage = () => {
   const aboutBreadcrumbs = [
@@ -17,8 +19,9 @@ const AboutUsPage = () => {
     <BreadCrumbBanner  title="About Us"
     breadcrumbs={aboutBreadcrumbs} />
     <Crt />
-
+     <OurMission />
      <AboutUsSection />
+     
      <OurStorySection />
     <GuaranteeSection />
     </>
