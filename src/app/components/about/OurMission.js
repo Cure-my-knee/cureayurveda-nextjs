@@ -25,13 +25,13 @@ const OurMission = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
 
           {/* Our Mission */}
-          <div className="bg-white rounded-3xl shadow-md p-8 lg:p-10 border border-gray-200 transition hover:shadow-lg">
+          <div className="bg-white   shadow-md p-8 lg:p-10 border border-gray-200 transition hover:shadow-lg">
             <div className="flex items-center gap-4 mb-6">
               <Heart className="w-8 h-8 text-[#586e20]" />
               <Title className="text-2xl sm:text-3xl lg:text-4xl">Our Mission</Title>
             </div>
 
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-4">
+            <p className="text-gray-700 text-base text-justify sm:text-lg leading-relaxed mb-4">
               At Cure Ayurvedic, we believe in <strong>Care before Cure</strong>. True wellness begins with nature. We provide pure and natural products crafted with authentic herbs to restore balance, boost immunity, and promote holistic wellness. By reviving timeless Ayurvedic principles, we offer safe, pure, and natural products that truly care for you.
             </p>
 
@@ -50,13 +50,13 @@ const OurMission = () => {
           </div>
 
           {/* Our Vision */}
-          <div className="bg-white rounded-3xl shadow-md p-8 lg:p-10 border border-gray-200 transition hover:shadow-lg">
+          <div className="bg-white   shadow-md p-8 lg:p-10 border border-gray-200 transition hover:shadow-lg">
             <div className="flex items-center gap-4 mb-6">
               <Target className="w-8 h-8 text-[#586e20]" />
               <Title className="text-2xl sm:text-3xl lg:text-4xl">Our Vision</Title>
             </div>
 
-            <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-4">
+            <p className="text-gray-700 text-base text-justify sm:text-lg leading-relaxed mb-4">
               Our vision is to make Ayurvedic healing <strong>accessible, effective, and reliable</strong> for everyone. In today’s fast-paced world, people often suffer from chronic health issues, stress, and lifestyle imbalances. Most solutions offer only short-term relief or come with side effects. We are committed to changing that by offering natural, long-lasting wellness solutions.
             </p>
 

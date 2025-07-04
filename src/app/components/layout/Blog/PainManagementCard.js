@@ -95,7 +95,7 @@ const PainManagementCard = ({
                 
         <a 
           href={readMoreLink}
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm sm:text-base transition-all duration-200 mt-auto group/link"
+          className="inline-flex items-center text-black hover:text-[#82a133] font-medium text-sm sm:text-base transition-all duration-200 mt-auto group/link"
           aria-label={`Read more about ${title}`}
           onClick={(e) => e.stopPropagation()} // Prevent card click when clicking the link
         >

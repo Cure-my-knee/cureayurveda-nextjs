@@ -16,7 +16,7 @@ const TopRatedProduct = () => {
   const products = [
     {
       id: "VedicCal",
-      productImage: "/images/defaultproduct/productimage1.jpeg",
+      productImage: "/images/defaultproduct/productdefault3.png",
       hoverImage: "/images/defaultproduct/productimage4.jpeg",
       productName: "VedicCal",
       price: "549",
@@ -25,7 +25,7 @@ const TopRatedProduct = () => {
     },
     {
       id: "VedicFix",
-      productImage: "/images/defaultproduct/productimage2.jpeg",
+      productImage: "/images/defaultproduct/productdefault3.png",
       hoverImage: "/images/defaultproduct/productimage4.jpeg",
       productName: "VedicFix",
       price: "399",
@@ -34,7 +34,7 @@ const TopRatedProduct = () => {
     },
     {
       id: "VedicFix-Oil",
-      productImage: "/images/defaultproduct/productimage1.jpeg",
+      productImage: "/images/defaultproduct/productdefault3.png",
       hoverImage: "/images/defaultproduct/productimage5.jpeg",
       productName: "VedicFix Oil",
       price: "299",
@@ -43,7 +43,7 @@ const TopRatedProduct = () => {
     },
     {
       id: "D-Vedic",
-      productImage: "/images/defaultproduct/productimage2.jpeg",
+      productImage: "/images/defaultproduct/productdefault3.png",
       hoverImage: "/images/defaultproduct/productimage6.jpeg",
       productName: "D Vedic",
       price: "449",
@@ -52,7 +52,7 @@ const TopRatedProduct = () => {
     },
     {
       id: "D-Vedic-Syrup",
-      productImage: "/images/defaultproduct/productimage1.jpeg",
+      productImage: "/images/defaultproduct/productdefault3.png",
       hoverImage: "/images/defaultproduct/productimage6.jpeg",
       productName: "D Vedic Syrup",
       price: "599",
@@ -61,7 +61,7 @@ const TopRatedProduct = () => {
     },
     {
       id: "Vedic-Shilajit",
-      productImage: "/images/defaultproduct/productimage1.jpeg",
+      productImage: "/images/defaultproduct/productdefault3.png",
       hoverImage: "/images/defaultproduct/productimage6.jpeg",
       productName: "Vedic Shilajit",
       price: "349",

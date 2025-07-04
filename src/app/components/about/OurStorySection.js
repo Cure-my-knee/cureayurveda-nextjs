@@ -28,9 +28,10 @@ const OurStorySection = () => {
                   <br />
                   STORY
                 </h2>
-                <p className="text-base text-gray-700 leading-relaxed">
-                  The story of <span className="font-semibold">CURE AYURVEDIC</span> began when its founder <span className="font-semibold"></span> rediscovered medicinal preparations from Vedic books with the guidance of an Ayurvedic guru in Kerala—the cradle of Ayurveda—back in <span className="font-semibold">2002</span>. Since then, he became an avid proponent of this ancestral wisdom.
-                </p>
+                <p className="text-base text-gray-700  leading-relaxed  ">
+  The journey of <span className="font-semibold">CURE AYURVEDIC</span> began when its founder <span className="font-semibold">[Founder’s Name]</span> was inspired by ancient remedies discovered in sacred Vedic texts. Under the mentorship of a respected Ayurvedic scholar, he delved deep into holistic healing practices. Since then, he has been a dedicated advocate of this timeless tradition.
+</p>
+
               </div>
             </div>
           </div>
@@ -66,11 +67,11 @@ const OurStorySection = () => {
                   PROMOTES
                 </h2>
                 <div className="text-2xl md:text-3xl font-light text-gray-600 italic mb-4 transform transition-transform duration-500 group-hover:-translate-y-1">
-                  'Beauty <span className="text-gray-800 not-italic">in</span> Balance'
+                 'Radiance <span className="text-gray-800 not-italic">Through Harmony</span>'
                 </div>
                 <p className="text-base text-gray-700 leading-relaxed">
-                  Our guiding philosophy is that the key to preserving and enhancing beauty lies in maintaining the perfect balance between mind, body, and consciousness.
-                </p>
+  Our philosophy is rooted in the Ayurvedic belief that true beauty emerges from inner balance — when the energies of body, mind, and spirit are aligned in harmony with nature.
+</p>
               </div>
             </div>
           </div>

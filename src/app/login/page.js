@@ -261,7 +261,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center text-center py-3 px-4 border border-transparent text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 tracking-wider disabled:opacity-50 disabled:cursor-not-allowed rounded-md"
+                className="group relative w-full flex justify-center text-center py-3 px-4 border border-transparent text-sm font-medium text-white bg-[#82a133] hover:bg-[#82a133] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 tracking-wider disabled:opacity-50 disabled:cursor-not-allowed rounded-md"
               >
                 {isLoading ? 'LOGGING IN...' : 'LOGIN'}
               </button>

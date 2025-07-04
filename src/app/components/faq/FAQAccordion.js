@@ -58,7 +58,7 @@ const FAQAccordion = () => {
 ];
 
   return (
-    <div className="pt-16 pb-8 bg-gradient-to-br from-slate-50 to-blue-50 px-4 sm:px-6 lg:px-8">
+    <div className="pt-16 pb-8 bg-gradient-to-br px-4 sm:px-6 lg:px-8 bg-gray-50 ">
       <div className="max-w-4xl mx-auto  pt-8">
 
         {/* Title & Subtitle */}

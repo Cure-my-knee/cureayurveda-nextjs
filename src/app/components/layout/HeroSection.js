@@ -119,40 +119,41 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Button from '../ui/Button';
+import { useRouter } from 'next/navigation';
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-
+  const router = useRouter();
   
 
   const banners = [
     {
       id: 1,
-      backgroundImage: "/images/banner/banner5.jpg",
-      title: "Authentic Ayurvedic Wellness",
-      subtitle: "Rooted in Nature, Powered by Tradition",
-      description: "Revitalize your body and mind with our carefully curated Ayurvedic medicines made from 100% natural herbs.",
+      backgroundImage: "/images/banner/herobannernew4.png",
+      
+      subtitle: "Ayurvedic Joint Care",
+      description: "Enhance the strength of your Bones & Muscles naturally with the blend of Herbal Wisdom.",
       buttonText: "Browse Remedies",
-      buttonLink: "/shop"
+      buttonLink: "shop"
     },
     {
       id: 2,
       backgroundImage: "/images/banner/banner3.jpg",
-      title: "Pure Herbal Formulations",
-      subtitle: "Inspired by Ancient Healing",
-      description: "Our products are crafted to balance your doshas and restore holistic health—naturally and safely.",
+      
+      subtitle: "Ayurvedic and Healthy Sugar Management",
+      description: "Natural way to balance Sugar Level that helps to control your diabetes with Potent Herbs!",
       buttonText: "Explore Products",
-      buttonLink: "/shop"
+      buttonLink: "shop"
     },
     {
       id: 3,
-      backgroundImage: "https://column.cosfa.co.jp/system/wp-content/uploads/2024/07/AdobeStock_317095763-1536x658.jpeg",
-      title: "Authentic Ayurvedic Wellness",
-      subtitle: "Rooted in Nature, Powered by Tradition",
-      description: "Revitalize your body and mind with our carefully curated Ayurvedic medicines made from 100% natural herbs.",
+      backgroundImage: "/images/banner/herobannernew3.png",
+      
+      subtitle: "Ayurvedic Shilajit",
+      description: "Enhances your Energy Level with Anti-oxidant Properties !",
       buttonText: "Browse Remedies",
-      buttonLink: "/shop"
+      buttonLink: "shop"
     }
   ];
 
@@ -210,13 +211,11 @@ export default function HeroSection() {
                     <h3 className="text-base sm:text-lg font-medium mb-2 text-green-300">
                       {banner.subtitle}
                     </h3>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-snug">
-                      {banner.title}
-                    </h1>
+                    
                     <p className="text-sm sm:text-base md:text-lg mb-6 opacity-90">
                       {banner.description}
                     </p>
-                    <Button href={banner.buttonLink} className="font-semibold transform hover:scale-105 hover:shadow-lg text-sm">
+                    <Button onClick={() => router.push('/shop')} className="font-semibold transform hover:scale-105 hover:shadow-lg text-sm">
                       {banner.buttonText}
                     </Button>
                   </div>

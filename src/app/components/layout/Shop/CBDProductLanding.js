@@ -3,36 +3,41 @@ import React, { useState, useEffect } from 'react';
 import Button from '../../ui/Button';
 import Title from '../../ui/Title';
 import Subtitle from '../../ui/Subtitle';
+import { useRouter } from 'next/navigation';
+
  
 
 const tabsData = {
-  PAIN: {
-    title: 'PAIN',
+  JOINTCARE: {
+    title: 'Joint care',
     description:
-      'CBD oil works effectively against muscle and joint pain and other instances of chronic pain caused by but not limited to inflammation.',
+      'Strengthen your joints naturally with ayurvedic care enriched with calcium, supports joint flexibility, reduces pain and promotes long-term mobility. A holistic solution for joint nourishment, repair and lasting comfort.',
     image:
       'https://media.istockphoto.com/id/1320934166/photo/cosmetic-skin-care-products-on-green-leaves.jpg?s=612x612&w=0&k=20&c=X4pwnTaBzXHDOGZlcdJdlKxmYd__61xboHVIiR5JMIk=',
   },
-  ANXIETY: {
-    title: 'ANXIETY',
+  DIABETES: {
+    title: 'Diabetes',
     description:
-      'CBD helps reduce anxiety and stress by interacting with receptors in the brain that regulate mood and emotion.',
+      'Balance your blood sugar naturally with trusted ayurvedic formulations. Enriched with herbs that support insulin function and metabolic health. A gentle long-term solution for effective diabetes management.',
     image:
       'https://static.vecteezy.com/system/resources/thumbnails/051/443/264/small/herbal-medicine-bottle-with-some-fresh-leaves-beside-it-isolated-on-minimalist-background-free-photo.jpg',
   },
-   DIABETIC: {
-    title: 'DIABETIC',
+   ENERGYBOOSTER: {
+    title: 'Energy Booster',
     description:
-      'CBD helps reduce anxiety and stress by interacting with receptors in the brain that regulate mood and emotion.',
+      'Recharge your body and mind with the power of pure Ayurvedic shilajit which boosts stamina, strength and overall vitality naturally. A daily dose of energy, endurance and rejuvenation from within.',
     image:
       'https://static.vecteezy.com/system/resources/thumbnails/051/443/264/small/herbal-medicine-bottle-with-some-fresh-leaves-beside-it-isolated-on-minimalist-background-free-photo.jpg',
   },
 };
 
 const CBDProductLanding = () => {
-  const [selectedTab, setSelectedTab] = useState('PAIN');
+  const [selectedTab, setSelectedTab] = useState('JOINTCARE');
 
   const { title, description, image } = tabsData[selectedTab];
+
+  const router = useRouter();
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -40,11 +45,11 @@ const CBDProductLanding = () => {
       <header className="text-center py-8 px-4">
 
         <Title>
-           HEMP & CBD PRODUCTS AS SOLUTIONS TO EVERYDAY PROBLEMS
+           NATURAL REMEDIES FOR MODERN LIFESTYLE CHALLENGES
         </Title>
 
         <Subtitle>
-           WHICH CBD PRODUCT IS BEST FOR YOU?
+           Choose nature’s answer to joint pain, fatigue, and blood sugar imbalance
         </Subtitle>
         
       </header>
@@ -83,10 +88,10 @@ const CBDProductLanding = () => {
               <h2 className="text-3xl md:text-4xl font-light text-gray-800 mb-6 tracking-wide">
                 {title}
               </h2>
-              <p className="text-gray-600 text-center md:text-lg leading-relaxed mb-8">
+              <p className="text-gray-600 text-justify md:text-lg leading-relaxed mb-8">
                 {description}
               </p>
-              <Button>
+              <Button onClick={() => router.push('/shop')}>
                 View Products
               </Button>
             </div>

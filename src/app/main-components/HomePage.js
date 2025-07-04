@@ -35,9 +35,9 @@ export default function HomePage() {
       <CBDProductLanding />
       <ScrollBanner 
       backgroundImage="https://thumbs.dreamstime.com/b/high-quality-illustration-ayurveda-concept-scattered-herb-leaves-roots-textured-surface-natural-healing-banner-337655998.jpg"
-        icon="https://cdn-icons-png.flaticon.com/512/10319/10319961.png"
-        title="CBD EXPLAINED"
-        description="Back pain can be a crippling ailment that interferes with day-to-day functioning and general health."/>
+        icon="/images/leaf/treatment.png"
+        title="AYURVEDA HEALING"
+        description="Harness the power of ancient herbs and holistic practices to restore balance and promote natural wellness."/>
       
        
       <SpotlightCarousel/>

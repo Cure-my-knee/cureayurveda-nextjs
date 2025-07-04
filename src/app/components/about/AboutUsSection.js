@@ -4,7 +4,7 @@ import Title from '../ui/Title';
 
 const AboutUsSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-16 lg:py-24 bg-gradient-to-br from-slate-50 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-6">
@@ -15,16 +15,13 @@ const AboutUsSection = () => {
             About Us
           </Title>
 
-            <p className="text-lg text-gray-600 leading-relaxed">
-              We are a passionate team of innovators, creators, and problem-solvers dedicated to delivering 
-              exceptional solutions that make a real difference in people's lives. Our journey began with a 
-              simple belief: that great products come from understanding our customers' needs and exceeding 
-              their expectations.
+            <p className="text-lg text-gray-600 text-justify leading-relaxed">
+              At Cure Ayurvedic, we believe in the philosophy of ‘Care Before Cure’. Since its inception in 2020 in the healthcare services, we have dedicated ourselves towards understanding individual needs and providing effective care through our services earning the trust of many along the way. Now, our ayurvedic journey began with a simple vision, to bring natural, effective and safe healthcare solutions to every household.
             </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              With years of combined experience and a commitment to excellence, we've built a reputation 
-              for quality, reliability, and innovation. Every project we undertake is an opportunity to 
-              demonstrate our values and create lasting relationships with our clients.
+            <p className="text-lg text-gray-600 text-justify leading-relaxed">
+             Rooted in tradition and backed by modern practices, we offer a range of herbal and ayurvedic products that are carefully formulated to support holistic health. Each of our formulations is made from pure, authentic ingredients ensuring that you receive nature’s healing touch with every dose with no side effects and chemical free.
+             Over the years, we've earned the trust of thousands by focusing not just on curing illness, but on caring for overall well-being. At Cure Ayurvedic, your health is our priority, and we are here to walk with you on your journey to a good living.
+
             </p>
             <div className="grid sm:grid-cols-2 gap-6 pt-6">
               <div className="flex items-start space-x-3">

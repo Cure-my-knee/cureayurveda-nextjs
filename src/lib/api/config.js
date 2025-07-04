@@ -3,7 +3,9 @@
 import axios from 'axios';
 
 // Base URL configuration
-const BASE_URL = 'http://localhost:3000/api';  
+const BASE_URL = 'http://localhost:3010/api';
+// const BASE_URL = 'https://cureayurvedic.up.railway.app/api';
+  
 
 // Create axios instance with base configuration
 const apiClient = axios.create({

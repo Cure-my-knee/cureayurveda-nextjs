@@ -4,7 +4,7 @@ import Title from '../ui/Title';
 const GuaranteeSection = () => {
  const guarantees = [
   {
-    image: "/images/whychoose/whychoose12.png",
+    image: "/images/whychoose/driving-licence.png",
     title: "LICENSED",
      description: "Licensed to manufacture and sell approved product formulations."
   },
@@ -19,7 +19,7 @@ const GuaranteeSection = () => {
     description: "Third party tested with advanced equipment for safety and quality verification."
   },
   {
-    image: "/images/whychoose/whychoose4.png",
+    image: "/images/whychoose/whychoose7.png",
     title: "NATURAL ACTIVE",
     description: "Quality control processes focus on delivering products combining natural ingredients with scientific research."
   },

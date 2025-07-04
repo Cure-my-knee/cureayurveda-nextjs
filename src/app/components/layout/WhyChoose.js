@@ -77,8 +77,8 @@ export default function WhyChoose() {
       description: "Traditional wisdom meets modern science"
     },
     {
-      image: "/images/whychoose/whychoose4.png",
-      title: "SUSTAINABLE SOURCING",
+      image: "/images/whychoose/medicine.png",
+      title: "ANCIENT HEALING",
       description: "Ethically sourced ingredients"
     }
   ];

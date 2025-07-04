@@ -1,14 +1,21 @@
 'use client'
  import React, { useState } from 'react';
 import Button from '../../ui/Button';
+import { useRouter } from 'next/navigation';
 
 export default function ScrollBanner({
   backgroundImage,
   icon,
   title,
   description,
-  buttonText = 'KNOW MORE',
+  buttonText = 'Shop Now',
 }) {
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/shop');
+  };
   return (
     <div
       className="relative w-full h-[85vh] bg-cover bg-center bg-fixed"
@@ -34,7 +41,7 @@ export default function ScrollBanner({
             {description}
           </p>
 
-          <Button className="px-3 py-1.5 rounded-full text-xs transition duration-300 transform hover:scale-105">
+          <Button className="px-3 py-1.5 rounded-full text-xs transition duration-300 transform hover:scale-105" onClick={handleClick}>
             {buttonText}
           </Button>
         </div>
