@@ -1,7 +1,9 @@
-'use client'
+ 'use client'
 import { useState } from 'react';
 import Button from '../ui/Button';
 import Subtitle from '../ui/Subtitle';
+import { authAPI } from '@/lib/api/endpoints';
+ 
 
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({
@@ -12,33 +14,71 @@ export default function ContactUsPage() {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    
+    // Clear status when user starts typing
+    if (submitStatus) {
+      setSubmitStatus(null);
+    }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // Basic validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
       alert('Please fill in all required fields.');
       return;
     }
-    
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We\'ll get back to you soon.');
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Call the API
+      const response = await authAPI.postContact(formData);
+      
+      // Success handling
+      setSubmitStatus('success');
+      console.log('Contact form submitted successfully:', response);
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+      
+      // Show success message
+      alert('Thank you for your message! We\'ll get back to you soon.');
+      
+    } catch (error) {
+      // Error handling
+      setSubmitStatus('error');
+      console.error('Contact form submission failed:', error);
+      
+      // Show error message
+      const errorMessage = error.message || 'Something went wrong. Please try again.';
+      alert(`Error: ${errorMessage}`);
+      
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -49,10 +89,24 @@ export default function ContactUsPage() {
           <Subtitle>
              For any queries you may have, you can let us know via this form and we'll be happy to help.
           </Subtitle>
-          {/* <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            For any queries you may have, you can let us know via this form and we'll be happy to help.
-          </p> */}
         </div>
+
+        {/* Status Messages */}
+        {submitStatus === 'success' && (
+          <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
+            <p className="text-green-800 text-sm">
+              ✅ Your message has been sent successfully! We'll get back to you soon.
+            </p>
+          </div>
+        )}
+        
+        {submitStatus === 'error' && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
+            <p className="text-red-800 text-sm">
+              ❌ There was an error sending your message. Please try again.
+            </p>
+          </div>
+        )}
 
         {/* Contact Form */}
         <div className="bg-white rounded-lg shadow-sm p-6 sm:p-8 lg:p-10">
@@ -65,8 +119,9 @@ export default function ContactUsPage() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Your name"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400"
+                  placeholder="Your name *"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400 disabled:bg-gray-50 disabled:cursor-not-allowed"
                 />
               </div>
               <div>
@@ -75,8 +130,9 @@ export default function ContactUsPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="Your email"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400"
+                  placeholder="Your email *"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400 disabled:bg-gray-50 disabled:cursor-not-allowed"
                 />
               </div>
             </div>
@@ -88,8 +144,9 @@ export default function ContactUsPage() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="Your phone"
-                className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400"
+                placeholder="Your phone (optional)"
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400 disabled:bg-gray-50 disabled:cursor-not-allowed"
               />
             </div>
 
@@ -100,8 +157,9 @@ export default function ContactUsPage() {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                placeholder="Subject"
-                className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400"
+                placeholder="Subject *"
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400 disabled:bg-gray-50 disabled:cursor-not-allowed"
               />
             </div>
 
@@ -111,22 +169,21 @@ export default function ContactUsPage() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Your message"
+                placeholder="Your message *"
                 rows={6}
-                className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400 resize-vertical min-h-[150px]"
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 border border-gray-200 rounded-md focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition-colors duration-200 text-gray-700 placeholder-gray-400 resize-vertical min-h-[150px] disabled:bg-gray-50 disabled:cursor-not-allowed"
               />
             </div>
 
             {/* Submit Button */}
             <div className="pt-4">
-              {/* <button
-                onClick={handleSubmit}
-                className="w-full bg-green-400 hover:bg-green-500 text-white font-medium py-4 px-6 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 uppercase tracking-wide text-sm"
+              <Button 
+                onClick={handleSubmit} 
+                className="w-full text-center"
+                disabled={isSubmitting}
               >
-                SEND MESSAGE
-              </button> */}
-              <Button onClick={handleSubmit}  className="w-full text-center" >
-                SEND MESSAGE
+                {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
               </Button>
             </div>
           </div>

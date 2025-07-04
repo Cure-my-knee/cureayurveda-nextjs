@@ -5,18 +5,84 @@ import { Facebook, Instagram, Mail, Phone, MapPin, Youtube, Twitter,  } from 'lu
 import Button from '../ui/Button';
 import Image from 'next/image';
 import { FaXTwitter } from "react-icons/fa6";
+import { authAPI } from '@/lib/api/endpoints';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+   
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubscribe = (e) => {
+  // const handleSubscribe = (e) => {
+  //   e.preventDefault();
+  //   if (email) {
+  //     // Handle subscription logic here
+  //     setIsSubscribed(true);
+  //     setEmail('');
+  //     setTimeout(() => setIsSubscribed(false), 3000);
+  //   }
+  // };
+
+  // post api for newsletter subscription
+
+ const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (email) {
-      // Handle subscription logic here
-      setIsSubscribed(true);
-      setEmail('');
-      setTimeout(() => setIsSubscribed(false), 3000);
+    
+    // Reset previous states
+    setError('');
+    setIsSubscribed(false);
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim()) {
+      setError('Please enter an email address');
+      return;
+    }
+    
+    if (!emailRegex.test(email.trim())) {
+      setError('Please enter a valid email address');
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const subscribeData = {
+        email: email.trim(),
+        timestamp: new Date().toISOString(),
+        source: 'newsletter_form'
+      };
+
+      const response = await authAPI.postSubscribe(subscribeData);
+      
+      // Check if the response indicates success
+      if (response && (response.success || response.status === 'success' || response.message)) {
+        setIsSubscribed(true);
+        setEmail('');
+        
+        // Reset success state after 3 seconds
+        setTimeout(() => {
+          setIsSubscribed(false);
+        }, 3000);
+      } else {
+        throw new Error('Subscription failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      
+      // Handle different error types
+      if (error.response?.data?.message) {
+        setError(error.response.data.message);
+      } else if (error.message) {
+        setError(error.message);
+      } else if (typeof error === 'string') {
+        setError(error);
+      } else {
+        setError('Subscription failed. Please try again.');
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -174,7 +240,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter Section */}
-          <div className="col-span-2 sm:col-span-1 lg:col-span-1">
+         <div className="col-span-2 sm:col-span-1 lg:col-span-1">
             <h3 className="text-xs sm:text-sm font-semibold text-gray-900 tracking-wider uppercase mb-3 sm:mb-4">
               Newsletter
             </h3>
@@ -189,22 +255,41 @@ export default function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent placeholder-gray-400"
+                  className="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs text-black sm:text-sm border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent placeholder-gray-400"
                   required
+                  disabled={isLoading}
                 />
               </div>
-              <Button
-                type="submit"
-                disabled={isSubscribed}
-                className="w-full border border-[#83BCA9] py-1.5 sm:py-2 px-3 sm:px-4 rounded-sm transition-colors duration-200 tracking-wider uppercase text-center text-xs sm:text-sm"
-              >
-                {isSubscribed ? 'Subscribed!' : 'Subscribe'}
-              </Button>
+              <button
+              type="submit"
+              disabled={isLoading || isSubscribed}
+              className={`
+                group relative inline-block w-full overflow-hidden
+                bg-[#82a133] text-white font-medium py-3 px-6 rounded-md
+                text-sm transition-all duration-300 border border-transparent
+                hover:border-[#83BCA9] tracking-wider uppercase text-xs sm:text-sm
+                disabled:opacity-50 disabled:cursor-not-allowed
+              `}
+            >
+              <span className="relative z-10 group-hover:text-[#82a133] transition-colors duration-300 whitespace-nowrap text-xs sm:text-sm md:text-base">
+                {isLoading ? 'Subscribing...' : isSubscribed ? 'Subscribed!' : 'Subscribe'}
+              </span>
+              <span className="absolute inset-0 bg-white scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 z-0"></span>
+            </button>
+
             </form>
             
+            {/* Success Message */}
             {isSubscribed && (
               <p className="text-xs sm:text-sm text-green-600 mt-2">
                 Thank you for subscribing!
+              </p>
+            )}
+            
+            {/* Error Message */}
+            {error && (
+              <p className="text-xs sm:text-sm text-red-600 mt-2">
+                {error}
               </p>
             )}
           </div>

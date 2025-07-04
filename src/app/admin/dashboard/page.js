@@ -20,9 +20,14 @@ import {
   Edit,
   Trash2,
   Filter,
-  Download
+  Download,
+  Phone,
+  Mail
 } from 'lucide-react';
 import ProductManagement from '../layout/product/page';
+import ContactUsAdmin from '../layout/contact/page';
+import NewsletterAdminDashboard from '../layout/Subscribe/page';
+ 
 
 
   
@@ -33,6 +38,8 @@ const AdminDashboard = () => {
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: Home, badge: null },    
     { id: 'products', label: 'Products', icon: Package, badge: null },
+    { id: 'contact', label: 'Contact', icon: Phone, badge: null },
+    { id: 'subscribe', label: 'Subscribe', icon: Mail, badge: null },
   ];
 
   const toggleSidebar = () => {
@@ -66,119 +73,17 @@ const AdminDashboard = () => {
               </div>
             </div>
 
-            {/* Stats Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl shadow-sm border border-blue-200 hover:shadow-md transition-shadow">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-blue-600 text-sm font-medium">Total Revenue</p>
-                    <p className="text-2xl font-bold text-blue-900 mt-1">$24,563</p>
-                    <p className="text-blue-600 text-sm mt-1 flex items-center">
-                      <TrendingUp className="h-4 w-4 mr-1" />
-                      +12% from last month
-                    </p>
-                  </div>
-                  <div className="bg-blue-600 p-3 rounded-lg">
-                    <DollarSign className="h-6 w-6 text-white" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl shadow-sm border border-green-200 hover:shadow-md transition-shadow">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-green-600 text-sm font-medium">Total Orders</p>
-                    <p className="text-2xl font-bold text-green-900 mt-1">1,234</p>
-                    <p className="text-green-600 text-sm mt-1 flex items-center">
-                      <TrendingUp className="h-4 w-4 mr-1" />
-                      +8% from last month
-                    </p>
-                  </div>
-                  <div className="bg-green-600 p-3 rounded-lg">
-                    <ShoppingBag className="h-6 w-6 text-white" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl shadow-sm border border-purple-200 hover:shadow-md transition-shadow">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-purple-600 text-sm font-medium">Active Users</p>
-                    <p className="text-2xl font-bold text-purple-900 mt-1">5,678</p>
-                    <p className="text-purple-600 text-sm mt-1 flex items-center">
-                      <TrendingUp className="h-4 w-4 mr-1" />
-                      +15% from last month
-                    </p>
-                  </div>
-                  <div className="bg-purple-600 p-3 rounded-lg">
-                    <Users className="h-6 w-6 text-white" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl shadow-sm border border-orange-200 hover:shadow-md transition-shadow">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-orange-600 text-sm font-medium">Conversion Rate</p>
-                    <p className="text-2xl font-bold text-orange-900 mt-1">3.4%</p>
-                    <p className="text-orange-600 text-sm mt-1 flex items-center">
-                      <Activity className="h-4 w-4 mr-1" />
-                      +2.1% from last month
-                    </p>
-                  </div>
-                  <div className="bg-orange-600 p-3 rounded-lg">
-                    <BarChart3 className="h-6 w-6 text-white" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Recent Activity */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Orders</h3>
-                <div className="space-y-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                          <Package className="h-5 w-5 text-blue-600" />
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-900">Order #000{i}</p>
-                          <p className="text-sm text-gray-500">2 hours ago</p>
-                        </div>
-                      </div>
-                      <span className="text-green-600 font-semibold">$299.00</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Products</h3>
-                <div className="space-y-4">
-                  {['Wireless Headphones', 'Smartphone Case', 'Bluetooth Speaker', 'USB Cable'].map((product, i) => (
-                    <div key={i} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                          <Package className="h-5 w-5 text-green-600" />
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-900">{product}</p>
-                          <p className="text-sm text-gray-500">{20 + i * 5} sales</p>
-                        </div>
-                      </div>
-                      <span className="text-blue-600 font-semibold">#{i + 1}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            
           </div>
         );
       case 'products':
         return <ProductManagement />;
+
+        case 'contact':
+        return <ContactUsAdmin />;
+
+         case 'subscribe':
+        return <NewsletterAdminDashboard />;
       default:
         return (
           <div className="space-y-6">

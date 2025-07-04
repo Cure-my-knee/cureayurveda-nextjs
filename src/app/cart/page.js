@@ -105,7 +105,7 @@ const CartPage = () => {
                               {/* Mobile Price */}
                               <div className="sm:hidden mb-3">
                                 <span className="text-lg font-semibold text-gray-900">
-                                  ${item.price.toFixed(2)}
+                                  Rs{item.price.toFixed(2)}
                                 </span>
                               </div>
                             </div>
@@ -113,7 +113,7 @@ const CartPage = () => {
                             {/* Desktop Price */}
                             <div className="hidden sm:block text-right">
                               <span className="text-lg font-semibold text-gray-900">
-                                ${item.price.toFixed(2)}
+                                Rs{item.price.toFixed(2)}
                               </span>
                             </div>
                           </div>
@@ -166,15 +166,15 @@ const CartPage = () => {
                   <div className="space-y-3 mb-6">
                     <div className="flex justify-between text-gray-600">
                       <span>Subtotal ({cartItems.reduce((sum, item) => sum + item.quantity, 0)} items)</span>
-                      <span>${subtotal.toFixed(2)}</span>
+                      <span>Rs{subtotal.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-gray-600">
                       <span>Shipping</span>
-                      <span>{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span>
+                      <span>{shipping === 0 ? 'Free' : `Rs{shipping.toFixed(2)}`}</span>
                     </div>
                     <div className="flex justify-between text-gray-600">
                       <span>Tax</span>
-                      <span>${tax.toFixed(2)}</span>
+                      <span>Rs{tax.toFixed(2)}</span>
                     </div>
                     {shipping === 0 && (
                       <div className="text-sm text-green-600 bg-green-50 p-2 rounded">
@@ -183,7 +183,7 @@ const CartPage = () => {
                     )}
                     {shipping > 0 && (
                       <div className="text-sm text-blue-600 bg-blue-50 p-2 rounded">
-                        Add ${(100 - subtotal).toFixed(2)} more for free shipping
+                        Add Rs{(100 - subtotal).toFixed(2)} more for free shipping
                       </div>
                     )}
                   </div>
@@ -191,7 +191,7 @@ const CartPage = () => {
                   <div className="border-t pt-4 mb-6">
                     <div className="flex justify-between text-lg font-semibold text-gray-900">
                       <span>Total</span>
-                      <span>${total.toFixed(2)}</span>
+                      <span>Rs{total.toFixed(2)}</span>
                     </div>
                   </div>
                   

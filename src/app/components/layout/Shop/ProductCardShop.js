@@ -238,13 +238,13 @@ const ProductCardShop = ({
           {currency} {price} {mrpText}
         </div> */}
         <div className="text-gray-600 text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase">
-  {currency} {price}
-  {mrpText && (
-    <span className="ml-2 line-through text-gray-400">
-      {currency} {mrpText}
-    </span>
-  )}
-</div>
+        {currency} {price}
+        {mrpText && (
+          <span className="ml-2 line-through text-gray-400">
+            {currency} {mrpText}
+          </span>
+          )}
+        </div>
       </div>
     </div>
   );

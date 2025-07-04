@@ -518,7 +518,7 @@ const ShopPage = () => {
         return;
       }
       
-      // Transform API data to match ProductCardShop component props
+       
       const transformedProducts = productsArray.map(product => ({
         // Use product._id, product.id, or generate a unique ID
         id: product.productDetailId || product._id || product.id || `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
@@ -528,7 +528,6 @@ const ShopPage = () => {
         price: product.price?.toString() || "0",
         currency: product.currency || "₹",
         mrpText: product.mrpText || "MRP",
-        // Additional data for potential use
         quantity: product.quantity || 0,
         type: product.type || 'N/A',
         category: product.category || 'N/A',
@@ -573,7 +572,7 @@ const ShopPage = () => {
     }
   };
 
-  // Navigation handlers
+ 
   const handleProductClick = (productId) => {
     console.log('Navigating to product details:', productId);
     toast.info('Opening product details...', {
@@ -584,7 +583,7 @@ const ShopPage = () => {
       pauseOnHover: false,
       draggable: true,
     });
-    // Navigate to product details page with the product ID
+    
     router.push(`/shop/${productId}`);
   };
 
@@ -598,7 +597,7 @@ const ShopPage = () => {
       pauseOnHover: false,
       draggable: true,
     });
-    // Navigate to product details page for quick view
+   
     router.push(`/shop/${productId}`);
   };
 
@@ -612,11 +611,10 @@ const ShopPage = () => {
       pauseOnHover: true,
       draggable: true,
     });
-    // You might want to add actual cart logic here before navigating
-    // For now, we'll just navigate to cart after a delay
+     
     setTimeout(() => {
-      router.push('/cart');
-    }, 1000);
+    router.push(`/shop/${productId}`);  
+  }, 500);
   };
 
   const handleLoadMore = async () => {
@@ -624,10 +622,10 @@ const ShopPage = () => {
     setLoadingMore(true);
     
     try {
-      // Simulate API call for loading more products
+      
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // For demo purposes, we'll just show a toast
+      
       toast.info('No more products to load', {
         position: "top-right",
         autoClose: 2000,

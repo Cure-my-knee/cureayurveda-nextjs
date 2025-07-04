@@ -894,8 +894,9 @@ export default function CheckoutPage() {
   // Calculate totals
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const gst = subtotal * 0.18; // 18% GST
-  const shipping = subtotal > 500 ? 0 : 9.99; // Free shipping above ₹500
-  const total = subtotal + gst + shipping;
+  const shipping = 0; // Shipping is always free
+const total = subtotal + gst + shipping;
+
 
   const handleAddressChange = (e) => {
     const { name, value } = e.target;
@@ -1071,6 +1072,44 @@ export default function CheckoutPage() {
               )}
             </div>
 
+
+            {/* login as guest */}
+
+
+        {/* Login or Guest Order Selection */}
+        <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
+          <h2 className="text-lg sm:text-xl font-medium text-gray-900 mb-4">
+            Select Order Type
+          </h2>
+
+          <div className="space-y-3">
+            {/* Login or Guest Order */}
+            <div className="flex items-center">
+              <input
+                type="radio"
+                id="login"
+                value="login"
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+              />
+              <label   className="ml-3 text-sm font-medium text-gray-700">
+                Login (Existing User)
+              </label>
+            </div>
+
+            <div className="flex items-center">
+              <input
+                type="radio"
+                id="guest"
+                value="guest"
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+              />
+              <label  className="ml-3 text-sm font-medium text-gray-700">
+                Guest Order (New Customer)
+              </label>
+            </div>
+          </div>
+        </div>
+
             {/* Shipping Address */}
             <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-medium text-gray-900 mb-4">
@@ -1197,60 +1236,31 @@ export default function CheckoutPage() {
 
             {/* Payment Method */}
             <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
-              <h2 className="text-lg sm:text-xl font-medium text-gray-900 mb-4">
-                Payment Method
-              </h2>
-              
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <input
-                    type="radio"
-                    id="card"
-                    name="paymentMethod"
-                    value="card"
-                    checked={paymentMethod === 'card'}
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                  />
-                  <label htmlFor="card" className="ml-3 flex items-center text-sm font-medium text-gray-700">
-                    <CreditCard className="w-5 h-5 mr-2" />
-                    Credit/Debit Card
-                  </label>
-                </div>
-                
-                <div className="flex items-center">
-                  <input
-                    type="radio"
-                    id="upi"
-                    name="paymentMethod"
-                    value="upi"
-                    checked={paymentMethod === 'upi'}
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                  />
-                  <label htmlFor="upi" className="ml-3 flex items-center text-sm font-medium text-gray-700">
-                    <Smartphone className="w-5 h-5 mr-2" />
-                    UPI
-                  </label>
-                </div>
-                
-                <div className="flex items-center">
-                  <input
-                    type="radio"
-                    id="cod"
-                    name="paymentMethod"
-                    value="cod"
-                    checked={paymentMethod === 'cod'}
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                  />
-                  <label htmlFor="cod" className="ml-3 flex items-center text-sm font-medium text-gray-700">
-                    <Building2 className="w-5 h-5 mr-2" />
-                    Cash on Delivery
-                  </label>
-                </div>
+            <h2 className="text-lg sm:text-xl font-medium text-gray-900 mb-4">
+              Payment Method
+            </h2>
+
+            <div className="space-y-3">
+              {/* PayU Radio Option */}
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="payu"
+                  name="paymentMethod"
+                  value="payu"
+                  checked={paymentMethod === 'payu'}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                />
+                <label htmlFor="payu" className="ml-3 flex items-center text-sm font-medium text-gray-700">
+                  {/* You can replace the icon with PayU's icon or logo */}
+                  <img src="https://latestlogo.com/wp-content/uploads/2024/03/payu-logo.png" alt="PayU" className="w-10 h-10 mr-2" />
+                  
+                </label>
               </div>
             </div>
+          </div>
+
           </div>
 
           {/* Right Column - Order Summary */}
@@ -1263,26 +1273,26 @@ export default function CheckoutPage() {
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-sm text-gray-600">Subtotal</span>
-                  <span className="text-sm font-medium">₹{subtotal.toFixed(2)}</span>
+                  <span className="text-sm font-medium text-gray-600">₹{subtotal.toFixed(2)}</span>
                 </div>
                 
                 <div className="flex justify-between">
                   <span className="text-sm text-gray-600">GST (18%)</span>
-                  <span className="text-sm font-medium">₹{gst.toFixed(2)}</span>
+                  <span className="text-sm font-medium text-gray-600">₹{gst.toFixed(2)}</span>
                 </div>
                 
                 <div className="flex justify-between">
                   <span className="text-sm text-gray-600">Shipping</span>
-                  <span className="text-sm font-medium">
+                  <span className="text-sm font-medium text-gray-600">
                     {shipping === 0 ? 'Free' : `₹${shipping.toFixed(2)}`}
                   </span>
                 </div>
                 
-                {subtotal > 0 && subtotal <= 500 && (
+                {/* {subtotal > 0 && subtotal <= 500 && (
                   <div className="text-xs text-green-600 bg-green-50 p-2 rounded">
                     Add ₹{(500 - subtotal).toFixed(2)} more for free shipping!
                   </div>
-                )}
+                )} */}
                 
                 <div className="border-t pt-3">
                   <div className="flex justify-between">

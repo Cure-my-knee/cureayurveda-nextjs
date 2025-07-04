@@ -70,10 +70,10 @@ const BlogSection = () => {
             Pain Management Solutions
           </h1> */}
           <Title>
-            Pain Management Solutions
+           Insights on Pain Management
           </Title>
           <Subtitle>
-            Discover effective approaches to managing different types of pain through proven methods and expert guidance.
+             Explore expert articles, natural remedies, and tips for effective pain relief and wellness.
           </Subtitle>
           {/* <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Discover effective approaches to managing different types of pain through proven methods and expert guidance.

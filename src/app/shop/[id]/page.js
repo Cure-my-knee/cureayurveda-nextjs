@@ -1459,6 +1459,7 @@ import BreadCrumbBanner from '../../components/layout/BreadCrumbBanner';
 import Button from '../../components/ui/Button';
 import { authAPI } from '@/lib/api/endpoints';
 import RelatedProduct from '@/app/components/layout/Shop/RelatedProduct';
+import ProductReviews from '../../components/review/page';
 
 const ProductDetailsPage = () => {
   const [product, setProduct] = useState(null);
@@ -1992,6 +1993,8 @@ const ProductDetailsPage = () => {
         </div>
       </div>
     </div>
+
+    <ProductReviews />
     <RelatedProduct />
     </>
   );
