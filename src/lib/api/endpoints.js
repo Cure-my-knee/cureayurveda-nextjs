@@ -16,6 +16,23 @@ export const authAPI = {
     }
   },
 
+  // logout 
+
+  logoutUser: async () => {
+  try {
+    const token = localStorage.getItem('accessToken');
+    const response = await apiClient.post('/auth/logout', {}, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+},
+
+
   registerUser: async (userData) => {
     try {
       const response = await apiClient.post('/auth/register', userData);
