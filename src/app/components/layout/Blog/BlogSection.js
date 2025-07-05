@@ -18,7 +18,7 @@ const BlogSection = () => {
 
   const cardData = [
     {
-      image: "https://t4.ftcdn.net/jpg/05/78/45/21/360_F_578452196_2szXN92U1RtPLGUvuFB4QiNQlQWtlMKq.jpg",
+      image: "https://png.pngtree.com/thumb_back/fh260/background/20240913/pngtree-a-photo-showcasing-ayurvedic-oils-and-herbs-used-in-treatments-image_16198387.jpg",
       title: "AYURVEDIC APPROACHES",
       description: "Pain management comprises many methods...",
       readMoreLink: "#ayurvedic-approaches"
@@ -30,7 +30,7 @@ const BlogSection = () => {
       readMoreLink: "#back-pain-management"
     },
     {
-      image: "https://t4.ftcdn.net/jpg/05/78/45/21/360_F_578452196_2szXN92U1RtPLGUvuFB4QiNQlQWtlMKq.jpg",
+      image: "https://png.pngtree.com/thumb_back/fh260/background/20240913/pngtree-a-photo-showcasing-ayurvedic-oils-and-herbs-used-in-treatments-image_16198387.jpg",
       title: "HOW TO MANAGE NERVE PAIN",
       description: "Nerve pain, also known as neuropathic...",
       readMoreLink: "#nerve-pain-management"
@@ -42,7 +42,7 @@ const BlogSection = () => {
       readMoreLink: "#natural-remedies"
     },
     {
-      image: "https://t4.ftcdn.net/jpg/05/78/45/21/360_F_578452196_2szXN92U1RtPLGUvuFB4QiNQlQWtlMKq.jpg",
+      image: "https://png.pngtree.com/thumb_back/fh260/background/20240913/pngtree-a-photo-showcasing-ayurvedic-oils-and-herbs-used-in-treatments-image_16198387.jpg",
       title: "UNDERSTANDING ARTHRITIS",
       description: "Arthritis affects millions...",
       readMoreLink: "#arthritis-management"

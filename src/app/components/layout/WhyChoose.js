@@ -103,11 +103,11 @@ export default function WhyChoose() {
 
     {/* Main Heading */}
     <Title>
-     HEAL BETTER. LIVE BETTER
+     Rediscover ancient healing, with modern trust.
     </Title>
 
     <Subtitle>
-     It gives us great joy to take your experience of healing to the next level. We believe that the best cures exist in nature and our all natural cannabis extract and CBD based products provide you with the road to a healthier, happier life.
+    Cure Ayurvedic brings you the timeless power of Ayurveda, refined for today’s world. Our remedies are rooted in centuries-old traditions, backed by modern quality standards. Each product is crafted to restore balance, enhance well-being, and promote natural care.
     </Subtitle>
     
   </div>

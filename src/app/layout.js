@@ -14,6 +14,8 @@ const montserrat = Montserrat({
 import TopHeader from './components/layout/TopHeader';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // ✅ Keep metadata export only in server file (NO "use client" above)
 // export const metadata = {
@@ -32,6 +34,19 @@ export default function RootLayout({ children }) {
         <main className="min-h-screen flex flex-col">
           {children}
         </main>
+
+         <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
         <Footer />
       </body>
     </html>

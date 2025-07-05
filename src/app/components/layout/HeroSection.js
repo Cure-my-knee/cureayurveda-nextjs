@@ -130,7 +130,8 @@ export default function HeroSection() {
   const banners = [
     {
       id: 1,
-      backgroundImage: "/images/banner/herobannernew4.png",
+      // backgroundImage: "/images/banner/herobannernew4.png",
+       backgroundImage: "/images/banner/banner3.jpg",
       
       subtitle: "Ayurvedic Joint Care",
       description: "Enhance the strength of your Bones & Muscles naturally with the blend of Herbal Wisdom.",
@@ -139,8 +140,8 @@ export default function HeroSection() {
     },
     {
       id: 2,
-      backgroundImage: "/images/banner/banner3.jpg",
-      
+      // backgroundImage: "/images/banner/banner3.jpg",
+       backgroundImage: "/images/banner/herobannernew4.png",
       subtitle: "Ayurvedic and Healthy Sugar Management",
       description: "Natural way to balance Sugar Level that helps to control your diabetes with Potent Herbs!",
       buttonText: "Explore Products",

@@ -39,7 +39,7 @@ const OurStorySection = () => {
           {/* Right Image */}
           <div className="relative overflow-hidden h-64 md:h-auto">
             <img
-              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+              src="https://www.itoozhiayurveda.in/wp-content/uploads/2023/01/Ayurvedic-medicine-scaled.jpg"
               alt="Vivek Sahni with Ayurvedic products"
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             />
@@ -51,7 +51,7 @@ const OurStorySection = () => {
           {/* Left Image */}
           <div className="relative overflow-hidden order-2 md:order-1 h-64 md:h-auto">
             <img
-              src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+              src="https://img.freepik.com/premium-photo/natural-spa-background-illustration-ai-generative_118124-25432.jpg"
               alt="Serene woman in natural lighting"
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             />

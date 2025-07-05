@@ -2,10 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Title from '../../ui/Title';
+import { useRouter } from 'next/navigation';
+
 
 const SpotlightCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     setIsMounted(true); // Ensures the component only renders on the client
@@ -17,37 +21,44 @@ const SpotlightCarousel = () => {
     {
       id: 1,
       video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      title: "Ayurvedic Skincare",
-      subtitle: "Natural ingredients",
+      title: "ShilajitExtract",
+      subtitle: "Unleash Ancient Energy With Shilajit",
       buttonText: "Shop Now"
     },
     {
       id: 2,
       video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      title: "100%",
-      subtitle: "plumper skin",
+      title: "Amla pericarp extract",
+      subtitle: "Ancient Berry, Modern Sugar Support",
       buttonText: "Explore More"
     },
     {
       id: 3,
       video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-      title: "Premium",
-      subtitle: "skincare collection",
-      buttonText: "Discover"
+      title: "Go-ghruta",
+      subtitle: "Revitalize with the Power of Desi Cow Ghee",
+      buttonText: "View Products"
     },
     {
       id: 4,
       video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-      title: "Natural",
-      subtitle: "beauty essentials",
+      title: "Jambu fruit",
+      subtitle: "A Herbal Remedy to Support Healthy Sugar Level",
       buttonText: "View Products"
     },
     {
       id: 5,
       video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-      title: "Radiant",
-      subtitle: "skin transformation",
-      buttonText: "Learn More"
+      title: "Khatika powder",
+      subtitle: "Naturally Restore Bone Density & Vitality",
+      buttonText: "Shop Now"
+    },
+    {
+      id: 6,
+      video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      title: "Nirgundi oil",
+      subtitle: "Anti-Inflammatory Herbal Support for Long-Term Relief",
+      buttonText: "Shop Now"
     }
   ];
 
@@ -127,7 +138,7 @@ const SpotlightCarousel = () => {
                     <p className="text-sm md:text-base lg:text-lg font-light mb-4 md:mb-6 opacity-90">
                       {slide.subtitle}
                     </p>
-                    <button className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border border-white/30 rounded-full py-2 md:py-3 px-4 md:px-6 text-sm md:text-base font-light transition-all duration-300 hover:scale-105">
+                    <button   onClick={() => router.push('/shop')} className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border border-white/30 rounded-full py-2 md:py-3 px-4 md:px-6 text-sm md:text-base font-light transition-all duration-300 hover:scale-105">
                       {slide.buttonText}
                     </button>
                   </div>

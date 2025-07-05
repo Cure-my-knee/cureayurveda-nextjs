@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Button from '../ui/Button';
 import Subtitle from '../ui/Subtitle';
 import { authAPI } from '@/lib/api/endpoints';
+import { toast } from 'react-toastify';
  
 
 export default function ContactUsPage() {
@@ -33,14 +34,14 @@ export default function ContactUsPage() {
   const handleSubmit = async () => {
     // Basic validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
-      alert('Please fill in all required fields.');
+      toast.error('Please fill in all required fields.');
       return;
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      alert('Please enter a valid email address.');
+      toast.error('Please enter a valid email address.');
       return;
     }
 
@@ -65,7 +66,7 @@ export default function ContactUsPage() {
       });
       
       // Show success message
-      alert('Thank you for your message! We\'ll get back to you soon.');
+      toast.success('Thank you for your message! We\'ll get back to you soon.');
       
     } catch (error) {
       // Error handling
@@ -74,7 +75,7 @@ export default function ContactUsPage() {
       
       // Show error message
       const errorMessage = error.message || 'Something went wrong. Please try again.';
-      alert(`Error: ${errorMessage}`);
+      toast.error(`Error: ${errorMessage}`);
       
     } finally {
       setIsSubmitting(false);

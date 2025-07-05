@@ -34,7 +34,7 @@ export default function HomePage() {
       {/* <WholeLeafProducts /> */}
       <CBDProductLanding />
       <ScrollBanner 
-      backgroundImage="https://thumbs.dreamstime.com/b/high-quality-illustration-ayurveda-concept-scattered-herb-leaves-roots-textured-surface-natural-healing-banner-337655998.jpg"
+      backgroundImage="/images/banner/herobannernew3.png"
         icon="/images/leaf/treatment.png"
         title="AYURVEDA HEALING"
         description="Harness the power of ancient herbs and holistic practices to restore balance and promote natural wellness."/>

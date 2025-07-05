@@ -543,14 +543,14 @@ const ShopPage = () => {
       setProducts(transformedProducts);
       console.log('Products all card data============>:', transformedProducts);
       
-      toast.success(`Successfully loaded ${transformedProducts.length} products!`, {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
+      // toast.success(`Successfully loaded ${transformedProducts.length} products!`, {
+      //   position: "top-right",
+      //   autoClose: 2000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      // });
       
     } catch (err) {
       console.error('Error fetching products:', err);
@@ -577,42 +577,21 @@ const ShopPage = () => {
  
   const handleProductClick = (productId) => {
     console.log('Navigating to product details:', productId);
-    toast.info('Opening product details...', {
-      position: "bottom-right",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-    });
+     
     
     router.push(`/shop/${productId}`);
   };
 
   const handleQuickView = (productId) => {
     console.log('Quick view for product:', productId);
-    toast.info('Opening quick view...', {
-      position: "bottom-right",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-    });
+  
    
     router.push(`/shop/${productId}`);
   };
 
   const handleAddToCart = (productId) => {
     console.log('Adding to cart:', productId);
-    toast.success('Product added to cart!', {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
+    
      
     setTimeout(() => {
     router.push(`/shop/${productId}`);  
@@ -628,14 +607,14 @@ const ShopPage = () => {
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       
-      toast.info('No more products to load', {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
+      // toast.info('No more products to load', {
+      //   position: "top-right",
+      //   autoClose: 2000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      // });
     } catch (err) {
       toast.error('Failed to load more products', {
         position: "top-right",
