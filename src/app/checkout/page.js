@@ -830,7 +830,7 @@ export default function CheckoutPage() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Load cart items on component mount
+ 
   useEffect(() => {
     loadCartItems();
   }, [isBuyNow]);
@@ -871,7 +871,8 @@ export default function CheckoutPage() {
     
     setCartItems(updatedItems);
     
-    // Update localStorage
+    
+    
     if (isBuyNow) {
       localStorage.setItem('buyNowItem', JSON.stringify(updatedItems));
     } else {
