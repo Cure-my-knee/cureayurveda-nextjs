@@ -503,6 +503,7 @@ const ShopPage = () => {
       
       // Handle the API response structure and transform data
       const productsArray = data.data?.products || data.products || data || [];
+      console.log("product list data test=======>", data.data);
       
       if (productsArray.length === 0) {
         console.warn('No products found in API response, using fallback data');
@@ -535,7 +536,8 @@ const ShopPage = () => {
         features: product.features || [],
         benefits: product.benefits || [],
         status: product.status || 'active',
-        createdAt: product.createdAt || new Date().toISOString().split('T')[0]
+        createdAt: product.createdAt || new Date().toISOString().split('T')[0],
+        productImages: product.productImages || [product.productImage || "/images/defaultproduct/productdefault3.png"],
       }));
       
       setProducts(transformedProducts);
@@ -698,9 +700,9 @@ const ShopPage = () => {
                     <ProductCardShop
                       key={product.id}
                       productId={product.id}
-                      productImage={product.productImage}
+                      productImage={product.productImages?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png"}
                       productName={product.productName}
-                      hoverImage={product.hoverImage}
+                      hoverImage={product.productImages?.[1] || product.hoverImage || product.productImages?.[0] || "/images/defaultproduct/productimage4.jpeg"}
                       price={product.price}
                       currency={product.currency}
                       mrpText={product.mrpText}

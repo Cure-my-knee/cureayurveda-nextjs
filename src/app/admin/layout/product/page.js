@@ -1183,6 +1183,8 @@ const ProductManagement = () => {
 
   const [imageFiles, setImageFiles] = useState([]);
 
+  // get product data list
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -1216,7 +1218,7 @@ const ProductManagement = () => {
       }));
       
       setProducts(transformedProducts);
-      console.log('✨ Products state updated successfully:', transformedProducts);
+      console.log('Products state updated successfully=========>:', transformedProducts);
       
     } catch (err) {
       console.error('Error fetching products:', err);
@@ -1226,6 +1228,9 @@ const ProductManagement = () => {
       console.log('🏁 Fetch products completed');
     }
   };
+
+
+  // get product list end 
 
 
 
