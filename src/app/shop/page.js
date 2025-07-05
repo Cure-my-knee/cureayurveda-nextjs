@@ -539,7 +539,7 @@ const ShopPage = () => {
       }));
       
       setProducts(transformedProducts);
-      console.log('Products state updated successfully:', transformedProducts);
+      console.log('Products all card data============>:', transformedProducts);
       
       toast.success(`Successfully loaded ${transformedProducts.length} products!`, {
         position: "top-right",

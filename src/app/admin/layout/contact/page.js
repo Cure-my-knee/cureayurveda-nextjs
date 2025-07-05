@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import { Search, Filter, Download, Eye, Trash2, Mail, Phone, Calendar, User, MessageSquare, RefreshCw, ChevronDown, ChevronUp } from 'lucide-react';
 import { authAPI } from '@/lib/api/endpoints';
