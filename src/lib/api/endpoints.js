@@ -64,7 +64,7 @@ export const authAPI = {
   getProduct: async () => {
     try {
       const response = await apiClient.get('/products');
-      console.log('✅ API Response received========>:', response.data);
+      console.log('API Response received========>:', response.data);
       return response.data;
        
     } catch (error) {

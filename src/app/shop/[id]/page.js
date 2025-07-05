@@ -1525,7 +1525,7 @@ const ProductDetailsPage = () => {
         };
 
         setProduct(transformedProduct);
-        // Set default size if available
+        console.log('get single product dwtails')
         if (transformedProduct.sizes.length > 0) {
           setSelectedSize(transformedProduct.sizes[0]);
         }
