@@ -76,7 +76,7 @@ const TopRatedProduct = () => {
   };
 
   const handleQuickView = (slug) => {
-    router.push(`/shop/${slug}?view=quick`);
+    router.push(`/shop/${slug}`);
   };
 
   const handleAddToCart = (slug) => {

@@ -1,4 +1,5 @@
- import { useState, useEffect } from 'react';
+'use client';
+import { useState, useEffect } from 'react';
 import { User, Mail } from 'lucide-react';
 import { authAPI } from '@/lib/api/endpoints';
 
