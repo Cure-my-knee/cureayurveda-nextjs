@@ -13,6 +13,9 @@ import SpotlightCarousel from "../components/layout/Home/SpotlightCarousel";
 import BestSellerProduct from "../components/layout/Shop/BestSellerProduct";
 import BlogSection from "../components/layout/Blog/BlogSection";
 import BlogSectionLanding from '../components/layout/Blog/BlogSectionLanding';
+import WhyChooseTwo from '../components/layout/WhyChooseTwo';
+import Guarantee from '../components/layout/Guarantee';
+ 
 
  
  
@@ -32,6 +35,7 @@ export default function HomePage() {
       <WhyChoose />
        {/* <ProductCard />   */}
       {/* <WholeLeafProducts /> */}
+      <WhyChooseTwo />
       <CBDProductLanding />
       <ScrollBanner 
       backgroundImage="/images/banner/herobannernew3.png"
@@ -46,10 +50,12 @@ export default function HomePage() {
         title="Ayurvedic"
         description="Back pain can be a crippling ailment that interferes with day-to-day functioning and general health."
       /> */}
+      <Guarantee />
       <BlogSection />  
       {/*the hydration error due to swiper use in */}
       {/* <BlogSectionLanding /> */}
       
+       
        
     </div>
   );

@@ -53,7 +53,7 @@ const BlogSection = () => {
     <div className="relative bg-smoke py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
       
       {/* Floating Corner Images */}
-      <img
+      {/* <img
         src="/images/leaf/yellow-flower-2.png"
         alt="Decorative Left Leaf"
         className="absolute bottom-0 left-0 w-20 sm:w-28 animate-float-slow pointer-events-none"
@@ -62,7 +62,7 @@ const BlogSection = () => {
         src="/images/leaf/leaf2.png"
         alt="Decorative Right Leaf"
         className="absolute bottom-0 right-0 w-20 sm:w-28 animate-float-slow pointer-events-none"
-      />
+      /> */}
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-10">

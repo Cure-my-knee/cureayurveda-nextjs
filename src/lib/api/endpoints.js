@@ -60,7 +60,7 @@ export const authAPI = {
 },
 
 
-
+// product API endpoints
   getProduct: async () => {
     try {
       const response = await apiClient.get('/products');
@@ -71,6 +71,31 @@ export const authAPI = {
       throw error.response?.data || error.message;
     }
   },
+
+  //  delete product
+
+   deleteProduct: async (id) => {
+  try {
+    const token = localStorage.getItem('accessToken');   
+
+   
+    const response = await apiClient.delete(`/products/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,   
+      },
+    });
+
+    console.log('Product Deleted Successfully:', response.data);
+    return response.data;
+
+  } catch (error) {
+     
+    throw error.response?.data || error.message;
+  }
+},
+
+
+  // 
 
   getProductDetails: async (id) => {
     try {

@@ -22,7 +22,7 @@ const AboutUsPage = () => {
      <OurMission />
      <AboutUsSection />
      
-     <OurStorySection />
+     {/* <OurStorySection /> */}
     <GuaranteeSection />
     </>
   );

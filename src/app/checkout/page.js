@@ -1342,8 +1342,9 @@ import { useState, useEffect } from 'react';
 
 import { Trash2, Plus, Minus, CreditCard, Smartphone, Building2, ShoppingCart } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import LoginGuestSelector from '../components/login/LoginGuestSelector';
 
-// Separate component for the checkout content
+ 
 function CheckoutContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -1381,7 +1382,7 @@ function CheckoutContent() {
           items = JSON.parse(buyNowItem);
         }
       } else {
-        // Load items from regular cart
+        
         const cartData = localStorage.getItem('cart');
         if (cartData) {
           items = JSON.parse(cartData);
@@ -1429,8 +1430,8 @@ function CheckoutContent() {
 
   // Calculate totals
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const gst = subtotal * 0.18; // 18% GST
-  const shipping = 0; // Shipping is always free
+  const gst = subtotal * 0.18;  
+  const shipping = 0;  
   const total = subtotal + gst + shipping;
 
   const handleAddressChange = (e) => {
@@ -1456,7 +1457,7 @@ function CheckoutContent() {
     setIsProcessing(true);
     
     try {
-      // Create order data
+     
       const orderData = {
         items: cartItems,
         shippingAddress,
@@ -1495,7 +1496,7 @@ function CheckoutContent() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 py-4 sm:py-6 lg:py-8 mt-24">
+      <div className="min-h-screen bg-gray-50 py-4 sm:py-6 lg:py-8 mt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
@@ -1611,34 +1612,13 @@ function CheckoutContent() {
             <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-medium text-gray-900 mb-4">
                 Select Order Type
-              </h2>
+              </h2> 
 
-              <div className="space-y-3">
-                {/* Login or Guest Order */}
-                <div className="flex items-center">
-                  <input
-                    type="radio"
-                    id="login"
-                    value="login"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                  />
-                  <label className="ml-3 text-sm font-medium text-gray-700">
-                    Login (Existing User)
-                  </label>
-                </div>
-
-                <div className="flex items-center">
-                  <input
-                    type="radio"
-                    id="guest"
-                    value="guest"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                  />
-                  <label className="ml-3 text-sm font-medium text-gray-700">
-                    Guest Order (New Customer)
-                  </label>
-                </div>
-              </div>
+           {/* login part selection */}
+            <div className="space-y-3">  
+            <LoginGuestSelector />
+            </div> 
+    
             </div>
 
             {/* Shipping Address */}
@@ -1657,7 +1637,7 @@ function CheckoutContent() {
                     name="fullName"
                     value={shippingAddress.fullName}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -1671,7 +1651,7 @@ function CheckoutContent() {
                     name="email"
                     value={shippingAddress.email}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -1685,7 +1665,7 @@ function CheckoutContent() {
                     name="phone"
                     value={shippingAddress.phone}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -1698,7 +1678,7 @@ function CheckoutContent() {
                     name="country"
                     value={shippingAddress.country}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-blackfocus:ring-2 focus:ring-blue-500"
                   >
                     <option value="India">India</option>
                     <option value="US">United States</option>
@@ -1716,7 +1696,7 @@ function CheckoutContent() {
                     value={shippingAddress.address}
                     onChange={handleAddressChange}
                     rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -1730,7 +1710,7 @@ function CheckoutContent() {
                     name="city"
                     value={shippingAddress.city}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -1744,7 +1724,7 @@ function CheckoutContent() {
                     name="state"
                     value={shippingAddress.state}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -1758,7 +1738,7 @@ function CheckoutContent() {
                     name="zipCode"
                     value={shippingAddress.zipCode}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -1835,7 +1815,7 @@ function CheckoutContent() {
                     Processing...
                   </div>
                 ) : (
-                  `Place Order - ₹${total.toFixed(2)}`
+                  `Place Order : ₹${total.toFixed(2)}`
                 )}
               </button>
               

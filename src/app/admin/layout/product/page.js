@@ -1174,8 +1174,8 @@ const ProductManagement = () => {
     type: '',
     category: '',
     details: '',
-    features: [''],
-    benefits: [''],
+    features: '',
+    benefits: '',
     images: [],
     price: '',
     currency: 'INR'
@@ -1195,17 +1195,15 @@ const ProductManagement = () => {
       setError(null);
       
       const data = await authAPI.getProduct();
-      
-      // Handle the API response structure and transform data
+      console.log('api data all products', data);
+    
       const productsArray = data.data?.products || data.products || data || [];
-      
-      // Transform API data to match component structure
+     
       const transformedProducts = productsArray.map(product => ({
-        id: product._id,
+        id: product.productDetailId, 
         name: product.productName,
         price: product.price,
         currency: product.currency,
-        // Set default values for fields not in API response
         quantity: product.quantity || 0,
         type: product.type || 'N/A',
         category: product.category || 'N/A',
@@ -1218,7 +1216,7 @@ const ProductManagement = () => {
       }));
       
       setProducts(transformedProducts);
-      console.log('Products state updated successfully=========>:', transformedProducts);
+      console.log('Products state dashboard successfully=========>:', transformedProducts);
       
     } catch (err) {
       console.error('Error fetching products:', err);
@@ -1231,6 +1229,28 @@ const ProductManagement = () => {
 
 
   // get product list end 
+
+
+  // delete product api start
+
+  const handleDelete = async (id) => {
+  if (window.confirm('Are you sure you want to delete this product?')) {
+    try {
+ 
+      await authAPI.deleteProduct(id);
+     
+      setProducts(prev => prev.filter(p => p.id !== id));
+ 
+      alert('Product deleted successfully');
+    } catch (err) {
+      console.error('Error deleting product:', err);
+      alert('Failed to delete product. Please try again.');
+    }
+  }
+};
+
+
+  // end
 
 
 
@@ -1252,25 +1272,22 @@ const ProductManagement = () => {
   form.append('details', formData.details);
   form.append('price', formData.price);
   form.append('currency', formData.currency);
-
-  // Append array fields (convert to JSON strings)
+ 
   form.append('features', JSON.stringify(formData.features.filter(f => f.trim())));
   form.append('benefits', JSON.stringify(formData.benefits.filter(b => b.trim())));
 
   // Append image files
   imageFiles.forEach((file, index) => {
-    form.append(`images`, file); // If your backend expects multiple files under 'images[]', use `images[]`
+    form.append(`images`, file);  
   });
 
   try {
     if (editingProduct) {
-      // Update logic here (optional)
-      // You can use a PUT API with FormData if needed
+  
     } else {
       const response = await authAPI.postProductCart(form);
       console.log('✅ Product created:', response);
-
-      // Add the new product to your state (optional: refetch product list instead)
+ 
       fetchProducts(); // or setProducts(prev => [...prev, transformedNewProduct])
     }
 
@@ -1327,39 +1344,6 @@ const ProductManagement = () => {
     setImageFiles(prev => prev.filter((_, i) => i !== index));
   };
 
-  // const handleSubmit = async () => {
-  //   if (imageFiles.length < 5) {
-  //     alert('Please upload at least 5 images');
-  //     return;
-  //   }
-
-  //   const newProduct = {
-  //     id: editingProduct ? editingProduct.id : Date.now(),
-  //     ...formData,
-  //     features: formData.features.filter(f => f.trim()),
-  //     benefits: formData.benefits.filter(b => b.trim()),
-  //     images: imageFiles.map(file => file.name),
-  //     status: 'active',
-  //     createdAt: new Date().toISOString().split('T')[0]
-  //   };
-
-  //   try {
-  //     if (editingProduct) {
-  //       // Update existing product
-  //       // await authAPI.updateProduct(editingProduct.id, newProduct);
-  //       setProducts(prev => prev.map(p => p.id === editingProduct.id ? newProduct : p));
-  //     } else {
-  //       // Create new product
-  //       // await authAPI.createProduct(newProduct);
-  //       setProducts(prev => [...prev, newProduct]);
-  //     }
-  //     resetForm();
-  //   } catch (err) {
-  //     console.error('Error saving product:', err);
-  //     alert('Failed to save product. Please try again.');
-  //   }
-  // };
-
   const resetForm = () => {
     setFormData({
       name: '',
@@ -1395,17 +1379,17 @@ const ProductManagement = () => {
     setShowForm(true);
   };
 
-  const handleDelete = async (id) => {
-    if (window.confirm('Are you sure you want to delete this product?')) {
-      try {
-        // await authAPI.deleteProduct(id);
-        setProducts(prev => prev.filter(p => p.id !== id));
-      } catch (err) {
-        console.error('Error deleting product:', err);
-        alert('Failed to delete product. Please try again.');
-      }
-    }
-  };
+  // const handleDelete = async (id) => {
+  //   if (window.confirm('Are you sure you want to delete this product?')) {
+  //     try {
+  //       // await authAPI.deleteProduct(id);
+  //       setProducts(prev => prev.filter(p => p.id !== id));
+  //     } catch (err) {
+  //       console.error('Error deleting product:', err);
+  //       alert('Failed to delete product. Please try again.');
+  //     }
+  //   }
+  // };
 
   const toggleStatus = async (id) => {
     try {

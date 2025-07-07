@@ -81,7 +81,13 @@ const SpotlightCarousel = () => {
   };
 
   return (
-    <div className="w-full  bg-gradient-to-br bg-gray-50 py-8 md:py-16">
+    
+
+     
+    <div className="relative py-16 px-4 sm:px-6 lg:px-16 overflow-hidden bg-center bg-cover"
+      style={{
+        backgroundImage: "url('/images/banner/handmade-paper/whitetemplatepaper.jpg')", // replace with your actual image path
+      }}>
       <div className="container mx-auto px-4">
         {/* Title */}
         {/* <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-center text-gray-800 mb-8 md:mb-16">
@@ -164,6 +170,7 @@ const SpotlightCarousel = () => {
         </div>
       </div>
     </div>
+     
   );
 };
 

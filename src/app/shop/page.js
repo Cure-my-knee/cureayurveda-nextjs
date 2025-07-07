@@ -395,6 +395,7 @@ import Button from '../components/ui/Button';
 import Image from 'next/image';
 import ScrollFadeUp from './../components/ui/ScrollFadeUp';
 import { authAPI } from '@/lib/api/endpoints';
+import ShopBanner from '../components/layout/Shop/ShopBanner';
 
 // Skeleton component for product cards
 const ProductCardSkeleton = () => (
@@ -735,6 +736,7 @@ const ShopPage = () => {
           )}
         </div>
       </section>
+      <ShopBanner />
     </>
   );
 };

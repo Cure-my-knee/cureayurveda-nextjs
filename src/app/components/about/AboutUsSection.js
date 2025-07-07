@@ -23,22 +23,7 @@ const AboutUsSection = () => {
              Over the years, we've earned the trust of thousands by focusing not just on curing illness, but on caring for overall well-being. At Cure Ayurvedic, your health is our priority, and we are here to walk with you on your journey to a good living.
 
             </p>
-            <div className="grid sm:grid-cols-2 gap-6 pt-6">
-              <div className="flex items-start space-x-3">
-                <CheckCircle className="w-6 h-6 text-[#586e20] flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900">Expert Team</h4>
-                  <p className="text-gray-600 text-sm">Skilled professionals with proven expertise</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Heart className="w-6 h-6 text-[#586e20] flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="font-semibold text-gray-900">Customer First</h4>
-                  <p className="text-gray-600 text-sm">Your success is our primary focus</p>
-                </div>
-              </div>
-            </div>
+            
           </div>
           <div className="relative">
              <div className="aspect-square bg-gradient-to-br rounded-3xl p-8 transform hover:scale-105 transition-transform duration-300">

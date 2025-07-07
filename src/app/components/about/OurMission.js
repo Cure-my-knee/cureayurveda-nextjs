@@ -32,21 +32,10 @@ const OurMission = () => {
             </div>
 
             <p className="text-gray-700 text-base text-justify sm:text-lg leading-relaxed mb-4">
-              At Cure Ayurvedic, we believe in <strong>Care before Cure</strong>. True wellness begins with nature. We provide pure and natural products crafted with authentic herbs to restore balance, boost immunity, and promote holistic wellness. By reviving timeless Ayurvedic principles, we offer safe, pure, and natural products that truly care for you.
+              At Cure Ayurvedic, we believe in Care before Cure. As true wellness begins with nature, we provide pure and natural products crafted with pure herbs to restore balance, boost immunity and promote holistic wellness.  By reviving timeless ayurvedic principles, we aim to provide safe, pure and natural products which will take care of your well being before getting cured.
             </p>
 
-            <ul className="space-y-3">
-              {[
-                { icon: CheckCircle, text: 'Pure Herbs', color: 'text-[#586e20]' },
-                { icon: CheckCircle, text: 'Natural Balance', color: 'text-[#586e20]' },
-                { icon: CheckCircle, text: 'Holistic Wellness', color: 'text-[#586e20]' },
-              ].map((item, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <item.icon className={`w-5 h-5 ${item.color}`} />
-                  <span className="text-gray-800">{item.text}</span>
-                </li>
-              ))}
-            </ul>
+            
           </div>
 
           {/* Our Vision */}
@@ -57,21 +46,10 @@ const OurMission = () => {
             </div>
 
             <p className="text-gray-700 text-base text-justify sm:text-lg leading-relaxed mb-4">
-              Our vision is to make Ayurvedic healing <strong>accessible, effective, and reliable</strong> for everyone. In today’s fast-paced world, people often suffer from chronic health issues, stress, and lifestyle imbalances. Most solutions offer only short-term relief or come with side effects. We are committed to changing that by offering natural, long-lasting wellness solutions.
+              Our vision is to make Ayurvedic healing accessible, effective and reliable for everyone. In today’s fast-paced world, people often suffer from chronic health issues, stress and lifestyle imbalances. Most solutions provide short-term relief or come with side effects. We wanted to change that.
             </p>
 
-            <ul className="space-y-3">
-              {[
-                { icon: Shield, text: 'No Side Effects', color: 'text-[#586e20]' },
-                { icon: Sparkles, text: 'Long-lasting Results', color: 'text-[#586e20]' },
-                { icon: Leaf, text: 'Natural Solutions', color: 'text-[#586e20]' },
-              ].map((item, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <item.icon className={`w-5 h-5 ${item.color}`} />
-                  <span className="text-gray-800">{item.text}</span>
-                </li>
-              ))}
-            </ul>
+             
           </div>
 
         </div>
