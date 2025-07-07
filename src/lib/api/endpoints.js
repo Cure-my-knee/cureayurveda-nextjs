@@ -41,6 +41,10 @@ export const authAPI = {
       throw error.response?.data || error.message;
     }
   },
+
+  // user data
+
+  
  
 
    postProductCart: async (productData) => {

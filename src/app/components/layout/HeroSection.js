@@ -131,7 +131,7 @@ export default function HeroSection() {
     {
       id: 1,
       // backgroundImage: "/images/banner/herobannernew4.png",
-       backgroundImage: "/images/banner/banner3.jpg",
+       backgroundImage: "/images/banner/herobanner1.jpg",
       
       subtitle: "Ayurvedic Joint Care",
       description: "Enhance the strength of your Bones & Muscles naturally with the blend of Herbal Wisdom.",
@@ -141,7 +141,7 @@ export default function HeroSection() {
     {
       id: 2,
       // backgroundImage: "/images/banner/banner3.jpg",
-       backgroundImage: "/images/banner/herobannernew4.png",
+       backgroundImage: "/images/banner/herobanner2.jpg",
       subtitle: "Ayurvedic and Healthy Sugar Management",
       description: "Natural way to balance Sugar Level that helps to control your diabetes with Potent Herbs!",
       buttonText: "Explore Products",
@@ -149,7 +149,7 @@ export default function HeroSection() {
     },
     {
       id: 3,
-      backgroundImage: "/images/banner/herobannernew3.png",
+      backgroundImage: "/images/banner/herobanner3.jpg",
       
       subtitle: "Ayurvedic Shilajit",
       description: "Enhances your Energy Level with Anti-oxidant Properties !",

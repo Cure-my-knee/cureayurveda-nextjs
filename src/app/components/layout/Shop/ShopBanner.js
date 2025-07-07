@@ -8,7 +8,7 @@ const ShopBanner = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('https://img.freepik.com/premium-photo/ayurveda-herbs-grey-background-with-copy-space-text-ayurvedic-banner_244157-6196.jpg')",
+          backgroundImage: "url('/images/banner/herobanner4.jpg')",
         }}
       ></div>
 

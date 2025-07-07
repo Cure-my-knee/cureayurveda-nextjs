@@ -38,7 +38,7 @@ export default function HomePage() {
       <WhyChooseTwo />
       <CBDProductLanding />
       <ScrollBanner 
-      backgroundImage="/images/banner/herobannernew3.png"
+      backgroundImage="/images/banner/herobanner4.jpg"
         icon="/images/leaf/treatment.png"
         title="AYURVEDA HEALING"
         description="Harness the power of ancient herbs and holistic practices to restore balance and promote natural wellness."/>

@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Title from '../ui/Title';
 
 const WhyChooseTwo = () => {
   return (
@@ -30,9 +31,12 @@ const WhyChooseTwo = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 mb-4 uppercase tracking-wide">
+        {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 mb-4 uppercase tracking-wide">
           Be a Part of Cure Ayurvedic Family
-        </h2>
+        </h2> */}
+        <Title>
+          Be a Part of Cure Ayurvedic Family 
+        </Title>
         <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-6">
           At Cure Ayurvedic, we believe true healing begins with care, not just treatment. Our approach is Care Before Cure—strengthening the body, boosting natural resistance, and restoring balance so illness stays away and wellness becomes your everyday state.
         </p>

@@ -13,21 +13,21 @@ const tabsData = {
     description:
       'Strengthen your joints naturally with ayurvedic care enriched with calcium, supports joint flexibility, reduces pain and promotes long-term mobility. A holistic solution for joint nourishment, repair and lasting comfort.',
     image:
-      'https://media.istockphoto.com/id/1320934166/photo/cosmetic-skin-care-products-on-green-leaves.jpg?s=612x612&w=0&k=20&c=X4pwnTaBzXHDOGZlcdJdlKxmYd__61xboHVIiR5JMIk=',
+      '/images/banner/herobanner4.jpg',
   },
   DIABETES: {
     title: 'Diabetes',
     description:
       'Balance your blood sugar naturally with trusted ayurvedic formulations. Enriched with herbs that support insulin function and metabolic health. A gentle long-term solution for effective diabetes management.',
     image:
-      'https://static.vecteezy.com/system/resources/thumbnails/051/443/264/small/herbal-medicine-bottle-with-some-fresh-leaves-beside-it-isolated-on-minimalist-background-free-photo.jpg',
+      '/images/banner/herobanner5.jpg',
   },
    ENERGYBOOSTER: {
     title: 'Energy Booster',
     description:
       'Recharge your body and mind with the power of pure Ayurvedic shilajit which boosts stamina, strength and overall vitality naturally. A daily dose of energy, endurance and rejuvenation from within.',
     image:
-      'https://static.vecteezy.com/system/resources/thumbnails/051/443/264/small/herbal-medicine-bottle-with-some-fresh-leaves-beside-it-isolated-on-minimalist-background-free-photo.jpg',
+      '/images/banner/herobanner7.jpg',
   },
 };
 

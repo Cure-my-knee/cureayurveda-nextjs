@@ -1920,75 +1920,48 @@ const ProductDetailsPage = () => {
           </div>
         </div>
 
-        {/* Separate Sections for Description, Benefits, and FAQ */}
-        <div className="space-y-8">
-          {/* Description Section */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Product Description</h3>
-            <p className="text-gray-700 leading-relaxed text-lg">{product.description}</p>
+        
+         
+         <div className="flex flex-col lg:flex-row gap-6">
+          {/* Left Section - 60% - Product Description & Benefits */}
+          <div className="w-full lg:w-3/5 space-y-6">
+            {/* Description Section */}
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Product Description</h3>
+              <p className="text-gray-700 text-justify leading-relaxed text-lg">{product.description}</p>
+            </div>
+            
+            {/* Benefits Section */}
+            {product.benefits && product.benefits.length > 0 && (
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Key Benefits</h3>
+                <ul className="space-y-3">
+                  {product.benefits.map((benefit, index) => (
+                    <li key={index} className="flex items-start text-gray-700">
+                      <span className="w-2 h-2 bg-[#586e20] rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                      <p className="text-lg text-justify">{benefit}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
-          {/* Benefits Section */}
-          {product.benefits && product.benefits.length > 0 && (
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Key Benefits</h3>
-              <ul className="space-y-3">
-                {product.benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-start text-gray-700">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                    <span className="text-lg">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* FAQ Section */}
-          {product.faq && product.faq.length > 0 && (
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h3>
-              <div className="space-y-6">
-                {product.faq.map((faq, index) => (
-                  <div key={index} className="border-l-4 border-blue-500 pl-6 py-3">
-                    <h4 className="font-semibold text-gray-900 mb-2 text-lg">{faq.title}</h4>
-                    <p className="text-gray-700 leading-relaxed">{faq.content}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Product Information Card */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Product Information</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div>
-                <span className="text-sm font-medium text-gray-600">Product ID:</span>
-                <p className="text-gray-900">{product.id}</p>
-              </div>
-
-              {product.stock > 0 && (
-                <div>
-                  <span className="text-sm font-medium text-gray-600">Availability:</span>
-                  <p className="text-green-600 font-medium">In Stock</p>
+          {/* Right Section - 40% - FAQ */}
+          <div className="w-full lg:w-2/5">
+            {product.faq && product.faq.length > 0 && (
+              <div className="bg-white rounded-lg shadow-sm p-6 sticky top-4">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h3>
+                <div className="space-y-6">
+                  {product.faq.map((faq, index) => (
+                    <div key={index} className="border-l-4 border-[#586e20] pl-6 py-3">
+                      <h4 className="font-semibold text-justify text-gray-900  mb-2 text-lg">{faq.title}</h4>
+                      <p className="text-gray-700 text-justify leading-relaxed">{faq.content}</p>
+                    </div>
+                  ))}
                 </div>
-              )}
-
-              {product.sizes && product.sizes.length > 0 && (
-                <div>
-                  <span className="text-sm font-medium text-gray-600">Available Sizes:</span>
-                  <p className="text-gray-900">{product.sizes.join(', ')}</p>
-                </div>
-              )}
-            </div>
-
-            <div className="mt-6 pt-4 border-t">
-              <h4 className="font-medium text-gray-900 mb-2">Need Help?</h4>
-              <p className="text-sm text-gray-600">
-                Contact our customer support for any questions about this product.
-              </p>
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

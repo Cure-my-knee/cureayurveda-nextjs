@@ -209,7 +209,7 @@ const ProductReviews = ({ productId = 'default', productName = 'Product' }) => {
             <select
               value={filterRating}
               onChange={(e) => setFilterRating(e.target.value)}
-              className="px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#82a133] focus:border-transparent"
+              className="px-3 py-1.5 text-sm border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-[#82a133] focus:border-transparent"
             >
               <option value="all">All Ratings</option>
               <option value="5">5 Stars</option>
@@ -222,7 +222,7 @@ const ProductReviews = ({ productId = 'default', productName = 'Product' }) => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-1.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#82a133] focus:border-transparent"
+              className="px-3 py-1.5 text-sm border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-[#82a133] focus:border-transparent"
             >
               <option value="newest">Newest First</option>
               <option value="oldest">Oldest First</option>
