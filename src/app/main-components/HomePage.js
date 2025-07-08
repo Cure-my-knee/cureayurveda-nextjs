@@ -11,8 +11,8 @@ import ScrollBanner from "../components/layout/Banner/ScrollBanner";
 import TopRatedProducts from "../components/layout/Shop/TopRatedProduct";
 import SpotlightCarousel from "../components/layout/Home/SpotlightCarousel";
 import BestSellerProduct from "../components/layout/Shop/BestSellerProduct";
-import BlogSection from "../components/layout/Blog/BlogSection";
-import BlogSectionLanding from '../components/layout/Blog/BlogSectionLanding';
+import BlogSection from "../components/layout/Blogs/BlogSection";
+import BlogSectionLanding from '../components/layout/Blogs/BlogSectionLanding';
 import WhyChooseTwo from '../components/layout/WhyChooseTwo';
 import Guarantee from '../components/layout/Guarantee';
  

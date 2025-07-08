@@ -279,7 +279,9 @@ import {
   Filter,
   Download,
   Phone,
-  Mail
+  Mail,
+  Notebook,
+  CircleUserRound
 } from 'lucide-react';
 import { useAdminAuth } from '../../../contexts/AdminAuthContext';
  
@@ -287,6 +289,8 @@ import ProductManagement from '../layout/product/page';
 import ContactUsAdmin from '../layout/contact/page';
 import NewsletterAdminDashboard from '../layout/Subscribe/page';
 import AdminProtectedRoute from './../../components/AdminProtectedRoute';
+import BlogAdminDashboard from '../layout/blog/page';
+import UserAdminDashboard from '../layout/User/page';
 
 const AdminDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -296,8 +300,11 @@ const AdminDashboard = () => {
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: Home, badge: null },    
     { id: 'products', label: 'Products', icon: Package, badge: null },
+     { id: 'blog', label: 'Blog', icon: Notebook, badge: null },
     { id: 'contact', label: 'Contact', icon: Phone, badge: null },
     { id: 'subscribe', label: 'Subscribe', icon: Mail, badge: null },
+     { id: 'user', label: 'User', icon: CircleUserRound, badge: null },
+     
   ];
 
   const toggleSidebar = () => {
@@ -425,6 +432,10 @@ const AdminDashboard = () => {
         return <ContactUsAdmin />;
       case 'subscribe':
         return <NewsletterAdminDashboard />;
+      case 'blog':
+        return <BlogAdminDashboard />;
+      case 'user':
+        return <UserAdminDashboard />;
       default:
         return (
           <div className="space-y-6">

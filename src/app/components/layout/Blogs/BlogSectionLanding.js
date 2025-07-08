@@ -26,12 +26,7 @@ const BlogSectionLanding = ({ onBlogClick }) => {
           <Subtitle>
               Expert insights, practical tips, and evidence-based.
           </Subtitle>
-          {/* <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-            Pain Management Blog
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mt-4">
-            Expert insights, practical tips, and evidence-based approaches to help you manage pain and improve your quality of life.
-          </p> */}
+          
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -41,7 +36,7 @@ const BlogSectionLanding = ({ onBlogClick }) => {
                 image={post.image}
                 title={post.title}
                 description={post.description}
-                readMoreLink={`/blog/${post.slug}`}  // ✅ Direct link
+                readMoreLink={`/blog/${post.slug}`}  
                 className="hover:scale-105 cursor-pointer"
               />
             </div>

@@ -1174,10 +1174,11 @@ const ProductManagement = () => {
     type: '',
     category: '',
     details: '',
-    features: '',
-    benefits: '',
+    features: [''],
+    benefits: [''],
     images: [],
     price: '',
+    faq: [{ question: '', answer: '' }],
     currency: 'INR'
   });
 
@@ -1302,6 +1303,30 @@ const ProductManagement = () => {
 
 
   //  end here
+
+  const handleFAQChange = (index, field, value) => {
+  const updatedFAQs = [...formData.features];
+  updatedFAQs[index][field] = value;
+  setFormData(prev => ({
+    ...prev,
+    features: updatedFAQs,
+  }));
+};
+
+const addFAQField = () => {
+  setFormData(prev => ({
+    ...prev,
+    features: [...prev.features, { question: '', answer: '' }],
+  }));
+};
+
+const removeFAQField = (index) => {
+  setFormData(prev => ({
+    ...prev,
+    features: prev.features.filter((_, i) => i !== index),
+  }));
+};
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -1474,7 +1499,7 @@ const ProductManagement = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -1488,7 +1513,7 @@ const ProductManagement = () => {
                     name="currency"
                     value={formData.currency}
                     onChange={handleInputChange}
-                    className="p-3 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="p-3 border border-gray-300 text-black rounded-l-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="INR">INR</option>
                     <option value="USD">USD</option>
@@ -1499,7 +1524,7 @@ const ProductManagement = () => {
                     name="price"
                     value={formData.price}
                     onChange={handleInputChange}
-                    className="flex-1 p-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="flex-1 p-3 border text-black border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="0.00"
                     required
                   />
@@ -1515,7 +1540,7 @@ const ProductManagement = () => {
                   name="quantity"
                   value={formData.quantity}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -1529,7 +1554,7 @@ const ProductManagement = () => {
                   name="type"
                   value={formData.type}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -1543,7 +1568,7 @@ const ProductManagement = () => {
                   name="category"
                   value={formData.category}
                   onChange={handleInputChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required
                 />
               </div>
@@ -1558,14 +1583,14 @@ const ProductManagement = () => {
                 value={formData.details}
                 onChange={handleInputChange}
                 rows={4}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 required
               />
             </div>
 
             {/* Features */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm  font-medium text-gray-700 mb-2">
                 Features *
               </label>
               {formData.features.map((feature, index) => (
@@ -1574,7 +1599,7 @@ const ProductManagement = () => {
                     type="text"
                     value={feature}
                     onChange={(e) => handleArrayChange(index, e.target.value, 'features')}
-                    className="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="flex-1 p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter feature"
                   />
                   {formData.features.length > 1 && (
@@ -1597,6 +1622,54 @@ const ProductManagement = () => {
               </button>
             </div>
 
+            {/* FAQ  */}
+
+             <div>
+  <label className="block text-sm font-medium text-gray-700 mb-2">
+    FAQ *
+  </label>
+
+  {formData.features.map((faq, index) => (
+    <div key={index} className="mb-4 space-y-2 border p-4 rounded-lg">
+      <input
+        type="text"
+        placeholder="Enter question"
+        value={faq.question}
+        onChange={(e) => handleFAQChange(index, 'question', e.target.value)}
+        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+
+      <textarea
+        placeholder="Enter answer"
+        value={faq.answer}
+        onChange={(e) => handleFAQChange(index, 'answer', e.target.value)}
+        className="w-full p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        rows={3}
+      />
+
+      {formData.features.length > 1 && (
+        <button
+          type="button"
+          onClick={() => removeFAQField(index)}
+          className="px-3 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+        >
+          <Trash2 className="h-4 w-4 inline-block mr-1" />
+          Remove FAQ
+        </button>
+      )}
+    </div>
+  ))}
+
+  <button
+    type="button"
+    onClick={addFAQField}
+    className="text-blue-600 hover:text-blue-800 text-sm mt-2"
+  >
+    + Add FAQ
+  </button>
+</div>
+
+
             {/* Benefits */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -1608,7 +1681,7 @@ const ProductManagement = () => {
                     type="text"
                     value={benefit}
                     onChange={(e) => handleArrayChange(index, e.target.value, 'benefits')}
-                    className="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="flex-1 p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Enter benefit"
                   />
                   {formData.benefits.length > 1 && (
@@ -1647,6 +1720,7 @@ const ProductManagement = () => {
                       accept="image/*"
                       onChange={handleImageUpload}
                       className="sr-only"
+                       
                     />
                   </label>
                   <p className="text-xs text-gray-500 mt-1">PNG, JPG, GIF up to 10MB each</p>

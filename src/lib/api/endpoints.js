@@ -42,7 +42,55 @@ export const authAPI = {
     }
   },
 
-  // user data
+  // user data list get api
+
+  getUserList: async (page = 1) => {
+  try {
+    const token = localStorage.getItem('accessToken');  
+    
+    // getUserList: (page = 1) => apiClient.get(`/admin/users?page=${page}`)
+    const response = await apiClient.get(`/admin/users?page=${page}`, {
+      headers: {
+        Authorization: `Bearer ${token}`, 
+      },
+    });
+
+    console.log('API Response  received user list========>:', response.data);
+    return response.data;
+
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+},
+
+
+// delete user api
+
+ deleteUser: async (id) => {
+  try {
+    const token = localStorage.getItem('accessToken');   
+
+   
+    const response = await apiClient.delete(`/admin/delete-user/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,   
+      },
+    });
+
+    console.log('Product Deleted Successfully:', response.data);
+    return response.data;
+
+  } catch (error) {
+     
+    throw error.response?.data || error.message;
+  }
+},
+
+
+
+
+
+// product api 
 
   
  
@@ -214,6 +262,33 @@ getContactMessage: async () => {
     throw error.response?.data || error.message;
   }
 },
+
+
+// blog api endpoints
+
+ getBlog: async () => {
+    try {
+      const response = await apiClient.get('/blogs');
+      console.log('Blog list Response received========>:', response.data);
+      return response.data;
+       
+    } catch (error) {
+      throw error.response?.data || error.message;
+    }
+  },
+
+  // blog details endpoint 
+
+   getBlogDetails: async (blogId) => {
+    try {
+      const response = await apiClient.get(`/blogs/${blogId}`);
+      console.log('Blog  details page data ========>:', response.data);
+      return response.data;
+       
+    } catch (error) {
+      throw error.response?.data || error.message;
+    }
+  },
 
   
 };
