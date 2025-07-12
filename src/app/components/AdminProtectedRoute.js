@@ -43,7 +43,7 @@ const AdminProtectedRoute = ({ children }) => {
           <p className="text-gray-600 mb-8">You don't have permission to access this page.</p>
           <button
             onClick={() => router.push('/')}
-            className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700"
+            className="bg-[#82a133] text-white px-6 py-3 rounded-md hover:bg-[#82a133]-700"
           >
             Go to Home
           </button>

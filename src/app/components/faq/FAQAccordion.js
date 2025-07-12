@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import Title from '../ui/Title';
 import Subtitle from '../ui/Subtitle';
+// import FAQSection from './FaqContact';
 
 const FAQAccordion = () => {
   const [openItems, setOpenItems] = useState({});
@@ -16,49 +17,123 @@ const FAQAccordion = () => {
 
    const faqData = [
   {
-    question: "What is Cure Ayurvedic?",
-    answer: "Cure Ayurvedic is an online platform offering authentic Ayurvedic products based on traditional Indian knowledge and natural ingredients. We aim to bring holistic wellness to your doorstep."
+    question: "How do I sign up for a Cure Ayurvedic account?",
+    answer: "To sign up for a cure ayurvedic, at first you have to visit the website and navigate the registration or sign-up page. You need to put your basic information like name, email, and address."
   },
   {
-    question: "Are Cure Ayurvedic products safe to use?",
-    answer: "Yes, all our products are made from natural ingredients and are formulated under strict quality control. However, if you have any medical condition or are pregnant, please consult your doctor before use."
+    question: "How to login into my account?",
+    answer: "To sign into your account, you generally need to go to the login page of the service you want to access and enter your username (or email address) and password."
   },
   {
-    question: "Do you offer consultation before buying a product?",
-    answer: "Yes, Cure Ayurvedic offers online consultations where our Ayurveda experts can suggest products based on your health needs and symptoms."
+    question: "How do I place my order with Cure Ayurvedic?",
+    answer: "To place your order with Cure Ayurvedic, visit their website with your product details and delivery address. Choose your payment method (online or COD) and confirm the order."
   },
   {
-    question: "What is your return and refund policy?",
-    answer: "We accept returns if the product received is damaged, defective, wrong, or expired. The product must be unused, unopened, and reported within 7 days of delivery. Full details are available in our Return & Refund Policy section."
+    question: "Where is my order? How can I track my order?",
+    answer: "To track your Cure Ayurvedic order, check the SMS you received after placing the order, it usually contains a tracking link or order ID. If not, contact their customer support directly with your order number for an update."
   },
   {
-    question: "How long does delivery take?",
-    answer: "Orders are usually dispatched within 2-3 business days. Delivery time varies based on location, but generally takes 3-15 business days across India."
+    question: "Can I buy multiple products in single order?",
+    answer: "Yes, you can! Just add multiple items to your cart, whether you're ordering via their website or WhatsApp, and then place a single combined order with all your chosen products."
+  },
+  // {
+  //   question: "Do you provide tracking for orders?",
+  //   answer: "Yes, once your order is shipped, we will send you a tracking link via SMS or email. You can also check your order status in the 'My Orders' section on our website."
+  // },
+  {
+    question: "Can I make multiple accounts at the same address?",
+    answer: "Generally, yes, you can create multiple Cure Ayurvedic accounts using the same delivery address as long as each account has a unique email or mobile number. Many platforms allow this to enable separate profiles even if they deliver to the same location. If you're unsure or run into any issues, it's best to check with their customer support for confirmation."
   },
   {
-    question: "Do you provide tracking for orders?",
-    answer: "Yes, once your order is shipped, we will send you a tracking link via SMS or email. You can also check your order status in the 'My Orders' section on our website."
+    question: "Can I leave items in my cart for future purchase?",
+    answer: "Yes! You can definitely leave items in your cart for future purchase on Cure Ayurvedic , most e-commerce platforms save your cart across sessions as long as you're logged in. Simply add the products you want, log out, and when you return later (or on another device), your cart should still hold them. If you're not logged in or they don’t support that feature, your cart might clear after a certain time or when cookies reset, so staying signed in is your best bet!"
   },
   {
-    question: "Can I cancel my order after placing it?",
-    answer: "Yes, you can cancel your order if it hasn’t been shipped yet. Please contact our support team by phone or email. Once shipped, the order cannot be cancelled, but you may return it as per our return policy."
+    question: "What are the modes of payment? ",
+    answer: "Cure Ayurvedic accepts UPI, credit/debit cards, net banking, wallets, and cash on delivery. Choose your preferred option at checkout for a smooth payment experience."
   },
   {
-    question: "Do Cure Ayurvedic products cure diseases?",
-    answer: "No, our products are not intended to diagnose, treat, cure, or prevent any disease. They are Ayurvedic wellness products meant to support your health naturally."
+    question: "What should I do if my payment fails?",
+    answer: "If your payment fails, retry using a stable internet connection or switch to another payment method. If the issue persists, contact Cure Ayurvedic’s support team for assistance."
   },
   {
-    question: "Is my personal data safe with Cure Ayurvedic?",
-    answer: "Yes, we take your privacy seriously. Your data is used only for processing your order and improving your experience. We never share your personal details with third parties except for delivery and payment purposes."
+    question: "I am unable to make the payment. What should I do?",
+    answer: "If you're unable to make the payment, try a different method like UPI or card and ensure your internet is stable. If it still doesn’t work, contact Cure Ayurvedic’s support for help."
   },
   {
-    question: "How can I contact Cure Ayurvedic customer support?",
-    answer: "You can reach us through phone, email, or website chat. Visit our Contact Us page for more details."
-  }
+    question: "How do I get billing details?",
+    answer: "You can get your billing details via the confirmation email  sent after your order. If not received, contact Cure Ayurvedic’s support with your order ID."
+  },
+  {
+    question: "Can I place an order over the phone?",
+    answer: "Yes, you can place an order over the phone, just call Cure Ayurvedic’s customer support and provide your product choices, delivery address, and payment preference. They’ll process your order and confirm everything via a callback or message. "
+  },
+  // update
+  {
+    question: " How to change my address on a website? ",
+    answer: "To change your address on the website, go to your account/profile section and click on “Edit” or “Manage Address.” Update the details and save the changes before placing your order.  "
+  },
+  {
+    question: " Can I change my phone number on a website? ",
+    answer: " Yes, go to your account settings or profile section on the website and click “Edit” next to your phone number. Enter the new number and save the changes. "
+  },
+  {
+    question: " Is COD available on Cure Ayurvedic? ",
+    answer: "  Yes , Cure Ayurvedic offers Cash on Delivery (COD) for orders in supported areas, so you can conveniently pay in cash when your products arrive. Just select COD at checkout or mention it if you’re ordering by phone."
+  },
+  {
+    question: " Is COD available for delivery to all locations in India? ",
+    answer: "Cash on Delivery (COD) with Cure Ayurvedic is available across major metros, Tier‑II, and Tier‑III cities nationwide, with no extra charges, delivered via courier services like Blue Dart or FedEx.If your location is remote or outside these zones, COD might not be offered, so please check at checkout or contact customer support to confirm  "
+  },
+  {
+    question: " If my amount is deducted but my order is not confirmed. What should I do? ",
+    answer: "If your amount is deducted but the order isn’t confirmed, wait a few minutes and check your email or SMS for updates. If there's still no confirmation, contact Cure Ayurvedic’s support with your payment details.  "
+  },
+  {
+    question: " How can I cancel my order?",
+    answer: "To cancel your order, go to your account’s order section and select “Cancel Order” if the option is available. Alternatively, contact Cure Ayurvedic’s support team with your order ID for quick cancellation. "
+  },
+  {
+    question: " How can I return my order? ",
+    answer: "Go to the “My Orders” section, select the item you want to return.Click on “Return” and follow the instructions to complete the process.  "
+  },
+  {
+    question: " What is your return and refund policy? ",
+    answer: " Our return and refund policy allows returns within 30 days of delivery for full refund if items are unused and in original condition. Refunds are processed within 2-3  business days after we receive and inspect the returned item. "
+  },
+  {
+    question: " How will I get a refund for the cancelled order? ",
+    answer: "Refund for a cancelled order is processed automatically to your original payment method. It typically takes 5–7 business days for the amount to reflect in your account.  "
+  },
+  {
+    question: "  My order was returned without any delivery attempt. What should I do?",
+    answer: " Please contact customer support with your order ID for assistance.You can also reorder the item if it's still available. "
+  },
+   {
+    question: " Is there a minimum order value for purchases on Cure Ayurvedic? ",
+    answer: "  There’s no minimum order value to make a purchase on Cure Ayurvedic, you can order any product on its own."
+  },
+   {
+    question: " What should I do if the delivery of my order is delayed? ",
+    answer: "Please check your order status in the “Track Order” section for any updates. If it’s still delayed, contact customer support with your order ID, they’ll help resolve the issue   "
+  },
+   {
+    question: " How much time does it take for order delivery? ",
+    answer: " Orders are usually delivered within 3 to 7 business days, depending on your location.You can track your shipment in the “My Orders” section for real-time updates. "
+  },
+   {
+    question: "How to contact your customer care?  ",
+    answer: " You can reach our Customer Care team via the “Help” or “Contact Us” section on our website.Alternatively, email us at contact@cureayurvedic.com or call 880023120 for immediate assistance. "
+  },
+   {
+    question: " How to collaborate with Cure Ayurvedic? ",
+    answer: " To explore collaboration opportunities with Cure Ayurvedic, please reach out to contact@cureayurvedic.com with your proposal.Our Partnerships Team will review and get back to you within 2 business days. "
+  },
 ];
 
   return (
-    <div className="pt-16 pb-8 bg-gradient-to-br px-4 sm:px-6 lg:px-8 bg-gray-50 ">
+    <> 
+    <div className="pt-16 pb-8 bg-gradient-to-br px-4 sm:px-6 lg:px-8 bg-[#ffff]">
       <div className="max-w-4xl mx-auto  pt-8">
 
         {/* Title & Subtitle */}
@@ -127,6 +202,8 @@ const FAQAccordion = () => {
         </div>
       </div>
     </div>
+    {/* <FAQSection /> */}
+    </>
   );
 };
 

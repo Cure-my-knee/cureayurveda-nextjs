@@ -40,7 +40,10 @@ const ScrollFadeUp = ({ children, className = "" }) => {
 
 export default function WhyChoose() {
   return (
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white"
+      style={{
+        backgroundImage: "url('/images/banner/handmade-paper/whitetemplatepaper.jpg')", // replace with your actual image path
+      }}>
         <div className="max-w-5xl mx-auto text-center">
           
           {/* Decorative Face Illustration - Bigger Image */}

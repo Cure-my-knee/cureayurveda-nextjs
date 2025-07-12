@@ -359,7 +359,7 @@ export default function AdminPage() {
               <>
                 <Link
                   href="/admin/login"
-                  className="w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 tracking-wider rounded-md"
+                  className="w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium text-white bg-[#82a133] hover:bg-[#82a133] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#82a133] transition-all duration-200 tracking-wider rounded-md"
                 >
                   ADMIN LOGIN
                 </Link>

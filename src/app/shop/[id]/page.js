@@ -1521,7 +1521,11 @@ const ProductDetailsPage = () => {
           createdAt: productData.createdAt,
           updatedAt: productData.updatedAt,
           rating: 4.5, // Default rating as API doesn't provide it
-          reviews: Math.floor(Math.random() * 100) + 10 // Random reviews count
+          reviews: Math.floor(Math.random() * 100) + 10 ,
+          // Adding these fields from API if available, otherwise defaults
+          sku: productData.sku || `SKU-${productData._id || productData.id || productId}`,
+          weight: productData.weight || 0.2,
+          hsn: productData.hsn || '30049011'
         };
 
         setProduct(transformedProduct);
@@ -1572,7 +1576,11 @@ const ProductDetailsPage = () => {
       image: product.images[0],
       size: selectedSize,
       currency: product.currency,
-      stock: product.stock
+      stock: product.stock,
+      // Adding required fields for checkout
+      sku: product.sku || `SKU-${product.id}`,
+      weight: product.weight || 0.2,
+      hsn: product.hsn || '30049011'
     };
 
     // Get existing cart from localStorage or initialize empty array
@@ -1605,17 +1613,7 @@ const ProductDetailsPage = () => {
     });
   };
 
-  const handleAddToWishlist = () => {
-    console.log('Adding to wishlist:', productId);
-    toast.success('Added to wishlist!', {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  };
+  
 
   // Updated handleBuyNow function
   const handleBuyNow = () => {
@@ -1636,7 +1634,11 @@ const ProductDetailsPage = () => {
       image: product.images[0],
       size: selectedSize,
       currency: product.currency,
-      stock: product.stock
+      stock: product.stock,
+       // Adding required fields for checkout
+      sku: product.sku || `SKU-${product.id}`,
+      weight: product.weight || 0.2,
+      hsn: product.hsn || '30049011'
     };
 
     console.log('Buy now:', cartItem);

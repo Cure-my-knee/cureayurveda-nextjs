@@ -160,6 +160,30 @@ export const authAPI = {
     }
   },
 
+
+  // update the product part
+
+   putProduct: async (id, productData) => {
+  try {
+    const token = localStorage.getItem('accessToken');   
+
+    const response = await apiClient.put(`/products/${id}`, productData, {
+      headers: {
+        Authorization: `Bearer ${token}`,   
+      },
+    });
+
+    console.log('Product updated Successfully:', response.data);
+    return response.data;
+
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+},
+
+
+  // end
+
   // contact us
   postContact: async (contactData) => {
     try {
@@ -289,6 +313,94 @@ getContactMessage: async () => {
       throw error.response?.data || error.message;
     }
   },
+
+  // create blog
+
+   postBlog: async (blogData) => {
+  try {
+    const token = localStorage.getItem('accessToken');
+
+    const response = await apiClient.post('/blogs/create', blogData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+},
+
+// delete blog
+
+ deleteBlog: async (blogId) => {
+  try {
+    const token = localStorage.getItem('accessToken');   
+
+   
+    const response = await apiClient.delete(`/blogs/delete/${blogId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,   
+      },
+    });
+
+    console.log('Blog Deleted Successfully:', response.data);
+    return response.data;
+
+  } catch (error) {
+     
+    throw error.response?.data || error.message;
+  }
+},
+
+
+
+
+
+  // create order api endpoint
+
+//   postCreateOrder: async (orderData) => {
+//   try {
+//     const token = localStorage.getItem('accessToken');
+
+//     const response = await apiClient.post('/orders/create', orderData, {
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
+
+//     return response.data;
+//   } catch (error) {
+//     throw error.response?.data || error.message;
+//   }
+// },
+
+
+
+
+  // payU API ENDPOINTS 
+
+//   postPayU: async () => {
+//   try {
+//     const token = localStorage.getItem('accessToken'); 
+//     const dummyOrderId = `ORDER_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+//     const response = await apiClient.get('/payu/initiate', {
+//       headers: {
+//         Authorization: `Bearer ${token}`, 
+//       },
+//     });
+
+//     console.log('API Response PayU data========>:', response.data);
+//     return response.data;
+
+//   } catch (error) {
+//     throw error.response?.data || error.message;
+//   }
+// },
+
+
 
   
 };

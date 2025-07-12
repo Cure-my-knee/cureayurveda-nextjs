@@ -19,7 +19,7 @@ const UserAdminDashboard = () => {
 
       const response = await authAPI.getUserList(page);
       const { users = [], total = 0, pages = 1 } = response.data;
-
+      console.log("user data============>", response);
       setUsers(users);
       setTotalUsers(total);
       setTotalPages(pages);

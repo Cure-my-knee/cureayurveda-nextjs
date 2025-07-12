@@ -116,6 +116,139 @@
 //   );
 // }
 
+// 'use client';
+// import React, { useState, useEffect } from 'react';
+// import Button from '../ui/Button';
+// import { useRouter } from 'next/navigation';
+
+// export default function HeroSection() {
+//   const [currentSlide, setCurrentSlide] = useState(0);
+//   const [isVisible, setIsVisible] = useState(false);
+//   const router = useRouter();
+  
+
+//   const banners = [
+//     {
+//       id: 1,
+//       // backgroundImage: "/images/banner/herobannernew4.png",
+//        backgroundImage: "/images/banner/herobanner1.jpg",
+      
+//       subtitle: "Ayurvedic Joint Care",
+//       description: "Enhance the strength of your Bones & Muscles naturally with the blend of Herbal Wisdom.",
+//       buttonText: "Browse Remedies",
+//       buttonLink: "shop"
+//     },
+//     {
+//       id: 2,
+//       // backgroundImage: "/images/banner/banner3.jpg",
+//        backgroundImage: "/images/banner/herobanner2.jpg",
+//       subtitle: "Ayurvedic and Healthy Sugar Management",
+//       description: "Natural way to balance Sugar Level that helps to control your diabetes with Potent Herbs!",
+//       buttonText: "Explore Products",
+//       buttonLink: "shop"
+//     },
+//     {
+//       id: 3,
+//       backgroundImage: "/images/banner/herobanner3.jpg",
+      
+//       subtitle: "Ayurvedic Shilajit",
+//       description: "Enhances your Energy Level with Anti-oxidant Properties !",
+//       buttonText: "Browse Remedies",
+//       buttonLink: "shop"
+//     }
+//   ];
+
+//   useEffect(() => {
+//     let timer;
+
+//     const handleScroll = () => {
+//       clearInterval(timer);
+//     };
+
+//     setIsVisible(true);
+//     timer = setInterval(() => {
+//       setCurrentSlide((prev) => (prev + 1) % banners.length);
+//     }, 5000);
+
+//     window.addEventListener('scroll', handleScroll);
+
+//     return () => {
+//       clearInterval(timer);
+//       window.removeEventListener('scroll', handleScroll);
+//     };
+//   }, []);
+
+//   const goToSlide = (index) => {
+//     setCurrentSlide(index);
+//   };
+
+//   return (
+//     <section id="hero-section" className="relative h-[90vh] sm:h-screen overflow-hidden">
+
+//       {/* Slides */}
+//       <div className="relative w-full h-full">
+//         {banners.map((banner, index) => (
+//           <div
+//             key={banner.id}
+//             className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 will-change-opacity ${
+//               index === currentSlide ? 'opacity-100' : 'opacity-0'
+//             }`}
+//             style={{
+//               backgroundImage: `url('${banner.backgroundImage}')`
+//             }}
+//           >
+//             {/* Dark Overlay */}
+//             <div className="absolute inset-0 bg-opacity-40 pointer-events-none z-0" />
+
+//             {/* Slide Content */}
+//             <div className="relative z-10 flex items-center h-full">
+//               <div className="container mx-auto px-4 lg:px-8">
+//                 <div className="max-w-xl text-white">
+//                   <div className={`transform transition-all duration-1000 ${
+//                     isVisible && index === currentSlide 
+//                       ? 'translate-x-0 opacity-100' 
+//                       : '-translate-x-10 opacity-0'
+//                   }`}>
+//                     <h3 className="text-base sm:text-lg font-medium mb-2 text-green-300">
+//                       {banner.subtitle}
+//                     </h3>
+                    
+//                     <p className="text-sm sm:text-base md:text-lg mb-6 opacity-90">
+//                       {banner.description}
+//                     </p>
+//                     <Button onClick={() => router.push('/shop')} className="font-semibold transform hover:scale-105 hover:shadow-lg text-sm">
+//                       {banner.buttonText}
+//                     </Button>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+
+//       {/* Slide Indicators */}
+//       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
+//         <div className="flex space-x-3">
+//           {banners.map((_, index) => (
+//             <button
+//               key={index}
+//               onClick={() => goToSlide(index)}
+//               className={`w-3 h-3 rounded-full transition-all duration-300 ${
+//                 index === currentSlide 
+//                   ? 'bg-white scale-110' 
+//                   : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+//               }`}
+//               aria-label={`Go to slide ${index + 1}`}
+//             />
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
 'use client';
 import React, { useState, useEffect } from 'react';
 import Button from '../ui/Button';
@@ -124,15 +257,14 @@ import { useRouter } from 'next/navigation';
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
   
-
   const banners = [
     {
       id: 1,
-      // backgroundImage: "/images/banner/herobannernew4.png",
-       backgroundImage: "/images/banner/herobanner1.jpg",
-      
+      backgroundImage: "/images/banner/herobanner1.jpg",
+      mobileBackgroundImage: "/images/defaultproduct/productdefault3.png",  
       subtitle: "Ayurvedic Joint Care",
       description: "Enhance the strength of your Bones & Muscles naturally with the blend of Herbal Wisdom.",
       buttonText: "Browse Remedies",
@@ -140,8 +272,8 @@ export default function HeroSection() {
     },
     {
       id: 2,
-      // backgroundImage: "/images/banner/banner3.jpg",
-       backgroundImage: "/images/banner/herobanner2.jpg",
+      backgroundImage: "/images/banner/herobanner2.jpg",
+      mobileBackgroundImage: "/images/defaultproduct/productdefault3.png", // Add mobile version
       subtitle: "Ayurvedic and Healthy Sugar Management",
       description: "Natural way to balance Sugar Level that helps to control your diabetes with Potent Herbs!",
       buttonText: "Explore Products",
@@ -150,7 +282,7 @@ export default function HeroSection() {
     {
       id: 3,
       backgroundImage: "/images/banner/herobanner3.jpg",
-      
+      mobileBackgroundImage: "/images/defaultproduct/productdefault3.png", // Add mobile version
       subtitle: "Ayurvedic Shilajit",
       description: "Enhances your Energy Level with Anti-oxidant Properties !",
       buttonText: "Browse Remedies",
@@ -160,6 +292,17 @@ export default function HeroSection() {
 
   useEffect(() => {
     let timer;
+
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Listen for window resize
+    window.addEventListener('resize', checkMobile);
 
     const handleScroll = () => {
       clearInterval(timer);
@@ -175,6 +318,7 @@ export default function HeroSection() {
     return () => {
       clearInterval(timer);
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkMobile);
     };
   }, []);
 
@@ -184,39 +328,49 @@ export default function HeroSection() {
 
   return (
     <section id="hero-section" className="relative h-[90vh] sm:h-screen overflow-hidden">
-
       {/* Slides */}
       <div className="relative w-full h-full">
         {banners.map((banner, index) => (
           <div
             key={banner.id}
-            className={`absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 will-change-opacity ${
+            className={`absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat transition-opacity duration-1000 will-change-opacity ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
-              backgroundImage: `url('${banner.backgroundImage}')`
+              backgroundImage: `url('${isMobile ? banner.mobileBackgroundImage : banner.backgroundImage}')`,
+              backgroundPosition: 'center center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat'
             }}
           >
             {/* Dark Overlay */}
             <div className="absolute inset-0 bg-opacity-40 pointer-events-none z-0" />
-
+            
             {/* Slide Content */}
             <div className="relative z-10 flex items-center h-full">
-              <div className="container mx-auto px-4 lg:px-8">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-xl text-white">
                   <div className={`transform transition-all duration-1000 ${
-                    isVisible && index === currentSlide 
-                      ? 'translate-x-0 opacity-100' 
+                    isVisible && index === currentSlide
+                      ? 'translate-x-0 opacity-100'
                       : '-translate-x-10 opacity-0'
                   }`}>
-                    <h3 className="text-base sm:text-lg font-medium mb-2 text-green-300">
+                    <h3 className="text-sm sm:text-base md:text-lg font-medium mb-2 text-green-300">
                       {banner.subtitle}
                     </h3>
                     
-                    <p className="text-sm sm:text-base md:text-lg mb-6 opacity-90">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+                      {banner.title}
+                    </h2>
+                    
+                    <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-6 opacity-90 leading-relaxed">
                       {banner.description}
                     </p>
-                    <Button onClick={() => router.push('/shop')} className="font-semibold transform hover:scale-105 hover:shadow-lg text-sm">
+                    
+                    <Button 
+                      onClick={() => router.push('/shop')} 
+                      className="font-semibold transform hover:scale-105 hover:shadow-lg text-xs sm:text-sm md:text-base px-4 py-2 sm:px-6 sm:py-3"
+                    >
                       {banner.buttonText}
                     </Button>
                   </div>

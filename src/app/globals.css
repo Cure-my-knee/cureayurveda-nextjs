@@ -69,6 +69,26 @@ h1, h2, h3, h4, h5, h6 {
 
 /* new section */
 
+.custom-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #cbd5e1; /* slate-300 */
+  border-radius: 9999px;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.custom-bullet:hover {
+  background-color: #82a133;
+}
+
+.custom-bullet-active {
+  background-color: #82a133;
+  transform: scale(1.25);
+}
+
+
 
 
 

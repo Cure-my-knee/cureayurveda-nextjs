@@ -35,8 +35,9 @@ export default function HomePage() {
       <WhyChoose />
        {/* <ProductCard />   */}
       {/* <WholeLeafProducts /> */}
-      <WhyChooseTwo />
+       
       <CBDProductLanding />
+      <WhyChooseTwo />
       <ScrollBanner 
       backgroundImage="/images/banner/herobanner4.jpg"
         icon="/images/leaf/treatment.png"

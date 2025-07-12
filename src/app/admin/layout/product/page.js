@@ -1299,9 +1299,6 @@ const ProductManagement = () => {
   }
 };
 
-
-
-
   //  end here
 
   const handleFAQChange = (index, field, value) => {

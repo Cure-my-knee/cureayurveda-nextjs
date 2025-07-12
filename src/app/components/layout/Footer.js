@@ -127,7 +127,7 @@ export default function Footer() {
           {/* About Us Section */}
           <div className="col-span-1">
             <h3 className="text-xs sm:text-sm font-semibold text-gray-900 tracking-wider uppercase mb-3 sm:mb-4">
-              About Us
+              Quick Links
             </h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
@@ -136,6 +136,14 @@ export default function Footer() {
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Our Mission
+                </Link>
+              </li>
+               <li>
+                <Link
+                  href="/blogs"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  Blogs
                 </Link>
               </li>
               <li>
@@ -154,14 +162,7 @@ export default function Footer() {
                   Shipping Policy
                 </Link>
               </li>
-              {/* <li>
-                <Link
-                  href="/returns"
-                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Return Policy
-                </Link>
-              </li> */}
+              
               <li>
                 <Link
                   href="/privacy"
@@ -172,10 +173,10 @@ export default function Footer() {
               </li>
                 <li>
                 <Link
-                  href="/terms-of-use"
+                  href="/terms-and-conditions"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
-                  Terms of Use
+                  Terms and Conditions
                 </Link>
               </li>
             </ul>
@@ -234,6 +235,15 @@ export default function Footer() {
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Refund Policy
+                </Link>
+              </li>
+
+               <li>
+                <Link
+                  href="/gallery"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  Gallery
                 </Link>
               </li>
             </ul>

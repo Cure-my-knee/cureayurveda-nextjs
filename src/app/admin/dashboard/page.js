@@ -338,14 +338,7 @@ const AdminDashboard = () => {
                 </h1>
                 <p className="text-gray-600 mt-2">Here's what's happening with your business today.</p>
               </div>
-              <div className="hidden md:flex items-center space-x-3">
-                <button className="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium hover:bg-gray-50 transition-colors">
-                  Export Data
-                </button>
-                <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl">
-                  Add New
-                </button>
-              </div>
+              
             </div>
 
             {/* Dashboard Stats */}
@@ -354,8 +347,8 @@ const AdminDashboard = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-gray-600">Total Products</p>
-                    <p className="text-2xl font-bold text-gray-900">1,234</p>
-                    <p className="text-sm text-green-600 mt-1">↗ +5.2%</p>
+                    <p className="text-2xl font-bold text-gray-900">6+</p>
+                     
                   </div>
                   <div className="bg-blue-100 p-3 rounded-lg">
                     <Package className="h-6 w-6 text-blue-600" />
@@ -363,25 +356,14 @@ const AdminDashboard = () => {
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-sm text-gray-600">Total Orders</p>
-                    <p className="text-2xl font-bold text-gray-900">567</p>
-                    <p className="text-sm text-green-600 mt-1">↗ +12.3%</p>
-                  </div>
-                  <div className="bg-green-100 p-3 rounded-lg">
-                    <ShoppingBag className="h-6 w-6 text-green-600" />
-                  </div>
-                </div>
-              </div>
+              
 
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-gray-600">Total Revenue</p>
-                    <p className="text-2xl font-bold text-gray-900">$45,678</p>
-                    <p className="text-sm text-green-600 mt-1">↗ +8.1%</p>
+                    <p className="text-2xl font-bold text-gray-900">Rs. 45,678</p>
+                    {/* <p className="text-sm text-green-600 mt-1">↗ +8.1%</p> */}
                   </div>
                   <div className="bg-purple-100 p-3 rounded-lg">
                     <DollarSign className="h-6 w-6 text-purple-600" />
@@ -393,8 +375,8 @@ const AdminDashboard = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-gray-600">Active Users</p>
-                    <p className="text-2xl font-bold text-gray-900">2,345</p>
-                    <p className="text-sm text-green-600 mt-1">↗ +3.7%</p>
+                    <p className="text-2xl font-bold text-gray-900">Rs. 2,345</p>
+                    {/* <p className="text-sm text-green-600 mt-1">↗ +3.7%</p> */}
                   </div>
                   <div className="bg-orange-100 p-3 rounded-lg">
                     <Users className="h-6 w-6 text-orange-600" />
@@ -533,7 +515,7 @@ const AdminDashboard = () => {
               })}
               
               {/* User Profile Section */}
-              <div className="pt-6 mt-6 border-t border-gray-100">
+              {/* <div className="pt-6 mt-6 border-t border-gray-100">
                 <div className="flex items-center px-4 py-3 rounded-xl bg-gray-50 border border-gray-100">
                   <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
                     <User className="h-5 w-5 text-white" />
@@ -554,7 +536,7 @@ const AdminDashboard = () => {
                     <LogOut className="h-4 w-4 text-gray-500" />
                   </button>
                 </div>
-              </div>
+              </div> */}
             </nav>
           </div>
 

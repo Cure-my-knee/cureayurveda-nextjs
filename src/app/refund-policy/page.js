@@ -27,7 +27,7 @@ export default function RefundPolicy() {
     {/* Return and Refund Policy Section */}
     <div className="mb-8 md:mb-12">
 
-      <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
+      {/* <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
         <span className="font-semibold text-black block mb-2">Our Mission</span>
         Our mission is to bring natural, authentic Ayurvedic wellness to your doorstep.
         <br /><br />
@@ -36,14 +36,14 @@ export default function RefundPolicy() {
         You may receive a damaged item, an incorrect product, or simply change your mind.
         <br />
         That's why we have a simple and transparent Return and Refund Policy designed to make your shopping experience easy, safe, and worry-free.
-      </p>
+      </p> */}
 
-      <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
+      {/* <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
         <span className="font-semibold text-black block mb-2">Our Promise to You</span>
         We stand behind the quality of every product we offer. Each item is carefully packed and checked before it reaches you. However, if there is an issue with your order, we promise to handle it quickly and fairly.
         <br />
         Our return and refund policy is guided by honesty, responsibility, and respect for our customers.
-      </p>
+      </p> */}
 
       <div className="text-gray-700 text-base text-justify leading-relaxed mb-6">
         <span className="font-semibold text-black block mb-2">When Can You Request a Return?</span>
@@ -86,7 +86,7 @@ export default function RefundPolicy() {
         <span className="font-semibold text-black block mb-2">Who Bears the Return Shipping Cost?</span>
         If the return is due to our mistake (damaged, expired, or wrong item), Cure Ayurvedic will cover the return shipping costs.
         <br />
-        If the return is due to personal reasons like a change of mind, the customer may need to bear the return shipping charges.
+       
       </p>
 
       <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">

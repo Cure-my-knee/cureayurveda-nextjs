@@ -92,9 +92,8 @@ const BlogSection = () => {
                 pagination={{
                   clickable: true,
                   el: '.custom-pagination',
-                  bulletClass:
-                    'inline-block w-3 h-3 bg-slate-300 rounded-full mx-1.5 cursor-pointer transition-all duration-300 hover:bg-blue-400',
-                  bulletActiveClass: 'bg-blue-500 scale-125',
+                  bulletClass: 'custom-bullet',
+                  bulletActiveClass: 'custom-bullet-active',
                 }}
                 autoplay={{
                   delay: 3000,
@@ -119,7 +118,7 @@ const BlogSection = () => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <div className="custom-pagination flex justify-center mt-6"></div>
+              <div className="custom-pagination flex justify-center mt-6 "></div>
             </>
           )}
         </div>
