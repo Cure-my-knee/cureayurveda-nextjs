@@ -35,7 +35,7 @@ export default function OrderFailedPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 mt-24">
+    <div className=" bg-gradient-to-br bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 pt-32">
       <div className="max-w-4xl mx-auto">
         {/* Error Animation Container */}
         <div className="text-center mb-8">

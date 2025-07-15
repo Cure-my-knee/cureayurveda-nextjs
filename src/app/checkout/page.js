@@ -1240,7 +1240,7 @@ import LoginGuestSelector from '../components/login/LoginGuestSelector';
  
 
  
-function CheckoutContent() {
+function CheckoutContent( ) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const isBuyNow = searchParams.get('buyNow') === 'true';
@@ -1261,6 +1261,78 @@ function CheckoutContent() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [loading, setLoading] = useState(true);
 
+
+  // country api 
+
+  const [countries, setCountries] = useState([]);
+  const [filteredCountries, setFilteredCountries] = useState([]);
+ 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+ useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("https://restcountries.com/v3.1/all?fields=name,flags");
+        const data = await response.json();
+        const sorted = data
+          .map((c) => c.name.common)
+          .sort((a, b) => a.localeCompare(b));
+        setCountries(sorted);
+        setFilteredCountries(sorted);
+      } catch (error) {
+        console.error("Failed to load countries:", error);
+        const fallbackCountries = [
+          'United States', 'Canada', 'United Kingdom', 'Australia', 
+          'Germany', 'France', 'Italy', 'Spain', 'Netherlands', 'Other'
+        ];
+        setCountries(fallbackCountries);
+        setFilteredCountries(fallbackCountries);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCountries();
+  }, []);
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    setIsDropdownOpen(true);
+    
+    if (value.trim() === '') {
+      setFilteredCountries(countries);
+    } else {
+      const filtered = countries.filter(country =>
+        country.toLowerCase().includes(value.toLowerCase())
+      );
+      setFilteredCountries(filtered);
+    }
+  };
+
+  const handleCountrySelect = (country) => {
+    setShippingAddress(prev => ({
+      ...prev,
+      country: country
+    }));
+    setSearchTerm(country);
+    setIsDropdownOpen(false);
+  };
+
+  const handleInputFocus = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const handleInputBlur = () => {
+    // Delay closing to allow for country selection
+    setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 200);
+  };
+
+  // country api end
+
   // Helper function to ensure cart items have all required fields
   const ensureRequiredFields = (item) => ({
     ...item,
@@ -1269,7 +1341,7 @@ function CheckoutContent() {
     sku: item.sku || `SKU-${item.id || Date.now()}`,
     weight: item.weight || 0.2,
     hsn: item.hsn || '30049011',
-    price: item.price || 0,
+    price: item.price || 1,
     quantity: item.quantity || 1,
     productId: item.productId || item.id,
     productName: item.productName || item.name
@@ -1445,8 +1517,9 @@ function CheckoutContent() {
       };
 
       console.log('Sending order payload:', orderPayload); // Debug log
+      
 
-      const createOrderResponse = await fetch('http://localhost:3010/api/orders/create', {
+      const createOrderResponse = await fetch('https://abhineshwork.onrender.com/api/orders/create', {
         method: 'POST',
         headers: { 
           Authorization: `Bearer ${token}`, 
@@ -1466,7 +1539,7 @@ function CheckoutContent() {
       if (orderResult.data.requiresPayment) {
         const token = localStorage.getItem('accessToken');  
         // This is a PayU order, so we must initiate payment
-        const initiatePaymentResponse = await fetch('http://localhost:3010/api/payu/initiate', {
+        const initiatePaymentResponse = await fetch('https://abhineshwork.onrender.com/api/payu/initiate', {
           method: 'POST',
           headers: { 
             Authorization: `Bearer ${token}`, 
@@ -1623,17 +1696,17 @@ function CheckoutContent() {
             </div>
 
             {/* Login as guest */}
-            <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
+            {/* <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-medium text-gray-900 mb-4">
                 Select Order Type
               </h2> 
 
-           {/* login part selection */}
+          
             <div className="space-y-3">  
             <LoginGuestSelector />
             </div> 
     
-            </div>
+            </div> */}
 
             {/* Shipping Address */}
             <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
@@ -1688,7 +1761,7 @@ function CheckoutContent() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Country
                   </label>
-                  <select
+                  {/* <select
                     name="country"
                     value={shippingAddress.country}
                     onChange={handleAddressChange}
@@ -1698,7 +1771,69 @@ function CheckoutContent() {
                     <option value="US">United States</option>
                     <option value="UK">United Kingdom</option>
                     <option value="Canada">Canada</option>
-                  </select>
+                    <option value="Canada">Other</option>
+                  </select> */}
+
+
+                 {/* <select
+                  id="country"
+                  name="country"
+                  value={shippingAddress.country}
+                  onChange={handleAddressChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
+                  required
+                >
+                  <option value="">
+                    {loading ? 'Loading countries...' : 'Select Country'}
+                  </option>
+                  {countries.map((country) => (
+                    <option key={country} value={country}>
+                      {country}
+                    </option>
+                  ))}
+                  <option value="Other">Other</option>
+                </select> */}
+
+                 <input
+            type="text"
+            id="country"
+            name="country"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
+            placeholder={loading ? 'Loading countries...' : 'Search for a country...'}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
+            disabled={loading}
+          />
+          {isDropdownOpen && !loading && (
+            <div className="absolute z-10 w-90 mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto">
+              {filteredCountries.length > 0 ? (
+                <>
+                  {filteredCountries.map((country) => (
+                    <div
+                      key={country}
+                      onClick={() => handleCountrySelect(country)}
+                      className="px-3 py-2 hover:bg-blue-50 cursor-pointer text-black border-b border-gray-100 last:border-b-0"
+                    >
+                      {country}
+                    </div>
+                  ))}
+                  <div
+                    onClick={() => handleCountrySelect('Other')}
+                    className="px-3 py-2 hover:bg-blue-50 cursor-pointer text-black border-t border-gray-200"
+                  >
+                    Other
+                  </div>
+                </>
+              ) : (
+                <div className="px-3 py-2 text-gray-500">
+                  No countries found
+                </div>
+              )}
+              </div>
+          )}
+               
                 </div>
                 
                 <div className="md:col-span-2">
@@ -1710,9 +1845,13 @@ function CheckoutContent() {
                     value={shippingAddress.address}
                     onChange={handleAddressChange}
                     rows={3}
+                    placeholder="e.g. H.No. 1234, 4th Floor, Gaur City, Noida, Near DLF, U.P, 201001"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
                     required
                   />
+                   <div className="text-sm text-gray-600 md:w-1/3">
+                  
+                </div>
                 </div>
                 
                 <div>
@@ -1784,7 +1923,7 @@ function CheckoutContent() {
                 </div>
                 
                 {/* COD Option */}
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <input
                     type="radio"
                     id="cod"
@@ -1798,14 +1937,14 @@ function CheckoutContent() {
                     <Building2 className="w-5 h-5 mr-2" />
                     Cash on Delivery
                   </label>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
 
           {/* Right Column - Order Summary */}
-          <div className="lg:col-span-4">
-            <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 sticky top-4">
+          <div className="lg:col-span-4 ">
+            <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 sticky top-32">
               <h2 className="text-lg sm:text-xl font-medium text-gray-900 mb-4">
                 Order Summary
               </h2>
@@ -1815,8 +1954,8 @@ function CheckoutContent() {
                   <span className="text-sm text-gray-600">Subtotal</span>
                   {/* <span className="text-sm font-medium text-gray-600">₹{subtotal.toFixed(2)}</span> */}
                   <span className="text-sm font-medium text-gray-600">
-  ₹{!isNaN(subtotal) ? subtotal.toFixed(2) : '0.00'}
-</span>
+                ₹{!isNaN(subtotal) ? subtotal.toFixed(2) : '0.00'}
+              </span>
 
                 </div>
                 

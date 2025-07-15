@@ -13,7 +13,7 @@ export const postPayU = async (orderId) => {
     
     console.log('Request body being sent:', requestBody);
     
-    const response = await fetch('http://localhost:3010/api/payu/initiate', {
+    const response = await fetch('https://abhineshwork.onrender.com/api/payu/initiate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

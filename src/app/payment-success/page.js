@@ -22,12 +22,14 @@
 
 import React, { Suspense } from 'react';
 import PaymentSuccessClient from './PaymentSuccessClient';
+import OrderConfirmation from '../components/order/orderconfirmation';
  
 
 export default function PaymentSuccessPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <PaymentSuccessClient />
+      {/* <PaymentSuccessClient /> */}
+      <OrderConfirmation />
     </Suspense>
   );
 }

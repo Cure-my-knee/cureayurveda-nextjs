@@ -1174,6 +1174,8 @@ const ProductManagement = () => {
     type: '',
     category: '',
     details: '',
+    weight: '',
+    sku: '',
     features: [''],
     benefits: [''],
     images: [],
@@ -1267,12 +1269,15 @@ const ProductManagement = () => {
 
   // Append all form fields
   form.append('name', formData.name);
+  form.append('weight', formData.weight);
+  form.append('sku', formData.sku);
   form.append('quantity', formData.quantity);
   form.append('type', formData.type);
   form.append('category', formData.category);
   form.append('details', formData.details);
   form.append('price', formData.price);
   form.append('currency', formData.currency);
+
  
   form.append('features', JSON.stringify(formData.features.filter(f => f.trim())));
   form.append('benefits', JSON.stringify(formData.benefits.filter(b => b.trim())));
@@ -1377,6 +1382,9 @@ const removeFAQField = (index) => {
       benefits: [''],
       images: [],
       price: '',
+      sku: '',
+      weight: '',
+
       currency: 'INR'
     });
     setImageFiles([]);
@@ -1542,6 +1550,7 @@ const removeFAQField = (index) => {
                 />
               </div>
 
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Type *
@@ -1550,6 +1559,33 @@ const removeFAQField = (index) => {
                   type="text"
                   name="type"
                   value={formData.type}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  required
+                />
+              </div>
+
+               <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Weight *
+                </label>
+                <input
+                  type="number"
+                  name="weight"
+                  value={formData.weight}
+                  onChange={handleInputChange}
+                  className="w-full p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  required
+                />
+              </div>
+               <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  SKU *
+                </label>
+                <input
+                  type="number"
+                  name="sku"
+                  value={formData.sku}
                   onChange={handleInputChange}
                   className="w-full p-3 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   required

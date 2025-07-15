@@ -401,6 +401,31 @@ getContactMessage: async () => {
 // },
 
 
+// get all order list
+
+
+
+// get all end 
+
+getAllOrder: async () => {
+  try {
+    const token = localStorage.getItem('accessToken');  
+
+    const response = await apiClient.get('/api/orders/', {
+      headers: {
+        Authorization: `Bearer ${token}`, 
+      },
+    });
+
+    console.log('All order data========>:', response.data);
+    return response.data;
+
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+},
+
+
 
   
 };

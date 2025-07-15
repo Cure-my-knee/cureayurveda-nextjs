@@ -14,77 +14,160 @@ export default function Footer() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  // const handleSubscribe = (e) => {
-  //   e.preventDefault();
-  //   if (email) {
-  //     // Handle subscription logic here
-  //     setIsSubscribed(true);
-  //     setEmail('');
-  //     setTimeout(() => setIsSubscribed(false), 3000);
-  //   }
-  // };
+  const [captcha, setCaptcha] = useState({ question: '', answer: '' });
+  const [captchaInput, setCaptchaInput] = useState('');
+
+  useEffect(() => {
+  generateCaptcha();
+}, []);
+
+const generateCaptcha = () => {
+  const num1 = Math.floor(Math.random() * 10) + 1;
+  const num2 = Math.floor(Math.random() * 10) + 1;
+  setCaptcha({
+    question: `What is ${num1} + ${num2}?`,
+    answer: (num1 + num2).toString()
+  });
+};
+
+   
 
   // post api for newsletter subscription
 
- const handleSubscribe = async (e) => {
-    e.preventDefault();
+//  const handleSubscribe = async (e) => {
+//     e.preventDefault();
     
-    // Reset previous states
-    setError('');
-    setIsSubscribed(false);
+//     // Reset previous states
+//     setError('');
+//     setIsSubscribed(false);
     
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.trim()) {
-      setError('Please enter an email address');
-      return;
-    }
+//     // Basic email validation
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     if (!email.trim()) {
+//       setError('Please enter an email address');
+//       return;
+//     }
     
-    if (!emailRegex.test(email.trim())) {
-      setError('Please enter a valid email address');
-      return;
-    }
+//     if (!emailRegex.test(email.trim())) {
+//       setError('Please enter a valid email address');
+//       return;
+//     }
 
-    setIsLoading(true);
+//     setIsLoading(true);
 
-    try {
-      const subscribeData = {
-        email: email.trim(),
-        timestamp: new Date().toISOString(),
-        source: 'newsletter_form'
-      };
+//     try {
+//       const subscribeData = {
+//         email: email.trim(),
+//         timestamp: new Date().toISOString(),
+//         source: 'newsletter_form'
+//       };
 
-      const response = await authAPI.postSubscribe(subscribeData);
+//       const response = await authAPI.postSubscribe(subscribeData);
       
-      // Check if the response indicates success
-      if (response && (response.success || response.status === 'success' || response.message)) {
-        setIsSubscribed(true);
-        setEmail('');
+//       // Check if the response indicates success
+//       if (response && (response.success || response.status === 'success' || response.message)) {
+//         setIsSubscribed(true);
+//         setEmail('');
         
-        // Reset success state after 3 seconds
-        setTimeout(() => {
-          setIsSubscribed(false);
-        }, 3000);
-      } else {
-        throw new Error('Subscription failed. Please try again.');
-      }
-    } catch (error) {
-      console.error('Newsletter subscription error:', error);
+//         // Reset success state after 3 seconds
+//         setTimeout(() => {
+//           setIsSubscribed(false);
+//         }, 3000);
+//       } else {
+//         throw new Error('Subscription failed. Please try again.');
+//       }
+//     } catch (error) {
+//       console.error('Newsletter subscription error:', error);
       
-      // Handle different error types
-      if (error.response?.data?.message) {
-        setError(error.response.data.message);
-      } else if (error.message) {
-        setError(error.message);
-      } else if (typeof error === 'string') {
-        setError(error);
-      } else {
-        setError('Subscription failed. Please try again.');
-      }
-    } finally {
-      setIsLoading(false);
+//       // Handle different error types
+//       if (error.response?.data?.message) {
+//         setError(error.response.data.message);
+//       } else if (error.message) {
+//         setError(error.message);
+//       } else if (typeof error === 'string') {
+//         setError(error);
+//       } else {
+//         setError('Subscription failed. Please try again.');
+//       }
+//     } finally {
+//       setIsLoading(false);
+//     }
+//   };
+
+const handleSubscribe = async (e) => {
+  e.preventDefault();
+
+  // Reset states
+  setError('');
+  setIsSubscribed(false);
+
+  // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+
+  // Basic email checks
+  if (!email.trim()) {
+    setError('Please enter an email address');
+    return;
+  }
+
+  if (!emailRegex.test(email.trim())) {
+    setError('Please enter a valid email address');
+    return;
+  }
+
+  // Captcha check
+  if (captchaInput.trim() !== captcha.answer) {
+    setError('Incorrect CAPTCHA. Please try again.');
+    generateCaptcha(); // regenerate on failure
+    return;
+  }
+
+  setIsLoading(true);
+
+  try {
+    const subscribeData = {
+      email: email.trim(),
+      timestamp: new Date().toISOString(),
+      source: 'newsletter_form'
+    };
+
+    const response = await authAPI.postSubscribe(subscribeData);
+
+    if (response && (response.success || response.status === 'success' || response.message)) {
+      setIsSubscribed(true);
+      setEmail('');
+      setCaptchaInput('');
+      generateCaptcha(); // regenerate on success
+
+      // Reset subscription state after 3s
+      setTimeout(() => {
+        setIsSubscribed(false);
+      }, 3000);
+    } else {
+      throw new Error('Subscription failed. Please try again.');
     }
-  };
+
+  } catch (error) {
+    console.error('Newsletter subscription error:', error);
+
+    if (error.response?.data?.message) {
+      setError(error.response.data.message);
+    } else if (error.message) {
+      setError(error.message);
+    } else if (typeof error === 'string') {
+      setError(error);
+    } else {
+      setError('Subscription failed. Please try again.');
+    }
+
+    generateCaptcha(); // regenerate on error
+
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
@@ -258,7 +341,7 @@ export default function Footer() {
               Subscribe to receive updates, access to exclusive deals, and more.
             </p>
             
-            <form onSubmit={handleSubscribe} className="space-y-2 sm:space-y-3">
+            {/* <form onSubmit={handleSubscribe} className="space-y-2 sm:space-y-3">
               <div>
                 <input
                   type="email"
@@ -287,7 +370,52 @@ export default function Footer() {
               <span className="absolute inset-0 bg-white scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 z-0"></span>
             </button>
 
+            </form> */}
+
+            <form onSubmit={handleSubscribe} className="space-y-2 sm:space-y-3">
+              <div>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  className="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs text-black sm:text-sm border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent placeholder-gray-400"
+                  required
+                  disabled={isLoading}
+                />
+              </div>
+
+              {/* Captcha Field */}
+              <div>
+                <label className="block mb-1 text-xs text-gray-600">{captcha.question}</label>
+                <input
+                  type="text"
+                  value={captchaInput}
+                  onChange={(e) => setCaptchaInput(e.target.value)}
+                  placeholder="Your answer"
+                  disabled={isLoading}
+                  className="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs text-black sm:text-sm border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent placeholder-gray-400"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading || isSubscribed}
+                className={`
+                  group relative inline-block w-full overflow-hidden
+                  bg-[#82a133] text-white font-medium py-3 px-6 rounded-md
+                  text-sm transition-all duration-300 border border-transparent
+                  hover:border-[#83BCA9] tracking-wider uppercase text-xs sm:text-sm
+                  disabled:opacity-50 disabled:cursor-not-allowed
+                `}
+              >
+                <span className="relative z-10 group-hover:text-[#82a133] transition-colors duration-300 whitespace-nowrap text-xs sm:text-sm md:text-base">
+                  {isLoading ? 'Subscribing...' : isSubscribed ? 'Subscribed!' : 'Subscribe'}
+                </span>
+                <span className="absolute inset-0 bg-white scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 z-0"></span>
+              </button>
             </form>
+
             
             {/* Success Message */}
             {isSubscribed && (

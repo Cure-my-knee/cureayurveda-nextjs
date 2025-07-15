@@ -21,13 +21,15 @@
 
 import React, { Suspense } from 'react';
 import PaymentFailureClient from './PaymentFailureClient';
+import OrderFailedPage from '../order-failed/page';
  
  
 
 export default function PaymentFailurePage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <PaymentFailureClient/>
+      {/* <PaymentFailureClient/> */}
+      <OrderFailedPage />
     </Suspense>
   );
 }
