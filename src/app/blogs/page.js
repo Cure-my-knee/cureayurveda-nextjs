@@ -1,9 +1,16 @@
 // 'use client';
 import React from 'react';
-import Head from 'next/head';
 import BreadCrumbBanner from '../components/layout/BreadCrumbBanner';
 import BlogSectionGrid from '../components/layout/Blogs/BlogSectionGrid';
 import SidebarBanner from '../components/layout/Blogs/SidebarBanner';
+
+// seo meta tag
+
+export const metadata = {
+  title: 'Blog - Cure Ayurvedic',
+  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+  robots: 'noindex, nofollow',
+};
 
 const BlogPage = () => {
   const blogBreadcrumbs = [
@@ -13,17 +20,7 @@ const BlogPage = () => {
 
   return (
     <>
-      {/* ✅ SEO Meta Tags */}
-      <Head>
-        <title>Blog | Ayurvedic</title>
-        <meta
-          name="description"
-          content="Read the latest blog of ayurvedics"
-        />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charSet="UTF-8" />
-      </Head>
+      
 
       {/* Breadcrumb */}
       <BreadCrumbBanner

@@ -1,35 +1,26 @@
   // Updated app/page.js
-
 import HomePage from "./main-components/HomePage";
+
+export const metadata = {
+  title: "Buy Best Ayurvedic Products Online in India | Cure Ayurvedic",
+  description: "Cure Ayurvedic is the top ayurvedic & wellness product company in India. Shop trusted ayurvedic medicine online today at the best price.",
+  robots: "noindex, nofollow",
+};
 
 
 
 export default function Home() {
   
   return (
+    <>
+      
+ 
     <div className="bg-white">
       
       <HomePage />
        
     </div>
+    </>
   );
 }
-
-// src/app/page.js
-// 'use client';
-
-// import dynamic from 'next/dynamic';
-
-// // ✅ Dynamically import HomePage with SSR disabled
-// const HomePage = dynamic(() => import('./main-components/HomePage'), { ssr: false });
-
-// export default function Home() {
-//   return (
-//     <div className="bg-white">
-//       <HomePage />
-//     </div>
-//   );
-// }
-
-
  

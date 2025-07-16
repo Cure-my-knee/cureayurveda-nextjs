@@ -16,6 +16,7 @@ import BlogSectionLanding from '../components/layout/Blogs/BlogSectionLanding';
 import WhyChooseTwo from '../components/layout/WhyChooseTwo';
 import Guarantee from '../components/layout/Guarantee';
  
+ 
 
  
  
@@ -27,6 +28,8 @@ export default function HomePage() {
  
   
   return (
+    <> 
+     
     <div className="bg-white">
       <HeroSection />
       {/* <Crt /> */}
@@ -59,5 +62,6 @@ export default function HomePage() {
        
        
     </div>
+    </>
   );
 }

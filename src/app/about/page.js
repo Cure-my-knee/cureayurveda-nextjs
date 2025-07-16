@@ -1,45 +1,66 @@
-import React from 'react';
-import { CheckCircle, Heart, Shield, Users, Target, Award } from 'lucide-react';
-import BreadCrumbBanner from '../components/layout/BreadCrumbBanner';
-import Head from 'next/head';
-import Crt from '../components/layout/Crt';
-import GuaranteeSection from '../components/about/GuranteeSection';
-import AboutUsSection from '../components/about/AboutUsSection';
-import OurStorySection from '../components/about/OurStorySection';
-import OurMission from '../components/about/OurMission';
+// import React from 'react';
+// import { CheckCircle, Heart, Shield, Users, Target, Award } from 'lucide-react';
+// import BreadCrumbBanner from '../components/layout/BreadCrumbBanner';
+// // import Head from 'next/head';
+// import Crt from '../components/layout/Crt';
+// import GuaranteeSection from '../components/about/GuranteeSection';
+// import AboutUsSection from '../components/about/AboutUsSection';
+ 
+// import OurMission from '../components/about/OurMission';
+
+
+// // seo meta tag
+
+// export const metadata = {
+//   title: 'About Us: Know Our Story & Purpose, Quality | Cure Ayurvedic',
+//   description: 'Know about Cure Ayurvedic story, product quality and more. Shop from our wide range of ayurvedic products that support overall health.',
+//   robots: 'noindex, nofollow',
+// };
+
+
  
 
-const AboutUsPage = () => {
-  const aboutBreadcrumbs = [
-    { label: 'Home', href: '/' },
-    { label: 'About Us' }
-  ];
-  return (
+// const AboutUsPage = () => {
+//   const aboutBreadcrumbs = [
+//     { label: 'Home', href: '/' },
+//     { label: 'About Us' }
+//   ];
+//   return (
 
-    <> 
-    {/* ✅ SEO Meta Tags */}
-      <Head>
-        <title>About Us</title>
-        <meta
-          name="description"
-          content="Read about ayurvedics"
-        />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charSet="UTF-8" />
-      </Head>
-    <BreadCrumbBanner  title="About Us"
-    breadcrumbs={aboutBreadcrumbs} />
+//     <> 
+ 
+//     <BreadCrumbBanner  title="About Us"
+//     breadcrumbs={aboutBreadcrumbs} />
      
-     <OurMission />
-     <AboutUsSection />
+//      <OurMission />
+//      <AboutUsSection />
      
-     {/* <OurStorySection /> */}
-     <Crt />
-    <GuaranteeSection />
+//      {/* <OurStorySection /> */}
+//      <Crt />
+//     <GuaranteeSection />
 
-    </>
-  );
+//     </>
+//   );
+// };
+
+// export default AboutUsPage;
+
+
+import React from 'react';
+import AboutUsPage from '../components/about/AboutUsPage';
+ 
+
+// seo meta tag
+export const metadata = {
+  title: 'About Us: Know Our Story & Purpose, Quality | Cure Ayurvedic',
+  description: 'Know about Cure Ayurvedic story, product quality and more. Shop from our wide range of ayurvedic products that support overall health.',
+  robots: 'noindex, nofollow',
 };
 
-export default AboutUsPage;
+export default function About() {
+  return (
+    <> 
+     <AboutUsPage />
+    </>
+  );
+}

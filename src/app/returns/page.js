@@ -1,7 +1,14 @@
-'use client'
+// 'use client'
 import React from 'react';
 import BreadCrumbBanner from '../components/layout/BreadCrumbBanner';
 import Title from '../components/ui/Title';
+
+// seo meta tag
+export const metadata = {
+  title: 'Return - Cure Ayurvedic',
+  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+  robots: 'noindex, nofollow',
+};
 
 export default function ReturnPolicy() {
    const returnBreadcrumbs = [
@@ -21,10 +28,10 @@ export default function ReturnPolicy() {
       
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      {/* <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         <div className="bg-white rounded-lg shadow-sm p-6 md:p-8 lg:p-12">
           
-          {/* General Shipping Info */}
+          
           <div className="mb-8 md:mb-12">
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6">
               We can ship products almost anywhere in India other than a few locations, which our logistic 
@@ -47,7 +54,7 @@ export default function ReturnPolicy() {
             </p>
           </div>
 
-          {/* Domestic Shipment Section */}
+         
           <div className="mb-8 md:mb-12">
             <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 md:mb-6">
               Domestic Shipment
@@ -58,9 +65,9 @@ export default function ReturnPolicy() {
             </p>
           </div>
 
-          {/* Additional Information Cards */}
+           
           <div className="grid gap-6 md:gap-8 md:grid-cols-2">
-            {/* Delivery Time Card */}
+         
             <div className="bg-blue-50 rounded-lg p-6">
               <div className="flex items-center mb-3">
                 <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
@@ -75,7 +82,7 @@ export default function ReturnPolicy() {
               </p>
             </div>
 
-            {/* Packaging Card */}
+            
             <div className="bg-green-50 rounded-lg p-6">
               <div className="flex items-center mb-3">
                 <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
@@ -90,7 +97,7 @@ export default function ReturnPolicy() {
               </p>
             </div>
 
-            {/* Customer Support Card */}
+             
             <div className="bg-purple-50 rounded-lg p-6">
               <div className="flex items-center mb-3">
                 <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3">
@@ -105,7 +112,7 @@ export default function ReturnPolicy() {
               </p>
             </div>
 
-            {/* Real-time Tracking Card */}
+            
             <div className="bg-orange-50 rounded-lg p-6">
               <div className="flex items-center mb-3">
                 <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3">
@@ -122,7 +129,7 @@ export default function ReturnPolicy() {
             </div>
           </div>
 
-          {/* Important Notice */}
+      
           <div className="mt-8 md:mt-12 bg-yellow-50 border-l-4 border-yellow-400 p-4 md:p-6">
             <div className="flex items-start">
               <div className="flex-shrink-0">
@@ -142,7 +149,7 @@ export default function ReturnPolicy() {
           </div>
 
         </div>
-      </div>
+      </div> */}
 
        
        

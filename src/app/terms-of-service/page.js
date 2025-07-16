@@ -1,7 +1,14 @@
-'use client'
+// 'use client'
 import React from 'react';
 import BreadCrumbBanner from '../components/layout/BreadCrumbBanner';
 import Title from '../components/ui/Title';
+
+// seo meta tag
+export const metadata = {
+  title: 'Terms of service test- Cure Ayurvedic',
+  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+  robots: 'noindex, nofollow',
+};
 
 export default function TermsService() {
 

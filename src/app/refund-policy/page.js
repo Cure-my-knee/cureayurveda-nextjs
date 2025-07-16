@@ -1,7 +1,14 @@
-'use client'
+// 'use client'
 import React from 'react';
 import BreadCrumbBanner from '../components/layout/BreadCrumbBanner';
 import Title from '../components/ui/Title';
+
+// seo meta tag
+export const metadata = {
+  title: 'Refund Policy - Cure Ayurvedic',
+  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+  robots: 'noindex, nofollow',
+};
 
 export default function RefundPolicy() {
    const refundBreadcrumbs = [
@@ -27,23 +34,7 @@ export default function RefundPolicy() {
     {/* Return and Refund Policy Section */}
     <div className="mb-8 md:mb-12">
 
-      {/* <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
-        <span className="font-semibold text-black block mb-2">Our Mission</span>
-        Our mission is to bring natural, authentic Ayurvedic wellness to your doorstep.
-        <br /><br />
-        We understand that sometimes, things don't go as planned.
-        <br />
-        You may receive a damaged item, an incorrect product, or simply change your mind.
-        <br />
-        That's why we have a simple and transparent Return and Refund Policy designed to make your shopping experience easy, safe, and worry-free.
-      </p> */}
-
-      {/* <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
-        <span className="font-semibold text-black block mb-2">Our Promise to You</span>
-        We stand behind the quality of every product we offer. Each item is carefully packed and checked before it reaches you. However, if there is an issue with your order, we promise to handle it quickly and fairly.
-        <br />
-        Our return and refund policy is guided by honesty, responsibility, and respect for our customers.
-      </p> */}
+      
 
       <div className="text-gray-700 text-base text-justify leading-relaxed mb-6">
         <span className="font-semibold text-black block mb-2">When Can You Request a Return?</span>

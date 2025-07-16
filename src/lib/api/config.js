@@ -14,7 +14,7 @@ const BASE_URL = 'https://abhineshwork.onrender.com/api';
 // Create axios instance with base configuration
 const apiClient = axios.create({
   baseURL: BASE_URL,
-  timeout: 10000,
+  timeout: 20000,
   headers: {
     'Content-Type': 'application/json',
   },

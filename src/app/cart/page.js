@@ -2,6 +2,12 @@
 import React, { useState } from 'react';
 import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft } from 'lucide-react';
 
+// export const metadata = {
+//   title: 'Cart - Cure Ayurvedic',
+//   description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+//   robots: 'noindex, nofollow',
+// };
+
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([
     {
