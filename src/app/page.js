@@ -4,7 +4,7 @@ import HomePage from "./main-components/HomePage";
 export const metadata = {
   title: "Buy Best Ayurvedic Products Online in India | Cure Ayurvedic",
   description: "Cure Ayurvedic is the top ayurvedic & wellness product company in India. Shop trusted ayurvedic medicine online today at the best price.",
-  robots: "noindex, nofollow",
+   
 };
 
 
