@@ -1445,8 +1445,8 @@ function CheckoutContent( ) {
       if (!item.id && !item.productId) errors.push(`Item ${index + 1}: Product ID is required`);
       if (!item.name && !item.productName) errors.push(`Item ${index + 1}: Product name is required`);
        if (item.price === undefined || item.price === null || isNaN(item.price)) {
-  errors.push(`Item ${index + 1}: Valid price is required`);
-}
+        errors.push(`Item ${index + 1}: Valid price is required`);
+        }
 
       if (!item.quantity || item.quantity <= 0) errors.push(`Item ${index + 1}: Valid quantity is required`);
       // SKU and weight are now guaranteed to exist from loadCartItems
@@ -1467,6 +1467,23 @@ function CheckoutContent( ) {
     if (!shippingAddress.city.trim()) errors.push('City is required');
     if (!shippingAddress.state.trim()) errors.push('State is required');
     if (!shippingAddress.zipCode.trim()) errors.push('ZIP code is required');
+
+    // new update
+    // ✨ New validations
+        const phoneRegex = /^\d{10}$/;
+        if (!phoneRegex.test(shippingAddress.phone)) {
+            errors.push('Phone number must be 10 digits');
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(shippingAddress.email)) {
+            errors.push('Enter a valid email address');
+        }
+
+        const zipRegex = /^\d{6}$/;
+        if (!zipRegex.test(shippingAddress.zipCode)) {
+            errors.push('ZIP code must be 6 digits');
+        }
     
     return errors;
   };
@@ -1991,7 +2008,7 @@ function CheckoutContent( ) {
               <button
                 onClick={handlePlaceOrder}
                 disabled={isProcessing || cartItems.length === 0}
-                className="w-full mt-6 bg-blue-600 text-white py-3 px-4 rounded-md font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full mt-6 bg-[#82a133] text-white py-3 px-4 rounded-md font-medium hover:bg-[#586e20] focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isProcessing ? (
                   <div className="flex items-center justify-center">

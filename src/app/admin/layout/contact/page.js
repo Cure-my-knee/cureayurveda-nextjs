@@ -138,7 +138,8 @@ const fetchContacts = async () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-600" />
+          {/* <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-blue-600" /> */}
+           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading contacts...</p>
         </div>
       </div>

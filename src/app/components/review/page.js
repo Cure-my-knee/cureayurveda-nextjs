@@ -15,10 +15,10 @@ const ProductReviews = ({ productId = 'default', productName = 'Product' }) => {
       rating: 5,
       title: 'Excellent product!',
       comment: 'This product exceeded my expectations. The quality is outstanding and it works exactly as described.',
-      date: '2024-06-15',
+      date: '2025-06-15',
       verified: true,
       helpful: 12,
-      notHelpful: 1,
+      notHelpful: 0,
       userLiked: null
     },
     {
@@ -27,7 +27,7 @@ const ProductReviews = ({ productId = 'default', productName = 'Product' }) => {
       rating: 4,
       title: 'Good value for money',
       comment: 'Overall satisfied with the purchase. The product is well-made and functions as expected.',
-      date: '2024-06-10',
+      date: '2025-06-10',
       verified: true,
       helpful: 8,
       notHelpful: 0,
@@ -39,10 +39,10 @@ const ProductReviews = ({ productId = 'default', productName = 'Product' }) => {
       rating: 5,
       title: 'Highly recommended',
       comment: 'Amazing quality and great customer service. The product arrived exactly as described.',
-      date: '2024-06-05',
+      date: '2025-06-05',
       verified: false,
       helpful: 15,
-      notHelpful: 2,
+      notHelpful: 0,
       userLiked: null
     },
     {
@@ -51,10 +51,10 @@ const ProductReviews = ({ productId = 'default', productName = 'Product' }) => {
       rating: 3,
       title: 'Average product',
       comment: 'The product is okay but nothing special. It does what it is supposed to do.',
-      date: '2024-05-28',
+      date: '2025-05-28',
       verified: true,
       helpful: 5,
-      notHelpful: 3,
+      notHelpful: 0,
       userLiked: null
     }
   ];

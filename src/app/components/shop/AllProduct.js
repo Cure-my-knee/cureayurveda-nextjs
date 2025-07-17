@@ -1061,7 +1061,7 @@ const AllProduct = () => {
           </ScrollFadeUp>
 
           {/* Load More Button */}
-          {products.length > 0 && !loading && (
+          {/* {products.length > 0 && !loading && (
             <div className="text-center pb-12">
               <Button 
                 onClick={handleLoadMore} 
@@ -1081,7 +1081,7 @@ const AllProduct = () => {
                 )}
               </Button>
             </div>
-          )}
+          )} */}
         </div>
       </section>
       <ShopBanner />

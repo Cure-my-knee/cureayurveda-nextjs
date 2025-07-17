@@ -1460,6 +1460,7 @@ import Button from '../ui/Button';
 import ProductReviews from '../review/page';
 import RelatedProduct from '../layout/Shop/RelatedProduct';
 import { authAPI } from '@/lib/api/endpoints';
+import FAQAccordion from '../layout/FaqLayout/FAQAccordion';
 
 
 const ProductDetailsPage = () => {
@@ -1469,6 +1470,11 @@ const ProductDetailsPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState('');
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleIndex = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
   
   const router = useRouter();
   const params = useParams();
@@ -1514,6 +1520,8 @@ const ProductDetailsPage = () => {
             : ["/images/defaultproduct/productimage1.jpeg"],   
           description: productData.description || 'No description available',
           benefits: productData.benefits || [],
+          directionsForUse: productData.directionsForUse || [],
+          composition: productData.composition || [],
           sizes: productData.sizes || [],
           painTypes: productData.painTypes || [],
           guaranteeIcons: productData.guaranteeIcons || [],
@@ -1731,7 +1739,7 @@ const ProductDetailsPage = () => {
                 alt={product.productName}
                 width={300}
                 height={300}
-                className="object-cover rounded-lg w-full max-w-md mx-auto aspect-square shadow-lg"
+                className="object-contain bg-[#E0E7ED] rounded-lg w-full max-w-md mx-auto aspect-square shadow-lg"
               />
             </div>
             {/* Thumbnail Images */}
@@ -1740,7 +1748,7 @@ const ProductDetailsPage = () => {
                 {product.images.map((image, index) => (
                   <button
                     key={index}
-                    className={`flex-shrink-0 w-16 h-16 bg-gray-100 rounded-lg border-2 transition-all ${
+                    className={`flex-shrink-0 w-16 h-16 bg-[#E0E7ED] rounded-lg border-2 transition-all ${
                       selectedImage === index ? 'border-blue-500 shadow-md' : 'border-gray-300 hover:border-gray-400'
                     }`}
                     onClick={() => setSelectedImage(index)}
@@ -1750,7 +1758,7 @@ const ProductDetailsPage = () => {
                       alt={`Product image ${index + 1}`}
                       width={64}
                       height={64}
-                      className="object-cover w-full h-full rounded-lg"
+                      className="object-contain w-full h-full rounded-lg"
                     />
                   </button>
                 ))}
@@ -1805,7 +1813,7 @@ const ProductDetailsPage = () => {
             </div>
 
             {/* Pain Types */}
-            {product.painTypes && product.painTypes.length > 0 && (
+            {/* {product.painTypes && product.painTypes.length > 0 && (
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">For Relief From:</h3>
                 <div className="flex flex-wrap gap-2">
@@ -1820,7 +1828,7 @@ const ProductDetailsPage = () => {
                   ))}
                 </div>
               </div>
-            )}
+            )} */}
 
             {/* Sizes */}
             {product.sizes && product.sizes.length > 0 && (
@@ -1902,7 +1910,7 @@ const ProductDetailsPage = () => {
             </div>
 
             {/* Guarantee Icons */}
-            {product.guaranteeIcons && product.guaranteeIcons.length > 0 && (
+            {/* {product.guaranteeIcons && product.guaranteeIcons.length > 0 && (
               <div className="pt-4 border-t">
                 <div className="flex flex-wrap gap-4">
                   {product.guaranteeIcons.map((guarantee, index) => (
@@ -1919,7 +1927,7 @@ const ProductDetailsPage = () => {
                   ))}
                 </div>
               </div>
-            )}
+            )} */}
           </div>
         </div>
 
@@ -1937,7 +1945,7 @@ const ProductDetailsPage = () => {
             {/* Benefits Section */}
             {product.benefits && product.benefits.length > 0 && (
               <div className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Key Benefits</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Benefits</h3>
                 <ul className="space-y-3">
                   {product.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start text-gray-700">
@@ -1948,10 +1956,19 @@ const ProductDetailsPage = () => {
                 </ul>
               </div>
             )}
+
+          <div className="w-full ">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">How To Use</h3>
+            <p className="text-gray-700 text-justify leading-relaxed text-lg">
+              {product.directionsForUse || 'Usage instructions will be available soon.'}
+            </p>
+          </div>
+        </div>
           </div>
 
           {/* Right Section - 40% - FAQ */}
-          <div className="w-full lg:w-2/5">
+          {/* <div className="w-full lg:w-2/5">
             {product.faq && product.faq.length > 0 && (
               <div className="bg-white rounded-lg shadow-sm p-6 sticky top-4">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h3>
@@ -1965,8 +1982,34 @@ const ProductDetailsPage = () => {
                 </div>
               </div>
             )}
+          </div> */}
+
+          {product.faq && product.faq.length > 0 && (
+          <div className="w-full lg:w-2/5">
+            <FAQAccordion faqList={product.faq} />
+          </div>
+        )}
+        </div>
+        {/* <div className="flex flex-col lg:flex-row gap-6 mt-10">
+         
+        <div className="w-full lg:w-3/5">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Composition</h3>
+            <p className="text-gray-700 text-justify leading-relaxed text-lg">
+              {product.composition || 'Composition details will be available soon.'}
+            </p>
           </div>
         </div>
+
+        <div className="w-full ">
+          <div className="bg-white rounded-lg shadow-sm p-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Direction for use</h3>
+            <p className="text-gray-700 text-justify leading-relaxed text-lg">
+              {product.directionsForUse || 'Usage instructions will be available soon.'}
+            </p>
+          </div>
+        </div>
+        </div> */}
       </div>
     </div>
 

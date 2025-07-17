@@ -178,19 +178,19 @@ const ProductCardShop = ({
       onClick={handleProductClick}
     >
       {/* Image Container */}
-      <div className="relative bg-gradient-to-br from-pink-50 to-rose-100 aspect-square">
+      <div className="relative bg-[#E0E7ED] aspect-square">
         {/* Default Image */}
         <img 
           src={productImage}
           alt={productName}
-          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
+          className={`w-full h-full object-contain absolute inset-0 transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
         />
         
         {/* Hover Image */}
         <img 
           src={hoverImage}
           alt={productName + " Hover"}
-          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full h-full object-contain absolute inset-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
         />
 
         {/* Hover Icons Overlay */}

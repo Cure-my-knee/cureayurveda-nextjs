@@ -151,7 +151,7 @@ export default function OrderFailedPage() {
 
           <button
             onClick={handleGoBack}
-            className="w-full sm:w-auto px-8 py-4 bg-gray-600 text-white font-semibold rounded-xl hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="w-full sm:w-auto px-8 py-4 bg-[#82a133] text-white font-semibold rounded-xl hover:bg-[#586e20] focus:outline-none focus:ring-4 focus:ring-[#586e20] transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Go Back</span>
@@ -159,7 +159,7 @@ export default function OrderFailedPage() {
 
           <button
             onClick={handleContinueShopping}
-            className="w-full sm:w-auto px-8 py-4 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="w-full sm:w-auto px-8 py-4 bg-[#82a133] text-white font-semibold rounded-xl hover:bg-[#586e20] focus:outline-none focus:ring-4 focus:ring-[#586e20] transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <ShoppingBag className="w-5 h-5" />
             <span>Continue Shopping</span>
@@ -167,7 +167,7 @@ export default function OrderFailedPage() {
 
           <button
             onClick={handleGoHome}
-            className="w-full sm:w-auto px-8 py-4 bg-purple-600 text-white font-semibold rounded-xl hover:bg-purple-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="w-full sm:w-auto px-8 py-4 bg-[#82a133] text-white font-semibold rounded-xl hover:bg-[#586e20] focus:outline-none focus:ring-4 focus:ring-[#586e20] transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <Home className="w-5 h-5" />
             <span>Go to Home</span>

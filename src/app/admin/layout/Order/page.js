@@ -1,11 +1,13 @@
 'use client';
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Search, Filter, Eye } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Search, Filter, Eye, FileText, Download } from 'lucide-react';
 
 const OrderTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const [showBillPreview, setShowBillPreview] = useState(false);
+  const [billOrder, setBillOrder] = useState(null);
   const itemsPerPage = 10;
 
   // Sample data - replace with your actual data
@@ -21,7 +23,12 @@ const OrderTable = () => {
       orderShipStatus: 'Shipped',
       orderStatus: 'Processing',
       createdAt: '2024-01-15',
-      address: '123 Main St, New York, NY 10001'
+      address: '123 Main St, New York, NY 10001',
+      phone: '+1 (555) 123-4567',
+      quantity: 1,
+      unitPrice: 299.99,
+      tax: 23.99,
+      shippingFee: 15.00
     },
     {
       userId: 'U002',
@@ -34,7 +41,12 @@ const OrderTable = () => {
       orderShipStatus: 'Preparing',
       orderStatus: 'Confirmed',
       createdAt: '2024-01-16',
-      address: '456 Oak Ave, Los Angeles, CA 90210'
+      address: '456 Oak Ave, Los Angeles, CA 90210',
+      phone: '+1 (555) 987-6543',
+      quantity: 2,
+      unitPrice: 24.99,
+      tax: 4.00,
+      shippingFee: 5.00
     },
     {
       userId: 'U003',
@@ -47,7 +59,12 @@ const OrderTable = () => {
       orderShipStatus: 'Delivered',
       orderStatus: 'Completed',
       createdAt: '2024-01-17',
-      address: '789 Pine St, Chicago, IL 60601'
+      address: '789 Pine St, Chicago, IL 60601',
+      phone: '+1 (555) 456-7890',
+      quantity: 1,
+      unitPrice: 89.99,
+      tax: 7.20,
+      shippingFee: 10.00
     },
     {
       userId: 'U004',
@@ -60,7 +77,12 @@ const OrderTable = () => {
       orderShipStatus: 'Shipped',
       orderStatus: 'Processing',
       createdAt: '2024-01-18',
-      address: '321 Elm St, Miami, FL 33101'
+      address: '321 Elm St, Miami, FL 33101',
+      phone: '+1 (555) 234-5678',
+      quantity: 1,
+      unitPrice: 159.99,
+      tax: 12.80,
+      shippingFee: 12.00
     },
     {
       userId: 'U005',
@@ -73,7 +95,12 @@ const OrderTable = () => {
       orderShipStatus: 'Cancelled',
       orderStatus: 'Cancelled',
       createdAt: '2024-01-19',
-      address: '654 Maple Dr, Seattle, WA 98101'
+      address: '654 Maple Dr, Seattle, WA 98101',
+      phone: '+1 (555) 345-6789',
+      quantity: 3,
+      unitPrice: 6.66,
+      tax: 1.60,
+      shippingFee: 0.00
     }
   ];
 
@@ -98,6 +125,145 @@ const OrderTable = () => {
       }
     };
     return colors[type][status] || 'bg-gray-100 text-gray-800';
+  };
+
+  const generateBillPDF = (order) => {
+    const subtotal = order.unitPrice * order.quantity;
+    const total = subtotal + order.tax + order.shippingFee;
+    
+    const billContent = `
+      <html>
+        <head>
+          <title>Invoice - ${order.orderId}</title>
+          <style>
+            body { font-family: Arial, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+            .header { text-align: center; margin-bottom: 30px; border-bottom: 2px solid #333; padding-bottom: 20px; }
+            .company-name { font-size: 28px; font-weight: bold; color: #2563eb; margin-bottom: 5px; }
+            .invoice-title { font-size: 24px; color: #333; margin-top: 10px; }
+            .invoice-info { display: flex; justify-content: space-between; margin-bottom: 30px; }
+            .billing-info { width: 48%; }
+            .section-title { font-size: 16px; font-weight: bold; color: #333; margin-bottom: 10px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+            .info-row { margin-bottom: 8px; }
+            .label { font-weight: bold; display: inline-block; width: 100px; }
+            .items-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+            .items-table th, .items-table td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+            .items-table th { background-color: #f8f9fa; font-weight: bold; }
+            .total-section { margin-top: 30px; width: 300px; margin-left: auto; }
+            .total-row { display: flex; justify-content: space-between; margin-bottom: 8px; padding: 5px 0; }
+            .total-row.final { font-weight: bold; font-size: 18px; border-top: 2px solid #333; padding-top: 10px; }
+            .footer { margin-top: 50px; text-align: center; color: #666; font-size: 12px; }
+            .status-badge { padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+            .status-paid { background-color: #dcfce7; color: #166534; }
+            .status-pending { background-color: #fef3c7; color: #92400e; }
+            .status-failed { background-color: #fecaca; color: #991b1b; }
+            @media print {
+              body { margin: 0; }
+              .no-print { display: none; }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <div class="company-name">Your Company Name</div>
+            <div>123 Business Street, City, State 12345</div>
+            <div>Phone: (555) 123-4567 | Email: info@company.com</div>
+            <div class="invoice-title">INVOICE</div>
+          </div>
+
+          <div class="invoice-info">
+            <div class="billing-info">
+              <div class="section-title">Bill To:</div>
+              <div class="info-row"><strong>${order.userName}</strong></div>
+              <div class="info-row">${order.email}</div>
+              <div class="info-row">${order.phone}</div>
+              <div class="info-row">${order.address}</div>
+            </div>
+            <div class="billing-info">
+              <div class="section-title">Invoice Details:</div>
+              <div class="info-row">
+                <span class="label">Invoice #:</span> ${order.orderId}
+              </div>
+              <div class="info-row">
+                <span class="label">Date:</span> ${order.createdAt}
+              </div>
+              <div class="info-row">
+                <span class="label">User ID:</span> ${order.userId}
+              </div>
+              <div class="info-row">
+                <span class="label">Status:</span> 
+                <span class="status-badge status-${order.paymentStatus.toLowerCase()}">${order.paymentStatus}</span>
+              </div>
+            </div>
+          </div>
+
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th>Item Description</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>${order.orderItemName}</td>
+                <td>${order.quantity}</td>
+                <td>$${order.unitPrice.toFixed(2)}</td>
+                <td>$${subtotal.toFixed(2)}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="total-section">
+            <div class="total-row">
+              <span>Subtotal:</span>
+              <span>$${subtotal.toFixed(2)}</span>
+            </div>
+            <div class="total-row">
+              <span>Tax:</span>
+              <span>$${order.tax.toFixed(2)}</span>
+            </div>
+            <div class="total-row">
+              <span>Shipping:</span>
+              <span>$${order.shippingFee.toFixed(2)}</span>
+            </div>
+            <div class="total-row final">
+              <span>Total:</span>
+              <span>$${total.toFixed(2)}</span>
+            </div>
+          </div>
+
+          <div class="footer">
+            <p>Thank you for your business!</p>
+            <p>This is a computer-generated invoice. No signature required.</p>
+          </div>
+
+          <div class="no-print" style="text-align: center; margin-top: 30px;">
+            <button onclick="window.print()" style="background-color: #2563eb; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-right: 10px;">
+              Print Invoice
+            </button>
+            <button onclick="window.close()" style="background-color: #6b7280; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+              Close
+            </button>
+          </div>
+        </body>
+      </html>
+    `;
+
+    const newWindow = window.open('', '_blank');
+    newWindow.document.write(billContent);
+    newWindow.document.close();
+  };
+
+  const handleCreateBill = (order) => {
+    setBillOrder(order);
+    setShowBillPreview(true);
+  };
+
+  const handleGeneratePDF = () => {
+    generateBillPDF(billOrder);
+    setShowBillPreview(false);
   };
 
   const filteredOrders = orders.filter(order =>
@@ -176,10 +342,123 @@ const OrderTable = () => {
               <p className="text-gray-900">{order.address}</p>
             </div>
           </div>
+          
+          <div className="mt-6 pt-6 border-t border-gray-200">
+            <button
+              onClick={() => handleCreateBill(order)}
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+            >
+              <FileText className="h-4 w-4" />
+              Create Bill
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
+
+  const BillPreviewModal = ({ order, onClose, onGenerate }) => {
+    const subtotal = order.unitPrice * order.quantity;
+    const total = subtotal + order.tax + order.shippingFee;
+    
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="p-6">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-gray-900">Bill Preview</h2>
+              <button
+                onClick={onClose}
+                className="text-gray-500 hover:text-gray-700 text-2xl"
+              >
+                ×
+              </button>
+            </div>
+            
+            <div className="border border-gray-200 rounded-lg p-6 mb-6">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-bold text-blue-600">Your Company Name</h3>
+                <p className="text-sm text-gray-600">123 Business Street, City, State 12345</p>
+                <p className="text-sm text-gray-600">Phone: (555) 123-4567 | Email: info@company.com</p>
+                <h4 className="text-lg font-semibold mt-4">INVOICE</h4>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h5 className="font-semibold text-gray-700 mb-2">Bill To:</h5>
+                  <p className="text-sm">{order.userName}</p>
+                  <p className="text-sm">{order.email}</p>
+                  <p className="text-sm">{order.address}</p>
+                </div>
+                <div>
+                  <h5 className="font-semibold text-gray-700 mb-2">Invoice Details:</h5>
+                  <p className="text-sm">Invoice #: {order.orderId}</p>
+                  <p className="text-sm">Date: {order.createdAt}</p>
+                  <p className="text-sm">User ID: {order.userId}</p>
+                </div>
+              </div>
+              
+              <div className="border-t border-gray-200 pt-4">
+                <table className="w-full mb-4">
+                  <thead>
+                    <tr className="border-b">
+                      <th className="text-left text-black py-2">Item</th>
+                      <th className="text-right text-black py-2">Qty</th>
+                      <th className="text-right text-black py-2">Unit Price</th>
+                      <th className="text-right text-black py-2">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="py-2 text-black">{order.orderItemName}</td>
+                      <td className="text-right text-black py-2">{order.quantity}</td>
+                      <td className="text-right text-black py-2">${order.unitPrice.toFixed(2)}</td>
+                      <td className="text-right text-black py-2">${subtotal.toFixed(2)}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+                <div className="border-t pt-4">
+                  <div className="flex justify-between py-1">
+                    <span className='text-black'>Subtotal:</span>
+                    <span  className='text-black'>${subtotal.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between py-1">
+                    <span  className='text-black'>Tax:</span>
+                    <span  className='text-black'>${order.tax.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between py-1">
+                    <span  className='text-black'>Shipping:</span>
+                    <span  className='text-black'>${order.shippingFee.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between py-2 font-bold border-t">
+                    <span  className='text-black' >Total:</span>
+                    <span  className='text-black' >${total.toFixed(2)}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex gap-3">
+              <button
+                onClick={onClose}
+                className="flex-1 bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={onGenerate}
+                className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+              >
+                <Download className="h-4 w-4" />
+                Generate PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="w-full max-w-7xl mx-auto p-4">
@@ -188,7 +467,7 @@ const OrderTable = () => {
         <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <h1 className="text-2xl font-bold text-gray-900">Order Management</h1>
-            {/* <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <div className="relative">
                 <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <input
@@ -203,7 +482,7 @@ const OrderTable = () => {
                 <Filter className="h-4 w-4" />
                 Filter
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
 
@@ -256,13 +535,22 @@ const OrderTable = () => {
                     {order.createdAt}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <button
-                      onClick={() => setSelectedOrder(order)}
-                      className="text-blue-600 hover:text-blue-900 flex items-center gap-1"
-                    >
-                      <Eye className="h-4 w-4" />
-                      View
-                    </button>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => setSelectedOrder(order)}
+                        className="text-blue-600 hover:text-blue-900 flex items-center gap-1"
+                      >
+                        <Eye className="h-4 w-4" />
+                        View
+                      </button>
+                      <button
+                        onClick={() => handleCreateBill(order)}
+                        className="text-green-600 hover:text-green-900 flex items-center gap-1"
+                      >
+                        <FileText className="h-4 w-4" />
+                        Bill
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -280,13 +568,22 @@ const OrderTable = () => {
                   <p className="text-sm text-gray-500">{order.email}</p>
                   <p className="text-xs text-gray-400">{order.userId}</p>
                 </div>
-                <button
-                  onClick={() => setSelectedOrder(order)}
-                  className="text-blue-600 hover:text-blue-900 flex items-center gap-1"
-                >
-                  <Eye className="h-4 w-4" />
-                  View
-                </button>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setSelectedOrder(order)}
+                    className="text-blue-600 hover:text-blue-900 flex items-center gap-1"
+                  >
+                    <Eye className="h-4 w-4" />
+                    View
+                  </button>
+                  <button
+                    onClick={() => handleCreateBill(order)}
+                    className="text-green-600 hover:text-green-900 flex items-center gap-1"
+                  >
+                    <FileText className="h-4 w-4" />
+                    Bill
+                  </button>
+                </div>
               </div>
               
               <div className="grid grid-cols-2 gap-3 mb-3">
@@ -373,173 +670,19 @@ const OrderTable = () => {
           onClose={() => setSelectedOrder(null)}
         />
       )}
+
+      {/* Bill Preview Modal */}
+      {showBillPreview && billOrder && (
+        <BillPreviewModal
+          order={billOrder}
+          onClose={() => setShowBillPreview(false)}
+          onGenerate={handleGeneratePDF}
+        />
+      )}
     </div>
   );
 };
 
 export default OrderTable;
 
-
-//  import apiClient from '@/lib/api/config';
-// import { useState, useEffect } from 'react';
-
-// const apiService = {
-//   getAllOrder: async () => {
-//     try {
-//       // Get the token from localStorage
-//       const token = localStorage.getItem('accessToken');
-      
-//       // Check if the token exists
-//       if (!token) {
-//         throw new Error('No authentication token found. Please log in.');
-//       }
-
-//       const response = await apiClient('/orders', {
-//         method: 'GET',
-//         headers: {
-//           Authorization: `Bearer ${token}`, 
-//         },
-//       });
-
-//       if (!response.ok) {
-//         const errorData = await response.json();
-//         throw new Error(`Error fetching orders: ${errorData.error || 'Unknown error'}`);
-//       }
-
-//       const data = await response.json();
-//       console.log('All order data========>:', data);
-//       return data;
-//     } catch (error) {
-//       // Handle error appropriately
-//       console.error('API error:', error.message);
-//       throw new Error(error.message || 'Failed to fetch orders');
-//     }
-//   }
-// };
-
-// const OrdersPage = () => {
-//   const [orders, setOrders] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     fetchOrders();
-//   }, []);
-
-//   const fetchOrders = async () => {
-//     try {
-//       setLoading(true);
-//       setError(null);
-//       const orderData = await apiService.getAllOrder();
-//       setOrders(orderData);
-//     } catch (err) {
-//       setError(err.message);
-//       console.error('Error fetching orders:', err);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleRefresh = () => {
-//     fetchOrders();
-//   };
-
-//   if (loading) {
-//     return (
-//       <div className="flex justify-center items-center min-h-screen bg-gray-50">
-//         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-//       </div>
-//     );
-//   }
-
-//   if (error) {
-//     return (
-//       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-//         <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full mx-4">
-//           <div className="text-center">
-//             <div className="text-red-500 text-xl mb-4">⚠️</div>
-//             <h2 className="text-xl font-semibold text-gray-800 mb-2">Error Loading Orders</h2>
-//             <p className="text-gray-600 mb-4">{error}</p>
-//             <button
-//               onClick={handleRefresh}
-//               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
-//             >
-//               Try Again
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="min-h-screen bg-gray-50 py-8">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-//           <div className="flex justify-between items-center">
-//             <h1 className="text-2xl font-bold text-gray-800">Orders</h1>
-//             <button
-//               onClick={handleRefresh}
-//               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
-//             >
-//               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-//                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-//               </svg>
-//               Refresh
-//             </button>
-//           </div>
-//         </div>
-
-//         {orders.length === 0 ? (
-//           <div className="bg-white rounded-lg shadow-sm p-8 text-center">
-//             <div className="text-gray-400 text-4xl mb-4">📦</div>
-//             <h3 className="text-lg font-medium text-gray-800 mb-2">No Orders Found</h3>
-//             <p className="text-gray-600">There are no orders to display at the moment.</p>
-//           </div>
-//         ) : (
-//           <div className="grid gap-4">
-//             {orders.map((order, index) => (
-//               <div key={order.id || index} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-//                 <div className="flex justify-between items-start mb-4">
-//                   <div>
-//                     <h3 className="text-lg font-semibold text-gray-800">
-//                       Order #{order.id || order.orderNumber || `ORDER-${index + 1}`}
-//                     </h3>
-//                     <p className="text-sm text-gray-600">
-//                       {order.date || order.createdAt || 'Date not available'}
-//                     </p>
-//                   </div>
-//                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-//                     order.status === 'completed' ? 'bg-green-100 text-green-800' :
-//                     order.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-//                     order.status === 'cancelled' ? 'bg-red-100 text-red-800' :
-//                     'bg-gray-100 text-gray-800'
-//                   }`}>
-//                     {order.status || 'Unknown'}
-//                   </span>
-//                 </div>
-                
-//                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-//                   <div>
-//                     <span className="font-medium text-gray-700">Customer:</span>
-//                     <p className="text-gray-600">{order.customerName || 'N/A'}</p>
-//                   </div>
-//                   <div>
-//                     <span className="font-medium text-gray-700">Total:</span>
-//                     <p className="text-gray-600">${order.total || order.amount || '0.00'}</p>
-//                   </div>
-//                   <div>
-//                     <span className="font-medium text-gray-700">Items:</span>
-//                     <p className="text-gray-600">{order.itemCount || order.items?.length || 0} items</p>
-//                   </div>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default OrdersPage;
+ 
