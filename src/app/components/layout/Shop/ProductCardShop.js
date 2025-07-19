@@ -178,19 +178,19 @@ const ProductCardShop = ({
       onClick={handleProductClick}
     >
       {/* Image Container */}
-      <div className="relative bg-[#E0E7ED] aspect-square">
+      <div className="relative bg-[#d6e5d8] aspect-square">
         {/* Default Image */}
         <img 
           src={productImage}
           alt={productName}
-          className={`w-full h-full object-contain absolute inset-0 transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
+          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
         />
         
         {/* Hover Image */}
         <img 
           src={hoverImage}
           alt={productName + " Hover"}
-          className={`w-full h-full object-contain absolute inset-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
         />
 
         {/* Hover Icons Overlay */}
@@ -229,7 +229,7 @@ const ProductCardShop = ({
       {/* Product Details */}
       <div className="px-3 py-4 sm:px-4 sm:py-5 md:px-6 md:py-6 text-center bg-white">
         {/* Product Name */}
-        <div className="text-gray-600 text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase">
+        <div className="text-gray-600 text-[10px] sm:text-xs md:text-sm tracking-[0.2em] ">
           {productName}
         </div>
         
@@ -237,7 +237,7 @@ const ProductCardShop = ({
         {/* <div className="text-gray-600 text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase">
           {currency} {price} {mrpText}
         </div> */}
-        <div className="text-gray-600 text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase">
+        <div className="text-gray-600 text-[10px] sm:text-xs md:text-sm tracking-[0.2em] ">
         {currency} {price}
         {mrpText && (
           <span className="ml-2 line-through text-gray-400">

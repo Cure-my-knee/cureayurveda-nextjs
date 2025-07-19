@@ -1739,7 +1739,7 @@ const ProductDetailsPage = () => {
                 alt={product.productName}
                 width={300}
                 height={300}
-                className="object-contain bg-[#E0E7ED] rounded-lg w-full max-w-md mx-auto aspect-square shadow-lg"
+                className="object-cover bg-[#d6e5d8] rounded-lg w-full max-w-md mx-auto aspect-square shadow-lg"
               />
             </div>
             {/* Thumbnail Images */}
