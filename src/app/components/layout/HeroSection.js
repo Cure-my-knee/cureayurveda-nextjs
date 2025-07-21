@@ -275,7 +275,7 @@ export default function HeroSection() {
       backgroundImage: "/images/banner/herobanner2.jpg",
       mobileBackgroundImage: "/images/defaultproduct/productdefault3.png", // Add mobile version
       subtitle: "Ayurvedic and Healthy Sugar Management",
-      description: "Natural way to balance Sugar Level that helps to control your diabetes with Potent Herbs!",
+      description: "Natural way to balance Sugar Level that helps to control your diabetes with Potent Herbs !",
       buttonText: "Explore Products",
       buttonLink: "shop"
     },
