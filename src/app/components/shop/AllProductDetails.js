@@ -1449,18 +1449,612 @@
 // export default ProductDetailsPage;
 
 
+// "use client"
+// import React, { useState, useEffect } from 'react';
+// import { useRouter, useParams } from 'next/navigation';
+// import { toast } from 'react-toastify';
+// import Image from 'next/image';
+// import { Heart, ShoppingCart, Star, Plus, Minus, Shield, Leaf } from 'lucide-react';
+// import BreadCrumbBanner from '../layout/BreadCrumbBanner';
+// import Button from '../ui/Button';
+// import ProductReviews from '../review/page';
+// import RelatedProduct from '../layout/Shop/RelatedProduct';
+// import { authAPI } from '@/lib/api/endpoints';
+// import FAQAccordion from '../layout/FaqLayout/FAQAccordion';
+
+
+// const ProductDetailsPage = () => {
+//   const [product, setProduct] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+//   const [quantity, setQuantity] = useState(1);
+//   const [selectedImage, setSelectedImage] = useState(0);
+//   const [selectedSize, setSelectedSize] = useState('');
+//   const [openIndex, setOpenIndex] = useState(null);
+
+//   const toggleIndex = (index) => {
+//     setOpenIndex(openIndex === index ? null : index);
+//   };
+  
+//   const router = useRouter();
+//   const params = useParams();
+//   const productId = params.id;
+
+//   // Breadcrumbs
+//   const breadcrumbs = [
+//     { label: 'Home', href: '/' },
+//     { label: 'Shop', href: '/shop' },
+//     { label: product?.productName || 'Product Details' }
+//   ];
+
+//   // Fetch product details on component mount
+//   useEffect(() => {
+//     if (productId) {
+//       fetchProductDetails();
+//     }
+//   }, [productId]);
+
+//   const fetchProductDetails = async () => {
+//     try {
+//       setLoading(true);
+//       setError(null);
+
+//       const data = await authAPI.getProductDetails(productId);   
+      
+//       // Check if the response is successful
+//       if (data.success) {
+//         const productData = data.data;
+
+//         if (!productData) {
+//           throw new Error('Product not found');
+//         }
+
+//         const transformedProduct = {
+//           id: productData._id || productData.id || productId,
+//           productName: productData.name || 'Unknown Product',
+//           price: productData.price?.toString() || "0",
+//           currency: productData.currency === 'INR' ? '₹' : productData.currency || "₹",
+//           mrpText: productData.mrpText || "MRP",
+//           images: productData.productImages && productData.productImages.length > 0 
+//             ? productData.productImages 
+//             : ["/images/defaultproduct/productimage1.jpeg"],   
+//           description: productData.description || 'No description available',
+//           benefits: productData.benefits || [],
+//           directionsForUse: productData.directionsForUse || [],
+//           composition: productData.composition || [],
+//           sizes: productData.sizes || [],
+//           painTypes: productData.painTypes || [],
+//           guaranteeIcons: productData.guaranteeIcons || [],
+//           faq: productData.faq || [],
+//           stock: productData.stock || 0,
+//           createdAt: productData.createdAt,
+//           updatedAt: productData.updatedAt,
+//           rating: 4.5, // Default rating as API doesn't provide it
+//           reviews: Math.floor(Math.random() * 100) + 10 ,
+//           // Adding these fields from API if available, otherwise defaults
+//           sku: productData.sku || `SKU-${productData._id || productData.id || productId}`,
+//           weight: productData.weight || 0.2,
+//           hsn: productData.hsn || '30049011'
+//         };
+
+//         setProduct(transformedProduct);
+//         console.log('get single product dwtails')
+//         if (transformedProduct.sizes.length > 0) {
+//           setSelectedSize(transformedProduct.sizes[0]);
+//         }
+//       } else {
+//         throw new Error('Product not found');
+//       }
+
+//     } catch (err) {
+//       console.error('Error fetching product details:', err);
+//       setError(err.message || 'Failed to fetch product details');
+//       toast.error('Failed to load product details', {
+//         position: "top-right",
+//         autoClose: 3000,
+//         hideProgressBar: false,
+//         closeOnClick: true,
+//         pauseOnHover: true,
+//         draggable: true,
+//       });
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   const handleQuantityChange = (change) => {
+//     setQuantity(prev => Math.max(1, Math.min(product.stock, prev + change)));
+//   };
+
+//   // Updated handleAddToCart function
+//   const handleAddToCart = () => {
+//     if (product.stock === 0) {
+//       toast.error('Product is out of stock!', {
+//         position: "bottom-right",
+//         autoClose: 2000,
+//       });
+//       return;
+//     }
+
+//     // Create cart item object
+//     const cartItem = {
+//       id: product.id,
+//       name: product.productName,
+//       price: parseFloat(product.price),
+//       quantity: quantity,
+//       image: product.images[0],
+//       size: selectedSize,
+//       currency: product.currency,
+//       stock: product.stock,
+//       // Adding required fields for checkout
+//       sku: product.sku || `SKU-${product.id}`,
+//       weight: product.weight || 0.2,
+//       hsn: product.hsn || '30049011'
+//     };
+
+//     // Get existing cart from localStorage or initialize empty array
+//     const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
+    
+//     // Check if item already exists in cart
+//     const existingItemIndex = existingCart.findIndex(item => 
+//       item.id === cartItem.id && item.size === cartItem.size
+//     );
+
+//     if (existingItemIndex !== -1) {
+//       // Update quantity if item exists
+//       existingCart[existingItemIndex].quantity += cartItem.quantity;
+//     } else {
+//       // Add new item to cart
+//       existingCart.push(cartItem);
+//     }
+
+//     // Save updated cart to localStorage
+//     localStorage.setItem('cart', JSON.stringify(existingCart));
+
+//     console.log('Adding to cart:', cartItem);
+//     toast.success(`Added ${quantity} item(s) to cart!`, {
+//       position: "bottom-right",
+//       autoClose: 2000,
+//       hideProgressBar: false,
+//       closeOnClick: true,
+//       pauseOnHover: true,
+//       draggable: true,
+//     });
+//   };
+
+  
+
+//   // Updated handleBuyNow function
+//   const handleBuyNow = () => {
+//     if (product.stock === 0) {
+//       toast.error('Product is out of stock!', {
+//         position: "bottom-right",
+//         autoClose: 2000,
+//       });
+//       return;
+//     }
+
+//     // Create cart item object for immediate purchase
+//     const cartItem = {
+//       id: product.id,
+//       name: product.productName,
+//       price: parseFloat(product.price),
+//       quantity: quantity,
+//       image: product.images[0],
+//       size: selectedSize,
+//       currency: product.currency,
+//       stock: product.stock,
+//        // Adding required fields for checkout
+//       sku: product.sku || `SKU-${product.id}`,
+//       weight: product.weight || 0.2,
+//       hsn: product.hsn || '30049011'
+//     };
+
+//     console.log('Buy now:', cartItem);
+
+//     // Store the item in localStorage for checkout
+//     localStorage.setItem('buyNowItem', JSON.stringify([cartItem]));
+
+//     toast.info('Proceeding to checkout...', {
+//       position: "bottom-right",
+//       autoClose: 1000,
+//       hideProgressBar: true,
+//       closeOnClick: true,
+//       pauseOnHover: false,
+//       draggable: true,
+//     });
+
+//     // Navigate to checkout with buy now flag
+//     router.push('/checkout?buyNow=true');
+//   };
+
+//   if (loading) {
+//     return (
+//       <div className="min-h-screen bg-gray-50 pt-24">
+//         {/* <BreadCrumbBanner title="Loading..." breadcrumbs={breadcrumbs} /> */}
+//         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+//           <div className="animate-pulse">
+//             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+//               <div className="space-y-4">
+//                 <div className="aspect-square bg-gray-300 rounded"></div>
+//                 <div className="flex space-x-2">
+//                   {[...Array(4)].map((_, i) => (
+//                     <div key={i} className="w-20 h-20 bg-gray-300 rounded"></div>
+//                   ))}
+//                 </div>
+//               </div>
+//               <div className="space-y-4">
+//                 <div className="h-8 bg-gray-300 rounded w-3/4"></div>
+//                 <div className="h-6 bg-gray-300 rounded w-1/2"></div>
+//                 <div className="h-4 bg-gray-300 rounded w-full"></div>
+//                 <div className="h-4 bg-gray-300 rounded w-full"></div>
+//                 <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
+
+//   if (error || !product) {
+//     return (
+//       <div className="min-h-screen bg-gray-50 pt-24">
+//         {/* <BreadCrumbBanner title="Product Not Found" breadcrumbs={breadcrumbs} /> */}
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+//           <div className="text-center">
+//             <div className="mx-auto h-12 w-12 text-gray-400">
+//               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+//                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0118 12M6 20.291A7.962 7.962 0 016 12m0 8.291A7.962 7.962 0 016 12m0 8.291A7.962 7.962 0 016 12" />
+//               </svg>
+//             </div>
+//             <h3 className="mt-2 text-sm font-medium text-gray-900">Product not found</h3>
+//             <p className="mt-1 text-sm text-gray-500">
+//               The product you're looking for doesn't exist or has been removed.
+//             </p>
+//             <div className="mt-6">
+//               <Button onClick={() => router.push('/shop')}>
+//                 Back to Shop
+//               </Button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <> 
+//     <div className="min-h-screen bg-gray-50 pt-24 ">
+//       {/* <BreadCrumbBanner title={product.productName} breadcrumbs={breadcrumbs} /> */}
+      
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+//         {/* Main Product Section - 60/40 Layout */}
+//         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-10">
+//           {/* Left Side - Product Images (60%) */}
+//           <div className="lg:col-span-3 space-y-2">
+//             <div className="relative">
+//               <Image
+//                 src={product.images[selectedImage]}
+//                 alt={product.productName}
+//                 width={300}
+//                 height={300}
+//                 className="object-cover bg-[#d6e5d8] rounded-lg w-full max-w-md mx-auto aspect-square shadow-lg"
+//               />
+//             </div>
+//             {/* Thumbnail Images */}
+//             {product.images.length > 1 && (
+//               <div className="flex space-x-2 overflow-x-auto justify-center">
+//                 {product.images.map((image, index) => (
+//                   <button
+//                     key={index}
+//                     className={`flex-shrink-0 w-16 h-16 bg-[#E0E7ED] rounded-lg border-2 transition-all ${
+//                       selectedImage === index ? 'border-blue-500 shadow-md' : 'border-gray-300 hover:border-gray-400'
+//                     }`}
+//                     onClick={() => setSelectedImage(index)}
+//                   >
+//                     <Image
+//                       src={image}
+//                       alt={`Product image ${index + 1}`}
+//                       width={64}
+//                       height={64}
+//                       className="object-contain w-full h-full rounded-lg"
+//                     />
+//                   </button>
+//                 ))}
+//               </div>
+//             )}
+//           </div>
+
+//           {/* Right Side - Product Info (40%) */}
+//           <div className="lg:col-span-2 space-y-2">
+//             {/* Product Title */}
+//             <div>
+//               <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.productName}</h1>
+              
+//               {/* Rating and Reviews */}
+//               {/* <div className="flex items-center mb-2">
+//                 <div className="flex items-center">
+//                   {[...Array(5)].map((_, i) => (
+//                     <Star
+//                       key={i}
+//                       size={18}
+//                       className={i < Math.floor(product.rating) ? "text-yellow-400" : "text-gray-300"}
+//                       fill={i < Math.floor(product.rating) ? "currentColor" : "none"}
+//                     />
+//                   ))}
+//                 </div>
+//                 <span className="ml-2 text-sm text-gray-600">
+//                   {product.rating} ({product.reviews} reviews)
+//                 </span>
+//               </div> */}
+
+//               {/* Price */}
+//               {/* <div className="flex items-center mb-2">
+//                 <div className="text-3xl font-bold text-green-600">
+//                   {product.currency}{product.price}
+//                 </div>
+//                 {product.mrpText && (
+//                   <span className="ml-3 text-xl text-gray-500 line-through">
+//                     {product.mrpText}
+//                   </span>
+//                 )}
+//               </div> */}
+
+//               <div className="flex flex-col items-start mb-2">
+//             {/* MRP - Crossed out above */}
+//             {product.mrpText && (
+//               <span className="text-xl text-gray-500 line-through mb-1">
+//                 {product.mrpText}
+//               </span>
+//             )}
+
+//             {/* Main Price */}
+//             <div className="text-3xl font-bold text-green-600">
+//               {product.currency}{product.price}
+//             </div>
+//           </div>
+
+
+//               {/* Stock Status */}
+//               {/* <div className="flex items-center space-x-2 mb-2">
+//                 <span className="text-sm text-gray-600">Stock:</span>
+//                 <span className={`text-sm font-medium ${
+//                   product.stock > 0 ? 'text-green-600' : 'text-red-600'
+//                 }`}>
+//                   {product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}
+//                 </span>
+//               </div> */}
+//             </div>
+
+//             {/* Pain Types */}
+//             {/* {product.painTypes && product.painTypes.length > 0 && (
+//               <div>
+//                 <h3 className="text-lg font-semibold text-gray-900 mb-2">For Relief From:</h3>
+//                 <div className="flex flex-wrap gap-2">
+//                   {product.painTypes.map((painType, index) => (
+//                     <span
+//                       key={index}
+//                       className="px-3 py-1 rounded-full text-sm font-medium text-white"
+//                       style={{ backgroundColor: '#82a133' }}
+//                     >
+//                       {painType.name}
+//                     </span>
+//                   ))}
+//                 </div>
+//               </div>
+//             )} */}
+
+//             {/* Sizes */}
+//             {product.sizes && product.sizes.length > 0 && (
+//               <div>
+//                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Quantity:</h3>
+//                 <div className="flex flex-wrap gap-2">
+//                   {product.sizes.map((size, index) => (
+//                     <button
+//                       key={index}
+//                       onClick={() => setSelectedSize(size)}
+//                       className={`px-4 py-2 border rounded-lg text-sm font-medium transition-colors ${
+//                         selectedSize === size
+//                           ? 'border-blue-500 bg-blue-50 text-blue-700'
+//                           : 'border-gray-300 text-gray-700 hover:border-gray-400'
+//                       }`}
+//                     >
+//                       {size}
+//                     </button>
+//                   ))}
+//                 </div>
+//               </div>
+//             )}
+
+//             {/* Quantity Selector */}
+//             <div>
+//               {/* <h3 className="text-lg font-semibold text-gray-900 mb-2">Quantity:</h3> */}
+//               <div className="flex items-center space-x-3">
+//                 <button
+//                   className="p-2 border-2 border-gray-300 rounded-lg hover:border-gray-400 disabled:opacity-50 transition-colors text-black"
+//                   onClick={() => handleQuantityChange(-1)}
+//                   disabled={quantity <= 1}
+//                 >
+//                   <Minus size={16} />
+//                 </button>
+//                 <input
+//                   type="text"
+//                   value={quantity}
+//                   readOnly
+//                   className="w-16 text-center border-2 border-gray-300 rounded-lg py-2 font-medium text-black"
+//                 />
+//                 <button
+//                   className="p-2 border-2 border-gray-300 rounded-lg hover:border-gray-400 disabled:opacity-50 transition-colors text-black"
+//                   onClick={() => handleQuantityChange(1)}
+//                   disabled={quantity >= product.stock}
+//                 >
+//                   <Plus size={16} />
+//                 </button>
+//               </div>
+//             </div>
+
+//             {/* Action Buttons */}
+//             <div className="space-y-2">
+//               <div className="flex space-x-2">
+//                  <button 
+//                   onClick={handleAddToCart} 
+//                   disabled={product.stock === 0}
+//                   className={`flex-1 py-3 text-lg  text-center rounded-md transition-all duration-300 
+//                     ${product.stock === 0 
+//                       ? 'bg-gray-400 text-white cursor-not-allowed' 
+//                       : 'bg-[#82a133] hover:bg-[#82a133] text-white'
+//                     }`}
+//                 >
+//                   {product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+//                 </button>
+//               </div>
+
+//                <button 
+//               onClick={handleBuyNow} 
+//               className={`w-full py-3 text-lg text-center rounded-md transition-colors duration-300
+//                 ${product.stock === 0 
+//                   ? 'bg-gray-400 text-white cursor-not-allowed' 
+//                   : 'bg-[#82a133] hover:bg-[#82a133] text-white'
+//                 }`}
+//               disabled={product.stock === 0}
+//             >
+//               {product.stock === 0 ? 'Out of Stock' : 'Buy Now'}
+//             </button>
+
+//             </div>
+
+//             {/* Guarantee Icons */}
+//             {/* {product.guaranteeIcons && product.guaranteeIcons.length > 0 && (
+//               <div className="pt-4 border-t">
+//                 <div className="flex flex-wrap gap-4">
+//                   {product.guaranteeIcons.map((guarantee, index) => (
+//                     <div key={index} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg">
+//                       <Image
+//                         src={guarantee.icon}
+//                         alt={guarantee.text}
+//                         width={24}
+//                         height={24}
+//                         className="w-6 h-6"
+//                       />
+//                       <span className="text-sm text-gray-700 font-medium">{guarantee.text}</span>
+//                     </div>
+//                   ))}
+//                 </div>
+//               </div>
+//             )} */}
+//           </div>
+//         </div>
+
+        
+         
+//          <div className="flex flex-col lg:flex-row gap-6">
+//           {/* Left Section - 60% - Product Description & Benefits */}
+//           <div className="w-full lg:w-3/5 space-y-6">
+//             {/* Description Section */}
+//             <div className="bg-white rounded-lg shadow-sm p-6">
+//               <h3 className="text-2xl font-bold text-gray-900 mb-4">Product Description</h3>
+//               <p className="text-gray-700 text-justify leading-relaxed text-lg">{product.description}</p>
+//             </div>
+            
+//             {/* Benefits Section */}
+//             {product.benefits && product.benefits.length > 0 && (
+//               <div className="bg-white rounded-lg shadow-sm p-6">
+//                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Benefits</h3>
+//                 <ul className="space-y-3">
+//                   {product.benefits.map((benefit, index) => (
+//                     <li key={index} className="flex items-start text-gray-700">
+//                       <span className="w-2 h-2 bg-[#586e20] rounded-full mr-3 mt-2 flex-shrink-0"></span>
+//                       <p className="text-lg text-justify">{benefit}</p>
+//                     </li>
+//                   ))}
+//                 </ul>
+//               </div>
+//             )}
+
+//           <div className="w-full ">
+//           <div className="bg-white rounded-lg shadow-sm p-6">
+//             <h3 className="text-2xl font-bold text-gray-900 mb-4">How To Use</h3>
+//             <p className="text-gray-700 text-justify leading-relaxed text-lg">
+//               {product.directionsForUse || 'Usage instructions will be available soon.'}
+//             </p>
+//           </div>
+//         </div>
+//           </div>
+
+//           {/* Right Section - 40% - FAQ */}
+//           {/* <div className="w-full lg:w-2/5">
+//             {product.faq && product.faq.length > 0 && (
+//               <div className="bg-white rounded-lg shadow-sm p-6 sticky top-4">
+//                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h3>
+//                 <div className="space-y-6">
+//                   {product.faq.map((faq, index) => (
+//                     <div key={index} className="border-l-4 border-[#586e20] pl-6 py-3">
+//                       <h4 className="font-semibold text-justify text-gray-900  mb-2 text-lg">{faq.title}</h4>
+//                       <p className="text-gray-700 text-justify leading-relaxed">{faq.content}</p>
+//                     </div>
+//                   ))}
+//                 </div>
+//               </div>
+//             )}
+//           </div> */}
+
+//           {product.faq && product.faq.length > 0 && (
+//           <div className="w-full lg:w-2/5">
+//             <FAQAccordion faqList={product.faq} />
+//           </div>
+//         )}
+//         </div>
+//         {/* <div className="flex flex-col lg:flex-row gap-6 mt-10">
+         
+//         <div className="w-full lg:w-3/5">
+//           <div className="bg-white rounded-lg shadow-sm p-6">
+//             <h3 className="text-2xl font-bold text-gray-900 mb-4">Composition</h3>
+//             <p className="text-gray-700 text-justify leading-relaxed text-lg">
+//               {product.composition || 'Composition details will be available soon.'}
+//             </p>
+//           </div>
+//         </div>
+
+//         <div className="w-full ">
+//           <div className="bg-white rounded-lg shadow-sm p-6">
+//             <h3 className="text-2xl font-bold text-gray-900 mb-4">Direction for use</h3>
+//             <p className="text-gray-700 text-justify leading-relaxed text-lg">
+//               {product.directionsForUse || 'Usage instructions will be available soon.'}
+//             </p>
+//           </div>
+//         </div>
+//         </div> */}
+//       </div>
+//     </div>
+
+//     {/* <ProductReviews /> */}
+//     <RelatedProduct />
+//     </>
+//   );
+// };
+
+// export default ProductDetailsPage;
+
+
+
 "use client"
 import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
-import { Heart, ShoppingCart, Star, Plus, Minus, Shield, Leaf } from 'lucide-react';
+import { Heart, ShoppingCart, Star, Plus, Minus, Shield, Leaf, MessageCircleMore } from 'lucide-react';
 import BreadCrumbBanner from '../layout/BreadCrumbBanner';
 import Button from '../ui/Button';
+import { FaWhatsapp } from "react-icons/fa";
 import ProductReviews from '../review/page';
 import RelatedProduct from '../layout/Shop/RelatedProduct';
 import { authAPI } from '@/lib/api/endpoints';
 import FAQAccordion from '../layout/FaqLayout/FAQAccordion';
+import Guarantee from '../layout/Guarantee';
+import Newsletter from '../newsletter/Newsletter';
+import ProductImageView from '../layout/ShopDetails/ProductImageView';
+import ProductShowcase from './ProductShowCase';
 
 
 const ProductDetailsPage = () => {
@@ -1512,6 +2106,7 @@ const ProductDetailsPage = () => {
         const transformedProduct = {
           id: productData._id || productData.id || productId,
           productName: productData.name || 'Unknown Product',
+          productsubtitle: productData.subtitle || 'Unknown Product',
           price: productData.price?.toString() || "0",
           currency: productData.currency === 'INR' ? '₹' : productData.currency || "₹",
           mrpText: productData.mrpText || "MRP",
@@ -1670,9 +2265,9 @@ const ProductDetailsPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <BreadCrumbBanner title="Loading..." breadcrumbs={breadcrumbs} />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="min-h-screen bg-gray-50 pt-24">
+        {/* <BreadCrumbBanner title="Loading..." breadcrumbs={breadcrumbs} /> */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="animate-pulse">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="space-y-4">
@@ -1699,8 +2294,8 @@ const ProductDetailsPage = () => {
 
   if (error || !product) {
     return (
-      <div className="min-h-screen bg-gray-50">
-        <BreadCrumbBanner title="Product Not Found" breadcrumbs={breadcrumbs} />
+      <div className="min-h-screen bg-gray-50 pt-24">
+        {/* <BreadCrumbBanner title="Product Not Found" breadcrumbs={breadcrumbs} /> */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
             <div className="mx-auto h-12 w-12 text-gray-400">
@@ -1725,31 +2320,26 @@ const ProductDetailsPage = () => {
 
   return (
     <> 
-    <div className="min-h-screen bg-gray-50">
-      <BreadCrumbBanner title={product.productName} breadcrumbs={breadcrumbs} />
+    <div className="min-h-screen bg-gray-50 pt-24 ">
+      
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Product Section - 60/40 Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-10">
           {/* Left Side - Product Images (60%) */}
-          <div className="lg:col-span-3 space-y-2">
-            <div className="relative">
-              <Image
-                src={product.images[selectedImage]}
-                alt={product.productName}
-                width={300}
-                height={300}
-                className="object-cover bg-[#d6e5d8] rounded-lg w-full max-w-md mx-auto aspect-square shadow-lg"
-              />
-            </div>
-            {/* Thumbnail Images */}
+           <div className="lg:col-span-3 space-y-2">
+            
+            <ProductImageView  product={product} selectedImage={selectedImage} />
+
+
+            {/* Thumbnail Images - size remains the same */}
             {product.images.length > 1 && (
               <div className="flex space-x-2 overflow-x-auto justify-center">
                 {product.images.map((image, index) => (
                   <button
                     key={index}
-                    className={`flex-shrink-0 w-16 h-16 bg-[#E0E7ED] rounded-lg border-2 transition-all ${
-                      selectedImage === index ? 'border-blue-500 shadow-md' : 'border-gray-300 hover:border-gray-400'
+                    className={`flex-shrink-0 w-16 h-16 bg-[#ffff] rounded-lg border-2 transition-all ${
+                      selectedImage === index ? 'border-[#586e20] shadow-md' : 'border-gray-300 hover:border-gray-400'
                     }`}
                     onClick={() => setSelectedImage(index)}
                   >
@@ -1766,87 +2356,86 @@ const ProductDetailsPage = () => {
             )}
           </div>
 
+
           {/* Right Side - Product Info (40%) */}
           <div className="lg:col-span-2 space-y-2">
             {/* Product Title */}
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.productName}</h1>
-              
-              {/* Rating and Reviews */}
-              <div className="flex items-center mb-2">
-                <div className="flex items-center">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      size={18}
-                      className={i < Math.floor(product.rating) ? "text-yellow-400" : "text-gray-300"}
-                      fill={i < Math.floor(product.rating) ? "currentColor" : "none"}
-                    />
-                  ))}
-                </div>
-                <span className="ml-2 text-sm text-gray-600">
-                  {product.rating} ({product.reviews} reviews)
-                </span>
-              </div>
+                
+            <div className="text-[#586e20] text-lg sm:text-xl md:text-3xl lg:text-3xl  mb-2">
+            {product.productName}
+          </div>
+        
+        
+          <div className="text-[#82a133] text-xl sm:text-base md:text-lg lg:text-xl  mb-2">
+            {product.productsubtitle}
+          </div>
 
-              {/* Price */}
-              <div className="flex items-center mb-2">
-                <div className="text-3xl font-bold text-green-600">
-                  {product.currency}{product.price}
-                </div>
-                {product.mrpText && (
-                  <span className="ml-3 text-xl text-gray-500 line-through">
-                    {product.mrpText}
-                  </span>
-                )}
-              </div>
+          {/* WhatsApp Share Icon */}
+         {/* <a
+          href={`https://wa.me/?text=${encodeURIComponent(
+            `${product.productName} - ${product.productsubtitle}\nPrice: ${product.currency}${product.price}\nCheck it out here: https://www.cureayurvedic.com/product/${product._id}`
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center text-green-600 hover:text-green-700 text-sm mb-2"
+        >
+          Share 
+          <FaWhatsapp className="w-5 h-5 mr-2 ml-2" />
+          
+        </a> */}
 
-              {/* Stock Status */}
-              <div className="flex items-center space-x-2 mb-2">
-                <span className="text-sm text-gray-600">Stock:</span>
-                <span className={`text-sm font-medium ${
-                  product.stock > 0 ? 'text-green-600' : 'text-red-600'
-                }`}>
-                  {product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}
-                </span>
-              </div>
+
+            <div className="flex flex-col items-start mb-2">
+            {/* MRP - Crossed out above */}
+            {product.mrpText && (
+              <span className="text-xl text-black line-through mb-1">
+                {product.mrpText}
+              </span>
+            )}
+
+            {/* Main Price */}
+            <div className="text-xl text-black">
+              {product.currency}{product.price}
             </div>
+          </div>
 
-            {/* Pain Types */}
-            {/* {product.painTypes && product.painTypes.length > 0 && (
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">For Relief From:</h3>
-                <div className="flex flex-wrap gap-2">
-                  {product.painTypes.map((painType, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 rounded-full text-sm font-medium text-white"
-                      style={{ backgroundColor: '#82a133' }}
-                    >
-                      {painType.name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )} */}
+
+              
+          </div>
+
+            
 
             {/* Sizes */}
             {product.sizes && product.sizes.length > 0 && (
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Size:</h3>
+                {/* <h3 className="text-lg font-semibold text-gray-900 mb-2">Net Quantity:</h3> */}
                 <div className="flex flex-wrap gap-2">
-                  {product.sizes.map((size, index) => (
-                    <button
+                  {/* {product.sizes.map((size, index) => (
+                    <div
                       key={index}
                       onClick={() => setSelectedSize(size)}
                       className={`px-4 py-2 border rounded-lg text-sm font-medium transition-colors ${
                         selectedSize === size
-                          ? 'border-blue-500 bg-blue-50 text-blue-700'
+                          ? 'border-[#82a133] bg-white text-black'
                           : 'border-gray-300 text-gray-700 hover:border-gray-400'
                       }`}
                     >
                       {size}
-                    </button>
+                    </div>
+                  ))} */}
+                  {product.sizes.map((size, index) => (
+                    <div
+                      key={index}
+                      onClick={() => setSelectedSize(size)}
+                      className={` py-2  text-xl   ${
+                        selectedSize === size
+                          ? ' text-start text-black'
+                          : 'border-none text-black'
+                      }`}
+                    >
+                      {size}
+                    </div>
                   ))}
                 </div>
               </div>
@@ -1854,7 +2443,7 @@ const ProductDetailsPage = () => {
 
             {/* Quantity Selector */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Quantity:</h3>
+              <div className="text-xl text-black mb-2">Quantity:</div>
               <div className="flex items-center space-x-3">
                 <button
                   className="p-2 border-2 border-gray-300 rounded-lg hover:border-gray-400 disabled:opacity-50 transition-colors text-black"
@@ -1880,54 +2469,49 @@ const ProductDetailsPage = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="space-y-2">
-              <div className="flex space-x-2">
-                 <button 
-                  onClick={handleAddToCart} 
-                  disabled={product.stock === 0}
-                  className={`flex-1 py-3 text-lg  text-center rounded-md transition-all duration-300 
-                    ${product.stock === 0 
-                      ? 'bg-gray-400 text-white cursor-not-allowed' 
-                      : 'bg-[#82a133] hover:bg-[#82a133] text-white'
-                    }`}
-                >
-                  {product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
-                </button>
-              </div>
-
-               <button 
-              onClick={handleBuyNow} 
-              className={`w-full py-3 text-lg text-center rounded-md transition-colors duration-300
+            <div className="space-y-2 mt-5">
+          {/* Buttons in one row */}
+          <div className="flex space-x-3">
+            <button 
+              onClick={handleAddToCart} 
+              disabled={product.stock === 0}
+              className={`flex-1 py-3 text-lg text-center rounded-md transition-all duration-300 
                 ${product.stock === 0 
                   ? 'bg-gray-400 text-white cursor-not-allowed' 
-                  : 'bg-[#82a133] hover:bg-[#82a133] text-white'
+                  : 'bg-[#82a133] hover:bg-[#6f902c] text-white'
                 }`}
+            >
+              {product.stock === 0 ? 'Out of Stock' : 'Add To Cart'}
+            </button>
+
+            <button 
+              onClick={handleBuyNow} 
               disabled={product.stock === 0}
+              className={`flex-1 py-3 text-lg text-center rounded-md transition-all duration-300 
+                ${product.stock === 0 
+                  ? 'bg-gray-400 text-white cursor-not-allowed' 
+                  : 'bg-[#82a133] hover:bg-[#6f902c] text-white'
+                }`}
             >
               {product.stock === 0 ? 'Out of Stock' : 'Buy Now'}
             </button>
+          </div>
+         
+           {/* <section className="mt-6  ">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 tracking-tight">
+              You May Also Like
+            </h2>
+             
+          </div>
 
-            </div>
+          <ProductShowcase />
+        </section> */}
 
-            {/* Guarantee Icons */}
-            {/* {product.guaranteeIcons && product.guaranteeIcons.length > 0 && (
-              <div className="pt-4 border-t">
-                <div className="flex flex-wrap gap-4">
-                  {product.guaranteeIcons.map((guarantee, index) => (
-                    <div key={index} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg">
-                      <Image
-                        src={guarantee.icon}
-                        alt={guarantee.text}
-                        width={24}
-                        height={24}
-                        className="w-6 h-6"
-                      />
-                      <span className="text-sm text-gray-700 font-medium">{guarantee.text}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )} */}
+        </div>
+
+
+         
           </div>
         </div>
 
@@ -1967,54 +2551,26 @@ const ProductDetailsPage = () => {
         </div>
           </div>
 
-          {/* Right Section - 40% - FAQ */}
-          {/* <div className="w-full lg:w-2/5">
-            {product.faq && product.faq.length > 0 && (
-              <div className="bg-white rounded-lg shadow-sm p-6 sticky top-4">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h3>
-                <div className="space-y-6">
-                  {product.faq.map((faq, index) => (
-                    <div key={index} className="border-l-4 border-[#586e20] pl-6 py-3">
-                      <h4 className="font-semibold text-justify text-gray-900  mb-2 text-lg">{faq.title}</h4>
-                      <p className="text-gray-700 text-justify leading-relaxed">{faq.content}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div> */}
+           
 
+
+
+         
+        
+         
           {product.faq && product.faq.length > 0 && (
           <div className="w-full lg:w-2/5">
             <FAQAccordion faqList={product.faq} />
           </div>
         )}
         </div>
-        {/* <div className="flex flex-col lg:flex-row gap-6 mt-10">
          
-        <div className="w-full lg:w-3/5">
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Composition</h3>
-            <p className="text-gray-700 text-justify leading-relaxed text-lg">
-              {product.composition || 'Composition details will be available soon.'}
-            </p>
-          </div>
-        </div>
-
-        <div className="w-full ">
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Direction for use</h3>
-            <p className="text-gray-700 text-justify leading-relaxed text-lg">
-              {product.directionsForUse || 'Usage instructions will be available soon.'}
-            </p>
-          </div>
-        </div>
-        </div> */}
       </div>
     </div>
 
-    <ProductReviews />
+    <Guarantee />
     <RelatedProduct />
+    <Newsletter />
     </>
   );
 };

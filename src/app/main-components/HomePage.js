@@ -41,12 +41,12 @@ export default function HomePage() {
        
       <CBDProductLanding />
       <WhyChooseTwo />
-      <ScrollBanner 
+      {/* <ScrollBanner 
       backgroundImage="/images/banner/herobanner4.jpg"
         icon="/images/leaf/treatment.png"
         title="AYURVEDA HEALING"
         description="Harness the power of ancient herbs and holistic practices to restore balance and promote natural wellness."/>
-      
+       */}
        
       <SpotlightCarousel/>
       {/* <ScrollBanner backgroundImage="https://png.pngtree.com/thumb_back/fh260/background/20240913/pngtree-a-photo-showcasing-ayurvedic-oils-and-herbs-used-in-treatments-image_16198387.jpg"
@@ -55,7 +55,7 @@ export default function HomePage() {
         description="Back pain can be a crippling ailment that interferes with day-to-day functioning and general health."
       /> */}
       <Guarantee />
-      <BlogSection />  
+      {/* <BlogSection />   */}
       {/*the hydration error due to swiper use in */}
       {/* <BlogSectionLanding /> */}
       

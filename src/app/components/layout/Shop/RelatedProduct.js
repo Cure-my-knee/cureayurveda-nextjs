@@ -184,7 +184,7 @@ const RelatedProduct = () => {
       <section>
         <div className="min-h-screen bg-gray-50 pt-16">
           <Title>
-            Our Related Products
+           You May Also Like
           </Title>
           
           <Subtitle>

@@ -196,7 +196,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Button from '../ui/Button';
 import Subtitle from '../ui/Subtitle';
 import { authAPI } from '@/lib/api/endpoints';
@@ -306,9 +306,17 @@ export default function ContactUsPage() {
     }
   };
 
+   // scroll up
+    const sectionRef = useRef(null);
+    useEffect(() => {
+      if (sectionRef.current) {
+        sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, []);
+
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
+    <div ref={sectionRef} className="min-h-screen bg-[#EDF1E1] py-8 px-4 sm:px-6 lg:px-8 ">
+      <div className="max-w-4xl mx-auto mt-24">
         {/* Header */}
         <div className="text-center mb-4">
           <Subtitle>

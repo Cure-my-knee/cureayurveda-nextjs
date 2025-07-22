@@ -263,17 +263,17 @@ export default function HeroSection() {
   const banners = [
     {
       id: 1,
-      backgroundImage: "/images/banner/herobanner1.jpg",
-      mobileBackgroundImage: "/images/defaultproduct/productdefault3.png",  
+      backgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753185541/d_Vedic_Flx_bhybok.jpg",
+      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753185540/d_Vedic_Flx_2_mte0mc.jpg",  
       subtitle: "Ayurvedic Joint Care",
       description: "Enhance the strength of your Bones & Muscles naturally with the blend of Herbal Wisdom.",
-      buttonText: "Browse Remedies",
+      buttonText: "Explore Products",
       buttonLink: "shop"
     },
     {
       id: 2,
-      backgroundImage: "/images/banner/herobanner2.jpg",
-      mobileBackgroundImage: "/images/defaultproduct/productdefault3.png", // Add mobile version
+      backgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753188799/sdgvdf_euoghr.jpg",
+      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753175819/Banner-Web-2_fw4cd4.jpg", // Add mobile version
       subtitle: "Ayurvedic and Healthy Sugar Management",
       description: "Natural way to balance Sugar Level that helps to control your diabetes with Potent Herbs !",
       buttonText: "Explore Products",
@@ -281,11 +281,11 @@ export default function HeroSection() {
     },
     {
       id: 3,
-      backgroundImage: "/images/banner/herobanner3.jpg",
-      mobileBackgroundImage: "/images/defaultproduct/productdefault3.png", // Add mobile version
+      backgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753194937/Shilajit_rrkzyw.jpg",
+      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753178251/Banner_Web_Shilajit_2_hfqwkk.jpg", // Add mobile version
       subtitle: "Ayurvedic Shilajit",
-      description: "Enhances your Energy Level with Anti-oxidant Properties !",
-      buttonText: "Browse Remedies",
+      description: "Cure Ayurvedic’s Vedic Shilajit is a concentrated ayurvedic formula that helps to boost power and energy and keeps you strong and focussed.",
+      buttonText: "Explore Products",
       buttonLink: "shop"
     }
   ];
@@ -295,7 +295,7 @@ export default function HeroSection() {
 
     // Check if device is mobile
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // md breakpoint
+      setIsMobile(window.innerWidth <  1024);  
     };
 
     // Initial check
@@ -327,7 +327,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero-section" className="relative h-[90vh] sm:h-screen overflow-hidden">
+    <section id="hero-section" className="relative h-[90vh] sm:h-screen overflow-hidden mt-12">
       {/* Slides */}
       <div className="relative w-full h-full">
         {banners.map((banner, index) => (
@@ -347,36 +347,71 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-opacity-40 pointer-events-none z-0" />
             
             {/* Slide Content */}
-            <div className="relative z-10 flex items-center h-full">
+            {/* <div className="relative z-10 flex items-center h-full">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-xl text-white">
-                  <div className={`transform transition-all duration-1000 ${
+                  <div className={`transform transition-all text-center duration-1000 ${
                     isVisible && index === currentSlide
                       ? 'translate-x-0 opacity-100'
                       : '-translate-x-10 opacity-0'
                   }`}>
-                    <h3 className="text-sm sm:text-base md:text-lg font-medium mb-2 text-green-300">
-                      {banner.subtitle}
-                    </h3>
+                  <div className="hidden sm:block text-center text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 text-[#586e20] drop-shadow-lg">
+                  {banner.subtitle}
+                </div>
+
+
+                
+
                     
-                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-                      {banner.title}
-                    </h2>
                     
-                    <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-6 opacity-90 leading-relaxed">
-                      {banner.description}
-                    </p>
+
+                    <div className="hidden sm:block text-center sm:text-lg md:text-xl lg:text-2xl mb-6 opacity-90 leading-relaxed text-black drop-shadow-md">
+                    {banner.description}
+                  </div>
+
                     
                     <Button 
                       onClick={() => router.push('/shop')} 
-                      className="font-semibold transform hover:scale-105 hover:shadow-lg text-xs sm:text-sm md:text-base px-4 py-2 sm:px-6 sm:py-3"
+                      className="hidden sm:inline-block  font-semibold transform hover:scale-105 hover:shadow-lg text-xs sm:text-sm md:text-base px-4 py-2 sm:px-6 sm:py-3"
                     >
                       {banner.buttonText}
                     </Button>
                   </div>
                 </div>
               </div>
+            </div> */}
+        <div className="relative z-10 flex h-full px-4 sm:px-8">
+          <div
+            className="flex flex-col justify-start sm:justify-start text-center max-w-2xl w-full transition-all duration-1000 mt-8 sm:mt-24 pt-10 sm:pt-0 mx-auto sm:mx-0 sm:ml-0 lg:ml-12"
+            style={{
+              transform:
+                isVisible && index === currentSlide
+                  ? `translateY(${isMobile ? '80px' : '60px'})`
+                  : 'translateY(20px)',
+              opacity: isVisible && index === currentSlide ? 1 : 0,
+            }}
+          >
+            <div className='text-start'>
+              <div className="text-start text-xl sm:text-3xl md:text-4xl   mb-2 text-[#586e20] drop-shadow-lg">
+                {banner.subtitle}
+              </div>
+
+              <div className="text-start text-sm sm:text-lg md:text-xl mb-4 leading-relaxed text-black drop-shadow-md">
+                {banner.description}
+              </div>
+
+              <Button
+                onClick={() => router.push('/shop')}
+                className="inline-block font-semibold transform hover:scale-105 hover:shadow-lg text-xs sm:text-sm md:text-base px-4 py-2 sm:px-6 sm:py-3 bg-[#586e20] text-white"
+              >
+                {banner.buttonText}
+              </Button>
             </div>
+          </div>
+        </div>
+
+
+
           </div>
         ))}
       </div>

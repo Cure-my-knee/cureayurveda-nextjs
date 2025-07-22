@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 export default function AdditionalInfo() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-[#EDF1E1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Info Section */}

@@ -7,6 +7,17 @@ import Title from '../ui/Title'
 const Guarantee = () => {
 
     const features = [
+
+     {
+      image: "/images/whychoose/whychoose12.png",
+      title: "GMP CERTIFIED",
+      description: "Good Manufacturing Practices"
+    },
+    {
+      image: "/images/whychoose/whychoose15.png",
+      title: "ISO CERTIFIED",
+      description: "Traditional wisdom meets modern science"
+    },
     {
       image: "/images/whychoose/whychoose1.png",
       title: "CRUELTY FREE",
@@ -32,16 +43,7 @@ const Guarantee = () => {
       title: "PLANT BASE",
       description: "Never tested on animals"
     },
-    {
-      image: "/images/whychoose/whychoose12.png",
-      title: "GMP QUALITY",
-      description: "Good Manufacturing Practices"
-    },
-    {
-      image: "/images/whychoose/whychoose15.png",
-      title: "ISO CERTIFIED",
-      description: "Traditional wisdom meets modern science"
-    },
+    
     {
       image: "/images/whychoose/medicine.png",
       title: "ANCIENT HEALING",

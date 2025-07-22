@@ -40,7 +40,7 @@ const ScrollFadeUp = ({ children, className = "" }) => {
 
 export default function WhyChoose() {
   return (
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white"
+      <section  className="py-6 sm:py-10 lg:py-12 px-2 sm:px-4 lg:px-6 bg-[#EDF1E1]"
       style={{
         backgroundImage: "url('/images/banner/handmade-paper/whitetemplatepaper.jpg')", // replace with your actual image path
       }}>
@@ -59,9 +59,19 @@ export default function WhyChoose() {
           </div>
 
           {/* Main Heading */}
-          <Title>
-            Rediscover ancient healing, with modern trust.
-          </Title>
+          <h3  className={`tracking-wide text-center `}
+      style={{
+        fontFamily: 'Montserrat, sans-serif',
+        fontSize: '20px',
+        fontWeight: 700,
+        lineHeight: '33px',
+        color: 'rgb(28, 27, 27)',
+      }}>
+            Rediscover Ancient Healing, With Modern Trust.
+          </h3>
+          {/* <Title  >
+            Rediscover Ancient Healing, With Modern Trust.
+          </Title> */}
 
           <Subtitle>
             Cure Ayurvedic brings you the timeless power of Ayurveda, refined for today’s world. Our remedies are rooted in centuries-old traditions, backed by modern quality standards. Each product is crafted to restore balance, enhance well-being, and promote natural care.

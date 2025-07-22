@@ -1237,6 +1237,7 @@ import { useState, useEffect } from 'react';
 
 import { Trash2, Plus, Minus, CreditCard, Smartphone, Building2, ShoppingCart } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import LoginGuestSelector from '../login/LoginGuestSelector';
 // import LoginGuestSelector from '../components/login/LoginGuestSelector';
 // import { postCreateOrder } from '@/lib/api/createOrder';
 // import { postCreateOrder } from '@/lib/api/endpoints';
@@ -1269,6 +1270,34 @@ function CheckoutContent( ) {
   const [paymentMethod, setPaymentMethod] = useState('payu');
   const [isProcessing, setIsProcessing] = useState(false);
   const [loading, setLoading] = useState(true);
+
+
+  // guest login start
+
+  const [selectedOption, setSelectedOption] = useState('');
+  const [guestEmail, setGuestEmail] = useState('');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleRadioChange = (e) => {
+    const value = e.target.value;
+    setSelectedOption(value);
+    onSelectionChange({ selectedOption: value, guestEmail });
+  };
+
+  const handleEmailChange = (e) => {
+    const email = e.target.value;
+    setGuestEmail(email);
+    onSelectionChange({ selectedOption, guestEmail: email });
+  };
+
+  // if (!isClient) return null;
+
+
+  // guest login end 
 
 
   // country api 
@@ -1539,13 +1568,14 @@ function CheckoutContent( ) {
         shipping: shipping,
         orderDate: new Date().toISOString(),
         isBuyNow,
-        email: shippingAddress.email  
+        email: shippingAddress.email, 
+        guestEmail:  shippingAddress.email
       };
 
       console.log('Sending order payload:', orderPayload); // Debug log
       
 
-      const createOrderResponse = await fetch('https://abhineshwork.onrender.com/api/orders/create', {
+      const createOrderResponse = await fetch('https://www.cureayurvedics.com/api/orders/create', {
         method: 'POST',
         headers: { 
           Authorization: `Bearer ${token}`, 
@@ -1565,7 +1595,7 @@ function CheckoutContent( ) {
       if (orderResult.data.requiresPayment) {
         const token = localStorage.getItem('accessToken');  
         // This is a PayU order, so we must initiate payment
-        const initiatePaymentResponse = await fetch('https://abhineshwork.onrender.com/api/payu/initiate', {
+        const initiatePaymentResponse = await fetch('https://www.cureayurvedics.com/api/payu/initiate', {
           method: 'POST',
           headers: { 
             Authorization: `Bearer ${token}`, 
@@ -1631,7 +1661,7 @@ function CheckoutContent( ) {
       <div className="min-h-screen bg-gray-50 py-4 sm:py-6 lg:py-8 mt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#586e20] mx-auto"></div>
             <p className="mt-4 text-gray-600">Loading checkout...</p>
           </div>
         </div>
@@ -1679,8 +1709,8 @@ function CheckoutContent( ) {
                         <div className="flex-1 min-w-0">
                           <h3 className="text-sm sm:text-base font-medium text-gray-900 truncate">{item.name}</h3>
                           <p className="text-sm text-gray-500">₹{item.price.toFixed(2)}</p>
-                          <p className="text-xs text-gray-400">SKU: {item.sku}</p>
-                          <p className="text-xs text-gray-400">Weight: {item.weight}kg</p>
+                          <p className="hidden text-xs text-gray-400">SKU: {item.sku}</p>
+                          <p className="hidden text-xs text-gray-400">Weight: {item.weight}gm</p>
                           <p className="text-xs text-gray-400 sm:hidden">Total: ₹{(item.price * item.quantity).toFixed(2)}</p>
                         </div>
                       </div>
@@ -1689,15 +1719,15 @@ function CheckoutContent( ) {
                         <div className="flex items-center space-x-2">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="p-1 rounded-full hover:bg-gray-100 transition-colors"
+                            className="p-1 rounded-full hover:bg-gray-100 text-black transition-colors"
                             disabled={item.quantity <= 1}
                           >
                             <Minus className="w-4 h-4" />
                           </button>
-                          <span className="w-8 text-center text-sm font-medium">{item.quantity}</span>
+                          <span className="w-8 text-center text-black text-sm font-medium">{item.quantity}</span>
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="p-1 rounded-full hover:bg-gray-100 transition-colors"
+                            className="p-1 rounded-full hover:bg-gray-100 text-black transition-colors"
                           >
                             <Plus className="w-4 h-4" />
                           </button>
@@ -1722,7 +1752,7 @@ function CheckoutContent( ) {
             </div>
 
             {/* Login as guest */}
-            {/* <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
+            <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-medium text-gray-900 mb-4">
                 Select Order Type
               </h2> 
@@ -1732,7 +1762,7 @@ function CheckoutContent( ) {
             <LoginGuestSelector />
             </div> 
     
-            </div> */}
+            </div>
 
             {/* Shipping Address */}
             <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
@@ -1750,7 +1780,7 @@ function CheckoutContent( ) {
                     name="fullName"
                     value={shippingAddress.fullName}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
                 </div>
@@ -1764,7 +1794,7 @@ function CheckoutContent( ) {
                     name="email"
                     value={shippingAddress.email}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
                 </div>
@@ -1778,7 +1808,7 @@ function CheckoutContent( ) {
                     name="phone"
                     value={shippingAddress.phone}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
                 </div>
@@ -1829,7 +1859,7 @@ function CheckoutContent( ) {
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
             placeholder={loading ? 'Loading countries...' : 'Search for a country...'}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
             disabled={loading}
           />
           {isDropdownOpen && !loading && (
@@ -1872,7 +1902,7 @@ function CheckoutContent( ) {
                     onChange={handleAddressChange}
                     rows={3}
                     placeholder="e.g. H.No. 1234, 4th Floor, Gaur City, Noida, Near DLF, U.P, 201001"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
                    <div className="text-sm text-gray-600 md:w-1/3">
@@ -1889,7 +1919,7 @@ function CheckoutContent( ) {
                     name="city"
                     value={shippingAddress.city}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
                 </div>
@@ -1903,7 +1933,7 @@ function CheckoutContent( ) {
                     name="state"
                     value={shippingAddress.state}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
                 </div>
@@ -1917,7 +1947,7 @@ function CheckoutContent( ) {
                     name="zipCode"
                     value={shippingAddress.zipCode}
                     onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
                 </div>
@@ -1940,7 +1970,7 @@ function CheckoutContent( ) {
                     value="payu"
                     checked={paymentMethod === 'payu'}
                     onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                    className="h-4 w-4 text-[#586e20] focus:ring-[#586e20] border-gray-300"
                   />
                   <label htmlFor="payu" className="ml-3 flex items-center text-sm font-medium text-gray-700">
                     <img src="https://latestlogo.com/wp-content/uploads/2024/03/payu-logo.png" alt="PayU" className="w-10 h-10 mr-2" />
@@ -1976,19 +2006,33 @@ function CheckoutContent( ) {
               </h2>
               
               <div className="space-y-3">
-                <div className="flex justify-between">
+                {/* <div className="flex justify-between">
                   <span className="text-sm text-gray-600">Subtotal</span>
-                  {/* <span className="text-sm font-medium text-gray-600">₹{subtotal.toFixed(2)}</span> */}
+                  
                   <span className="text-sm font-medium text-gray-600">
                 ₹{!isNaN(subtotal) ? subtotal.toFixed(2) : '0.00'}
               </span>
 
+                </div> */}
+
+                 <div className="flex justify-between items-start">
+                <div>
+                  <span className="text-sm text-gray-600 block">Subtotal</span>
+                  <span className="text-[11px] text-gray-500">(INCLUSIVE OF ALL TAXES)</span>
                 </div>
+                <div className="text-right">
+                  <span className="text-sm font-medium text-gray-600">
+                    ₹{!isNaN(subtotal) ? subtotal.toFixed(2) : '0.00'}
+                  </span>
+                </div>
+              </div>
+
+
                 
-                <div className="flex justify-between">
+                {/* <div className="flex justify-between">
                   <span className="text-sm text-gray-600">GST (18%)</span>
                   <span className="text-sm font-medium text-gray-600">₹{gst.toFixed(2)}</span>
-                </div>
+                </div> */}
                 
                 <div className="flex justify-between">
                   <span className="text-sm text-gray-600">Shipping</span>
@@ -2008,7 +2052,7 @@ function CheckoutContent( ) {
               <button
                 onClick={handlePlaceOrder}
                 disabled={isProcessing || cartItems.length === 0}
-                className="w-full mt-6 bg-[#82a133] text-white py-3 px-4 rounded-md font-medium hover:bg-[#586e20] focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full mt-6 bg-[#82a133] text-white py-3 px-4 rounded-md font-medium hover:bg-[#586e20] focus:outline-none focus:ring-2 focus:ring-[#586e20] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isProcessing ? (
                   <div className="flex items-center justify-center">

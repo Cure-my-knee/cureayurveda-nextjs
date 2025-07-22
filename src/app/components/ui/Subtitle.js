@@ -8,10 +8,10 @@ export default function Subtitle({ children, className = '' }) {
   return (
      <ScrollFadeUp> 
     <h4
-      className={`uppercase text-center tracking-wide ${className}`}
+      className={` text-center tracking-wide ${className}`}
       style={{
         fontFamily: 'Montserrat, sans-serif',
-        fontSize: '12px',
+        fontSize: '14px',
         fontWeight: 500,
         lineHeight: '19.8px',
         color: 'rgb(28, 27, 27)',

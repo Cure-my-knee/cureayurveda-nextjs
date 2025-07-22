@@ -789,6 +789,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8 relative">
             {[
+               { href: "/", label: "Home" },
               { href: "/about", label: "About" },
               { href: "/shop", label: "Shop Now" },
               { href: "#", label: "Information Centre", isDropdown: true },
@@ -833,13 +834,13 @@ export default function Header() {
                       FAQ
                     </Link>
 
-                    <Link
+                    {/* <Link
                       href="/blogs"
                       className="block px-4 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-150"
                       onClick={() => handleLinkClick('FAQ')}
                     >
                       Blog
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               ) : (
@@ -860,9 +861,9 @@ export default function Header() {
 
           {/* Right Icons (Desktop) */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link href="#" className="p-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-full transition-all duration-200 hover:scale-110">
+            {/* <Link href="#" className="p-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-full transition-all duration-200 hover:scale-110">
               <Search size={20} />
-            </Link>
+            </Link> */}
 
             {isAuthenticated ? (
               <button
@@ -899,9 +900,9 @@ export default function Header() {
 
           {/* Mobile Icons */}
           <div className="lg:hidden flex items-center space-x-2">
-            <button className="p-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-full transition-all duration-200">
+            {/* <button className="p-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-full transition-all duration-200">
               <Search size={18} />
-            </button>
+            </button> */}
             <Link href="/checkout" className="p-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-full relative transition-all duration-200 group">
               <ShoppingCart size={18} />
                
@@ -952,13 +953,13 @@ export default function Header() {
                   FAQ
                 </Link>
 
-                 <Link
+                 {/* <Link
                   href="/blogs"
                   onClick={toggleMobileMenu}
                   className="block text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-2 text-sm tracking-wide transition-all duration-200 hover:translate-x-1"
                 >
                   Blog
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

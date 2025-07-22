@@ -8,7 +8,7 @@ export default function Title({ children, className = '' }) {
   return (
      <ScrollFadeUp> 
     <h3
-      className={`tracking-wide text-center uppercase ${className}`}
+      className={`tracking-wide text-center ${className}`}
       style={{
         fontFamily: 'Montserrat, sans-serif',
         fontSize: '20px',

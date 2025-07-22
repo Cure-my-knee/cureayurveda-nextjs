@@ -15,6 +15,9 @@ const AboutUsPage = () => {
     { label: 'Home', href: '/' },
     { label: 'About Us' }
   ];
+
+   
+  
   return (
 
     <> 

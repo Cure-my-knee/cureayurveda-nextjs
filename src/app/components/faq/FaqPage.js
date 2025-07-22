@@ -47,7 +47,7 @@ const FaqPage = () => {
               </div>
 
               {/* Secondary Banner */}
-              <div className="bg-gradient-to-r from-[#82a133] to-[#ffff] text-white p-6 rounded-xl shadow-lg">
+              {/* <div className="bg-gradient-to-r from-[#82a133] to-[#ffff] text-white p-6 rounded-xl shadow-lg">
                 <div className="text-center">
                   <h4 className="text-lg font-semibold mb-2">
                     📚 Knowledge Base
@@ -59,7 +59,7 @@ const FaqPage = () => {
                     Browse Articles
                   </button>
                 </div>
-              </div>
+              </div> */}
 
               {/* New Banner Image */}
               <div>

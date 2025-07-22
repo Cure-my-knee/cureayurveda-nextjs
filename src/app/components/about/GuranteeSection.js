@@ -3,6 +3,17 @@ import Title from '../ui/Title';
 
 const GuaranteeSection = () => {
  const guarantees = [
+
+    {
+    image: "/images/whychoose/whychoose12.png",
+    title: "GMP CERTIFIED",
+    description: "GMP certified standards guide manufacturing for safe, pure, and effective products."
+  },
+  {
+    image: "/images/whychoose/whychoose15.png",
+    title: "ISO CERTIFIED",
+    description: "ISO certified manufacturing processes for consistent quality control."
+  },
   {
     image: "/images/whychoose/driving-licence.png",
     title: "LICENSED",
@@ -28,16 +39,7 @@ const GuaranteeSection = () => {
     title: "CRUELTY FREE",
     description: "Not tested on animals, following ethical production practices."
   },
-  {
-    image: "/images/whychoose/whychoose12.png",
-    title: "GMP QUALITY",
-    description: "GMP certified standards guide manufacturing for safe, pure, and effective products."
-  },
-  {
-    image: "/images/whychoose/whychoose15.png",
-    title: "ISO CERTIFIED",
-    description: "ISO certified manufacturing processes for consistent quality control."
-  },
+ 
   {
     image: "/images/whychoose/whychoose4.png",
     title: "PLANT BASE",
@@ -46,7 +48,7 @@ const GuaranteeSection = () => {
 ];
 
   return (
-    <div className="w-full bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="w-full bg-[#EDF1E1] py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

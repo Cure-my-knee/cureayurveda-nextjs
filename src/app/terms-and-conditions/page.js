@@ -46,7 +46,7 @@ By accessing this website you hereby comply with the following terms and conditi
       </p>
 
        <span className="font-semibold text-black block mb-2">
-        Section 1: PRIVACY POLICY
+        SECTION 1: PRIVACY POLICY
       </span>
 
        <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
@@ -257,7 +257,7 @@ You agree not to post, host, display, upload, modify, publish, transmit, store, 
  
       </p>
        <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
-        <span className="font-semibold text-black block mb-2">Section 2: INTELLECTUAL PROPERTY CLAUSE</span>
+        <span className="font-semibold text-black block mb-2">SECTION 2: INTELLECTUAL PROPERTY CLAUSE</span>
        
  This website contains material that is owned by Cure Ayurvedic. This material includes, but is not limited to, the design, layout, look, appearance, and graphics. Reproduction is prohibited other than following prior permission, which is granted by us.
 All information and content on the website, including its "look and feel," is owned by Cure Ayurvedic, our Affiliates, partners, or licensors. This includes but is not limited to trademarks, logos, service marks, text, graphics, logos, button icons, images, audio clips, data compilations, software, and the compilation and organization thereof (collectively, the "Content"). The laws of India, including those that govern all applicable forms of intellectual property, protect this information and content.
@@ -292,13 +292,13 @@ If you are one of the organizations listed in paragraph 2 above and are interest
 
 
  <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
-        <span className="font-semibold text-black block mb-2">Section 4: REVISED T&C NON-DISCLOSURE CLAUSE</span>
+        <span className="font-semibold text-black block mb-2">SECTION 4: REVISED T&C NON-DISCLOSURE CLAUSE</span>
        Cure Ayurvedic may at any time modify the terms and conditions ("Terms") of the Service without any prior notification, and the revised version shall be available on the site. In the event that you do not agree to the revised terms, you should stop using the site. By continuing the usage of this site you are agreeing to the revised terms and conditions.
    </p>
 
  <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
         <span className="font-semibold text-black block mb-2">
-Section 5: WARRANTIES
+SECTION 5: WARRANTIES
 </span>
        
 <p>  1. This website is provided to you on an "As Is" and "As Available" basis and, consequently, Cure Ayurvedic gives no warranties of any kind, whether express, implied, statutory, or otherwise including warranties or representations that material on this website will be complete, accurate, reliable, timely, non-infringing to third parties, that access to this website will be uninterrupted or error-free or free from viruses, that this website will be secure, that any advice or opinion obtained from Cure Ayurvedic through this website is accurate or to be relied upon and any representations or warranties thereto are accordingly expressly disclaimed.
@@ -309,7 +309,7 @@ Section 5: WARRANTIES
 
 {/* old */}
  <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
-        <span className="font-semibold text-black block mb-2">Section 6: LIMITATION OF LIABILITIES CLAUSE</span>
+        <span className="font-semibold text-black block mb-2">SECTION 6: LIMITATION OF LIABILITIES CLAUSE</span>
        
    Cure Ayurvedic and/or any other party involved in creating, producing, or delivering this website on our behalf shall have no liability or any responsibility whatsoever for any direct, incidental, consequential, indirect, special, or punitive damages, costs, losses, or liabilities whatsoever and howsoever arising out of your access to, use, inability to use, change in content of this website or to the extent permitted by applicable law, from any actions we take or fail to take as a result of any electronic mail messages you send us.
 Cure Ayurvedic shall have no responsibility to maintain the material and services made available on this website or to supply any corrections, updates, or releases in connection therewith. Any material on this website is subject to change without notice. Further, Cure Ayurvedic shall have no liability or any responsibility whatsoever for any loss caused by viruses that may infect your computer equipment or other property because of your use of, access to, or downloading of any material from this website. If you choose to download material from this website you do so at your own risk. To the maximum extent permitted by applicable law, you expressly waive all claims against Cure Ayurvedic, its officers, directors, employees, suppliers, and programmers that may arise from your use or access to this website.
@@ -321,14 +321,14 @@ You agree that no claims or actions arising out of, or related to, the use of th
 
 
        <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
-        <span className="font-semibold text-black block mb-2">Section 7: YOUR RESPONSIBILITY CLAUSE</span>
+        <span className="font-semibold text-black block mb-2">SECTION 7: YOUR RESPONSIBILITY CLAUSE</span>
        
    You shall abide by these Terms and Conditions as well as any further notices or guidelines posted on the Cure Ayurvedic’s website when accessing or using the service. You must always behave in good faith, under the law, and custom. The website, its contents, and any services that may be available on it may not be modified or altered, and you may not endanger or jeopardize the website's functionality or integrity.
 
       </p>
 
        <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
-        <span className="font-semibold text-black block mb-2">Section 8: INDEMNIFICATION CLAUSE</span>
+        <span className="font-semibold text-black block mb-2">SECTION 8: INDEMNIFICATION CLAUSE</span>
        
   Any loss, damages, or costs, including reasonable attorney's fees, resulting from your use of Cure Ayurvedic's website or your violation of these Terms and Conditions will be defended, indemnified, and kept harmless by you. You further agree to hold harmless us for any loss, harm, or cost, including reasonable legal fees, resulting from your use of software robots, spiders, crawlers, or other tools for data extraction, as well as from any other action you take that puts an unreasonable amount of strain or load on our infrastructure.
 Without limiting the generality of any other provision of these Terms and Conditions, you agree to indemnify Cure Ayurvedic, our Affiliates, partners, or licensors for any losses or damages you may cause by willfully or negligently defaulting on any of the obligations outlined in these Terms and Conditions.
@@ -337,7 +337,7 @@ Without limiting the generality of any other provision of these Terms and Condit
 
        <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
         <span className="font-semibold text-black block mb-2">
-Section 9: DISPUTE RESOLUTION CLAUSE
+SECTION 9: DISPUTE RESOLUTION CLAUSE
 </span>
        
   With respect to any dispute regarding the website, all rights and obligations and all actions contemplated by these Terms and Conditions shall be governed by the laws of India and the courts of New Delhi, India, as if the Terms and Conditions were a contract wholly entered into and wholly performed within New Delhi, India, subject to foreign legal mandatory provisions.
@@ -348,7 +348,7 @@ To the fullest extent permitted by applicable law, any dispute, differences, or 
 
       <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
         <span className="font-semibold text-black block mb-2">
-Section 10: CANCELLATION, REFUND, AND RETURN POLICY
+SECTION 10: CANCELLATION, REFUND, AND RETURN POLICY
 </span>
        
  An order shall be considered confirmed unless you cancel the order before Cure Ayurvedic dispatches the products to you.

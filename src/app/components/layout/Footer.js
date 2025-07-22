@@ -198,37 +198,120 @@ const handleSubscribe = async (e) => {
             {/* <h3 className="text-xs sm:text-sm font-semibold text-gray-900 tracking-wider uppercase mb-3 sm:mb-4">
               About Cure Ayurvedic
             </h3> */}
-            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
-              We are an all-natural,{' '}
-              <span className="font-medium">herbal alternative</span>{' '}
-              for solving life's common problems.  
-            </p>
+            {/* <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
+              We offer natural, herbal solutions to everyday challenges !
+             
+               
+            </p> */}
             
             
           </div>
+ 
+           
 
-          {/* About Us Section */}
+          {/* Our Products Section */}
           <div className="col-span-1">
             <h3 className="text-xs sm:text-sm font-semibold text-gray-900 tracking-wider uppercase mb-3 sm:mb-4">
-              Quick Links
+              Shop
             </h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <Link
-                  href="/about"
+                  href="/shop/68754ea3e966b84de62658dd"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
-                  Our Mission
+                  VedicCal
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/shop/68754f410e3f3f660866ca20"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  VedicFlx
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/shop/68754f4e0e3f3f660866ca33"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  VedicFlx Oil
+                </Link>
+              </li>
+
                <li>
+                <Link
+                  href="/shop/68754f5c0e3f3f660866ca46"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  D Vedic Syrup
+                </Link>
+              </li>
+
+               <li>
+                <Link
+                  href="/shop/68754fcd0e3f3f660866ca60"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  D Vedic 
+                </Link>
+              </li>
+
+               <li>
+                <Link
+                  href="/shop/68754fda0e3f3f660866ca72"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  Vedic Shilajit
+                </Link>
+              </li>
+              {/* <li>
+                <Link
+                  href="/terms-of-service"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  Terms of Service
+                </Link>
+              </li> */}
+              
+
+               {/* <li>
+                <Link
+                  href="/gallery"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  Gallery
+                </Link>
+              </li> */}
+            </ul>
+          </div>
+
+
+
+        {/* information */}
+
+        <div className="col-span-1">
+            <h3 className="text-xs sm:text-sm font-semibold text-gray-900 tracking-wider uppercase mb-3 sm:mb-4">
+             INFORMATION
+            </h3>
+            <ul className="space-y-2 sm:space-y-3">
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  Contact Us
+                </Link>
+              </li>
+               {/* <li>
                 <Link
                   href="/blogs"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Blogs
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   href="/faq"
@@ -262,62 +345,32 @@ const handleSubscribe = async (e) => {
                   Terms and Conditions
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* Our Products Section */}
-          <div className="col-span-1">
-            <h3 className="text-xs sm:text-sm font-semibold text-gray-900 tracking-wider uppercase mb-3 sm:mb-4">
-              Our Products
-            </h3>
-            <ul className="space-y-2 sm:space-y-3">
-              <li>
-                <Link
-                  href="/shop"
-                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  All Products
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shop"
-                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  VedicFlx
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/shop"
-                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Vedic
-                </Link>
-              </li>
 
                <li>
-                <Link
-                  href="/shop"
-                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  D Vedic
-                </Link>
-              </li>
-              {/* <li>
-                <Link
-                  href="/terms-of-service"
-                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Terms of Service
-                </Link>
-              </li> */}
-              <li>
                 <Link
                   href="/refund-policy"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Refund Policy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+
+          {/* quick link */}
+           {/* <div className="col-span-1">
+            <h3 className="text-xs sm:text-sm font-semibold text-gray-900 tracking-wider uppercase mb-3 sm:mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-2 sm:space-y-3">
+              
+               <li>
+                <Link
+                  href="/blogs"
+                  className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  Blogs
                 </Link>
               </li>
 
@@ -329,8 +382,13 @@ const handleSubscribe = async (e) => {
                   Gallery
                 </Link>
               </li>
+              
+              
+              
+              
+                
             </ul>
-          </div>
+          </div> */}
 
           {/* Newsletter Section */}
          <div className="col-span-2 sm:col-span-1 lg:col-span-1">
@@ -341,36 +399,7 @@ const handleSubscribe = async (e) => {
               Subscribe to receive updates, access to exclusive deals, and more.
             </p>
             
-            {/* <form onSubmit={handleSubscribe} className="space-y-2 sm:space-y-3">
-              <div>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  className="w-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs text-black sm:text-sm border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent placeholder-gray-400"
-                  required
-                  disabled={isLoading}
-                />
-              </div>
-              <button
-              type="submit"
-              disabled={isLoading || isSubscribed}
-              className={`
-                group relative inline-block w-full overflow-hidden
-                bg-[#82a133] text-white font-medium py-3 px-6 rounded-md
-                text-sm transition-all duration-300 border border-transparent
-                hover:border-[#83BCA9] tracking-wider uppercase text-xs sm:text-sm
-                disabled:opacity-50 disabled:cursor-not-allowed
-              `}
-            >
-              <span className="relative z-10 group-hover:text-[#82a133] transition-colors duration-300 whitespace-nowrap text-xs sm:text-sm md:text-base">
-                {isLoading ? 'Subscribing...' : isSubscribed ? 'Subscribed!' : 'Subscribe'}
-              </span>
-              <span className="absolute inset-0 bg-white scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 z-0"></span>
-            </button>
-
-            </form> */}
+             
 
             <form onSubmit={handleSubscribe} className="space-y-2 sm:space-y-3">
               <div>
@@ -385,7 +414,7 @@ const handleSubscribe = async (e) => {
                 />
               </div>
 
-              {/* Captcha Field */}
+              
               <div>
                 <label className="block mb-1 text-xs text-gray-600">{captcha.question}</label>
                 <input
@@ -417,14 +446,14 @@ const handleSubscribe = async (e) => {
             </form>
 
             
-            {/* Success Message */}
+           
             {isSubscribed && (
               <p className="text-xs sm:text-sm text-green-600 mt-2">
                 Thank you for subscribing!
               </p>
             )}
             
-            {/* Error Message */}
+            
             {error && (
               <p className="text-xs sm:text-sm text-red-600 mt-2">
                 {error}

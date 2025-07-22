@@ -35,10 +35,10 @@ export default function PrivacyPolicy() {
     
     {/* Privacy Policy Section */}
     <div className="mb-8 md:mb-12">
-      <p className="text-gray-700 text-base text-justify leading-relaxed mb-6">
+      <div className="text-gray-700 text-base text-justify leading-relaxed mb-6">
         Your privacy is very important to us. We believe that health is personal, and so is your information.
         Cure Ayurvedic provides products and services based on traditional Ayurvedic knowledge and natural ingredients. However, we do not provide any warranty or guarantee (express or implied) regarding the accuracy, effectiveness, completeness, or suitability of the products for your individual needs.
-      </p>
+      </div>
 
       <div className="text-gray-700 text-base text-justify leading-relaxed mb-6">
         By using our products, you acknowledge and agree that:

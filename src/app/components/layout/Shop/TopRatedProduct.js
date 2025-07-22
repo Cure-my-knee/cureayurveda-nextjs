@@ -192,62 +192,62 @@ const TopRatedProduct = () => {
   const router = useRouter();
 
   // Fallback products data (in case API fails)
-  const fallbackProducts = [
-    {
-      id: "VedicCal",
-      productImage: "/images/defaultproduct/productdumy2.jpg",
-      hoverImage: "/images/defaultproduct/productimage4.jpeg",
-      productName: "VedicCal",
-      price: "549",
-      currency: "₹",
-      mrpText: "MRP"
-    },
-    {
-      id: "VedicFix",
-      productImage: "/images/defaultproduct/productdumy2.jpg",
-      hoverImage: "/images/defaultproduct/productimage4.jpeg",
-      productName: "VedicFix",
-      price: "399",
-      currency: "₹",
-      mrpText: "MRP"
-    },
-    {
-      id: "VedicFix-Oil",
-      productImage: "/images/defaultproduct/productdumy2.jpg",
-      hoverImage: "/images/defaultproduct/productimage5.jpeg",
-      productName: "VedicFix Oil",
-      price: "299",
-      currency: "₹",
-      mrpText: "MRP"
-    },
-    {
-      id: "D-Vedic",
-      productImage: "/images/defaultproduct/productdumy2.jpg",
-      hoverImage: "/images/defaultproduct/productimage6.jpeg",
-      productName: "D Vedic",
-      price: "449",
-      currency: "₹",
-      mrpText: "MRP"
-    },
-    {
-      id: "D-Vedic-Syrup",
-      productImage: "/images/defaultproduct/productdumy2.jpg",
-      hoverImage: "/images/defaultproduct/productimage6.jpeg",
-      productName: "D Vedic Syrup",
-      price: "599",
-      currency: "₹",
-      mrpText: "MRP"
-    },
-    {
-      id: "Vedic-Shilajit",
-      productImage: "/images/defaultproduct/productdumy2.jpg",
-      hoverImage: "/images/defaultproduct/productimage6.jpeg",
-      productName: "Vedic Shilajit",
-      price: "349",
-      currency: "₹",
-      mrpText: "MRP"
-    }
-  ];
+  // const fallbackProducts = [
+  //   {
+  //     id: "VedicCal",
+  //     productImage: "/images/defaultproduct/productdumy2.jpg",
+  //     hoverImage: "/images/defaultproduct/productimage4.jpeg",
+  //     productName: "VedicCal",
+  //     price: "549",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "VedicFix",
+  //     productImage: "/images/defaultproduct/productdumy2.jpg",
+  //     hoverImage: "/images/defaultproduct/productimage4.jpeg",
+  //     productName: "VedicFix",
+  //     price: "399",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "VedicFix-Oil",
+  //     productImage: "/images/defaultproduct/productdumy2.jpg",
+  //     hoverImage: "/images/defaultproduct/productimage5.jpeg",
+  //     productName: "VedicFix Oil",
+  //     price: "299",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "D-Vedic",
+  //     productImage: "/images/defaultproduct/productdumy2.jpg",
+  //     hoverImage: "/images/defaultproduct/productimage6.jpeg",
+  //     productName: "D Vedic",
+  //     price: "449",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "D-Vedic-Syrup",
+  //     productImage: "/images/defaultproduct/productdumy2.jpg",
+  //     hoverImage: "/images/defaultproduct/productimage6.jpeg",
+  //     productName: "D Vedic Syrup",
+  //     price: "599",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "Vedic-Shilajit",
+  //     productImage: "/images/defaultproduct/productdumy2.jpg",
+  //     hoverImage: "/images/defaultproduct/productimage6.jpeg",
+  //     productName: "Vedic Shilajit",
+  //     price: "349",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   }
+  // ];
 
   // Fetch products on component mount
   useEffect(() => {
@@ -414,14 +414,14 @@ const TopRatedProduct = () => {
     <>
       
       <section>
-        <div className="min-h-screen bg-gray-50 pt-16">
+        <div className="min-h-screen bg-[#EDF1E1] pt-16">
           <Title>
             Our Products
           </Title>
           
-          <Subtitle>
-            Discover our premium collection of natural pain relief solutions
-          </Subtitle>
+          {/* <Subtitle>
+            Backed by Ayurveda, Trusted by Thousands !
+          </Subtitle> */}
 
           {/* Error Message - Only show if there's an error and we're not loading */}
           {error && !loading && (
