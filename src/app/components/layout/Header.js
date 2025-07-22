@@ -781,7 +781,7 @@ export default function Header() {
                 priority
               />
             </div>
-            <span className="ml-2 text-xl lg:text-2xl font-semibold text-gray-800 tracking-wide group-hover:text-green-600 transition-colors duration-200">
+            <span className="ml-2 text-xl lg:text-2xl  text-black tracking-wide group-hover:text-[#586e20] transition-colors duration-200">
               CURE AYURVEDIC
             </span>
           </Link>
