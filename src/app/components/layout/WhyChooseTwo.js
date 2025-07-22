@@ -72,7 +72,7 @@ const WhyChooseTwo = () => {
         alt="leaf bottom left"
         width={200}
         height={200}
-        className="absolute bottom-0 left-0 z-0 opacity-40 transform -translate-x-1/3 md:translate-x-0"
+        className="absolute bottom-[-25px] left-[-25px] z-0 opacity-40 transform -translate-x-1/3 md:translate-x-0"
       />
 
       {/* Decorative Leaves - Top Right */}
@@ -81,7 +81,7 @@ const WhyChooseTwo = () => {
         alt="leaf top right"
         width={200}
         height={200}
-        className="absolute top-0 right-0 z-0 opacity-40 transform -translate-y-1/3 md:translate-y-0"
+        className="absolute top-[-25px] right-[-25px] z-0 opacity-40 transform -translate-y-1/3 md:translate-y-0"
       />
 
       {/* Content */}

@@ -251,7 +251,7 @@ const ProductCardShop = ({
       <div className="px-3 py-4 sm:px-4 sm:py-5 md:px-6 md:py-6 text-center bg-[#ffff] border-t border-gray-200">
         {/* Product Name */}
         {/* text-start text-xl sm:text-3xl md:text-4xl   mb-2 text-[#586e20] drop-shadow-lg */}
-        <div className="text-[#586e20] text-lg sm:text-xl md:text-3xl ">
+        <div className="text-[#586e20] text-lg sm:text-xl md:text-2xl ">
 
           {productName}
         </div>
@@ -260,13 +260,17 @@ const ProductCardShop = ({
         {/* <div className="text-gray-600 text-[10px] sm:text-xs md:text-sm tracking-[0.2em] uppercase">
           {currency} {price} {mrpText}
         </div> */}
-        <div className="text-gray-600 text-xs sm:text-sm md:text-base ">
-      ₹ {price}
+        <div className="text-black text-lg ">
+      
         {mrpText && (
-          <span className="ml-2 line-through text-gray-400">
+          <span className="ml-2 line-through text-black">
             {mrpText}
           </span>
+          
           )}
+           <span className="ml-2">
+          ₹ {price}
+        </span>
         </div>
       </div>
     </div>

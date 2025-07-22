@@ -282,7 +282,7 @@ export default function HeroSection() {
     {
       id: 3,
       backgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753194937/Shilajit_rrkzyw.jpg",
-      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753178251/Banner_Web_Shilajit_2_hfqwkk.jpg", // Add mobile version
+      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753207131/Shilajit_mobile_jchadu.jpg", // Add mobile version
       subtitle: "Ayurvedic Shilajit",
       description: "Cure Ayurvedic’s Vedic Shilajit is a concentrated ayurvedic formula that helps to boost power and energy and keeps you strong and focussed.",
       buttonText: "Explore Products",
@@ -402,7 +402,7 @@ export default function HeroSection() {
 
               <Button
                 onClick={() => router.push('/shop')}
-                className="inline-block font-semibold transform hover:scale-105 hover:shadow-lg text-xs sm:text-sm md:text-base px-4 py-2 sm:px-6 sm:py-3 bg-[#586e20] text-white"
+                className="inline-block  transform hover:scale-105 hover:shadow-lg text-xs sm:text-sm md:text-base px-4 py-2 sm:px-6 sm:py-3 bg-[#586e20] text-white"
               >
                 {banner.buttonText}
               </Button>

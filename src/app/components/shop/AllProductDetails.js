@@ -2385,20 +2385,35 @@ const ProductDetailsPage = () => {
           
         </a> */}
 
-
+{/* 
             <div className="flex flex-col items-start mb-2">
-            {/* MRP - Crossed out above */}
+            
             {product.mrpText && (
               <span className="text-xl text-black line-through mb-1">
-                {product.mrpText}
+                {product.mrpText} <span></span>
               </span>
             )}
 
-            {/* Main Price */}
+            
             <div className="text-xl text-black">
               {product.currency}{product.price}
             </div>
-          </div>
+          </div> */}
+
+          <div className="flex flex-row items-center mb-2 space-x-2">
+          {/* MRP - Crossed out */}
+          {product.mrpText && (
+            <span className="text-xl text-black line-through ">
+              {product.mrpText}
+            </span>
+          )}
+
+          {/* Main Price */}
+          <span className="text-xl  text-black">
+            {product.currency}&nbsp;{product.price}
+          </span>
+        </div>
+
 
 
               
