@@ -13,7 +13,7 @@ export default function OrderSuccessPage() {
     const generateOrderNumber = () => {
       const timestamp = Date.now().toString();
       const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-      return `ORD-${timestamp.slice(-6)}${random}`;
+      return `xxxxx${timestamp.slice(-6)}${random}`;
     };
 
     const getEstimatedDelivery = () => {
@@ -56,7 +56,7 @@ export default function OrderSuccessPage() {
             Order Placed Successfully!
           </h1>
           
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-black max-w-2xl mx-auto">
             Thank you for your purchase! Your order has been confirmed and will be processed shortly.
           </p>
         </div>
@@ -67,25 +67,25 @@ export default function OrderSuccessPage() {
             {/* Order Information */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Order Details</h2>
+                <h2 className="text-2xl font-semibold text-black mb-4">Order Details</h2>
                 
                 <div className="space-y-4">
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                     <div className="flex items-center space-x-3">
-                      <Package className="w-5 h-5 text-blue-600" />
-                      <span className="font-medium text-gray-700">Order Number</span>
+                      <Package className="w-5 h-5 text-[#82a133]" />
+                      <span className="font-medium text-black">Order Number</span>
                     </div>
-                    <span className="font-mono text-sm font-semibold text-gray-900 bg-white px-3 py-1 rounded-md">
+                    <span className="font-mono text-sm font-semibold text-black bg-white px-3 py-1 rounded-md">
                       {orderNumber}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                     <div className="flex items-center space-x-3">
-                      <Calendar className="w-5 h-5 text-green-600" />
-                      <span className="font-medium text-gray-700">Order Date</span>
+                      <Calendar className="w-5 h-5 text-[#82a133]" />
+                      <span className="font-medium text-black">Order Date</span>
                     </div>
-                    <span className="text-sm font-semibold text-gray-900">
+                    <span className="text-sm font-semibold text-black">
                       {new Date().toLocaleDateString('en-US', { 
                         year: 'numeric', 
                         month: 'long', 
@@ -96,10 +96,10 @@ export default function OrderSuccessPage() {
 
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                     <div className="flex items-center space-x-3">
-                      <Truck className="w-5 h-5 text-purple-600" />
-                      <span className="font-medium text-gray-700">Estimated Delivery</span>
+                      <Truck className="w-5 h-5 text-[#82a133]" />
+                      <span className="font-medium text-black">Estimated Delivery</span>
                     </div>
-                    <span className="text-sm font-semibold text-gray-900">
+                    <span className="text-sm font-semibold text-black">
                       {estimatedDelivery}
                     </span>
                   </div>
@@ -109,25 +109,25 @@ export default function OrderSuccessPage() {
               {/* Delivery Status */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <div className="flex items-center space-x-3 mb-3">
-                  <MapPin className="w-5 h-5 text-blue-600" />
-                  <h3 className="font-semibold text-blue-900">Delivery Status</h3>
+                  <MapPin className="w-5 h-5 text-[#82a133]" />
+                  <h3 className="font-semibold text-black">Delivery Status</h3>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-sm text-blue-800">Order Confirmed</span>
+                    <div className="w-2 h-2 text-black rounded-full"></div>
+                    <span className="text-sm text-black">Order Confirmed</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
-                    <span className="text-sm text-blue-800">Processing</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                    <span className="text-sm text-gray-600">Shipped</span>
+                    <div className="w-2 h-2 text-black rounded-full animate-pulse"></div>
+                    <span className="text-sm text-black">Processing</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                    <span className="text-sm text-gray-600">Delivered</span>
+                    <span className="text-sm text-black">Shipped</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
+                    <span className="text-sm text-black">Delivered</span>
                   </div>
                 </div>
               </div>
@@ -136,16 +136,16 @@ export default function OrderSuccessPage() {
             {/* What's Next Section */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">What's Next?</h2>
+                <h2 className="text-2xl font-semibold text-black mb-4">What's Next?</h2>
                 
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4 p-4 bg-green-50 rounded-lg border border-green-200">
                     <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                      <span className="text-green-600 font-semibold text-sm">1</span>
+                      <span className="text-black font-semibold text-sm">1</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-green-900 mb-1">Order Confirmation</h4>
-                      <p className="text-sm text-green-700">
+                      <h4 className="font-semibold text-black mb-1">Order Confirmation</h4>
+                      <p className="text-sm text-black">
                         You'll receive an email confirmation with your order details within 5 minutes.
                       </p>
                     </div>
@@ -153,11 +153,11 @@ export default function OrderSuccessPage() {
 
                   <div className="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
                     <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                      <span className="text-blue-600 font-semibold text-sm">2</span>
+                      <span className="text-black font-semibold text-sm">2</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-blue-900 mb-1">Processing</h4>
-                      <p className="text-sm text-blue-700">
+                      <h4 className="font-semibold text-black mb-1">Processing</h4>
+                      <p className="text-sm text-black">
                         We'll prepare your order for shipment within 1-2 business days.
                       </p>
                     </div>
@@ -165,11 +165,11 @@ export default function OrderSuccessPage() {
 
                   <div className="flex items-start space-x-4 p-4 bg-purple-50 rounded-lg border border-purple-200">
                     <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                      <span className="text-purple-600 font-semibold text-sm">3</span>
+                      <span className="text-black font-semibold text-sm">3</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-purple-900 mb-1">Shipping</h4>
-                      <p className="text-sm text-purple-700">
+                      <h4 className="font-semibold text-black mb-1">Shipping</h4>
+                      <p className="text-sm text-black">
                         You'll receive tracking information once your order ships.
                       </p>
                     </div>
@@ -182,17 +182,17 @@ export default function OrderSuccessPage() {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button
+          {/* <button
             onClick={handleTrackOrder}
             className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <Package className="w-5 h-5" />
             <span>Track Your Order</span>
-          </button>
+          </button> */}
 
           <button
             onClick={handleContinueShopping}
-            className="w-full sm:w-auto px-8 py-4 bg-green-600 text-white font-semibold rounded-xl hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="w-full sm:w-auto px-8 py-4 bg-[#82a133] text-white font-semibold rounded-xl hover:bg-[#82a133] focus:outline-none focus:ring-4 focus:ring-green-300 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <ShoppingBag className="w-5 h-5" />
             <span>Continue Shopping</span>
@@ -208,34 +208,38 @@ export default function OrderSuccessPage() {
         </div>
 
         {/* Support Section */}
-        <div className="mt-12 text-center">
-          <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Need Help?</h3>
-            <p className="text-gray-600 mb-6">
-              If you have any questions about your order, our customer support team is here to help.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="mailto:support@example.com"
-                className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200"
-              >
-                Email Support
-              </a>
-              <a
-                href="tel:+1-800-123-4567"
-                className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200"
-              >
-                Call Us
-              </a>
-              <a
-                href="/help"
-                className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200"
-              >
-                Help Center
-              </a>
-            </div>
-          </div>
-        </div>
+         <div className="mt-12 text-center">
+  <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+    <h3 className="text-xl font-semibold text-gray-900 mb-4">Order Shipped Soon</h3>
+    <p className="text-gray-600 mb-6">
+      Your order has been confirmed and will be shipped shortly. You will receive shipping updates and tracking details via SMS and email from <strong>Shiprocket</strong>.
+    </p>
+    <p className="text-gray-600 mb-6">
+      If you have any questions about your order, our customer support team is here to help.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="mailto:Contact@cureayurvedic.com"
+        className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-black font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200"
+      >
+        Email Support
+      </a>
+      <a
+        href="tel:+91-8800023120"
+        className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-black font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200"
+      >
+        Call Us
+      </a>
+      <a
+        href="/contact"
+        className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-black font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200"
+      >
+        Help Center
+      </a>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   );

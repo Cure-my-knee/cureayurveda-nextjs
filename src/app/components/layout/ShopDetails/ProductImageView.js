@@ -81,7 +81,7 @@ const ProductImageView = ({ product, selectedImage = 0 }) => {
       {/* Zoomed View */}
       {isZoomed && (
         <div
-          className="fixed inset-0 z-50 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-6"
+          className="fixed inset-0 z-50 bg-black/40 bg-opacity-80 backdrop-blur-sm flex items-center justify-center"
           onClick={closeZoom}
           role="dialog"
           aria-modal="true"
@@ -125,11 +125,11 @@ const ProductImageView = ({ product, selectedImage = 0 }) => {
             </div>
 
             {/* Optional Caption */}
-            {product.productName && (
+            {/* {product.productName && (
               <p className="text-white text-center mt-4 text-base sm:text-lg font-medium">
                 {product.productName}
               </p>
-            )}
+            )} */}
           </div>
         </div>
       )}

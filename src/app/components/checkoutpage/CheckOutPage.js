@@ -1377,7 +1377,7 @@ function CheckoutContent( ) {
     id: item.id || item.productId || Date.now().toString(),
     name: item.name || item.productName || 'Unknown Product',
     sku: item.sku || `SKU-${item.id || Date.now()}`,
-    weight: item.weight || 0.2,
+    weight: item.weight || 0.5,
     hsn: item.hsn || '30049011',
     price: item.price || 1,
     quantity: item.quantity || 1,
@@ -1710,7 +1710,7 @@ function CheckoutContent( ) {
                           <h3 className="text-sm sm:text-base font-medium text-gray-900 truncate">{item.name}</h3>
                           <p className="text-sm text-gray-500">₹{item.price.toFixed(2)}</p>
                           <p className="hidden text-xs text-gray-400">SKU: {item.sku}</p>
-                          <p className="hidden text-xs text-gray-400">Weight: {item.weight}gm</p>
+                          <p className="hidden text-xs text-gray-400">Weight: {item.weight}kg</p>
                           <p className="text-xs text-gray-400 sm:hidden">Total: ₹{(item.price * item.quantity).toFixed(2)}</p>
                         </div>
                       </div>

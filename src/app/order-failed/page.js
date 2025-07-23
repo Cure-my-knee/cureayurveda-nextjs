@@ -7,16 +7,17 @@ export default function OrderFailedPage() {
   const router = useRouter();
   const [orderNumber, setOrderNumber] = useState('');
 
-  useEffect(() => {
-    // Generate order number for failed order
-    const generateOrderNumber = () => {
-      const timestamp = Date.now().toString();
-      const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-      return `ORD-${timestamp.slice(-6)}${random}`;
-    };
+ useEffect(() => {
+  // Generate order number for failed order
+  const generateOrderNumber = () => {
+    const timestamp = Date.now().toString();
+    const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+    return `xxxxx${timestamp.slice(-6)}${random}`;
+  };
 
-    setOrderNumber(generateOrderNumber());
-  }, []);
+  setOrderNumber(generateOrderNumber());
+}, []);
+
 
   const handleRetryPayment = () => {
     router.push('/checkout'); // Redirect to checkout page
@@ -43,7 +44,7 @@ export default function OrderFailedPage() {
             <XCircle className="w-12 h-12 text-red-600" />
           </div>
           
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4">
             Payment Failed
           </h1>
           
@@ -58,15 +59,15 @@ export default function OrderFailedPage() {
             {/* Order Information */}
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Order Information</h2>
+                <h2 className="text-2xl font-semibold text-black mb-4">Order Information</h2>
                 
                 <div className="space-y-4">
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                     <div className="flex items-center space-x-3">
-                      <XCircle className="w-5 h-5 text-red-600" />
-                      <span className="font-medium text-gray-700">Order Number</span>
+                      <XCircle className="w-5 h-5 text-black" />
+                      <span className="font-medium text-black">Order Number</span>
                     </div>
-                    <span className="font-mono text-sm font-semibold text-gray-900 bg-white px-3 py-1 rounded-md">
+                    <span className="font-mono text-sm font-semibold text-black bg-white px-3 py-1 rounded-md">
                       {orderNumber}
                     </span>
                   </div>
@@ -74,9 +75,9 @@ export default function OrderFailedPage() {
                   <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                     <div className="flex items-center space-x-3">
                       <CreditCard className="w-5 h-5 text-blue-600" />
-                      <span className="font-medium text-gray-700">Attempted Date</span>
+                      <span className="font-medium text-black">Attempted Date</span>
                     </div>
-                    <span className="text-sm font-semibold text-gray-900">
+                    <span className="text-sm font-semibold text-black">
                       {new Date().toLocaleDateString('en-US', { 
                         year: 'numeric', 
                         month: 'long', 
@@ -87,10 +88,10 @@ export default function OrderFailedPage() {
 
                   <div className="flex items-center justify-between p-4 bg-red-50 rounded-lg border border-red-200">
                     <div className="flex items-center space-x-3">
-                      <AlertTriangle className="w-5 h-5 text-red-600" />
-                      <span className="font-medium text-red-700">Status</span>
+                      <AlertTriangle className="w-5 h-5 text-red-500" />
+                      <span className="font-medium text-black">Status</span>
                     </div>
-                    <span className="text-sm font-semibold text-red-900 bg-red-100 px-3 py-1 rounded-md">
+                    <span className="text-sm font-semibold text-black bg-red-100 px-3 py-1 rounded-md">
                       Payment Failed
                     </span>
                   </div>
@@ -106,11 +107,11 @@ export default function OrderFailedPage() {
                 <div className="space-y-4">
                   <div className="flex items-start space-x-4 p-4 bg-red-50 rounded-lg border border-red-200">
                     <div className="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                      <span className="text-red-600 font-semibold text-sm">!</span>
+                      <span className="text-black font-semibold text-sm">!</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-red-900 mb-1">Common Issues</h4>
-                      <ul className="text-sm text-red-700 space-y-1">
+                      <h4 className="font-semibold text-black mb-1">Common Issues</h4>
+                      <ul className="text-sm text-black space-y-1">
                         <li>• Insufficient funds</li>
                         <li>• Incorrect card details</li>
                         <li>• Card declined by bank</li>
@@ -121,11 +122,11 @@ export default function OrderFailedPage() {
 
                   <div className="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
                     <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                      <span className="text-blue-600 font-semibold text-sm">?</span>
+                      <span className="text-black font-semibold text-sm">?</span>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-blue-900 mb-1">What You Can Do</h4>
-                      <ul className="text-sm text-blue-700 space-y-1">
+                      <h4 className="font-semibold text-blackmb-1">What You Can Do</h4>
+                      <ul className="text-sm text-black space-y-1">
                         <li>• Check your card details</li>
                         <li>• Try a different payment method</li>
                         <li>• Contact your bank</li>
@@ -149,13 +150,13 @@ export default function OrderFailedPage() {
             <span>Retry Payment</span>
           </button> */}
 
-          <button
+          {/* <button
             onClick={handleGoBack}
             className="w-full sm:w-auto px-8 py-4 bg-[#82a133] text-white font-semibold rounded-xl hover:bg-[#586e20] focus:outline-none focus:ring-4 focus:ring-[#586e20] transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Go Back</span>
-          </button>
+          </button> */}
 
           <button
             onClick={handleContinueShopping}
@@ -175,7 +176,7 @@ export default function OrderFailedPage() {
         </div>
 
         {/* Support Section */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">Need Help?</h3>
             <p className="text-gray-600 mb-6">
@@ -202,7 +203,7 @@ export default function OrderFailedPage() {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

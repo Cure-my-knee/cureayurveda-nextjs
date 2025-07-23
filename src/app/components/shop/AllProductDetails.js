@@ -2055,6 +2055,7 @@ import Guarantee from '../layout/Guarantee';
 import Newsletter from '../newsletter/Newsletter';
 import ProductImageView from '../layout/ShopDetails/ProductImageView';
 import ProductShowcase from './ProductShowCase';
+import IngredientsAccordian from '../layout/FaqLayout/IngredientsAccordian';
 
 
 const ProductDetailsPage = () => {
@@ -2333,27 +2334,28 @@ const ProductDetailsPage = () => {
 
 
             {/* Thumbnail Images - size remains the same */}
-            {product.images.length > 1 && (
-              <div className="flex space-x-2 overflow-x-auto justify-center">
-                {product.images.map((image, index) => (
-                  <button
-                    key={index}
-                    className={`flex-shrink-0 w-16 h-16 bg-[#ffff] rounded-lg border-2 transition-all ${
-                      selectedImage === index ? 'border-[#586e20] shadow-md' : 'border-gray-300 hover:border-gray-400'
-                    }`}
-                    onClick={() => setSelectedImage(index)}
-                  >
-                    <Image
-                      src={image}
-                      alt={`Product image ${index + 1}`}
-                      width={64}
-                      height={64}
-                      className="object-contain w-full h-full rounded-lg"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
+             {product.images.length > 1 && (
+  <div className="flex space-x-3 overflow-x-auto justify-center">
+    {product.images.map((image, index) => (
+      <button
+        key={index}
+        className={`flex-shrink-0 w-24 h-24 bg-[#ffff] rounded-lg border-2 transition-all ${
+          selectedImage === index ? 'border-[#586e20] shadow-md' : 'border-gray-300 hover:border-gray-400'
+        }`}
+        onClick={() => setSelectedImage(index)}
+      >
+        <Image
+          src={image}
+          alt={`Product image ${index + 1}`}
+          width={96}
+          height={96}
+          className="object-contain w-full h-full rounded-lg"
+        />
+      </button>
+    ))}
+  </div>
+)}
+
           </div>
 
 
@@ -2524,6 +2526,18 @@ const ProductDetailsPage = () => {
           <ProductShowcase />
         </section> */}
 
+        {/* ingrients part 2 start */}
+        
+         <section className="mt-6  "> 
+          {product.faq && product.faq.length > 0 && (
+          <div className="w-full ">
+            <IngredientsAccordian faqList={product.faq} />
+          </div>
+        )}
+       </section>
+
+        {/* end */}
+
         </div>
 
 
@@ -2557,14 +2571,14 @@ const ProductDetailsPage = () => {
               </div>
             )}
 
-          <div className="w-full ">
+          {/* <div className="w-full ">
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">How To Use</h3>
             <p className="text-gray-700 text-justify leading-relaxed text-lg">
               {product.directionsForUse || 'Usage instructions will be available soon.'}
             </p>
           </div>
-        </div>
+          </div> */}
           </div>
 
            
@@ -2573,12 +2587,24 @@ const ProductDetailsPage = () => {
 
          
         
-         
-          {product.faq && product.faq.length > 0 && (
+         {/* old ingridients */}
+
+          {/* {product.faq && product.faq.length > 0 && (
           <div className="w-full lg:w-2/5">
             <FAQAccordion faqList={product.faq} />
           </div>
-        )}
+        )} */}
+
+        <div className="w-full lg:w-2/5">
+            <div className="bg-white rounded-lg shadow-sm p-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">How To Use</h3>
+            <p className="text-gray-700 text-justify leading-relaxed text-lg">
+              {product.directionsForUse || 'Usage instructions will be available soon.'}
+            </p>
+          </div>
+        </div>
+
+
         </div>
          
       </div>
@@ -2586,7 +2612,7 @@ const ProductDetailsPage = () => {
 
     <Guarantee />
     <RelatedProduct />
-    <Newsletter />
+    {/* <Newsletter /> */}
     </>
   );
 };
