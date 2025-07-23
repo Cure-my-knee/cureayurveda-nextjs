@@ -105,7 +105,7 @@ export default function OrderFailedPage() {
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">What Went Wrong?</h2>
                 
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-4 p-4 bg-red-50 rounded-lg border border-red-200">
+                  <div className="flex items-start space-x-4 p-4 bg-white rounded-lg border border-red-200">
                     <div className="flex-shrink-0 w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
                       <span className="text-black font-semibold text-sm">!</span>
                     </div>
@@ -120,7 +120,7 @@ export default function OrderFailedPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <div className="flex items-start space-x-4 p-4 bg-white rounded-lg border border-blue-200">
                     <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                       <span className="text-black font-semibold text-sm">?</span>
                     </div>
