@@ -18,7 +18,7 @@ export default function OrderSuccessPage() {
 
     const getEstimatedDelivery = () => {
       const deliveryDate = new Date();
-      deliveryDate.setDate(deliveryDate.getDate() + Math.floor(Math.random() * 5) + 3); // 3-7 days
+      deliveryDate.setDate(deliveryDate.getDate() + Math.floor(Math.random() * 5) + 5); // 3-7 days
       return deliveryDate.toLocaleDateString('en-US', { 
         weekday: 'long', 
         year: 'numeric', 
@@ -107,7 +107,7 @@ export default function OrderSuccessPage() {
               </div>
 
               {/* Delivery Status */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div className="bg-white border border-blue-200 rounded-lg p-4">
                 <div className="flex items-center space-x-3 mb-3">
                   <MapPin className="w-5 h-5 text-[#82a133]" />
                   <h3 className="font-semibold text-black">Delivery Status</h3>
@@ -146,7 +146,7 @@ export default function OrderSuccessPage() {
                     <div>
                       <h4 className="font-semibold text-black mb-1">Order Confirmation</h4>
                       <p className="text-sm text-black">
-                        You'll receive an email confirmation with your order details within 5 minutes.
+                        You'll receive an email confirmation with your order details.
                       </p>
                     </div>
                   </div>
@@ -218,12 +218,12 @@ export default function OrderSuccessPage() {
       If you have any questions about your order, our customer support team is here to help.
     </p>
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
+      {/* <a
         href="mailto:Contact@cureayurvedic.com"
         className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-black font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200"
       >
         Email Support
-      </a>
+      </a> */}
       <a
         href="tel:+91-8800023120"
         className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-black font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors duration-200"

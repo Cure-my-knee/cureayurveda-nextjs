@@ -994,7 +994,7 @@ useEffect(() => {
 
   return (
     <>
-      <BreadCrumbBanner title="Shop Now" breadcrumbs={shopBreadcrumbs}  />
+      <BreadCrumbBanner title="Shop Now" breadcrumbs={shopBreadcrumbs} backgroundImage="https://res.cloudinary.com/dztmhmutv/image/upload/v1753275703/hand-holding-rosemary-fresh-plant-bottle-rosemary-oil_d5mlo8.jpg"  />
       <section ref={sectionRef}  >
         <div className="min-h-screen bg-[#EDF1E1]  pt-32">
           <Title>

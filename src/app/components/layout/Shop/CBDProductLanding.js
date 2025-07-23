@@ -150,7 +150,7 @@ const tabsData = {
     description:
       'Recharge your body and mind with the power of pure Ayurvedic shilajit which boosts stamina, strength and overall vitality naturally. A daily dose of energy, endurance and rejuvenation from within.',
     image:
-      'https://res.cloudinary.com/dztmhmutv/image/upload/v1753247410/Website_Box_sg7ikr.jpg',
+      'https://res.cloudinary.com/dztmhmutv/image/upload/v1753268890/Website_Box_r1jpid.jpg',
   },
 };
 

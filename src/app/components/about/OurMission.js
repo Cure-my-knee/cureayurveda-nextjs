@@ -31,8 +31,8 @@ const OurMission = () => {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <Title>Our Purpose</Title>
-          <Subtitle>Healing Through Nature</Subtitle>
+          {/* <Title>Our Purpose</Title>
+          <Subtitle>Healing Through Nature</Subtitle> */}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -52,7 +52,7 @@ const OurMission = () => {
           </div>
 
           {/* Our Vision */}
-          <div className="bg-white   shadow-md p-8 lg:p-10 border border-gray-200 transition hover:shadow-lg">
+          {/* <div className="bg-white   shadow-md p-8 lg:p-10 border border-gray-200 transition hover:shadow-lg">
             <div className="flex items-center gap-4 mb-6">
               <Target className="w-8 h-8 text-[#586e20]" />
               <Title className="text-2xl sm:text-3xl lg:text-4xl">Our Vision</Title>
@@ -63,7 +63,7 @@ const OurMission = () => {
             </p>
 
              
-          </div>
+          </div> */}
 
         </div>
       </div>

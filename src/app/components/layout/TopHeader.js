@@ -10,9 +10,9 @@ export default function TopHeader() {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-[#586e20] text-white py-2 px-4 text-center">
-      <p className="text-sm font-medium text-white" >
+      <div className="text-sm font-medium text-white" >
        Grab 10% OFF – Limited Time Only!
-      </p>
+      </div>
       
     </div>
   );

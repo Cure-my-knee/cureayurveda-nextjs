@@ -5,7 +5,8 @@ import { ChevronRight, Home } from 'lucide-react';
 const BreadCrumbBanner = ({
    title = "Shop Now",
    breadcrumbs = [],
-   backgroundImage = "https://www.wholeleaf.in/cdn/shop/files/jft_bg_1600x.png?v=1626068759",
+  //  backgroundImage = "https://www.wholeleaf.in/cdn/shop/files/jft_bg_1600x.png?v=1626068759",
+  backgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753275703/top-view-bowls-with-assortment-powders-copy-space_fxaaj2.jpg",
    className = "",
    height = "h-96 md:h-[28rem] lg:h-[42rem]"
 }) => {
@@ -28,21 +29,22 @@ const BreadCrumbBanner = ({
           />
         )}
       </div>
+ 
 
       {/* Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
         {/* Main Title */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 tracking-wider">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 tracking-wider ">
           {title}
         </h1>
 
         {/* Breadcrumbs */}
         {breadcrumbs.length > 0 && (
-          <nav className="flex items-center justify-center space-x-2 text-sm md:text-base text-gray-600">
+          <nav className="flex items-center justify-center space-x-2 text-sm md:text-base text-gray-800">
             <Home className="w-4 h-4 md:w-5 md:h-5" />
             {breadcrumbs.map((crumb, index) => (
               <React.Fragment key={index}>
-                <ChevronRight className="w-3 h-3 md:w-4 md:h-4 text-gray-400" />
+                <ChevronRight className="w-3 h-3 md:w-4 md:h-4 text-gray-800" />
                 {crumb.href ? (
                   <a
                     href={crumb.href}

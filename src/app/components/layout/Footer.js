@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Facebook, Instagram, Mail, Phone, MapPin, Youtube, Twitter,  } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
+
 import Button from '../ui/Button';
 import Image from 'next/image';
 import { FaXTwitter } from "react-icons/fa6";
@@ -479,7 +481,7 @@ const handleSubscribe = async (e) => {
       className="text-gray-400 hover:text-gray-600 transition-colors"
       aria-label="Facebook"
     >
-      <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
+      <Facebook className="w-4 h-4 text-[#0165E1] sm:w-5 sm:h-5" />
     </a>
 
     {/* Instagram */}
@@ -488,7 +490,7 @@ const handleSubscribe = async (e) => {
       className="text-gray-400 hover:text-gray-600 transition-colors"
       aria-label="Instagram"
     >
-      <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
+      <Instagram className="w-4 h-4 text-orange-700 sm:w-5 sm:h-5" />
     </a>
 
     {/* X / Twitter */}
@@ -498,17 +500,17 @@ const handleSubscribe = async (e) => {
       aria-label="Twitter / X"
     >
       {/* <Twitter className="w-4 h-4 sm:w-5 sm:h-5" /> */}
-      <FaXTwitter className="w-4 h-4 sm:w-5 sm:h-5" />
+      <Linkedin className="w-4 h-4 text-blue-500 sm:w-5 sm:h-5" />
     </a>
 
     {/* YouTube */}
-    <a
+    {/* <a
       href="https://www.youtube.com"
       className="text-gray-400 hover:text-gray-600 transition-colors"
       aria-label="YouTube"
     >
       <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
-    </a>
+    </a> */}
   </div>
 </div>
           </div>
