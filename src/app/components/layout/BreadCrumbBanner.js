@@ -32,13 +32,13 @@ const BreadCrumbBanner = ({
  
 
       {/* Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
-        {/* Main Title */}
+      {/* <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
+        
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 tracking-wider ">
           {title}
         </h1>
 
-        {/* Breadcrumbs */}
+        
         {breadcrumbs.length > 0 && (
           <nav className="flex items-center justify-center space-x-2 text-sm md:text-base text-gray-800">
             <Home className="w-4 h-4 md:w-5 md:h-5" />
@@ -61,7 +61,7 @@ const BreadCrumbBanner = ({
             ))}
           </nav>
         )}
-      </div>
+      </div> */}
 
       {/* Decorative Elements */}
       <div className="absolute top-4 left-4 w-16 h-16 bg-white/10 rounded-full blur-xl"></div>
