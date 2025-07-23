@@ -673,7 +673,7 @@ const SpotlightCarousel = () => {
           <button
             type="button"
             onClick={(e) => handleNavClick('prev', e)}
-            className="absolute left-1 sm:left-2 md:left-4 lg:left-8 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
+            className="absolute left-1 sm:left-2 md:left-4 lg:left-8 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700" />
@@ -682,7 +682,7 @@ const SpotlightCarousel = () => {
           <button
             type="button"
             onClick={(e) => handleNavClick('next', e)}
-            className="absolute right-1 sm:right-2 md:right-4 lg:right-8 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
+            className="absolute right-1 sm:right-2 md:right-4 lg:right-8 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
             aria-label="Next slide"
           >
             <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700" />

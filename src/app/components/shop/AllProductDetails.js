@@ -2320,7 +2320,7 @@ const ProductDetailsPage = () => {
 
   return (
     <> 
-    <div className="min-h-screen bg-gray-50 pt-24 ">
+    <div className="min-h-screen bg-[#edf1e1] pt-24 ">
       
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -2362,12 +2362,13 @@ const ProductDetailsPage = () => {
             {/* Product Title */}
             <div>
                 
-            <div className="text-[#586e20] text-lg sm:text-xl md:text-3xl lg:text-3xl  mb-2">
+            <div className="text-[#586e20] text-xl sm:text-2xl md:text-3xl lg:text-3xl mb-2">
             {product.productName}
           </div>
         
         
-          <div className="text-[#82a133] text-xl sm:text-base md:text-lg lg:text-xl  mb-2">
+         <div className="text-[#82a133] text-xl mb-2">
+
             {product.productsubtitle}
           </div>
 
