@@ -2557,7 +2557,7 @@ const ProductDetailsPage = () => {
             </div>
             
             {/* Benefits Section */}
-            {product.benefits && product.benefits.length > 0 && (
+            {/* {product.benefits && product.benefits.length > 0 && (
               <div className="bg-white rounded-lg shadow-sm p-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Benefits</h3>
                 <ul className="space-y-3">
@@ -2569,16 +2569,16 @@ const ProductDetailsPage = () => {
                   ))}
                 </ul>
               </div>
-            )}
+            )} */}
 
-          {/* <div className="w-full ">
+          <div className="w-full ">
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">How To Use</h3>
             <p className="text-gray-700 text-justify leading-relaxed text-lg">
               {product.directionsForUse || 'Usage instructions will be available soon.'}
             </p>
           </div>
-          </div> */}
+          </div>
           </div>
 
            
@@ -2596,12 +2596,21 @@ const ProductDetailsPage = () => {
         )} */}
 
         <div className="w-full lg:w-2/5">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">How To Use</h3>
-            <p className="text-gray-700 text-justify leading-relaxed text-lg">
-              {product.directionsForUse || 'Usage instructions will be available soon.'}
-            </p>
-          </div>
+         
+            {/* Benefits Section */}
+            {product.benefits && product.benefits.length > 0 && (
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Benefits</h3>
+                <ul className="space-y-3">
+                  {product.benefits.map((benefit, index) => (
+                    <li key={index} className="flex items-start text-gray-700">
+                      <span className="w-2 h-2 bg-[#586e20] rounded-full mr-3 mt-2 flex-shrink-0"></span>
+                      <p className="text-lg text-justify">{benefit}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
         </div>
 
 

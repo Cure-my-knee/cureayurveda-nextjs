@@ -34,7 +34,7 @@ const IngredientsAccordion = ({ faqList = [] }) => {
               onClick={() => toggleIndex(index)}
               className="w-full flex justify-between items-center px-3 sm:px-4 py-2 sm:py-3 text-left hover:bg-black/10 transition-colors duration-200 rounded-xl sm:rounded-2xl"
             >
-              <span className="text-white  text-sm sm:text-base lg:text-lg uppercase tracking-wide pr-4">
+              <span className="text-white  text-sm sm:text-base lg:text-lg  tracking-wide pr-4">
                 {ingredient.title}
               </span>
               <svg
