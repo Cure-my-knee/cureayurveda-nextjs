@@ -6,19 +6,19 @@ const BreadCrumbBanner = ({
    title = "Shop Now",
    breadcrumbs = [],
   //  backgroundImage = "https://www.wholeleaf.in/cdn/shop/files/jft_bg_1600x.png?v=1626068759",
-  backgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753275703/top-view-bowls-with-assortment-powders-copy-space_fxaaj2.jpg",
+  backgroundImage = "/images/banner/herobanner7.jpg",
    className = "",
    height = "h-96 md:h-[28rem] lg:h-[42rem]"
 }) => {
   return (
     <div className={`relative w-full ${height} flex items-center justify-center overflow-hidden ${className}`}>
       {/* Background Layer */}
-      <div className="absolute inset-0 bg-gradient-to-br ">
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-gray-100 ">
         {/* Subtle Pattern Overlay */}
-        <div className="absolute inset-0 opacity-30">
+        {/* <div className="absolute inset-0 opacity-30">
           <div className="w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-y-12 scale-150"></div>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-bl from-transparent via-white/10 to-transparent transform -skew-y-12 scale-150"></div>
-        </div>
+        </div> */}
                 
         {/* Custom Background Image */}
         {backgroundImage && (

@@ -23,7 +23,8 @@ const AboutUsPage = () => {
     <> 
  
     <BreadCrumbBanner title="About Us"
-    breadcrumbs={aboutBreadcrumbs} />
+    breadcrumbs={aboutBreadcrumbs}
+     />
      
      <AboutUsSection />
      <OurMission />
