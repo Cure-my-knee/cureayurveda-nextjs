@@ -2,6 +2,7 @@
 
 import './globals.css';
 import { Montserrat } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 
 // Load Montserrat font as CSS variable
 const montserrat = Montserrat({
@@ -56,6 +57,8 @@ export default function RootLayout({ children }) {
         theme="light"
       />
         <Footer />
+        {/* Vercel Analytics added here */}
+         <Analytics /> 
       </body>
     </html>
   );
