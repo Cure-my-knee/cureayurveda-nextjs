@@ -1,10 +1,20 @@
-import React from 'react';
+'use client'
+import React, { useEffect, useRef } from 'react';
 import { CheckCircle, Heart, Target } from 'lucide-react';
 import Title from '../ui/Title';
 
 const AboutUsSection = () => {
+
+    // scroll up
+    const sectionRef = useRef(null);
+    useEffect(() => {
+      if (sectionRef.current) {
+        sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, []);
+
   return (
-    <section className="py-16 lg:py-24 bg-[#EDF1E1]">
+    <section ref={sectionRef} className="py-16 lg:py-24 bg-[#EDF1E1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-6">

@@ -15,25 +15,63 @@ export default function AdditionalInfo() {
               or anything else our team is ready to answer all your questions.
             </p>
 
-            <ul className="space-y-6 text-gray-700">
+            {/* <ul className="space-y-6 text-gray-700 mt-2">
               <li className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-[#83bca9]" />
+                <MapPin className="w-6 h-6 text-[#586e20]" />
                 <span>A-41, FIEE Complex Okhla Phase-2, New Delhi 110020</span>
               </li>
               <li className="flex items-start gap-4">
-                <Phone className="w-6 h-6 text-[#83bca9]" />
+                <Phone className="w-6 h-6 text-[#586e20]" />
                 <span>+91 8800023120</span>
               </li>
               <li className="flex items-start gap-4">
-                <Mail className="w-6 h-6 text-[#83bca9]" />
+                <Mail className="w-6 h-6 text-[#586e20]" />
                 <span>Contact@cureayurvedic.com </span>
               </li>
 
                <li className="flex items-start gap-4">
-              <Clock className="w-6 h-6 text-[#83bca9]" />
+              <Clock className="w-6 h-6 text-[#586e20]" />
               <span>Business Hours: Monday to Saturday, 10:00 AM – 7:00 PM</span>
             </li>
-            </ul>
+            </ul> */}
+            <ul className="space-y-6 text-gray-700 mt-2">
+          {/* Address - open Google Maps */}
+          <li className="flex items-start gap-4">
+            <MapPin className="w-6 h-6 text-[#586e20]" />
+            <a
+              href="https://www.google.com/maps/place/A-41,+FIEE+Complex,+Okhla+Phase+2,+New+Delhi+110020"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#586e20] transition-colors"
+            >
+              A-41, FIEE Complex Okhla Phase-2, New Delhi 110020
+            </a>
+          </li>
+
+          {/* Phone */}
+          <li className="flex items-start gap-4">
+            <Phone className="w-6 h-6 text-[#586e20]" />
+            <a href="tel:+918800023120" className="hover:text-[#586e20] transition-colors">
+              +91 8800023120
+            </a>
+          </li>
+
+          {/* Email */}
+          <li className="flex items-start gap-4">
+            <Mail className="w-6 h-6 text-[#586e20]" />
+            <a href="mailto:Contact@cureayurvedic.com" className="hover:text-[#586e20] transition-colors">
+              Contact@cureayurvedic.com
+            </a>
+          </li>
+
+          {/* Business Hours */}
+          <li className="flex items-start gap-4">
+            <Clock className="w-6 h-6 text-[#586e20]" />
+            <span>Business Hours: Monday to Saturday, 10:00 AM – 7:00 PM</span>
+          </li>
+        </ul>
+
+
           </div>
 
           {/* Map Container */}

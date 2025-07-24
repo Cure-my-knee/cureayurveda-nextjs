@@ -21,6 +21,7 @@ export const metadata = {
         <BreadCrumbBanner  title="Contact Us"
     breadcrumbs={contactBreadcrumbs} 
     backgroundImage="/images/banner/banner-breadcrumb/breadcrumbone6.jpg"
+    mobileBackgroundImage = "/images/banner/banner-breadcrumb/breadcrumbone6.jpg"
     />
         <ContactUsPage />
         <AdditionalInfo />

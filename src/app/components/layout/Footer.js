@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Facebook, Instagram, Mail, Phone, MapPin, Youtube, Twitter,  } from 'lucide-react';
 import { Linkedin } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 import Button from '../ui/Button';
 import Image from 'next/image';
@@ -473,46 +474,56 @@ const handleSubscribe = async (e) => {
             
             {/* Social Media Section */}
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
-  <p className="text-xs sm:text-sm text-gray-600">Follow us on</p>
-  <div className="flex space-x-3 sm:space-x-4">
-    {/* Facebook */}
-    <a
-      href="https://www.facebook.com/cureayurvedicproducts"
-      className="text-gray-400 hover:text-gray-600 transition-colors"
-      aria-label="Facebook"
-    >
-      <Facebook className="w-4 h-4 text-[#0165E1] sm:w-5 sm:h-5" />
-    </a>
+          <p className="text-xs sm:text-sm text-gray-600">Follow us on</p>
+          <div className="flex space-x-3 sm:space-x-4">
+            {/* Facebook */}
+            <a
+              href="https://www.facebook.com/cureayurvedicproducts"
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-4 h-4 text-[#0165E1] sm:w-5 sm:h-5" />
+            </a>
 
-    {/* Instagram */}
-    <a
-      href="https://www.instagram.com/cureayurvedic/"
-      className="text-gray-400 hover:text-gray-600 transition-colors"
-      aria-label="Instagram"
-    >
-      <Instagram className="w-4 h-4 text-orange-700 sm:w-5 sm:h-5" />
-    </a>
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/cureayurvedic/"
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-4 h-4 text-[#E1306C] sm:w-5 sm:h-5" />
+            </a>
 
-    {/* X / Twitter */}
-    <a
-      href="https://www.linkedin.com/company/cureayurvedic/"
-      className="text-gray-400 hover:text-gray-600 transition-colors"
-      aria-label="Twitter / X"
-    >
-      {/* <Twitter className="w-4 h-4 sm:w-5 sm:h-5" /> */}
-      <Linkedin className="w-4 h-4 text-blue-500 sm:w-5 sm:h-5" />
-    </a>
+            {/* X / Twitter */}
+            <a
+              href="https://www.linkedin.com/company/cureayurvedic/"
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+              aria-label="Twitter / X"
+            >
+              {/* <Twitter className="w-4 h-4 sm:w-5 sm:h-5" /> */}
+              <Linkedin className="w-4 h-4 text-blue-500 sm:w-5 sm:h-5" />
+            </a>
 
-    {/* YouTube */}
-    {/* <a
-      href="https://www.youtube.com"
-      className="text-gray-400 hover:text-gray-600 transition-colors"
-      aria-label="YouTube"
-    >
-      <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
-    </a> */}
-  </div>
-</div>
+            {/* WhatsApp */}
+            <a
+              href="https://wa.me/918800023120" // Replace with your real WhatsApp number
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+              aria-label="WhatsApp"
+            >
+              <FaWhatsapp className="w-4 h-4 text-green-500 sm:w-5 sm:h-5" />
+            </a>
+
+
+            {/* YouTube */}
+            {/* <a
+              href="https://www.youtube.com"
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+              aria-label="YouTube"
+            >
+              <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
+            </a> */}
+          </div>
+           </div>
           </div>
         </div>
       </div>

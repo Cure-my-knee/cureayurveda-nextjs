@@ -923,42 +923,67 @@ export default function Header() {
             <X size={24} />
           </button>
         </div>
-        <div className="px-6 py-4 space-y-2">
+       <div className="px-6 py-4 space-y-2">
           {['/', '/about', '/shop', '/contact'].map((href, i) => (
             <Link
               key={href}
               href={href}
-              onClick={toggleMobileMenu}
-              className="block text-gray-800 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200 hover:translate-x-1"
+              onClick={() => {
+                handleLinkClick(['Home', 'About', 'Shop Now', 'Contact Us'][i]);
+                toggleMobileMenu();
+              }}
+              className={`block text-gray-800 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200 hover:translate-x-1 relative group ${
+                activeLink === ['Home', 'About', 'Shop Now', 'Contact Us'][i] ? 'text-green-600' : ''
+              }`}
             >
               {['Home', 'About', 'Shop Now', 'Contact Us'][i]}
+              <span className={`absolute -bottom-1 left-3 h-0.5 bg-green-500 transition-all duration-300 ${
+                activeLink === ['Home', 'About', 'Shop Now', 'Contact Us'][i] ? 'w-[calc(100%-24px)]' : 'w-0'
+              } group-hover:w-[calc(100%-24px)] group-active:w-[calc(100%-24px)]`}></span>
             </Link>
           ))}
 
           <div>
             <button
-              onClick={toggleInfoDropdown}
-              className="w-full flex items-center justify-between text-left text-gray-800 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200"
+              onClick={() => {
+                handleLinkClick('Information Centre');
+                toggleInfoDropdown();
+              }}
+              className={`w-full flex items-center justify-between text-left text-gray-800 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-200 relative group ${
+                activeLink === 'Information Centre' ? 'text-green-600' : ''
+              }`}
             >
               Information Centre
               <ChevronDown size={16} className={`transition-transform duration-200 ${isInfoOpen ? 'rotate-180' : ''}`} />
+              <span className={`absolute -bottom-1 left-3 h-0.5 bg-green-500 transition-all duration-300 ${
+                activeLink === 'Information Centre' ? 'w-[calc(100%-24px)]' : 'w-0'
+              } group-hover:w-[calc(100%-24px)] group-active:w-[calc(100%-24px)]`}></span>
             </button>
             <div className={`overflow-hidden transition-all duration-300 ${isInfoOpen ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
               <div className="pl-6 space-y-1 pt-2">
                 <Link
                   href="/faq"
-                  onClick={toggleMobileMenu}
-                  className="block text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-2 text-sm tracking-wide transition-all duration-200 hover:translate-x-1"
+                  onClick={() => {
+                    handleLinkClick('FAQ');
+                    toggleMobileMenu();
+                  }}
+                  className={`block text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-2 text-sm tracking-wide transition-all duration-200 hover:translate-x-1 relative group ${
+                    activeLink === 'FAQ' ? 'text-green-600' : ''
+                  }`}
                 >
                   FAQ
+                  <span className={`absolute -bottom-1 left-3 h-0.5 bg-green-500 transition-all duration-300 ${
+                    activeLink === 'FAQ' ? 'w-[calc(100%-24px)]' : 'w-0'
+                  } group-hover:w-[calc(100%-24px)] group-active:w-[calc(100%-24px)]`}></span>
                 </Link>
 
                  {/* <Link
                   href="/blogs"
                   onClick={toggleMobileMenu}
-                  className="block text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-2 text-sm tracking-wide transition-all duration-200 hover:translate-x-1"
+                  className="block text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-2 text-sm tracking-wide transition-all duration-200 hover:translate-x-1 relative group"
                 >
                   Blog
+                  <span className="absolute -bottom-1 left-3 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-[calc(100%-24px)]"></span>
                 </Link> */}
               </div>
             </div>
@@ -969,7 +994,7 @@ export default function Header() {
               <button
                 onClick={handleLogout}
                 disabled={isLoggingOut}
-                className="w-full flex items-center gap-2 text-left text-gray-800 hover:bg-red-50 hover:text-red-600 rounded-md px-3 py-3 text-sm font-medium transition-all duration-200 hover:translate-x-1 disabled:opacity-50"
+                className="w-full flex items-center gap-2 text-left text-gray-800 hover:bg-red-50 hover:text-red-600 rounded-md px-3 py-3 text-sm font-medium transition-all duration-200 hover:translate-x-1 disabled:opacity-50 relative group"
               >
                 {isLoggingOut ? (
                   <>
@@ -982,14 +1007,23 @@ export default function Header() {
                     <span>Logout</span>
                   </>
                 )}
+                <span className="absolute -bottom-1 left-3 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-[calc(100%-24px)]"></span>
               </button>
             ) : (
               <Link
                 href="/login"
-                onClick={toggleMobileMenu}
-                className="block text-gray-800 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-3 text-sm font-medium transition-all duration-200 hover:translate-x-1"
+                onClick={() => {
+                  handleLinkClick('My Account');
+                  toggleMobileMenu();
+                }}
+                className={`block text-gray-800 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-3 text-sm font-medium transition-all duration-200 hover:translate-x-1 relative group ${
+                  activeLink === 'My Account' ? 'text-green-600' : ''
+                }`}
               >
-                My Account
+                LOG IN
+                <span className={`absolute -bottom-1 left-3 h-0.5 bg-green-500 transition-all duration-300 ${
+                  activeLink === 'My Account' ? 'w-[calc(100%-24px)]' : 'w-0'
+                } group-hover:w-[calc(100%-24px)] group-active:w-[calc(100%-24px)]`}></span>
               </Link>
             )}
           </div>

@@ -1,7 +1,6 @@
 
-'use client';
-
-import React from 'react';
+'use client'
+import React, { useEffect, useRef } from 'react';
 import BreadCrumbBanner from '../layout/BreadCrumbBanner';
 import FAQAccordion from './FAQAccordion';
 import FaqContact from './FaqContact';
@@ -20,16 +19,25 @@ const FaqPage = () => {
     { label: 'FAQ' }
   ];
 
+   // scroll up
+      const sectionRef = useRef(null);
+      useEffect(() => {
+        if (sectionRef.current) {
+          sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, []);
+
   return (
     <div className='bg-[#ffff]'>
       <BreadCrumbBanner
         title="FAQ"
         breadcrumbs={faqBreadcrumbs}
           backgroundImage="/images/banner/banner-breadcrumb/breadcrumbone5.jpg"
+              mobileBackgroundImage = "/images/banner/banner-breadcrumb/breadcrumbone5.jpg"
       />
 
       {/* Main content section with max width and 60/40 layout */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           
           {/* FAQ Content - 60% width */}

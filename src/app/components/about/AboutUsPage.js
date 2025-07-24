@@ -24,6 +24,11 @@ const AboutUsPage = () => {
  
     <BreadCrumbBanner title="About Us"
     breadcrumbs={aboutBreadcrumbs}
+     // Desktop/tablet image
+  backgroundImage = "/images/banner/herobanner7.jpg"
+  // Mobile image
+  mobileBackgroundImage = "/images/banner/herobanner7.jpg"
+
      />
      
      <AboutUsSection />
