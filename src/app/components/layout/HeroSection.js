@@ -461,7 +461,7 @@ export default function HeroSection() {
       id: 1,
       backgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753185541/d_Vedic_Flx_bhybok.jpg",
       tabletBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753256606/ipad_swbho7.jpg",
-      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753251081/d_Vedic_Flx_2_ecv3ew.jpg",  
+      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753364792/d_Vedic_Flx_4_clbgpb.jpg",  
       subtitle: "Ayurvedic Joint Care",
       description: "Enhance the strength of your Bones & Muscles naturally with the blend of Herbal Wisdom.",
       buttonText: "Explore Products",
@@ -600,7 +600,9 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-opacity-40 pointer-events-none z-0" />
             
             {/* Slide Content */}
-            <div className="relative z-10 flex h-full px-4 sm:px-8">
+            {/* <div className="relative z-10 flex h-full px-4 sm:px-8 "> */}
+            <div className="relative z-10 flex h-full px-4 sm:px-8 mt-4 pt-6 sm:pt-0">
+
               <div
                 className={`flex flex-col justify-start sm:justify-start text-center max-w-2xl w-full transition-all duration-1000 mx-auto sm:mx-0 sm:ml-0 lg:ml-12 ${
                   isIpadPro ? 'mt-16 pt-8' : 'mt-8 sm:mt-24 pt-10 sm:pt-0'

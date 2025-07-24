@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
         <main className="min-h-screen flex flex-col">
           {children}
         </main>
-
+        
          <ToastContainer
         position="top-right"
         autoClose={3000}

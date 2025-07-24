@@ -414,7 +414,7 @@ const TopRatedProduct = () => {
     <>
       
       <section>
-        <div className="min-h-screen bg-[#EDF1E1] pt-16">
+        <div className="min-h-screen bg-[#EDF1E1] pt-8">
           <Title>
             Our Products
           </Title>
@@ -442,8 +442,9 @@ const TopRatedProduct = () => {
           )}
 
           {/* Products Grid */}
-          <ScrollFadeUp> 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          {/* <ScrollFadeUp>  */}
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-12 pb-12">
+
               {loading ? (
                 // Skeleton Loading State
                 <SkeletonTheme baseColor="#f3f4f6" highlightColor="#e5e7eb">
@@ -490,7 +491,7 @@ const TopRatedProduct = () => {
                 </div>
               )}
             </div>
-          </ScrollFadeUp>
+          {/* </ScrollFadeUp> */}
 
           {/* Load More Button */}
           {/* {products.length > 0 && !loading && (

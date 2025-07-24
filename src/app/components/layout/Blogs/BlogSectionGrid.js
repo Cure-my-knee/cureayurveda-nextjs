@@ -165,6 +165,8 @@ import PainManagementCard from './PainManagementCard';
 import Title from '../../ui/Title';
 import Subtitle from '../../ui/Subtitle';
 import { authAPI } from '@/lib/api/endpoints';
+import Link from 'next/link';
+
 
 const BlogSectionGrid = () => {
   const [blogs, setBlogs] = useState([]);

@@ -895,6 +895,9 @@ export default function Header() {
 
             <Link href="/checkout" className="p-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-full relative transition-all duration-200 hover:scale-110 group">
               <ShoppingCart size={20} />
+              {/* <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+               0
+            </span> */}
             </Link>
           </div>
 
@@ -905,6 +908,9 @@ export default function Header() {
             </button> */}
             <Link href="/checkout" className="p-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-full relative transition-all duration-200 group">
               <ShoppingCart size={18} />
+              {/* <span className="absolute -top-1 -right-1 bg-green-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
+             0
+            </span> */}
                
             </Link>
             <button onClick={toggleMobileMenu} className="p-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-full transition-all duration-200 hover:scale-110">

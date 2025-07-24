@@ -37,7 +37,7 @@ const BlogDetailPage = () => {
         // Assuming you have an API endpoint to fetch blog by ID
         const response = await authAPI.getBlogDetails(params.id);
         setBlog(response.data);
-        console.log('blog detils response:', response.data);
+        console.log('blog detils response details=============>:', response.data);
         setError(null);
       } catch (err) {
         console.error('Error fetching blog detail:', err);
@@ -138,12 +138,13 @@ const BlogDetailPage = () => {
               <article className="bg-white rounded-lg shadow-sm overflow-hidden">
                 {/* Featured image */}
                 {blog.pictures && blog.pictures[0] && (
-                  <div className="relative h-64 md:h-80 lg:h-96">
+                  <div className="relative h-64 md:h-80 lg:h-96 overflow-hidden">
                     <Image
                       src={blog.pictures[0]}
                       alt={blog.title}
                       fill
                       className="object-cover"
+                      sizes="100vw"
                       priority
                     />
                   </div>
@@ -158,12 +159,12 @@ const BlogDetailPage = () => {
                       {formatDate(blog.createdAt)}
                     </div>
                     
-                    {blog.subject && (
+                    {/* {blog.subject && (
                       <div className="flex items-center">
                         <Tag className="w-4 h-4 mr-1" />
                         {blog.subject}
                       </div>
-                    )}
+                    )} */}
                   </div>
 
                   {/* Title */}
@@ -177,6 +178,13 @@ const BlogDetailPage = () => {
                       {blog.subTitle}
                     </p>
                   )}
+
+                   {blog.subject && (
+                      <div className="flex items-center text-black">
+                        
+                        {blog.subject}
+                      </div>
+                    )}
 
                   {/* Additional images */}
                   {blog.pictures && blog.pictures.length > 1 && (
@@ -197,9 +205,11 @@ const BlogDetailPage = () => {
                   {/* Content placeholder */}
                   <div className="prose prose-lg max-w-none">
                     <p className="text-gray-700 leading-relaxed mb-6">
-                      This is where you would display the full blog content. Since your API response 
+                      {/* This is where you would display the full blog content. Since your API response 
                       doesn't include the full content, you might need to add a content field to your 
-                      blog schema or fetch it separately.
+                      blog schema or fetch it separately. */}
+                       {blog.description}
+
                     </p>
                     
                     {/* You can add more content sections here based on your blog structure */}

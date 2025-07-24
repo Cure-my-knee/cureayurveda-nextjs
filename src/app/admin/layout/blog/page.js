@@ -15,6 +15,7 @@ const BlogAdminDashboard = () => {
     title: '',
     subTitle: '',
     subject: '',
+    description: '',
     pictures: []
   });
 
@@ -91,7 +92,7 @@ const BlogAdminDashboard = () => {
       if (response.data.success) {
         // Add the new blog to the beginning of the list
         setBlogs(prev => [response.data.data, ...prev]);
-        setFormData({ title: '', subTitle: '', subject: '', pictures: [] });
+        setFormData({ title: '', subTitle: '', subject: '', description:'', pictures: [] });
         setShowForm(false);
         toast.success('Blog created successfully!');
       }
@@ -209,6 +210,19 @@ const BlogAdminDashboard = () => {
                   type="text"
                   name="subTitle"
                   value={formData.subTitle}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+               <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Discription *
+                </label>
+                <input
+                  type="text"
+                  name="description"
+                  value={formData.description}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border text-black border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required

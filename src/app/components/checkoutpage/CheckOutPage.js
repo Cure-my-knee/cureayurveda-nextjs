@@ -1234,7 +1234,7 @@
 'use client';
 import React, { Suspense } from 'react';
 import { useState, useEffect } from 'react';
-
+import { toast } from 'react-toastify';
 import { Trash2, Plus, Minus, CreditCard, Smartphone, Building2, ShoppingCart } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import LoginGuestSelector from '../login/LoginGuestSelector';
@@ -1519,11 +1519,16 @@ function CheckoutContent( ) {
 
   const handlePlaceOrder = async () => {
     // Validate form first
-    const validationErrors = validateForm();
-    if (validationErrors.length > 0) {
-      alert('Please fix the following errors:\n' + validationErrors.join('\n'));
-      return;
-    }
+    // const validationErrors = validateForm();
+    // if (validationErrors.length > 0) {
+    //   alert('Please fix the following errors:\n' + validationErrors.join('\n'));
+    //   return;
+    // }
+     const validationErrors = validateForm();
+  if (validationErrors.length > 0) {
+    validationErrors.forEach(err => toast.error(err));
+    return;
+  }
     
     setIsProcessing(true);
 
@@ -1626,7 +1631,7 @@ function CheckoutContent( ) {
 
     } catch (error) {
       console.error("Order process failed:", error);
-      alert(error.message || "Order process failed. Please try again.");
+      toast.error(error.message || "Order process failed. Please try again.");
     } finally {
       setIsProcessing(false);
     }

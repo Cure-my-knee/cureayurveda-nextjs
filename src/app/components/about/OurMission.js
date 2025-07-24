@@ -38,32 +38,45 @@ const OurMission = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
 
           {/* Our Mission */}
-          <div className="bg-white   shadow-md p-8 lg:p-10 border border-gray-200 transition hover:shadow-lg">
+          <div className="bg-white rounded-2xl  shadow-md p-8 lg:p-10 border border-gray-200 transition hover:shadow-lg">
             <div className="flex items-center gap-4 mb-6">
-              <Heart className="w-8 h-8 text-[#586e20]" />
+              {/* <Heart className="w-8 h-8 text-[#586e20]" /> */}
               <Title className="text-2xl sm:text-3xl lg:text-4xl">Our Mission</Title>
             </div>
 
             <p className="text-gray-700 text-base text-justify sm:text-lg leading-relaxed mb-4">
-              At Cure Ayurvedic, we believe in Care before Cure. As true wellness begins with nature, we provide pure and natural products crafted with pure herbs to restore balance, boost immunity and promote holistic wellness.  By reviving timeless ayurvedic principles, we aim to provide safe, pure and natural products which will take care of your well being before getting cured.
+              At Cure Ayurvedic, we believe in Care before Cure. As true wellness begins with nature, we provide pure and natural products crafted with pure herbs to restore balance, boost immunity and promote holistic wellness.  
+            </p>
+             <p className="text-gray-700 text-base text-justify sm:text-lg leading-relaxed mb-4">
+ By reviving timeless ayurvedic principles, we aim to provide safe, pure and natural products which will take care of your well being before getting cured.
             </p>
 
             
           </div>
 
           {/* Our Vision */}
-          {/* <div className="bg-white   shadow-md p-8 lg:p-10 border border-gray-200 transition hover:shadow-lg">
+          <div className="bg-white   rounded-2xl shadow-md p-8 lg:p-10 border border-gray-200 transition hover:shadow-lg">
             <div className="flex items-center gap-4 mb-6">
-              <Target className="w-8 h-8 text-[#586e20]" />
+              {/* <Target className="w-8 h-8 text-[#586e20]" /> */}
               <Title className="text-2xl sm:text-3xl lg:text-4xl">Our Vision</Title>
             </div>
 
             <p className="text-gray-700 text-base text-justify sm:text-lg leading-relaxed mb-4">
-              Our vision is to make Ayurvedic healing accessible, effective and reliable for everyone. In today’s fast-paced world, people often suffer from chronic health issues, stress and lifestyle imbalances. Most solutions provide short-term relief or come with side effects. We wanted to change that.
+              Our vision is to make the world recognize the strength of nature, where wellness starts from within, and where Ayurveda becomes a daily practice that is gentle, pure, and proven.
+
+            </p>
+              <p className="text-gray-700 text-base text-justify sm:text-lg leading-relaxed mb-4">
+             At Cure Ayurvedic, we believe in "Care before Cure," which means nurturing the body with natural strength, restoring inner balance, and building resilience long before illness can take hold.
+
+
+            </p>
+              <p className="text-gray-700 text-base text-justify sm:text-lg leading-relaxed mb-4">
+              Our philosophy has encouraged us to research the ancient Ayurvedic ingredients, work with Vaidyas, and find the most potent healing gems in the form of herbs that grow all over the varied terrains of India-from the Himalayan valleys to the forest floors. With this intense study and immersion into these hidden realms, we were able to discover and revive rare, powerful herbs and natural gems long used in traditional practices but, in this fast-paced world, are sometimes forgotten. We bring them back to life in our carefully crafted formulas free from chemicals, preservatives, or artificial ingredients.
+
             </p>
 
              
-          </div> */}
+          </div>
 
         </div>
       </div>

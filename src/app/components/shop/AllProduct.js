@@ -755,9 +755,9 @@ import BreadCrumbBanner from '../layout/BreadCrumbBanner';
 import Title from '../ui/Title';
 import Subtitle from '../ui/Subtitle';
 import ProductCardShop from '../layout/Shop/ProductCardShop';
-import Button from '../ui/Button';
-import ShopBanner from '../layout/Shop/ShopBanner';
-import ScrollFadeUp from '../ui/ScrollFadeUp';
+// import Button from '../ui/Button';
+// import ShopBanner from '../layout/Shop/ShopBanner';
+// import ScrollFadeUp from '../ui/ScrollFadeUp';
 import { authAPI } from '@/lib/api/endpoints';
 
 // Skeleton component for product cards
@@ -1025,7 +1025,7 @@ useEffect(() => {
           )}
 
           {/* Products Grid */}
-          <ScrollFadeUp> 
+          {/* <ScrollFadeUp>  */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
               {loading ? (
                 // Skeleton Loading State
@@ -1073,7 +1073,7 @@ useEffect(() => {
                 </div>
               )}
             </div>
-          </ScrollFadeUp>
+          {/* </ScrollFadeUp> */}
 
           {/* Load More Button */}
           {/* {products.length > 0 && !loading && (
