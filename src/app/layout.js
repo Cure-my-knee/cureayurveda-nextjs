@@ -17,13 +17,9 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+ import { GoogleTagManager } from '@next/third-parties/google';
 
-//  Keep metadata export only in server file (NO "use client" above)
-// export const metadata = {
-//   title: 'Cure Ayurvedic - Natural Wellness Products',
-//   description: 'Premium  Ayurvedic products for natural wellness',
-//   viewport: 'width=device-width, initial-scale=1',
-// };
+ 
 
 // Root layout must remain a Server Component
 
@@ -31,6 +27,9 @@ export const metadata = {
   title: 'Buy Best Ayurvedic Products Online in India | Cure Ayurvedic',
   description: 'Cure Ayurvedic is the top ayurvedic & wellness product company in India. Shop trusted ayurvedic medicine online today at the best price.',
   viewport: 'width=device-width, initial-scale=1.0',
+   other: {
+    'google-site-verification': '491akEx-CPBtJVwJokQrfA0_7iDMJldPSHKc7YglHs4',
+  },
 };
 export default function RootLayout({ children }) {
   return (
@@ -59,6 +58,8 @@ export default function RootLayout({ children }) {
         <Footer />
         {/* Vercel Analytics added here */}
          <Analytics /> 
+         {/* google analytics */}
+         <GoogleTagManager gtmId="491akEx-CPBtJVwJokQrfA0_7iDMJldPSHKc7YglHs4" /> 
       </body>
     </html>
   );

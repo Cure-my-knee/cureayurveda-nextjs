@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^15.4.4",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@vercel/analytics": "^1.5.0",
     "axios": "^1.10.0",
