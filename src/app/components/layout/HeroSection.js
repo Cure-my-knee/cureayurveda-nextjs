@@ -479,9 +479,9 @@ export default function HeroSection() {
     },
     {
       id: 3,
-      backgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753194937/Shilajit_rrkzyw.jpg",
-      tabletBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753256606/ipad_2_fmypra.jpg",
-      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753207131/Shilajit_mobile_jchadu.jpg",
+      backgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753437396/jbgjj3_szougp.jpg",
+      tabletBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753437313/Shilajit_tab_qlsv3s.jpg",
+      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753437299/Shilajit_mobile_j5xhrv.jpg",
       subtitle: "Ayurvedic Shilajit",
       description: "Cure Ayurvedic's Vedic Shilajit is a concentrated ayurvedic formula that helps to boost power and energy and keeps you strong and focussed.",
       buttonText: "Explore Products",

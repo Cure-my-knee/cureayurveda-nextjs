@@ -14,7 +14,7 @@ const AboutUsSection = () => {
     }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 lg:py-24 bg-[#EDF1E1]">
+    <section ref={sectionRef} className="py-4 lg:py-8 bg-[#EDF1E1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-6">
