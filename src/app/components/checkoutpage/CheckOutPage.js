@@ -2109,6 +2109,7 @@ import { toast } from 'react-toastify';
 import { Trash2, Plus, Minus, CreditCard, Smartphone, Building2, ShoppingCart } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import LoginGuestSelector from '../login/LoginGuestSelector';
+ 
 // import LoginGuestSelector from '../components/login/LoginGuestSelector';
 // import { postCreateOrder } from '@/lib/api/createOrder';
 // import { postCreateOrder } from '@/lib/api/endpoints';
@@ -2141,6 +2142,7 @@ function CheckoutContent( ) {
   const [paymentMethod, setPaymentMethod] = useState('payu');
   const [isProcessing, setIsProcessing] = useState(false);
   const [loading, setLoading] = useState(true);
+  
 
 
   // guest login start
@@ -2241,6 +2243,46 @@ function CheckoutContent( ) {
   };
 
   // country api end
+
+  // toasty confirm order
+
+  const showCODConfirmation = () => {
+  return new Promise((resolve) => {
+    const toastId = toast(
+      ({ closeToast }) => (
+        <div>
+          <p>Are you sure you want to place a <strong>Cash on Delivery</strong> order?</p>
+          <div className="flex justify-end gap-2 mt-3">
+            <button
+              className="bg-[#82a133] text-white px-3 py-1 rounded"
+              onClick={() => {
+                resolve(true);
+                toast.dismiss(toastId);
+              }}
+            >
+              Yes
+            </button>
+            <button
+              className="bg-red-500 text-white px-3 py-1 rounded"
+              onClick={() => {
+                resolve(false);
+                toast.dismiss(toastId);
+              }}
+            >
+              No
+            </button>
+          </div>
+        </div>
+      ),
+      {
+        autoClose: false,
+        closeOnClick: false,
+        closeButton: false,
+      }
+    );
+  });
+};
+
 
   // Helper function to ensure cart items have all required fields
   const ensureRequiredFields = (item) => ({
@@ -2350,13 +2392,13 @@ function CheckoutContent( ) {
 
       if (!item.quantity || item.quantity <= 0) errors.push(`Item ${index + 1}: Valid quantity is required`);
       // SKU and weight are now guaranteed to exist from loadCartItems
-      console.log('Product ID:', item.productId || item.id);
-      console.log('Name:', item.productName || item.name);
-      console.log('Price:', item.price);
-      console.log('Quantity:', item.quantity);
-      console.log('SKU:', item.sku);
-      console.log('Weight:', item.weight);
-      console.log('HSN:', item.hsn);
+      // console.log('Product ID:', item.productId || item.id);
+      // console.log('Name:', item.productName || item.name);
+      // console.log('Price:', item.price);
+      // console.log('Quantity:', item.quantity);
+      // console.log('SKU:', item.sku);
+      // console.log('Weight:', item.weight);
+      // console.log('HSN:', item.hsn);
     });
     
     // Validate shipping address
@@ -2400,6 +2442,17 @@ function CheckoutContent( ) {
     validationErrors.forEach(err => toast.error(err));
     return;
   }
+
+   // 🔔 Confirm COD before proceeding
+  // if (paymentMethod === 'cod') {
+  //   const userConfirmed = window.confirm("Are you sure you want to place a Cash on Delivery order?");
+  //   if (!userConfirmed) return;
+  // }
+    if (paymentMethod === 'cod') {
+    const confirmed = await showCODConfirmation();
+    if (!confirmed) return;
+  }
+
     
     setIsProcessing(true);
 
@@ -2778,7 +2831,7 @@ function CheckoutContent( ) {
                     value={shippingAddress.address}
                     onChange={handleAddressChange}
                     rows={3}
-                    placeholder="e.g. H.No. 1234, 4th Floor, Gaur City, Noida, Near DLF, U.P, 201001"
+                    placeholder="e.g. H.No. 1234, 4th Floor,  Gaur City, Noida, Near AD Tower, U.P, 201001"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
