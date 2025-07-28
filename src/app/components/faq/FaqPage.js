@@ -32,8 +32,8 @@ const FaqPage = () => {
       <BreadCrumbBanner
         title="FAQ"
         breadcrumbs={faqBreadcrumbs}
-          backgroundImage="/images/banner/banner-breadcrumb/breadcrumbone5.jpg"
-              mobileBackgroundImage = "/images/banner/banner-breadcrumb/breadcrumbone5.jpg"
+          backgroundImage="https://res.cloudinary.com/dzoezcqqc/image/upload/v1753531589/Banner_Sample_3_lfjag4.jpg"
+              mobileBackgroundImage = "https://res.cloudinary.com/dzoezcqqc/image/upload/v1753536847/Banner_Sample_3_mobile_jsvn9v.jpg"
       />
 
       {/* Main content section with max width and 60/40 layout */}

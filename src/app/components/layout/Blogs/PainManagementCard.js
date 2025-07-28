@@ -6,6 +6,7 @@ import Link from 'next/link';
 const PainManagementCard = ({
   image,
   title,
+ slug = '',
   description,
   readMoreLink = "#",
   className = "",

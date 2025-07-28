@@ -1,4 +1,4 @@
-//  'use client';
+ //  'use client';
 // import React, { useState, useEffect } from 'react';
 // import { useParams } from 'next/navigation';
 // import { Plus, Minus, ChevronDown, ChevronUp, Shield, Leaf, Award, Zap } from 'lucide-react';

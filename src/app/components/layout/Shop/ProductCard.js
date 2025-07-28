@@ -6,6 +6,7 @@ const ProductCard = ({
   title = "TOPICALS",
   description = "Premium CBD products for wellness",
   buttonText = "VIEW PRODUCTS",
+  slug = '',
   defaultImage = "/images/card/card1.jpg",
   hoverImage = "/images/card/card2.jpg",
   onButtonClick = () => {},

@@ -24,33 +24,37 @@ const BlogDetailPage = () => {
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  //   const router = useRouter();
+  // const params = useParams();
+  // const productId = params.id;
+    const { slug } = params;
 
    const blogDetailBreadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'Blog Details' }
   ];
 
-  useEffect(() => {
-    const fetchBlogDetail = async () => {
-      try {
-        setLoading(true);
-        // Assuming you have an API endpoint to fetch blog by ID
-        const response = await authAPI.getBlogDetails(params.id);
-        setBlog(response.data);
-        console.log('blog detils response details=============>:', response.data);
-        setError(null);
-      } catch (err) {
-        console.error('Error fetching blog detail:', err);
-        setError('Failed to load blog details');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (params.id) {
-      fetchBlogDetail();
+ useEffect(() => {
+  const fetchBlogDetail = async () => {
+    try {
+      setLoading(true);
+      const blogData = await authAPI.getBlogDetails(params.slug);
+      setBlog(blogData.data);
+      
+      console.log('blog details response =============>:', blogData);
+      setError(null);
+    } catch (err) {
+      console.error('Error fetching blog detail:', err);
+      setError('Failed to load blog details');
+    } finally {
+      setLoading(false);
     }
-  }, [params.id]);
+  };
+
+  if (params.slug) {
+    fetchBlogDetail();
+  }
+}, [params.slug]);
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -59,6 +63,28 @@ const BlogDetailPage = () => {
       day: 'numeric',
     });
   };
+
+
+const renderHTMLContent = (htmlString) => {
+  // Clean and process the HTML string
+  let cleanHTML = htmlString
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+
+  // Remove wrapping span with Google Docs ID if it exists
+  cleanHTML = cleanHTML.replace(/^<span[^>]*id="docs-internal-guid[^>]*>/, '');
+  cleanHTML = cleanHTML.replace(/<\/span>$/, '');
+  
+  // Clean up any remaining empty spans or divs
+  cleanHTML = cleanHTML.replace(/<span[^>]*><\/span>/g, '');
+  cleanHTML = cleanHTML.replace(/<div[^>]*><span[^>]*><br[^>]*><\/span><\/div>/g, '<br>');
+
+  return { __html: cleanHTML };
+};
 
   const shareOnSocial = (platform) => {
     const url = window.location.href;
@@ -186,6 +212,20 @@ const BlogDetailPage = () => {
                       </div>
                     )}
 
+                {/* HTML Content - Rendered with proper formatting */}
+               {Array.isArray(blog.description) && blog.description.length > 0 && (
+                <div className="prose prose-lg max-w-none mb-8" style={{ color: '#374151', lineHeight: '1.75' }}>
+                  {blog.description.map((block, index) => (
+                    <div
+                      key={index}
+                      dangerouslySetInnerHTML={renderHTMLContent(block)}
+                      className="mb-6"
+                    />
+                  ))}
+                </div>
+              )}
+
+
                   {/* Additional images */}
                   {blog.pictures && blog.pictures.length > 1 && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
@@ -203,17 +243,15 @@ const BlogDetailPage = () => {
                   )}
 
                   {/* Content placeholder */}
-                  <div className="prose prose-lg max-w-none">
+                  {/* <div className="prose prose-lg max-w-none">
                     <p className="text-gray-700 leading-relaxed mb-6">
-                      {/* This is where you would display the full blog content. Since your API response 
-                      doesn't include the full content, you might need to add a content field to your 
-                      blog schema or fetch it separately. */}
+                      
                        {blog.description}
 
                     </p>
                     
-                    {/* You can add more content sections here based on your blog structure */}
-                  </div>
+                    
+                  </div> */}
 
                   {/* Share buttons */}
                   <div className="mt-8 pt-6 border-t border-gray-200">

@@ -2246,27 +2246,72 @@ function CheckoutContent( ) {
 
   // toasty confirm order
 
-  const showCODConfirmation = () => {
+//   const showCODConfirmation = () => {
+//   return new Promise((resolve) => {
+//     const toastId = toast(
+//       ({ closeToast }) => (
+//         <div>
+//           <p>Are you sure you want to place a <strong>Cash on Delivery</strong> order?</p>
+//           <div className="flex justify-end gap-2 mt-3">
+//             <button
+//               className="bg-[#82a133] text-white px-3 py-1 rounded"
+//               onClick={() => {
+//                 resolve(true);
+//                 toast.dismiss(toastId);
+//               }}
+//             >
+//               Yes
+//             </button>
+//             <button
+//               className="bg-red-500 text-white px-3 py-1 rounded"
+//               onClick={() => {
+//                 resolve(false);
+//                 toast.dismiss(toastId);
+//               }}
+//             >
+//               No
+//             </button>
+//           </div>
+//         </div>
+//       ),
+//       {
+//         autoClose: false,
+//         closeOnClick: false,
+//         closeButton: false,
+//       }
+//     );
+//   });
+// };
+let activeCODToast = null;
+
+const showCODConfirmation = () => {
   return new Promise((resolve) => {
+    // If toast is already showing, don't show another
+    if (activeCODToast && toast.isActive(activeCODToast)) return;
+
     const toastId = toast(
       ({ closeToast }) => (
-        <div>
-          <p>Are you sure you want to place a <strong>Cash on Delivery</strong> order?</p>
-          <div className="flex justify-end gap-2 mt-3">
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md text-sm">
+          <p className="text-gray-800">
+            Are you sure you want to place a <strong>Cash on Delivery</strong> order?
+          </p>
+          <div className="flex flex-wrap justify-end gap-2 mt-4">
             <button
-              className="bg-[#82a133] text-white px-3 py-1 rounded"
+              className="bg-[#82a133] hover:bg-[#6c882b] text-white px-4 py-1.5 rounded text-sm"
               onClick={() => {
                 resolve(true);
                 toast.dismiss(toastId);
+                activeCODToast = null;
               }}
             >
               Yes
             </button>
             <button
-              className="bg-red-500 text-white px-3 py-1 rounded"
+              className="bg-red-500 hover:bg-red-600 text-white px-4 py-1.5 rounded text-sm"
               onClick={() => {
                 resolve(false);
                 toast.dismiss(toastId);
+                activeCODToast = null;
               }}
             >
               No
@@ -2278,10 +2323,15 @@ function CheckoutContent( ) {
         autoClose: false,
         closeOnClick: false,
         closeButton: false,
+        draggable: false,
       }
     );
+
+    activeCODToast = toastId;
   });
 };
+
+// end 
 
 
   // Helper function to ensure cart items have all required fields
@@ -2600,7 +2650,7 @@ function CheckoutContent( ) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-4 sm:py-6 lg:py-8 mt-24">
+    <div className="min-h-screen bg-gray-50 py-8 sm:py-6 lg:py-8 mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-6 sm:mb-8">

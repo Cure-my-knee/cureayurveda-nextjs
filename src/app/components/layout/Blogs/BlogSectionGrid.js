@@ -187,8 +187,11 @@ const BlogSectionGrid = () => {
         const formatted = blogArray.map((blog) => ({
           image: blog.pictures?.[0] || '/images/banner/herobanner2.jpg',
           title: blog.title,
+             slug: blog.slug, // Add this line
           description: blog.subTitle,
-          readMoreLink: `/blogs/${blog._id}`,
+          readMoreLink: `/blogs/${blog.slug}`,
+         
+  
         }));
 
         setBlogs(formatted);

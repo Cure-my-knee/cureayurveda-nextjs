@@ -303,16 +303,15 @@ getContactMessage: async () => {
 
   // blog details endpoint 
 
-   getBlogDetails: async (blogId) => {
-    try {
-      const response = await apiClient.get(`/blogs/${blogId}`);
-      console.log('Blog  details page data ========>:', response.data);
-      return response.data;
-       
-    } catch (error) {
-      throw error.response?.data || error.message;
-    }
-  },
+   getBlogDetails: async (slug) => {
+  try {
+    const response = await apiClient.get(`/blogs/${slug}`);
+    console.log('Blog details page data ========>:', response.data);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+},
 
   // create blog
 
@@ -320,7 +319,7 @@ getContactMessage: async () => {
   try {
     const token = localStorage.getItem('accessToken');
 
-    const response = await apiClient.post('/blogs/create', blogData, {
+    const response = await apiClient.post('/blogs', blogData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
