@@ -2071,8 +2071,7 @@ const ProductDetailsPage = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
   
-  // const router = useRouter();
-  // const params = useParams();
+ 
   // const productId = params.id;
 
     const router = useRouter();
@@ -2173,6 +2172,7 @@ const ProductDetailsPage = () => {
     setQuantity(prev => Math.max(1, Math.min(product.stock, prev + change)));
   };
 
+
   // Updated handleAddToCart function
   const handleAddToCart = () => {
     if (product.stock === 0) {
@@ -2228,6 +2228,7 @@ const ProductDetailsPage = () => {
       draggable: true,
     });
   };
+  
 
   
 
