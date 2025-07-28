@@ -29,7 +29,7 @@ const SidebarBanner = () => {
             month: 'short',
             day: 'numeric'
           }),
-          readMoreLink: `/blogs/${blog._id}`,
+          readMoreLink: `/blogs/${blog.slug}`,
         }));
 
         // Extract tags

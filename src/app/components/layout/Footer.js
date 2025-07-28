@@ -220,7 +220,7 @@ const handleSubscribe = async (e) => {
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <Link
-                  href="/shop/68754ea3e966b84de62658dd"
+                  href="/shop/vediccal"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   VedicCal
@@ -228,7 +228,7 @@ const handleSubscribe = async (e) => {
               </li>
               <li>
                 <Link
-                  href="/shop/68754f410e3f3f660866ca20"
+                  href="/shop/vedicflx"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   VedicFlx
@@ -236,7 +236,7 @@ const handleSubscribe = async (e) => {
               </li>
               <li>
                 <Link
-                  href="/shop/68754f4e0e3f3f660866ca33"
+                  href="/shop/vedicflx-oil"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   VedicFlx Oil
@@ -245,7 +245,7 @@ const handleSubscribe = async (e) => {
 
                <li>
                 <Link
-                  href="/shop/68754f5c0e3f3f660866ca46"
+                  href="/shop/d-vedic-syrup"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   D Vedic Syrup
@@ -254,7 +254,7 @@ const handleSubscribe = async (e) => {
 
                <li>
                 <Link
-                  href="/shop/68754fcd0e3f3f660866ca60"
+                  href="/shop/d-vedic"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   D Vedic 
@@ -263,7 +263,7 @@ const handleSubscribe = async (e) => {
 
                <li>
                 <Link
-                  href="/shop/68754fda0e3f3f660866ca72"
+                  href="/shop/vedic-shilajit"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Vedic Shilajit

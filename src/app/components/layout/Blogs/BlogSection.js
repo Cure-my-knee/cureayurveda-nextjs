@@ -28,7 +28,7 @@ const BlogSection = () => {
           image: blog.pictures?.[0] || '/images/banner/herobanner2.jpg',
           title: blog.title,
           description: blog.subTitle,
-          readMoreLink: `/blogs/${blog._id}`,
+          readMoreLink: `/blogs/${blog.slug}`,
         }));
 
         setBlogs(formatted);
@@ -67,7 +67,7 @@ const BlogSection = () => {
             <div className="pb-10">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-3">
                 {cards.slice(0, 3).map((card, index) => (
-                  <div key={index} className="h-auto">
+                  <div key={index} className="h-full">
                     <PainManagementCard {...card} />
                   </div>
                 ))}

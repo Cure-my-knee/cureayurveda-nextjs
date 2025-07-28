@@ -180,10 +180,10 @@ const renderHTMLContent = (htmlString) => {
                 <div className="p-6 md:p-8">
                   {/* Meta information */}
                   <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-6">
-                    <div className="flex items-center">
+                    {/* <div className="flex items-center">
                       <Calendar className="w-4 h-4 mr-1" />
                       {formatDate(blog.createdAt)}
-                    </div>
+                    </div> */}
                     
                     {/* {blog.subject && (
                       <div className="flex items-center">
@@ -199,18 +199,18 @@ const renderHTMLContent = (htmlString) => {
                   </h1>
 
                   {/* Subtitle */}
-                  {blog.subTitle && (
+                  {/* {blog.subTitle && (
                     <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
                       {blog.subTitle}
                     </p>
-                  )}
+                  )} */}
 
-                   {blog.subject && (
+                   {/* {blog.subject && (
                       <div className="flex items-center text-black">
                         
                         {blog.subject}
                       </div>
-                    )}
+                    )} */}
 
                 {/* HTML Content - Rendered with proper formatting */}
                {Array.isArray(blog.description) && blog.description.length > 0 && (
@@ -256,9 +256,9 @@ const renderHTMLContent = (htmlString) => {
                   {/* Share buttons */}
                   <div className="mt-8 pt-6 border-t border-gray-200">
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                      <p className="text-sm text-gray-500">
+                      {/* <p className="text-sm text-gray-500">
                         Published on {formatDate(blog.createdAt)}
-                      </p>
+                      </p> */}
                       <div className="flex gap-2">
                         <button
                           onClick={() => shareOnSocial('facebook')}

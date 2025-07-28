@@ -92,11 +92,12 @@ const RelatedProduct = () => {
       setLoading(true);
       setError(null);
       
-      const data = await authAPI.getProduct();
-      console.log('Raw API list response======>:', data.data.products);
+       const data = await authAPI.getProduct();
+            console.log('Raw API  list response======>:', data.data.products);
       
       // Handle the API response structure and transform data
       const productsArray = data.data?.products || data.products || data || [];
+      console.log("product list data test=======>", data.data);
       
       if (productsArray.length === 0) {
         console.warn('No products found in API response, using fallback data');
@@ -114,25 +115,49 @@ const RelatedProduct = () => {
         return;
       }
       
-      const transformedProducts = productsArray.map(product => ({
-        // Use product._id, product.id, or generate a unique ID
-        id: product.productDetailId || product._id || product.id || `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-        productImage: product.images?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png",
-        hoverImage: product.images?.[1] || product.hoverImage || "/images/defaultproduct/productimage4.jpeg",
-        productName: product.productName || product.name || 'Unnamed Product',
-        price: product.price?.toString() || "0",
-        currency: product.currency || "₹",
-        mrpText: product.mrpText || "MRP",
-        quantity: product.quantity || 0,
-        type: product.type || 'N/A',
-        category: product.category || 'N/A',
-        details: product.details || 'No details available',
-        features: product.features || [],
-        benefits: product.benefits || [],
-        status: product.status || 'active',
-        createdAt: product.createdAt || new Date().toISOString().split('T')[0],
-        productImages: product.productImages || [product.productImage || "/images/defaultproduct/productdefault3.png"],
-      }));
+      // const transformedProducts = productsArray.map(product => ({
+      //   // Use product._id, product.id, or generate a unique ID
+      //   id: product.productDetailId || product._id || product.id || `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      //   productImage: product.images?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png",
+      //   hoverImage: product.images?.[1] || product.hoverImage || "/images/defaultproduct/productimage4.jpeg",
+      //   productName: product.productName || product.name || 'Unnamed Product',
+      //   price: product.price?.toString() || "0",
+      //   currency: product.currency || "₹",
+      //   mrpText: product.mrpText || "MRP",
+      //   quantity: product.quantity || 0,
+      //   type: product.type || 'N/A',
+      //   category: product.category || 'N/A',
+      //   details: product.details || 'No details available',
+      //   features: product.features || [],
+      //   benefits: product.benefits || [],
+      //   status: product.status || 'active',
+      //   createdAt: product.createdAt || new Date().toISOString().split('T')[0],
+      //   productImages: product.productImages || [product.productImage || "/images/defaultproduct/productdefault3.png"],
+      // }));
+
+            const transformedProducts = productsArray.map(product => {
+  const slug = product.slug || product.productDetailId?.slug || product.productDetail?.slug || product._id;
+  
+  return {
+    id: slug,
+    slug: slug,
+    productImage: product.productImages?.[0] || product.images?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png",
+    hoverImage: product.productImages?.[1] || product.images?.[1] || product.hoverImage || "/images/defaultproduct/productimage4.jpeg",
+    productName: product.productName || product.name || product.productDetailId?.name || 'Unnamed Product',
+    price: product.price?.toString() || product.productDetailId?.price?.toString() || "0",
+    currency: product.currency || "₹",
+    mrpText: product.mrpText || "MRP",
+    quantity: product.quantity || 0,
+    type: product.type || 'N/A',
+    category: product.category || 'N/A',
+    details: product.details || 'No details available',
+    features: product.features || [],
+    benefits: product.benefits || [],
+    status: product.status || 'active',
+    createdAt: product.createdAt || new Date().toISOString().split('T')[0],
+    productImages: product.productImages || product.images || ["/images/defaultproduct/productdefault3.png"],
+  };
+});
       
       // Get 3 random products from the transformed array
       const randomProducts = getRandomItems(transformedProducts, 3);
@@ -162,20 +187,20 @@ const RelatedProduct = () => {
     }
   };
 
-  const handleProductClick = (productId) => {
-    console.log('Navigating to product details:', productId);
-    router.push(`/shop/${productId}`);
+  const handleProductClick = (slug) => {
+    console.log('Navigating to product details:', slug);
+    router.push(`/shop/${slug}`);
   };
 
-  const handleQuickView = (productId) => {
-    console.log('Quick view for product:', productId);
-    router.push(`/shop/${productId}`);
+  const handleQuickView = (slug) => {
+    console.log('Quick view for product:', slug);
+    router.push(`/shop/${slug}`);
   };
 
-  const handleAddToCart = (productId) => {
-    console.log('Adding to cart:', productId);
+  const handleAddToCart = (slug) => {
+    console.log('Adding to cart:', slug);
     setTimeout(() => {
-      router.push(`/shop/${productId}`);  
+      router.push(`/shop/${slug}`);  
     }, 500);
   };
 

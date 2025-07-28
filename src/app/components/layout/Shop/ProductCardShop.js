@@ -136,7 +136,7 @@ const ProductCardShop = ({
   price = "549",
   currency = "₹",
   mrpText = "MRP",
-  slug = productName,
+  slug = '',
   onQuickView = () => console.log('Quick view clicked'),
   onAddToWishlist = () => console.log('Add to wishlist clicked'),
   onAddToCart = () => console.log('Add to cart clicked'),

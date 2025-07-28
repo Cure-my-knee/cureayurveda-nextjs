@@ -87,14 +87,16 @@ const PainManagementCard = ({
         )}
       </div>
             
-      <div className="p-4 sm:p-6 flex flex-col flex-grow">
-        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-2 sm:mb-3 leading-tight group-hover:text-blue-700 transition-colors duration-200">
-          {title}
-        </h3>
+      <div className="p-4 sm:p-6 flex flex-col flex-grow ">
+        <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-2 sm:mb-3 leading-tight group-hover:text-blue-700 transition-colors duration-200">
+          {title.split(" ").length > 7
+    ? `${title.split(" ").slice(0, 7).join(" ")}...`
+    : title}
+        </h4>
                 
-        <p className="text-gray-600 text-sm sm:text-base mb-4 flex-grow overflow-hidden line-clamp-3">
+        {/* <p className="text-gray-600 text-sm sm:text-base mb-4 flex-grow overflow-hidden line-clamp-3">
           {description}
-        </p>
+        </p> */}
                 
         <Link
           href={readMoreLink}

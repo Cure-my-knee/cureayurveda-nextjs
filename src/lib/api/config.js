@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // Base URL configuration
-const BASE_URL = 'http://localhost:3010/api';
+// const BASE_URL = 'http://localhost:3010/api';
 // new url depo
 // const BASE_URL = 'https://abhineshwork.onrender.com/api';
 // const BASE_URL = 'https://cureayurvedic.up.railway.app/api';
@@ -12,7 +12,7 @@ const BASE_URL = 'http://localhost:3010/api';
 
 
 // main url backend 
-// const BASE_URL = 'https://www.cureayurvedics.com/api';
+const BASE_URL = 'https://www.cureayurvedics.com/api';
   
 
 // Create axios instance with base configuration

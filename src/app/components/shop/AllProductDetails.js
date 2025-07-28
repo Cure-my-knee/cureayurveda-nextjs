@@ -2071,9 +2071,14 @@ const ProductDetailsPage = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
   
-  const router = useRouter();
+  // const router = useRouter();
+  // const params = useParams();
+  // const productId = params.id;
+
+    const router = useRouter();
   const params = useParams();
-  const productId = params.id;
+  // const productId = params.id;
+    const { slug } = params;
 
   // Breadcrumbs
   const breadcrumbs = [
@@ -2083,29 +2088,35 @@ const ProductDetailsPage = () => {
   ];
 
   // Fetch product details on component mount
-  useEffect(() => {
-    if (productId) {
+ useEffect(() => {
+    if (slug) {
       fetchProductDetails();
     }
-  }, [productId]);
+  }, [slug]);
 
   const fetchProductDetails = async () => {
     try {
       setLoading(true);
       setError(null);
 
-      const data = await authAPI.getProductDetails(productId);   
+      // const data = await authAPI.getProductDetails(productId);   
+      console.log('Fetching product details for slug++++=============:', slug);
+      const response = await authAPI.getProductDetails(slug);
       
       // Check if the response is successful
-      if (data.success) {
-        const productData = data.data;
+      // if (data.success) {
+      //   const productData = data.data;
+       if (response.success) {
+        const productData = response.data;
 
         if (!productData) {
           throw new Error('Product not found');
         }
 
         const transformedProduct = {
-          id: productData._id || productData.id || productId,
+          // id: productData._id || productData.id || productId,
+           id: productData._id || productData.id ,
+          slug: productData.slug || slug,
           productName: productData.name || 'Unknown Product',
           productsubtitle: productData.subtitle || 'Unknown Product',
           price: productData.price?.toString() || "0",

@@ -794,63 +794,7 @@ const AllProduct = () => {
 
   const router = useRouter();
 
-  // Fallback products data (in case API fails)
-  // const fallbackProducts = [
-  //   {
-  //     id: "VedicCal",
-  //     productImage: "/images/defaultproduct/productdumy2.jpg",
-  //     hoverImage: "/images/defaultproduct/productimage4.jpeg",
-  //     productName: "VedicCal",
-  //     price: "549",
-  //     currency: "₹",
-  //     mrpText: "MRP"
-  //   },
-  //   {
-  //     id: "VedicFix",
-  //     productImage: "/images/defaultproduct/productdumy2.jpg",
-  //     hoverImage: "/images/defaultproduct/productimage4.jpeg",
-  //     productName: "VedicFix",
-  //     price: "399",
-  //     currency: "₹",
-  //     mrpText: "MRP"
-  //   },
-  //   {
-  //     id: "VedicFix-Oil",
-  //     productImage: "/images/defaultproduct/productdumy2.jpg",
-  //     hoverImage: "/images/defaultproduct/productimage5.jpeg",
-  //     productName: "VedicFix Oil",
-  //     price: "299",
-  //     currency: "₹",
-  //     mrpText: "MRP"
-  //   },
-  //   {
-  //     id: "D-Vedic",
-  //     productImage: "/images/defaultproduct/productdumy2.jpg",
-  //     hoverImage: "/images/defaultproduct/productimage6.jpeg",
-  //     productName: "D Vedic",
-  //     price: "449",
-  //     currency: "₹",
-  //     mrpText: "MRP"
-  //   },
-  //   {
-  //     id: "D-Vedic-Syrup",
-  //     productImage: "/images/defaultproduct/productdumy2.jpg",
-  //     hoverImage: "/images/defaultproduct/productimage6.jpeg",
-  //     productName: "D Vedic Syrup",
-  //     price: "599",
-  //     currency: "₹",
-  //     mrpText: "MRP"
-  //   },
-  //   {
-  //     id: "Vedic-Shilajit",
-  //     productImage: "/images/defaultproduct/productdumy2.jpg",
-  //     hoverImage: "/images/defaultproduct/productimage6.jpeg",
-  //     productName: "Vedic Shilajit",
-  //     price: "349",
-  //     currency: "₹",
-  //     mrpText: "MRP"
-  //   }
-  // ];
+   
 
   // Fetch products on component mount
   useEffect(() => {
@@ -884,25 +828,54 @@ const AllProduct = () => {
       }
       
        
-      const transformedProducts = productsArray.map(product => ({
-        // Use product._id, product.id, or generate a unique ID
-        id: product.productDetailId || product._id || product.id || `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-        productImage: product.images?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png",
-        hoverImage: product.images?.[1] || product.hoverImage || "/images/defaultproduct/productimage4.jpeg",
-        productName: product.productName || product.name || 'Unnamed Product',
-        price: product.price?.toString() || "0",
-        currency: product.currency || "₹",
-        mrpText: product.mrpText || "MRP",
-        quantity: product.quantity || 0,
-        type: product.type || 'N/A',
-        category: product.category || 'N/A',
-        details: product.details || 'No details available',
-        features: product.features || [],
-        benefits: product.benefits || [],
-        status: product.status || 'active',
-        createdAt: product.createdAt || new Date().toISOString().split('T')[0],
-        productImages: product.productImages || [product.productImage || "/images/defaultproduct/productdefault3.png"],
-      }));
+      // const transformedProducts = productsArray.map(product => ({
+      //   // Use product._id, product.id, or generate a unique ID
+      //   // id: product.productDetailId || product._id || product.id || `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      //   id: product.slug || product.productDetailId || product._id || product.id || `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      //   // slug: product.slug,
+      //   slug: product.slug || product.productDetailId?.slug || product.productDetail?.slug || product.id || `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+
+      //   productImage: product.images?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png",
+      //   hoverImage: product.images?.[1] || product.hoverImage || "/images/defaultproduct/productimage4.jpeg",
+      //   productName: product.productName || product.name || 'Unnamed Product',
+      //   price: product.price?.toString() || "0",
+      //   currency: product.currency || "₹",
+      //   mrpText: product.mrpText || "MRP",
+      //   quantity: product.quantity || 0,
+      //   type: product.type || 'N/A',
+      //   category: product.category || 'N/A',
+      //   details: product.details || 'No details available',
+      //   features: product.features || [],
+      //   benefits: product.benefits || [],
+      //   status: product.status || 'active',
+      //   createdAt: product.createdAt || new Date().toISOString().split('T')[0],
+      //   productImages: product.productImages || [product.productImage || "/images/defaultproduct/productdefault3.png"],
+      // }));
+
+      const transformedProducts = productsArray.map(product => {
+  const slug = product.slug || product.productDetailId?.slug || product.productDetail?.slug || product._id;
+  
+  return {
+    id: slug,
+    slug: slug,
+    productImage: product.productImages?.[0] || product.images?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png",
+    hoverImage: product.productImages?.[1] || product.images?.[1] || product.hoverImage || "/images/defaultproduct/productimage4.jpeg",
+    productName: product.productName || product.name || product.productDetailId?.name || 'Unnamed Product',
+    price: product.price?.toString() || product.productDetailId?.price?.toString() || "0",
+    currency: product.currency || "₹",
+    mrpText: product.mrpText || "MRP",
+    quantity: product.quantity || 0,
+    type: product.type || 'N/A',
+    category: product.category || 'N/A',
+    details: product.details || 'No details available',
+    features: product.features || [],
+    benefits: product.benefits || [],
+    status: product.status || 'active',
+    createdAt: product.createdAt || new Date().toISOString().split('T')[0],
+    productImages: product.productImages || product.images || ["/images/defaultproduct/productdefault3.png"],
+  };
+});
+
       
       setProducts(transformedProducts);
       console.log('Products all card data============>:', transformedProducts);
@@ -932,26 +905,26 @@ const AllProduct = () => {
   };
 
  
-  const handleProductClick = (productId) => {
-    console.log('Navigating to product details:', productId);
-     
+  const handleProductClick = (slug) => {
+    console.log('Navigating to product details:', slug);
+      
     
-    router.push(`/shop/${productId}`);
+    router.push(`/shop/${slug}`);
   };
 
-  const handleQuickView = (productId) => {
-    console.log('Quick view for product:', productId);
+  const handleQuickView = (slug) => {
+    console.log('Quick view for product:', slug);
   
    
-    router.push(`/shop/${productId}`);
+    router.push(`/shop/${slug}`);
   };
 
-  const handleAddToCart = (productId) => {
-    console.log('Adding to cart:', productId);
+  const handleAddToCart = (slug) => {
+    console.log('Adding to cart:', slug);
     
      
     setTimeout(() => {
-    router.push(`/shop/${productId}`);  
+    router.push(`/shop/${slug}`);  
   }, 500);
   };
 
@@ -1041,8 +1014,11 @@ useEffect(() => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                   {products.map((product, index) => (
                     <ProductCardShop
-                      key={product.id}
-                      productId={product.id}
+                      // key={product.id}
+                      // productId={product.id}
+                      key={product.slug}
+                      productId={product.slug}
+                    
                       productImage={product.productImages?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png"}
                       productName={product.productName}
                       hoverImage={product.productImages?.[1] || product.hoverImage || product.productImages?.[0] || "/images/defaultproduct/productimage4.jpeg"}

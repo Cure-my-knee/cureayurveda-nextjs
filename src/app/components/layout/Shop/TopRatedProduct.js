@@ -259,11 +259,12 @@ const TopRatedProduct = () => {
       setLoading(true);
       setError(null);
       
-      const data = await authAPI.getProduct();
-      console.log('Raw API  list response======>:', data.data.products);
+     const data = await authAPI.getProduct();
+           console.log('Raw API  list response======>:', data.data.products);
       
       // Handle the API response structure and transform data
       const productsArray = data.data?.products || data.products || data || [];
+      console.log("product list data test=======>", data.data);
       
       if (productsArray.length === 0) {
         console.warn('No products found in API response, using fallback data');
@@ -280,25 +281,49 @@ const TopRatedProduct = () => {
       }
       
        
-      const transformedProducts = productsArray.map(product => ({
-        // Use product._id, product.id, or generate a unique ID
-        id: product.productDetailId || product._id || product.id || `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-        productImage: product.images?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png",
-        hoverImage: product.images?.[1] || product.hoverImage || "/images/defaultproduct/productimage4.jpeg",
-        productName: product.productName || product.name || 'Unnamed Product',
-        price: product.price?.toString() || "0",
-        currency: product.currency || "₹",
-        mrpText: product.mrpText || "MRP",
-        quantity: product.quantity || 0,
-        type: product.type || 'N/A',
-        category: product.category || 'N/A',
-        details: product.details || 'No details available',
-        features: product.features || [],
-        benefits: product.benefits || [],
-        status: product.status || 'active',
-        createdAt: product.createdAt || new Date().toISOString().split('T')[0],
-         productImages: product.productImages || [product.productImage || "/images/defaultproduct/productdefault3.png"],
-      }));
+      // const transformedProducts = productsArray.map(product => ({
+      //   // Use product._id, product.id, or generate a unique ID
+      //   id: product.productDetailId || product._id || product.id || `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      //   productImage: product.images?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png",
+      //   hoverImage: product.images?.[1] || product.hoverImage || "/images/defaultproduct/productimage4.jpeg",
+      //   productName: product.productName || product.name || 'Unnamed Product',
+      //   price: product.price?.toString() || "0",
+      //   currency: product.currency || "₹",
+      //   mrpText: product.mrpText || "MRP",
+      //   quantity: product.quantity || 0,
+      //   type: product.type || 'N/A',
+      //   category: product.category || 'N/A',
+      //   details: product.details || 'No details available',
+      //   features: product.features || [],
+      //   benefits: product.benefits || [],
+      //   status: product.status || 'active',
+      //   createdAt: product.createdAt || new Date().toISOString().split('T')[0],
+      //    productImages: product.productImages || [product.productImage || "/images/defaultproduct/productdefault3.png"],
+      // }));
+
+            const transformedProducts = productsArray.map(product => {
+  const slug = product.slug || product.productDetailId?.slug || product.productDetail?.slug || product._id;
+  
+  return {
+    id: slug,
+    slug: slug,
+    productImage: product.productImages?.[0] || product.images?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png",
+    hoverImage: product.productImages?.[1] || product.images?.[1] || product.hoverImage || "/images/defaultproduct/productimage4.jpeg",
+    productName: product.productName || product.name || product.productDetailId?.name || 'Unnamed Product',
+    price: product.price?.toString() || product.productDetailId?.price?.toString() || "0",
+    currency: product.currency || "₹",
+    mrpText: product.mrpText || "MRP",
+    quantity: product.quantity || 0,
+    type: product.type || 'N/A',
+    category: product.category || 'N/A',
+    details: product.details || 'No details available',
+    features: product.features || [],
+    benefits: product.benefits || [],
+    status: product.status || 'active',
+    createdAt: product.createdAt || new Date().toISOString().split('T')[0],
+    productImages: product.productImages || product.images || ["/images/defaultproduct/productdefault3.png"],
+  };
+});
       
       setProducts(transformedProducts);
       console.log('Products all card data top rated ============>:', transformedProducts);
@@ -335,8 +360,8 @@ const TopRatedProduct = () => {
   };
 
  
-  const handleProductClick = (productId) => {
-    console.log('Navigating to product details:', productId);
+  const handleProductClick = (slug) => {
+    console.log('Navigating to product details:', slug);
     // toast.info('Opening product details...', {
     //   position: "bottom-right",
     //   autoClose: 1500,
@@ -346,11 +371,11 @@ const TopRatedProduct = () => {
     //   draggable: true,
     // });
     
-    router.push(`/shop/${productId}`);
+    router.push(`/shop/${slug}`);
   };
 
-  const handleQuickView = (productId) => {
-    console.log('Quick view for product:', productId);
+  const handleQuickView = (slug) => {
+    console.log('Quick view for product:', slug);
     // toast.info('Opening quick view...', {
     //   position: "bottom-right",
     //   autoClose: 1500,
@@ -360,11 +385,11 @@ const TopRatedProduct = () => {
     //   draggable: true,
     // });
    
-    router.push(`/shop/${productId}`);
+    router.push(`/shop/${slug}`);
   };
 
-  const handleAddToCart = (productId) => {
-    console.log('Adding to cart:', productId);
+  const handleAddToCart = (slug) => {
+    console.log('Adding to cart:', slug);
     // toast.success('Product added to cart!', {
     //   position: "bottom-right",
     //   autoClose: 2000,
@@ -375,7 +400,7 @@ const TopRatedProduct = () => {
     // });
      
     setTimeout(() => {
-    router.push(`/shop/${productId}`);  
+    router.push(`/shop/${slug}`);  
   }, 500);
   };
 
@@ -459,8 +484,10 @@ const TopRatedProduct = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                   {products.map((product, index) => (
                     <ProductCardShop
-                      key={product.id}
-                      productId={product.id}
+                      // key={product.id}
+                      // productId={product.id}
+                       key={product.slug}
+                      productId={product.slug}
                       productImage={product.productImages?.[0] || product.productImage || "/images/defaultproduct/productdefault3.png"}
                       productName={product.productName}
                       hoverImage={product.productImages?.[1] || product.hoverImage || product.productImages?.[0] || "/images/defaultproduct/productimage4.jpeg"}

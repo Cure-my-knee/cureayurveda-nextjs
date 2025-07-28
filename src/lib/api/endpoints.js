@@ -149,9 +149,20 @@ export const authAPI = {
 
   // 
 
-  getProductDetails: async (id) => {
+  // getProductDetails: async (id) => {
+  //   try {
+  //     const response = await apiClient.get(`/products/${id}`);
+  //     console.log('API Response received details page========>:', response.data);
+  //     return response.data;
+       
+  //   } catch (error) {
+  //     throw error.response?.data || error.message;
+  //   }
+  // },
+
+  getProductDetails: async (slug) => {
     try {
-      const response = await apiClient.get(`/products/${id}`);
+      const response = await apiClient.get(`/products/${slug}`);
       console.log('API Response received details page========>:', response.data);
       return response.data;
        
