@@ -142,7 +142,7 @@ const AdminDashboard = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <p className="text-sm text-gray-600">Product "Smartphone" updated</p>
+                  <p className="text-sm text-gray-600">Product "d-vedic" updated</p>
                   <span className="text-xs text-gray-400">15 minutes ago</span>
                 </div>
                 <div className="flex items-center space-x-3">

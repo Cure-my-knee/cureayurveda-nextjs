@@ -78,13 +78,13 @@ const SidebarBanner = () => {
   };
 
   return (
-    <div className="w-full mt-8 md:mt-12 lg:mt-20">
+    <div className="w-full mt-8 md:mt-12 lg:mt-20 bg-[#edf1e1]">
       <div className="sticky top-6 lg:top-8 space-y-6 lg:space-y-8">
         {/* Popular Posts Banner */}
         <div className="bg-gradient-to-br from-white to-gray-50 p-5 md:p-6 lg:p-8 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
           <div className="flex items-center mb-6">
-            <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full mr-4"></div>
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800">Popular Posts</h3>
+            <div className="w-1 h-8 bg-gradient-to-b from-[#586e20] to-[#82a133] rounded-full mr-4"></div>
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-black">Popular Posts</h3>
           </div>
           <div className="space-y-4 lg:space-y-6">
             {loading ? (
@@ -116,10 +116,10 @@ const SidebarBanner = () => {
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-bold text-sm md:text-base lg:text-lg text-gray-800 line-clamp-2 leading-tight group-hover:text-blue-600 transition-colors duration-300">
+                    <div className="text-base md:text-base lg:text-lg text-black line-clamp-2 leading-tight group-hover:text-from-[#586e20] to-[#82a133]  transition-colors duration-300">
                       {post.title}
-                    </h4>
-                    <p className="text-xs md:text-sm text-gray-500 mt-2 font-medium">{post.date}</p>
+                    </div>
+                    {/* <p className="text-xs md:text-sm text-gray-500 mt-2 font-medium">{post.date}</p> */}
                   </div>
                 </a>
               ))

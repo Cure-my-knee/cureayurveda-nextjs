@@ -55,7 +55,7 @@ export default function HomePage() {
         description="Back pain can be a crippling ailment that interferes with day-to-day functioning and general health."
       /> */}
       <Guarantee />
-      {/* <BlogSection />   */}
+      <BlogSection />  
       {/*the hydration error due to swiper use in */}
       {/* <BlogSectionLanding /> */}
       

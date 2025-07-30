@@ -834,13 +834,13 @@ export default function Header() {
                       FAQ
                     </Link>
 
-                    {/* <Link
+                    <Link
                       href="/blogs"
                       className="block px-4 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors duration-150"
                       onClick={() => handleLinkClick('FAQ')}
                     >
                       Blog
-                    </Link> */}
+                    </Link>
                   </div>
                 </div>
               ) : (
@@ -983,14 +983,14 @@ export default function Header() {
                   } group-hover:w-[calc(100%-24px)] group-active:w-[calc(100%-24px)]`}></span>
                 </Link>
 
-                 {/* <Link
+                 <Link
                   href="/blogs"
                   onClick={toggleMobileMenu}
                   className="block text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-md px-3 py-2 text-sm tracking-wide transition-all duration-200 hover:translate-x-1 relative group"
                 >
                   Blog
                   <span className="absolute -bottom-1 left-3 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-[calc(100%-24px)]"></span>
-                </Link> */}
+                </Link>
               </div>
             </div>
           </div>

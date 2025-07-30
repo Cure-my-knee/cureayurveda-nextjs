@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { authAPI } from '@/lib/api/endpoints';
 import Image from 'next/image';
@@ -14,6 +14,8 @@ import { ArrowLeft, Calendar, User, Tag,
   MessageCircle,
   Copy,
   Check } from 'lucide-react';
+  import { FaXTwitter } from "react-icons/fa6";
+  import { FaWhatsapp } from "react-icons/fa";
  
 import SidebarBanner from '@/app/components/layout/Blogs/SidebarBanner';
  
@@ -56,6 +58,9 @@ const BlogDetailPage = () => {
   }
 }, [params.slug]);
 
+ 
+
+
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -87,23 +92,35 @@ const renderHTMLContent = (htmlString) => {
 };
 
   const shareOnSocial = (platform) => {
-    const url = window.location.href;
-    const title = blog?.title || 'Check out this blog post';
-    
-    switch (platform) {
-      case 'facebook':
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`);
-        break;
-      case 'twitter':
-        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`);
-        break;
-      case 'linkedin':
-        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`);
-        break;
-      default:
-        break;
-    }
-  };
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+  const blogUrl = `${baseUrl}/blogs/${slug}`;
+  const title = blog?.title || 'Check out this blog post';
+
+  switch (platform) {
+    case 'facebook':
+      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl)}`);
+      break;
+    case 'twitter':
+      window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(blogUrl)}&text=${encodeURIComponent(title)}`);
+      break;
+    case 'linkedin':
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(blogUrl)}`);
+      break;
+     
+
+     case 'whatsapp':
+    window.open(`https://wa.me/?text=${encodeURIComponent(title)}%20${encodeURIComponent(blogUrl)}`);
+    break;
+  default:
+    break;
+
+      
+      
+  }
+};
+
+ 
+
 
   if (loading) {
     return (
@@ -118,7 +135,7 @@ const renderHTMLContent = (htmlString) => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div   className="min-h-screen bg-[#edf1e1] flex items-center justify-center">
         <div className="text-center">
           <div className="text-red-500 text-6xl mb-4">⚠️</div>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Error Loading Blog</h2>
@@ -136,7 +153,7 @@ const renderHTMLContent = (htmlString) => {
 
   if (!blog) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#edf1e1] flex items-center justify-center ">
         <div className="text-center">
           <div className="text-gray-400 text-6xl mb-4">📝</div>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Blog Not Found</h2>
@@ -155,7 +172,7 @@ const renderHTMLContent = (htmlString) => {
   return (
     <> 
      
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-[#edf1e1] pt-12">
         {/* Main container with responsive grid */}
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -194,9 +211,9 @@ const renderHTMLContent = (htmlString) => {
                   </div>
 
                   {/* Title */}
-                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                  <div className="text-xl font-semibold md:text-2xl lg:text-2xl  text-black mb-4">
                     {blog.title}
-                  </h1>
+                  </div>
 
                   {/* Subtitle */}
                   {/* {blog.subTitle && (
@@ -220,6 +237,7 @@ const renderHTMLContent = (htmlString) => {
                       key={index}
                       dangerouslySetInnerHTML={renderHTMLContent(block)}
                       className="mb-6"
+                      style={{ fontFamily: '"Nunito Sans", sans-serif' }}
                     />
                   ))}
                 </div>
@@ -262,21 +280,28 @@ const renderHTMLContent = (htmlString) => {
                       <div className="flex gap-2">
                         <button
                           onClick={() => shareOnSocial('facebook')}
+                           
                           className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
                         >
                           <Facebook className="w-4 h-4 text-white" />
                         </button>
                         <button
                           onClick={() => shareOnSocial('twitter')}
-                          className="w-10 h-10 bg-sky-500 rounded-lg flex items-center justify-center hover:bg-sky-600 transition-colors"
+                          className="w-10 h-10 bg-black rounded-lg flex items-center justify-center hover:bg-black transition-colors"
                         >
-                          <Twitter className="w-4 h-4 text-white" />
+                          <FaXTwitter className="w-4 h-4 text-white" />
                         </button>
                         <button
                           onClick={() => shareOnSocial('linkedin')}
                           className="w-10 h-10 bg-blue-700 rounded-lg flex items-center justify-center hover:bg-blue-800 transition-colors"
                         >
                           <Linkedin className="w-4 h-4 text-white" />
+                        </button>
+                        <button
+                          onClick={() => shareOnSocial('whatsapp')}
+                          className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center hover:bg-green-500 transition-colors"
+                        >
+                          <FaWhatsapp className="w-4 h-4 text-white" />
                         </button>
                       </div>
                     </div>

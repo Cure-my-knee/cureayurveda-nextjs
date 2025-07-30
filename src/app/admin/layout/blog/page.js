@@ -734,6 +734,28 @@ const BlogAdminDashboard = () => {
 // };
 
 
+const renderHTMLContent = (htmlString) => {
+  // Clean and process the HTML string
+  let cleanHTML = htmlString
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+
+  // Remove wrapping span with Google Docs ID if it exists
+  cleanHTML = cleanHTML.replace(/^<span[^>]*id="docs-internal-guid[^>]*>/, '');
+  cleanHTML = cleanHTML.replace(/<\/span>$/, '');
+  
+  // Clean up any remaining empty spans or divs
+  cleanHTML = cleanHTML.replace(/<span[^>]*><\/span>/g, '');
+  cleanHTML = cleanHTML.replace(/<div[^>]*><span[^>]*><br[^>]*><\/span><\/div>/g, '<br>');
+
+  return { __html: cleanHTML };
+};
+
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -986,13 +1008,13 @@ const handleSubmit = async (e) => {
                   Description *
                 </label>
               <RichTextEditor
-  value={formData.description}
-  onChange={(value) =>
-    setFormData((prev) => ({ ...prev, description: value }))
-  }
-  placeholder="Enter your blog description..."
-  className="w-full"
-/>
+              value={formData.description}
+              onChange={(value) =>
+                setFormData((prev) => ({ ...prev, description: value }))
+              }
+              placeholder="Enter your blog description..."
+              className="w-full"
+            />
 
 
               </div>
@@ -1136,17 +1158,19 @@ const handleSubmit = async (e) => {
                       
                       <p className="text-gray-600 text-sm mb-3 line-clamp-2">
                         {blog.subTitle}
+                   
                       </p>
 
 
-                     <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                     {/* <p className="text-gray-600 text-sm mb-3 line-clamp-2">
                         {blog.description}
-                      </p>
+                      </p> */}
                       {/* Rich Text Description Preview */}
                       {blog.description && (
                         <div 
                           className="text-gray-600 text-sm mb-3 line-clamp-2"
                           dangerouslySetInnerHTML={{ __html: blog.description }}
+                          
                         />
                       )}
 

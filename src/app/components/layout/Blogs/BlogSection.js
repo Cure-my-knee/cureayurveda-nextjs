@@ -53,13 +53,13 @@ const BlogSection = () => {
       });
 
   return (
-    <div className="relative bg-smoke py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div className="relative bg-smoke py-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#edf1e1]">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-10">
-          <Title>Insights on Pain Management</Title>
-          <Subtitle>
-            Explore expert articles, natural remedies, and tips for effective pain relief and wellness.
-          </Subtitle>
+          <Title>Blogs</Title>
+          {/* <Subtitle>
+             Explore expert articles, natural remedies, and tips for effective pain relief and wellness — including Joint Pain, Diabetes, and Energy Booster.
+          </Subtitle> */}
         </div>
 
         <div className="relative">

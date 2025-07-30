@@ -46,7 +46,7 @@ const PainManagementCard = ({
       <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100">
         {!imageLoaded && !imageError && (
           <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-            <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+            <div className="w-8 h-8 border-2 border-[#586e20] border-t-transparent rounded-full animate-spin"></div>
           </div>
         )}
                 
@@ -87,12 +87,15 @@ const PainManagementCard = ({
         )}
       </div>
             
-      <div className="p-4 sm:p-6 flex flex-col flex-grow ">
-        <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-2 sm:mb-3 leading-tight group-hover:text-blue-700 transition-colors duration-200">
-          {title.split(" ").length > 7
-    ? `${title.split(" ").slice(0, 7).join(" ")}...`
-    : title}
-        </h4>
+      <div className="p-2 sm:p-4 flex flex-col flex-grow border-t border-gray-300">
+         <Link href={readMoreLink} passHref>
+        <div className="text-start text-xl sm:text-xl md:text-xl text-black mb-2 sm:mb-3  transition-colors duration-300">
+          {title.split(" ").length > 10
+            ? `${title.split(" ").slice(0, 10).join(" ")}...`
+            : title}
+        </div>
+      </Link>
+
                 
         {/* <p className="text-gray-600 text-sm sm:text-base mb-4 flex-grow overflow-hidden line-clamp-3">
           {description}

@@ -160,7 +160,7 @@
 
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef} from 'react';
 import PainManagementCard from './PainManagementCard';
 import Title from '../../ui/Title';
 import Subtitle from '../../ui/Subtitle';
@@ -209,6 +209,15 @@ const BlogSectionGrid = () => {
     fetchBlogs();
   }, []);
 
+
+    // scroll up
+        const sectionRef = useRef(null);
+        useEffect(() => {
+          if (sectionRef.current) {
+            sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, []);
+
   // Loading skeleton cards
   const loadingCards = Array(6).fill({
     image: '',
@@ -253,13 +262,13 @@ const BlogSectionGrid = () => {
   const displayCards = loading ? loadingCards : blogs;
 
   return (
-    <div className="relative bg-smoke py-8 sm:py-12 px-3 sm:px-6 lg:px-8 overflow-hidden">
+    <div ref={sectionRef} className="relative bg-smoke py-8 sm:py-12 px-3 sm:px-6 lg:px-8 overflow-hidden bg-[#edf1e1]">
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-8 sm:mb-10">
-          <Title>Insights on Pain Management</Title>
-          <Subtitle>
-            Explore expert articles, natural remedies, and tips for effective pain relief and wellness.
-          </Subtitle>
+        <div className="text-center mb-s8 sm:mb-10">
+          <Title>Blogs</Title>
+          {/* <Subtitle>
+            Explore expert articles, natural remedies, and tips for effective pain relief and wellness — including Joint Pain, Diabetes, and Energy Booster.
+          </Subtitle> */}
         </div>
 
         {/* Loading State */}
