@@ -28,7 +28,7 @@ const AboutUsPage = () => {
   // backgroundImage = "/images/banner/herobanner7.jpg"
   backgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753883374/Spoon_hj145q.jpg"
   // Mobile image
-  mobileBackgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753883375/Spoon_MOBILE_sgpopw.jpg"
+  mobileBackgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753884964/Web_banner_Mobile_about_us_qaalju.jpg"
 
      />
      
