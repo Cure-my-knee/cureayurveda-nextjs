@@ -26,9 +26,9 @@ const AboutUsPage = () => {
     breadcrumbs={aboutBreadcrumbs}
      // Desktop/tablet image
   // backgroundImage = "/images/banner/herobanner7.jpg"
-  backgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753856545/30_july_c6a5qf.jpg"
+  backgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753883374/Spoon_hj145q.jpg"
   // Mobile image
-  mobileBackgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753860535/30_july_Mobile2_mct6z2.jpg"
+  mobileBackgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753883375/Spoon_MOBILE_sgpopw.jpg"
 
      />
      
