@@ -2412,6 +2412,9 @@ const showCODConfirmation = () => {
     }
   };
 
+  // Add this line
+  window.dispatchEvent(new Event('cartUpdated'));
+
   // Calculate totals
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const gst = subtotal * 0;  

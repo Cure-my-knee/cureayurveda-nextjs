@@ -2217,6 +2217,9 @@ const ProductDetailsPage = () => {
 
     // Save updated cart to localStorage
     localStorage.setItem('cart', JSON.stringify(existingCart));
+    
+       // Add this line to update the cart indicator
+      window.dispatchEvent(new Event('cartUpdated'));
 
     console.log('Adding to cart:', cartItem);
     toast.success(`Added ${quantity} item(s) to cart!`, {
@@ -2292,11 +2295,11 @@ const ProductDetailsPage = () => {
                 </div>
               </div>
               <div className="space-y-4 ">
-                <div className="h-15 bg-gray-300 rounded w-full ml-5"></div>
-                <div className="h-15 bg-gray-300 rounded w-full ml-5"></div>
-                <div className="h-15 bg-gray-300 rounded w-full ml-5"></div>
-                <div className="h-15 bg-gray-300 rounded w-full ml-5"></div>
-                <div className="h-15 bg-gray-300 rounded w-full ml-5"></div>
+                <div className="h-15 bg-gray-300 rounded w-full "></div>
+                <div className="h-15 bg-gray-300 rounded w-full "></div>
+                <div className="h-15 bg-gray-300 rounded w-full "></div>
+                <div className="h-15 bg-gray-300 rounded w-full "></div>
+                <div className="h-15 bg-gray-300 rounded w-full "></div>
               </div>
             </div>
           </div>
