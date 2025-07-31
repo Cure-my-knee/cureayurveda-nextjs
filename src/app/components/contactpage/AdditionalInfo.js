@@ -39,7 +39,7 @@ export default function AdditionalInfo() {
           <li className="flex items-start gap-4">
             <MapPin className="w-6 h-6 text-[#586e20]" />
             <a
-              href="https://www.google.com/maps/place/A-41,+FIEE+Complex,+Okhla+Phase+2,+New+Delhi+110020"
+              href="https://maps.app.goo.gl/v8TetLuTfFuxemZo7"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#586e20] transition-colors"
@@ -80,11 +80,13 @@ export default function AdditionalInfo() {
              <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
             <iframe
               title="Google Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.2401981090963!2d77.2609495!3d28.5399255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce184eb7a78bd%3A0xd5a862ffdc989055!2sCure%20My%20Knee!5e0!3m2!1sen!2sin!4v1689751077890!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.1895067821774!2d77.2697737!3d28.5340231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce1786e9d024f%3A0xba37eebc2e69432f!2sCure%20Ayurvedic!5e0!3m2!1sen!2sin!4v1753943551162!5m2!1sen!2sin"
               allowFullScreen=""
               loading="lazy"
               className="w-full h-full border-0"
             ></iframe>
+
+            
           </div>
 
           </div>

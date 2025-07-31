@@ -23,6 +23,12 @@ import React, { Suspense } from 'react';
 import PaymentFailureClient from './PaymentFailureClient';
 import OrderFailedPage from '../order-failed/page';
  
+// seo meta tag
+export const metadata = {
+  title: 'Order Failed - Cure Ayurvedic',
+  description: 'Your order is not confirmed',
+  robots: 'noindex, nofollow',
+};
  
 
 export default function PaymentFailurePage() {

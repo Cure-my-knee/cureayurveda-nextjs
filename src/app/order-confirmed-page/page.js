@@ -6,7 +6,7 @@ import OrderConfirmation from '../components/order/orderconfirmation';
 // seo meta tag
 export const metadata = {
   title: 'Order Confirmation - Cure Ayurvedic',
-  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+  description: 'Your order is confirmed',
   robots: 'noindex, nofollow',
 };
 

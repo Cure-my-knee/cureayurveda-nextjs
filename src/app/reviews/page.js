@@ -1,5 +1,6 @@
 import React from 'react';
 import ClientReviewSlider from '../components/review/ClientReviewSlider';
+import GoogleReviewsComponent from '../components/review/GoogleReviews';
  
 
 // seo meta tag
@@ -14,6 +15,7 @@ export default function Review() {
   return (
     <> 
     <ClientReviewSlider />
+    <GoogleReviewsComponent />
     
     </>
   );

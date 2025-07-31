@@ -174,6 +174,8 @@ export const authAPI = {
 
   // update the product part
 
+  // get product details pro
+
    putProduct: async (id, productData) => {
   try {
     const token = localStorage.getItem('accessToken');   

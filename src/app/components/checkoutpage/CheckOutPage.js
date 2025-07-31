@@ -2116,9 +2116,13 @@ import LoginGuestSelector from '../login/LoginGuestSelector';
 
 // export const metadata = {
 //   title: 'Checkout - Cure Ayurvedic',
-//   description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+//   description: 'Checkout your order at Cure Ayurvedic.',
 //   robots: 'noindex, nofollow',
 // };
+
+// seo meta tag
+
+ 
  
 
  

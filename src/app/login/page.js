@@ -7,7 +7,7 @@ import LoginPage from '../components/login/LoginPage';
 
 export const metadata = {
   title: 'Login - Cure Ayurvedic',
-  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+  description: 'Login your account for order on Cure Ayurvedic.',
   robots: 'noindex, nofollow',
 };
 

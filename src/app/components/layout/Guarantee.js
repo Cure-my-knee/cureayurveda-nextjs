@@ -95,7 +95,7 @@ const Guarantee = () => {
                                       bg-[#82a133] hover:bg-white 
                                       border-2 border-transparent hover:border-[#82a133] p-3 sm:p-4"
                           >
-                            <div className="relative w-full h-full">
+                          <div className="relative w-12 h-12 sm:w-16 sm:h-16">
                               <Image
                                 src={feature.image}
                                 alt={feature.title}

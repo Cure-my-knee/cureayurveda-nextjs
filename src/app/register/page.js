@@ -7,7 +7,7 @@ import RegisterUser from '../components/register/RegisterUser';
  
  export const metadata = {
    title: 'Register User- Cure Ayurvedic',
-   description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+   description: 'Register your account for new order on Cure Ayurvedic.',
    robots: 'noindex, nofollow',
  };
 

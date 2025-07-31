@@ -3,53 +3,55 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 
 const ClientReviewSlider = () => {
-  const reviews = [
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      position: "Marketing Director",
-      company: "TechCorp Solutions",
-      rating: 5,
-      review: "Exceptional service and outstanding results! The team went above and beyond our expectations. Their attention to detail and commitment to excellence is truly remarkable.",
-      avatar: "SJ"
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      position: "CEO",
-      company: "Innovation Labs",
-      rating: 5,
-      review: "Working with this team has been a game-changer for our business. They delivered exactly what we needed, on time and within budget. Highly recommend!",
-      avatar: "MC"
-    },
-    {
-      id: 3,
-      name: "Emily Rodriguez",
-      position: "Product Manager",
-      company: "Digital Dynamics",
-      rating: 5,
-      review: "Professional, creative, and reliable. They transformed our vision into reality with incredible precision. The entire process was smooth and collaborative.",
-      avatar: "ER"
-    },
-    {
-      id: 4,
-      name: "David Thompson",
-      position: "Founder",
-      company: "StartupVenture",
-      rating: 5,
-      review: "From concept to execution, they delivered perfection. Their expertise and dedication helped us achieve results beyond our wildest dreams. Amazing work!",
-      avatar: "DT"
-    },
-    {
-      id: 5,
-      name: "Lisa Wang",
-      position: "Operations Director",
-      company: "Global Systems Inc",
-      rating: 5,
-      review: "Top-notch quality and exceptional customer service. They understood our needs perfectly and delivered a solution that exceeded all expectations.",
-      avatar: "LW"
-    }
-  ];
+ const reviews = [
+  {
+    id: 1,
+    name: "Dr. Aarti Mehra",
+    position: "Ayurvedic Practitioner",
+    company: "Ayush Wellness Clinic",
+    rating: 5,
+    review: "VedicCal has made a significant difference in my patients' bone health. Its natural formulation is both safe and effective—perfect for long-term wellness without side effects.",
+    avatar: "AM"
+  },
+  {
+    id: 2,
+    name: "Ravi Shankar",
+    position: "Fitness Consultant",
+    company: "FitRoots India",
+    rating: 5,
+    review: "VedicFlx and VedicFlx Oil helped me regain joint flexibility after years of stiffness. I highly recommend it to anyone dealing with mobility issues.",
+    avatar: "RS"
+  },
+   {
+  id: 3,
+  name: "Neha Verma",
+  position: "Health Blogger",
+  company: "Herbal Way India",
+  rating: 5,
+  review: "D Vedic Syrup has helped me maintain stable blood sugar levels naturally. It fits perfectly into a diabetic-friendly lifestyle without harsh effects. A must-try for anyone managing diabetes.",
+  avatar: "NV"
+},
+{
+  id: 4,
+  name: "Siddharth Iyer",
+  position: "Entrepreneur",
+  company: "NaturaLife Organics",
+  rating: 5,
+  review: "D Vedic has been incredibly helpful for my father’s diabetic care. His energy levels are better, and his sugar levels have shown noticeable improvement since starting this natural remedy.",
+  avatar: "SI"
+},
+
+  {
+    id: 5,
+    name: "Priya Singh",
+    position: "Yoga Instructor",
+    company: "Balance Yoga Studio",
+    rating: 5,
+    review: "Vedic Shilajit is powerful and pure. It gives a noticeable boost in stamina and vitality. Great for those living an active lifestyle or recovering from fatigue.",
+    avatar: "PS"
+  }
+];
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -87,7 +89,7 @@ const ClientReviewSlider = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br min-h-screen bg-white from-slate-50 to-blue-50 py-16 px-4 sm:px-6 lg:px-8 mt-8">
+    <div className="bg-gradient-to-br min-h-screen bg-[#edf1e1] py-16 px-4 sm:px-6 lg:px-8 mt-8">
       <div className="max-w-6xl mx-auto mt-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -138,9 +140,9 @@ const ClientReviewSlider = () => {
                       <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-1">
                         {review.position}
                       </p>
-                      <p className="text-xs sm:text-sm md:text-base text-blue-600 font-medium mb-2">
+                      {/* <p className="text-xs sm:text-sm md:text-base text-blue-600 font-medium mb-2">
                         {review.company}
-                      </p>
+                      </p> */}
                       
                       {/* Rating */}
                       <div className="flex justify-center gap-1">

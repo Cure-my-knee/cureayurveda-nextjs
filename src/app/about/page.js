@@ -54,7 +54,7 @@ import AboutUsPage from '../components/about/AboutUsPage';
 export const metadata = {
   title: 'About Us: Know Our Story & Purpose, Quality | Cure Ayurvedic',
   description: 'Know about Cure Ayurvedic story, product quality and more. Shop from our wide range of ayurvedic products that support overall health.',
-  robots: 'noindex, nofollow',
+  
 };
 
 export default function About() {
