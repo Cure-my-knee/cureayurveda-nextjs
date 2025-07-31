@@ -2413,7 +2413,10 @@ const showCODConfirmation = () => {
   };
 
   // Add this line
-  window.dispatchEvent(new Event('cartUpdated'));
+  // window.dispatchEvent(new Event('cartUpdated'));
+   if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('cartUpdated'));
+    }
 
   // Calculate totals
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);

@@ -2219,7 +2219,12 @@ const ProductDetailsPage = () => {
     localStorage.setItem('cart', JSON.stringify(existingCart));
     
        // Add this line to update the cart indicator
+      // window.dispatchEvent(new Event('cartUpdated'));
+
+     if (typeof window !== 'undefined') {
       window.dispatchEvent(new Event('cartUpdated'));
+    }
+
 
     console.log('Adding to cart:', cartItem);
     toast.success(`Added ${quantity} item(s) to cart!`, {

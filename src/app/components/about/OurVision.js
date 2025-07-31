@@ -58,7 +58,7 @@ const VisionScroll = () => {
         {`
           @media (max-width: 640px) {
             .scroll-bg {
-              background-image: url('https://res.cloudinary.com/dztmhmutv/image/upload/v1753428120/c9ec5a56041fda07ff2c5e36b8b2ecde2_hov5hm.jpg') !important;
+              background-image: url('https://res.cloudinary.com/dztmhmutv/image/upload/v1753940317/tab_xfmumg.jpg') !important;
             }
           }
         `}
@@ -84,8 +84,8 @@ const VisionScroll = () => {
           {/* Title */}
           <div className="text-center mb-2 sm:mb-2 md:mb-2">
            <div className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-black mb-2 ">
-  Our Vision
-</div>
+          Our Vision
+        </div>
 
             {/* <div className="w-12 sm:w-16 md:w-20 h-1 bg-amber-700 mx-auto rounded-full"></div> */}
           </div>
