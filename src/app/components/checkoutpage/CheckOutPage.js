@@ -2963,7 +2963,7 @@ const showCODConfirmation = () => {
                     className="h-4 w-4 text-[#586e20] focus:ring-[#586e20] border-gray-300"
                   />
                   <label htmlFor="payu" className="ml-3 flex items-center text-sm font-medium text-gray-700">
-                    <img src="https://latestlogo.com/wp-content/uploads/2024/03/payu-logo.png" alt="PayU" className="w-10 h-10 mr-2" />
+                    <img src="images/logo/payu-logo.png" alt="PayU" className="w-10 h-10 mr-2" />
                     PayU Payment Gateway
                   </label>
                 </div>

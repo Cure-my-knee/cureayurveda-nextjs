@@ -35,7 +35,7 @@
 } */
 
 body {
-  background-color: var(--background);
+  background-color: #edf1e1;
   color: var(--foreground);
   font-family: var(--font-body);
   font-size: var(--body-size);
@@ -50,8 +50,7 @@ p {
   font-size: var(--body-size);
   font-weight: var(--body-weight);
   line-height: var(--body-line);
-  color: 
-rgb(28, 27, 27);
+  color: rgb(28, 27, 27);
   margin-bottom: 0rem;
 }
 

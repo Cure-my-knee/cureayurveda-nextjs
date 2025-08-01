@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { authAPI } from '@/lib/api/endpoints';
 import Title from '../../ui/Title';
 import Subtitle from '../../ui/Subtitle';
-import ScrollFadeUp from '../../ui/ScrollFadeUp';
+// import ScrollFadeUp from '../../ui/ScrollFadeUp';
 import ProductCardShop from './ProductCardShop';
 import Button from '../../ui/Button';
 
@@ -52,35 +52,35 @@ const RelatedProduct = () => {
   const router = useRouter();
 
   // Fallback products data (in case API fails)
-  const fallbackProducts = [
-    {
-      id: "VedicCal",
-      productImage: "/images/defaultproduct/productdumy2.jpg",
-      hoverImage: "/images/defaultproduct/productimage4.jpeg",
-      productName: "VedicCal",
-      price: "549",
-      currency: "₹",
-      mrpText: "MRP"
-    },
-    {
-      id: "VedicFix",
-      productImage: "/images/defaultproduct/productdumy2.jpg",
-      hoverImage: "/images/defaultproduct/productimage4.jpeg",
-      productName: "VedicFix",
-      price: "399",
-      currency: "₹",
-      mrpText: "MRP"
-    },
-    {
-      id: "VedicFix-Oil",
-      productImage: "/images/defaultproduct/productdumy2.jpg",
-      hoverImage: "/images/defaultproduct/productimage5.jpeg",
-      productName: "VedicFix Oil",
-      price: "299",
-      currency: "₹",
-      mrpText: "MRP"
-    }
-  ];
+  // const fallbackProducts = [
+  //   {
+  //     id: "VedicCal",
+  //     productImage: "/images/defaultproduct/productdumy2.jpg",
+  //     hoverImage: "/images/defaultproduct/productimage4.jpeg",
+  //     productName: "VedicCal",
+  //     price: "549",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "VedicFix",
+  //     productImage: "/images/defaultproduct/productdumy2.jpg",
+  //     hoverImage: "/images/defaultproduct/productimage4.jpeg",
+  //     productName: "VedicFix",
+  //     price: "399",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   },
+  //   {
+  //     id: "VedicFix-Oil",
+  //     productImage: "/images/defaultproduct/productdumy2.jpg",
+  //     hoverImage: "/images/defaultproduct/productimage5.jpeg",
+  //     productName: "VedicFix Oil",
+  //     price: "299",
+  //     currency: "₹",
+  //     mrpText: "MRP"
+  //   }
+  // ];
 
   // Fetch products on component mount
   useEffect(() => {
@@ -235,7 +235,7 @@ const RelatedProduct = () => {
           )}
 
           {/* Products Grid */}
-          <ScrollFadeUp> 
+          {/* <ScrollFadeUp>  */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
               {loading ? (
                 // Skeleton Loading State - Show only 3 skeletons
@@ -283,7 +283,7 @@ const RelatedProduct = () => {
                 </div>
               )}
             </div>
-          </ScrollFadeUp>
+          {/* </ScrollFadeUp> */}
         </div>
       </section>
     </>

@@ -2355,26 +2355,26 @@ const ProductDetailsPage = () => {
 
             {/* Thumbnail Images - size remains the same */}
              {product.images.length > 1 && (
-  <div className="flex space-x-3 overflow-x-auto justify-center">
-    {product.images.map((image, index) => (
-      <button
-        key={index}
-        className={`flex-shrink-0 w-24 h-24 bg-[#ffff] rounded-lg border-2 transition-all ${
-          selectedImage === index ? 'border-[#586e20] shadow-md' : 'border-gray-300 hover:border-gray-400'
-        }`}
-        onClick={() => setSelectedImage(index)}
-      >
-        <Image
-          src={image}
-          alt={`Product image ${index + 1}`}
-          width={96}
-          height={96}
-          className="object-contain w-full h-full rounded-lg"
-        />
-      </button>
-    ))}
-  </div>
-)}
+          <div className="flex space-x-3 overflow-x-auto justify-center">
+            {product.images.map((image, index) => (
+              <button
+                key={index}
+                className={`flex-shrink-0 w-24 h-24 bg-[#ffff] rounded-lg border-2 transition-all ${
+                  selectedImage === index ? 'border-[#586e20] shadow-md' : 'border-gray-300 hover:border-gray-400'
+                }`}
+                onClick={() => setSelectedImage(index)}
+              >
+                <Image
+                  src={image}
+                  alt={`Product image ${index + 1}`}
+                  width={96}
+                  height={96}
+                  className="object-contain w-full h-full rounded-lg"
+                />
+              </button>
+            ))}
+          </div>
+        )}
 
           </div>
 
@@ -2408,7 +2408,7 @@ const ProductDetailsPage = () => {
           
         </a> */}
 
-{/* 
+         {/* 
             <div className="flex flex-col items-start mb-2">
             
             {product.mrpText && (

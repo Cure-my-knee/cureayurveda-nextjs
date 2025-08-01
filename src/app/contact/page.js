@@ -7,7 +7,7 @@ import AdditionalInfo from '../components/contactpage/AdditionalInfo'
 export const metadata = {
   title: 'Contact us - Cure Ayurvedic',
   description: 'Contact Us for any queries.',
-  robots: 'noindex, nofollow',
+  // robots: 'noindex, nofollow',
 };
  
  const page = () => {
