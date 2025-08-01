@@ -3,7 +3,13 @@
 import './globals.css';
 import { Montserrat } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
-import Script from 'next/script';
+import Script from 'next/script'; 
+import TopHeader from './components/layout/TopHeader';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+//  import { GoogleTagManager } from '@next/third-parties/google';
 
 // Load Montserrat font as CSS variable
 const montserrat = Montserrat({
@@ -13,30 +19,46 @@ const montserrat = Montserrat({
 });
 
  
-import TopHeader from './components/layout/TopHeader';
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
- import { GoogleTagManager } from '@next/third-parties/google';
-
- 
  
 
 export const metadata = {
   title: 'Buy Best Ayurvedic Products Online in India | Cure Ayurvedic',
   description: 'Cure Ayurvedic is the top ayurvedic & wellness product company in India. Shop trusted ayurvedic medicine online today at the best price.',
   viewport: 'width=device-width, initial-scale=1.0',
-   other: {
-    'google-site-verification': '491akEx-CPBtJVwJokQrfA0_7iDMJldPSHKc7YglHs4',
-  },
+  //  other: {
+  //   'google-site-verification': '491akEx-CPBtJVwJokQrfA0_7iDMJldPSHKc7YglHs4',
+  // },
 };
 export default function RootLayout({ children }) {
   return (
 
     <html lang="en" className={`${montserrat.variable} scroll-smooth`}>
+
+      <head>
+        {/* Google Tag Manager script (in head) */}
+        <Script id="gtm-head" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-NQ344KZC');
+          `}
+        </Script>
+      </head>
            
       <body className="antialiased font-sans bg-white text-gray-900" suppressHydrationWarning={true}>
+
+
+       {/*Google Tag Manager noscript fallback (in body, immediately) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NQ344KZC"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
 
          {/* Meta Pixel Code */}
         <Script id="facebook-pixel" strategy="afterInteractive">
@@ -84,8 +106,9 @@ export default function RootLayout({ children }) {
         <Footer />
         {/* Vercel Analytics added here */}
          <Analytics /> 
-         {/* google analytics */}
-         <GoogleTagManager gtmId="491akEx-CPBtJVwJokQrfA0_7iDMJldPSHKc7YglHs4" /> 
+
+          
+         {/* <GoogleTagManager gtmId="491akEx-CPBtJVwJokQrfA0_7iDMJldPSHKc7YglHs4" />  */}
       </body>
     </html>
   );
