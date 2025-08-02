@@ -1,6 +1,7 @@
  'use client';
 import React, { useEffect, useState } from 'react';
 import { authAPI } from '@/lib/api/endpoints';
+import Link from 'next/link';
 
 const SidebarBanner = () => {
   const [popularPosts, setPopularPosts] = useState([]);
@@ -100,7 +101,7 @@ const SidebarBanner = () => {
               ))
             ) : popularPosts.length > 0 ? (
               popularPosts.map((post) => (
-                <a 
+                <Link 
                   key={post.id}
                   href={post.readMoreLink}
                   className="flex items-start space-x-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 p-3 md:p-4 rounded-xl transition-all duration-300 transform hover:scale-105 group"
@@ -109,7 +110,7 @@ const SidebarBanner = () => {
                     <img 
                       src={post.image} 
                       alt={post.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      className="w-full h-full  transition-transform duration-300 group-hover:scale-110"
                       onError={(e) => {
                         e.target.src = '/images/banner/herobanner2.jpg';
                       }}
@@ -121,7 +122,7 @@ const SidebarBanner = () => {
                     </div>
                     {/* <p className="text-xs md:text-sm text-gray-500 mt-2 font-medium">{post.date}</p> */}
                   </div>
-                </a>
+                </Link>
               ))
             ) : (
               <p className="text-gray-500 text-sm md:text-base text-center py-8">No popular posts available</p>

@@ -59,8 +59,8 @@ export default function AdditionalInfo() {
           {/* Email */}
           <li className="flex items-start gap-4">
             <Mail className="w-6 h-6 text-[#586e20]" />
-            <a href="mailto:Contact@cureayurvedic.com" className="hover:text-[#586e20] transition-colors">
-              Contact@cureayurvedic.com
+            <a href="mailto:contact@cureayurvedic.com" className="hover:text-[#586e20] transition-colors">
+              contact@cureayurvedic.com
             </a>
           </li>
 

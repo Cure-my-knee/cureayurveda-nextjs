@@ -104,24 +104,24 @@ const AdminDashboard = () => {
 
               
 
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+              {/* <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-gray-600">Total Revenue</p>
-                    <p className="text-2xl font-bold text-gray-900">Rs. 45,678</p>
-                    {/* <p className="text-sm text-green-600 mt-1">↗ +8.1%</p> */}
+                    <p className="text-sm text-gray-600">Total User</p>
+                    <p className="text-2xl font-bold text-gray-900">10+</p>
+                    
                   </div>
                   <div className="bg-purple-100 p-3 rounded-lg">
                     <DollarSign className="h-6 w-6 text-purple-600" />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-gray-600">Active Users</p>
-                    <p className="text-2xl font-bold text-gray-900">Rs. 2,345</p>
+                    <p className="text-2xl font-bold text-gray-900">10+</p>
                     {/* <p className="text-sm text-green-600 mt-1">↗ +3.7%</p> */}
                   </div>
                   <div className="bg-orange-100 p-3 rounded-lg">

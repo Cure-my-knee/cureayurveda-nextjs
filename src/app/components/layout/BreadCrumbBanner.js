@@ -163,7 +163,7 @@ import { ChevronRight, Home } from 'lucide-react';
 const BreadCrumbBanner = ({
   title = "",
   breadcrumbs = [],
-  backgroundImage = "/images/banner/herobanner7.jpg", // Desktop
+  backgroundImage = "/images/banner/breadcrumb_backup.jpg", // Desktop
   mobileBackgroundImage = "/images/banner/breadcrumb-mobile.jpg", // Mobile
   className = "",
 height = "h-[60vh] sm:h-[70vh] lg:h-[80vh]",  

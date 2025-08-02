@@ -733,6 +733,10 @@ const BlogAdminDashboard = () => {
 //   }
 // };
 
+// Delete Blog
+
+ 
+
 
 const renderHTMLContent = (htmlString) => {
   // Clean and process the HTML string
@@ -901,6 +905,26 @@ const handleSubmit = async (e) => {
       setDeleting(null);
     }
   };
+
+
+  // delete blog
+
+  //  const deleteBlog = async (id) => {
+  //   if (!window.confirm('Are you sure you want to delete this blog?')) return;
+
+  //   try {
+  //     setDeleting(id);
+  //     await authAPI.deleteBlog(id);
+
+  //     // Refetch current page to stay in sync
+  //     fetchBlogs();
+  //   } catch (error) {
+  //     console.error('Error deleting blog:', error);
+  //     setError('Failed to delete blog.');
+  //   } finally {
+  //     setDeleting(null);
+  //   }
+  // };
 
   const formatDate = (dateString) => {
     if (!dateString) return 'No date';

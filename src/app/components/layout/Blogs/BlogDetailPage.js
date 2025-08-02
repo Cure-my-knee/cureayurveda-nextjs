@@ -181,12 +181,12 @@ const renderHTMLContent = (htmlString) => {
               <article className="bg-white rounded-lg shadow-sm overflow-hidden">
                 {/* Featured image */}
                 {blog.pictures && blog.pictures[0] && (
-                  <div className="relative h-64 md:h-80 lg:h-96 overflow-hidden">
+                  <div className="relative h-64 md:h-80 lg:h-100 overflow-hidden">
                     <Image
                       src={blog.pictures[0]}
                       alt={blog.title}
                       fill
-                      className="object-cover"
+                      // className="object-cover"
                       sizes="100vw"
                       priority
                     />

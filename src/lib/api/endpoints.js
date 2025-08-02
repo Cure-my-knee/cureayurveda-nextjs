@@ -346,12 +346,32 @@ getContactMessage: async () => {
 
 // delete blog
 
+//  deleteBlog: async (blogId) => {
+//   try {
+//     const token = localStorage.getItem('accessToken');   
+
+   
+//     const response = await apiClient.delete(`/blogs/delete/${blogId}`, {
+//       headers: {
+//         Authorization: `Bearer ${token}`,   
+//       },
+//     });
+
+//     console.log('Blog Deleted Successfully:', response.data);
+//     return response.data;
+
+//   } catch (error) {
+     
+//     throw error.response?.data || error.message;
+//   }
+// },
+
  deleteBlog: async (blogId) => {
   try {
     const token = localStorage.getItem('accessToken');   
 
    
-    const response = await apiClient.delete(`/blogs/delete/${blogId}`, {
+    const response = await apiClient.delete(`/blogs/${blogId}`, {
       headers: {
         Authorization: `Bearer ${token}`,   
       },
@@ -415,15 +435,13 @@ getContactMessage: async () => {
 
 // get all order list
 
-
-
-// get all end 
+ 
 
 getAllOrder: async () => {
   try {
     const token = localStorage.getItem('accessToken');  
 
-    const response = await apiClient.get('/api/orders/', {
+    const response = await apiClient.get('/orders', {
       headers: {
         Authorization: `Bearer ${token}`, 
       },
@@ -436,9 +454,6 @@ getAllOrder: async () => {
     throw error.response?.data || error.message;
   }
 },
-
-
-
   
 };
 

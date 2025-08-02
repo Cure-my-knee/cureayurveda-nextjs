@@ -5,8 +5,8 @@ import AllProduct from '../components/shop/AllProduct';
 
 // seo meta tag
 export const metadata = {
-  title: 'Buy Online Ayurvedic Medicines, Capsule, and Oil | Cure Ayurvedic',
-  description: 'Shop Cure Ayurvedic joint care, energy booster and diabetes care products made with natural ingredients for effective results. Buy now!',
+  title: 'Buy Online Ayurvedic Capsule, Oil, Tablets | Cure Ayurvedic',
+  description: 'Shop Cure Ayurvedic joint care, energy booster, and diabetes care products made with natural ingredients for effective results. Order now!',
   // robots: 'noindex, nofollow',
 };
 

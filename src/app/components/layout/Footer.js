@@ -220,7 +220,7 @@ const handleSubscribe = async (e) => {
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <Link
-                  href="/shop/vediccal"
+                  href="/shop/vediccal-calcium-capsules-for-muscle-bone-health"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   VedicCal
@@ -228,7 +228,7 @@ const handleSubscribe = async (e) => {
               </li>
               <li>
                 <Link
-                  href="/shop/vedicflx"
+                  href="/shop/vedicflx-capsules-for-joint-muscle-pain-relief"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   VedicFlx
@@ -236,7 +236,7 @@ const handleSubscribe = async (e) => {
               </li>
               <li>
                 <Link
-                  href="/shop/vedicflx-oil"
+                  href="/shop/vedicflx-oil-for-joint-muscle-pain-relief"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   VedicFlx Oil
@@ -245,7 +245,7 @@ const handleSubscribe = async (e) => {
 
                <li>
                 <Link
-                  href="/shop/d-vedic-syrup"
+                  href="/shop/d-vedic-syrup-for-diabetic-care-patients-sugar-control-management"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   D Vedic Syrup
@@ -254,7 +254,7 @@ const handleSubscribe = async (e) => {
 
                <li>
                 <Link
-                  href="/shop/d-vedic"
+                  href="/shop/d-vedic-tablets-medicine-for-diabetic-care-patients-sugar-control-management"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   D Vedic 
@@ -263,7 +263,7 @@ const handleSubscribe = async (e) => {
 
                <li>
                 <Link
-                  href="/shop/vedic-shilajit"
+                  href="/shop/vedic-shilajit-capsules-for-energy-boost-vitality-support"
                   className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Vedic Shilajit

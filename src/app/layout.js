@@ -23,7 +23,7 @@ const montserrat = Montserrat({
 
 export const metadata = {
   title: 'Buy Best Ayurvedic Products Online in India | Cure Ayurvedic',
-  description: 'Cure Ayurvedic is the top ayurvedic & wellness product company in India. Shop trusted ayurvedic medicine online today at the best price.',
+  description: 'Cure Ayurvedic is the top ayurvedic &amp; wellness product company in India. Shop trusted ayurvedic medicine online today at the best price.',
   viewport: 'width=device-width, initial-scale=1.0',
   //  other: {
   //   'google-site-verification': '491akEx-CPBtJVwJokQrfA0_7iDMJldPSHKc7YglHs4',

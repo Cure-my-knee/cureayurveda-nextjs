@@ -43,6 +43,7 @@ const PainManagementCard = ({
       className={`bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col group cursor-pointer ${className}`}
       onClick={handleCardClick}
     >
+      <Link href={readMoreLink} passHref onClick={(e) => e.stopPropagation()}> 
       <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gray-100">
         {!imageLoaded && !imageError && (
           <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
@@ -54,7 +55,7 @@ const PainManagementCard = ({
           <img 
             src={image}
             alt={title}
-            className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`w-full h-full  group-hover:scale-105 transition-transform duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
             loading="lazy"
             onLoad={handleImageLoad}
             onError={handleImageError}
@@ -86,7 +87,7 @@ const PainManagementCard = ({
           </div>
         )}
       </div>
-            
+        </Link>    
       <div className="p-2 sm:p-4 flex flex-col flex-grow border-t border-gray-300">
          <Link href={readMoreLink} passHref>
         <div className="text-start text-xl sm:text-xl md:text-xl text-black mb-2 sm:mb-3  transition-colors duration-300">
