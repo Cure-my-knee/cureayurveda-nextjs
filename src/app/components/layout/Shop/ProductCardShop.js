@@ -126,13 +126,13 @@
  'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Eye, Heart, ShoppingCart } from 'lucide-react';
+import { Eye, Heart, ShoppingCart, Share2 } from 'lucide-react';
 
 const ProductCardShop = ({
   productId, // Add productId prop
-  productImage = "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop",
-  hoverImage = "https://images.unsplash.com/photo-1606813902592-8e437f8d5e0c?w=400&h=400&fit=crop",
-  productName = "ORTHODEXIL - JOINT PAIN OIL",
+  productImage = " ",
+  hoverImage = " ",
+  productName = " ",
   price = "549",
   currency = "₹",
   mrpText = "MRP",
@@ -155,6 +155,33 @@ const ProductCardShop = ({
     // Use productId instead of undefined id
     onQuickView(productId);
   };
+
+  // share cart
+
+  const handleShare = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const shareUrl = `https://www.cureayurvedic.com/shop/${productId}`;
+  const shareText = `${productName} - ₹${price}\n${shareUrl}`;
+
+  // Web Share API (for mobile & supported browsers)
+  if (navigator.share) {
+    navigator
+      .share({
+        title: productName,
+        text: shareText,
+        url: shareUrl,
+      })
+      .then(() => console.log('Shared successfully'))
+      .catch((error) => console.log('Error sharing', error));
+  } else {
+    // Fallback for unsupported browsers
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+    window.open(whatsappUrl, '_blank');
+  }
+};
+
 
   const handleAddToWishlist = (e) => {
     e.preventDefault();
@@ -232,6 +259,19 @@ const ProductCardShop = ({
     >
       <Eye className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700 group-hover:text-black" />
     </button>
+
+     <button
+      onClick={handleShare}
+      className="bg-white p-2 sm:p-3 rounded-full shadow-md hover:bg-gray-50 transform hover:scale-110 transition-all duration-200 group"
+      title="Share"
+    >
+
+ 
+      {/* <Eye className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700 group-hover:text-black" /> */}
+      <Share2 className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700 group-hover:text-black" />
+       
+    </button>
+
 
     {/* Add to Cart Icon */}
     {/* <button

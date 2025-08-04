@@ -387,6 +387,28 @@ getContactMessage: async () => {
 },
 
 
+patchBlog: async (blogId, blogData) => {
+  try {
+    const token = localStorage.getItem('accessToken');
+
+    const response = await apiClient.patch(
+      `/blogs/${blogId}`, // endpoint
+      blogData,            // request body (updated blog data)
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+},
+
+
+
 
 
 

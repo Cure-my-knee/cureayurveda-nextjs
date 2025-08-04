@@ -2198,7 +2198,7 @@ function CheckoutContent( ) {
       } catch (error) {
         console.error("Failed to load countries:", error);
         const fallbackCountries = [
-          'United States', 'Canada', 'United Kingdom', 'Australia', 
+          'India', 'United States', 'Canada', 'United Kingdom', 'Australia',
           'Germany', 'France', 'Italy', 'Spain', 'Netherlands', 'Other'
         ];
         setCountries(fallbackCountries);
@@ -2210,6 +2210,40 @@ function CheckoutContent( ) {
 
     fetchCountries();
   }, []);
+
+
+  useEffect(() => {
+  const fetchAddressByPincode = async () => {
+    const pin = shippingAddress.zipCode;
+    if (pin.length !== 6 || !/^\d{6}$/.test(pin)) return;
+
+    try {
+      const res = await fetch(`https://api.postalpincode.in/pincode/${pin}`);
+      const data = await res.json();
+
+      if (data[0].Status === 'Success') {
+        const postOffice = data[0].PostOffice[0];
+        const city = postOffice.Block || postOffice.District || '';
+        const state = postOffice.State || '';
+
+        setShippingAddress(prev => ({
+          ...prev,
+          city: city,
+          state: state,
+          country: 'India',
+        }));
+      } else {
+        toast.warn('Invalid PIN code or no data found.');
+      }
+    } catch (error) {
+      console.error('Failed to fetch address by PIN:', error);
+      toast.error('Error fetching address from PIN code');
+    }
+  };
+
+  fetchAddressByPincode();
+}, [shippingAddress.zipCode]);
+
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
@@ -2773,6 +2807,8 @@ const showCODConfirmation = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
+
+                    
                 </div>
                 
                 <div>

@@ -65,7 +65,7 @@ const BlogSection = () => {
         <div className="relative">
           {!isClient ? (
             <div className="pb-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-3">
+              <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-3">
                 {cards.slice(0, 3).map((card, index) => (
                   <div key={index} className="h-full">
                     <PainManagementCard {...card} />

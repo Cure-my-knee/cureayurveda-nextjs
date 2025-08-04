@@ -2395,18 +2395,18 @@ const ProductDetailsPage = () => {
           </div>
 
           {/* WhatsApp Share Icon */}
-         {/* <a
+         <a
           href={`https://wa.me/?text=${encodeURIComponent(
-            `${product.productName} - ${product.productsubtitle}\nPrice: ${product.currency}${product.price}\nCheck it out here: https://www.cureayurvedic.com/product/${product._id}`
+            `${product.productName} - ${product.productsubtitle}\nPrice: ${product.currency}${product.price}\nCheck it out here: https://www.cureayurvedic.com/shop/${product.slug}`
           )}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center text-green-600 hover:text-green-700 text-sm mb-2"
+          className="flex items-center text-[#82a133] hover:text-[#82a133] text-sm mb-2"
         >
           Share 
-          <FaWhatsapp className="w-5 h-5 mr-2 ml-2" />
+          <FaWhatsapp style={{ color: '#82a133' }} className="w-5 h-5 mr-2 ml-2" />
           
-        </a> */}
+        </a>
 
          {/* 
             <div className="flex flex-col items-start mb-2">

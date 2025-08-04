@@ -219,7 +219,7 @@ const BlogSectionGrid = () => {
         }, []);
 
   // Loading skeleton cards
-  const loadingCards = Array(6).fill({
+  const loadingCards = Array(4).fill({
     image: '',
     title: 'Loading...',
     description: 'Please wait while blogs are loading...',
@@ -338,7 +338,7 @@ const BlogSectionGrid = () => {
         
         @media (min-width: 1024px) {
           .grid {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
           }
         }
       `}</style>
