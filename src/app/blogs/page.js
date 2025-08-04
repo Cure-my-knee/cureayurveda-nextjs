@@ -7,9 +7,9 @@ import SidebarBanner from '../components/layout/Blogs/SidebarBanner';
 // seo meta tag
 
 export const metadata = {
-  title: 'Blog - Cure Ayurvedic',
-  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
-  robots: 'noindex, nofollow',
+  title: 'Latest Blog - Cure Ayurvedic',
+  description: 'Get our latest blog updates and insights on Ayurvedic practices.',
+  // robots: 'noindex, nofollow',
 };
 
 const BlogPage = () => {

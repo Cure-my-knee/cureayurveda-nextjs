@@ -8,7 +8,7 @@ import Title from '../components/ui/Title';
 export const metadata = {
   title: 'Shipping Policy - Cure Ayurvedic',
   description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
-  robots: 'noindex, nofollow',
+  // robots: 'noindex, nofollow',
 };
 
 export default function ShippingPolicy() {

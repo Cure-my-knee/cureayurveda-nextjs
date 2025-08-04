@@ -9,8 +9,8 @@ import BreadCrumbBanner from '@/app/components/layout/BreadCrumbBanner';
 
 export const metadata = {
   title: 'Blog Details - Cure Ayurvedic',
-  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
-  robots: 'noindex, nofollow',
+  description: 'Get our latest blog updates and insights on Ayurvedic practices.',
+  // robots: 'noindex, nofollow',
 };
  
  

@@ -23,6 +23,14 @@
 import React, { Suspense } from 'react';
 import PaymentSuccessClient from './PaymentSuccessClient';
 import OrderConfirmation from '../components/order/orderconfirmation';
+
+
+// seo meta tag
+export const metadata = {
+  title: 'Order Success - Cure Ayurvedic',
+  description: 'Your order has been successfully confirmed',
+  robots: 'noindex, nofollow',
+};
  
 
 export default function PaymentSuccessPage() {

@@ -29,13 +29,17 @@ import {
 } from 'lucide-react';
 import { useAdminAuth } from '../../../contexts/AdminAuthContext';
  
-import ProductManagement from '../layout/product/page';
-import ContactUsAdmin from '../layout/contact/page';
-import NewsletterAdminDashboard from '../layout/Subscribe/page';
+import ProductManagement from '../layout/product/Productpage';
+import ContactUsAdmin from '../layout/contact/Contactpage';
+import NewsletterAdminDashboard from '../layout/Subscribe/Subscribepage';
 import AdminProtectedRoute from './../../components/AdminProtectedRoute';
-import BlogAdminDashboard from '../layout/blog/page';
-import UserAdminDashboard from '../layout/User/page';
-import OrderTable from '../layout/Order/page';
+ 
+import UserAdminDashboard from '../layout/User/Userpage';
+import OrderTable from '../layout/Order/Orderpage';
+import BlogAdminDashboard from '../layout/blog/blog';
+
+
+
 
 const AdminDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
