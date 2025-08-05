@@ -11,12 +11,18 @@ export default function TopHeader() {
   if (!isVisible) return null;
 
   return (
+    <> 
     <div className="fixed top-0 left-0 w-full z-50 bg-[#586e20] text-white py-2 px-4">
       <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between text-sm font-medium">
         {/* Left Text */}
-        <div className="text-white mb-1 sm:mb-0">
+        {/* <div className="text-white mb-1 sm:mb-0">
           Grab 10% OFF – Limited Time Only!
-        </div>
+        </div> */}
+
+        <div className="zoom-animation text-white mb-1 sm:mb-0">
+            Grab 10% OFF – Limited Time Only!
+          </div>
+
 
         {/* Right Social Icons */}
         <div className="flex space-x-1 sm:space-x-2">
@@ -63,6 +69,27 @@ export default function TopHeader() {
         </div>
       </div>
     </div>
+   <style jsx global>{`
+        @keyframes zoomInOut {
+          0% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.1);
+            opacity: 0.9;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+        
+        .zoom-animation {
+          animation: zoomInOut 2s ease-in-out infinite;
+        }
+      `}</style>
+    </>
   );
 }
 

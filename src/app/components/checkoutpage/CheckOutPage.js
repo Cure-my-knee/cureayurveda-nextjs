@@ -2110,22 +2110,7 @@ import { Trash2, Plus, Minus, CreditCard, Smartphone, Building2, ShoppingCart } 
 import { useRouter, useSearchParams } from 'next/navigation';
 import LoginGuestSelector from '../login/LoginGuestSelector';
  
-// import LoginGuestSelector from '../components/login/LoginGuestSelector';
-// import { postCreateOrder } from '@/lib/api/createOrder';
-// import { postCreateOrder } from '@/lib/api/endpoints';
 
-// export const metadata = {
-//   title: 'Checkout - Cure Ayurvedic',
-//   description: 'Checkout your order at Cure Ayurvedic.',
-//   robots: 'noindex, nofollow',
-// };
-
-// seo meta tag
-
- 
- 
-
- 
 function CheckoutContent( ) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -2184,6 +2169,9 @@ function CheckoutContent( ) {
  
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const COD_MINIMUM = 500;
+
  useEffect(() => {
     const fetchCountries = async () => {
       try {
@@ -2283,43 +2271,7 @@ function CheckoutContent( ) {
   // country api end
 
   // toasty confirm order
-
-//   const showCODConfirmation = () => {
-//   return new Promise((resolve) => {
-//     const toastId = toast(
-//       ({ closeToast }) => (
-//         <div>
-//           <p>Are you sure you want to place a <strong>Cash on Delivery</strong> order?</p>
-//           <div className="flex justify-end gap-2 mt-3">
-//             <button
-//               className="bg-[#82a133] text-white px-3 py-1 rounded"
-//               onClick={() => {
-//                 resolve(true);
-//                 toast.dismiss(toastId);
-//               }}
-//             >
-//               Yes
-//             </button>
-//             <button
-//               className="bg-red-500 text-white px-3 py-1 rounded"
-//               onClick={() => {
-//                 resolve(false);
-//                 toast.dismiss(toastId);
-//               }}
-//             >
-//               No
-//             </button>
-//           </div>
-//         </div>
-//       ),
-//       {
-//         autoClose: false,
-//         closeOnClick: false,
-//         closeButton: false,
-//       }
-//     );
-//   });
-// };
+ 
 let activeCODToast = null;
 
 const showCODConfirmation = () => {
@@ -2485,14 +2437,7 @@ const showCODConfirmation = () => {
         }
 
       if (!item.quantity || item.quantity <= 0) errors.push(`Item ${index + 1}: Valid quantity is required`);
-      // SKU and weight are now guaranteed to exist from loadCartItems
-      // console.log('Product ID:', item.productId || item.id);
-      // console.log('Name:', item.productName || item.name);
-      // console.log('Price:', item.price);
-      // console.log('Quantity:', item.quantity);
-      // console.log('SKU:', item.sku);
-      // console.log('Weight:', item.weight);
-      // console.log('HSN:', item.hsn);
+ 
     });
     
     // Validate shipping address
@@ -2525,24 +2470,25 @@ const showCODConfirmation = () => {
   };
 
   const handlePlaceOrder = async () => {
-    // Validate form first
-    // const validationErrors = validateForm();
-    // if (validationErrors.length > 0) {
-    //   alert('Please fix the following errors:\n' + validationErrors.join('\n'));
-    //   return;
-    // }
+  
      const validationErrors = validateForm();
   if (validationErrors.length > 0) {
     validationErrors.forEach(err => toast.error(err));
     return;
   }
 
-   // 🔔 Confirm COD before proceeding
-  // if (paymentMethod === 'cod') {
-  //   const userConfirmed = window.confirm("Are you sure you want to place a Cash on Delivery order?");
-  //   if (!userConfirmed) return;
+ 
+  //   if (paymentMethod === 'cod') {
+  //   const confirmed = await showCODConfirmation();
+  //   if (!confirmed) return;
   // }
-    if (paymentMethod === 'cod') {
+
+  // new minimum order value for COD
+  if (paymentMethod === 'cod') {
+    if (total < COD_MINIMUM) {
+      toast.error(`Cash on Delivery is available only for orders ₹${COD_MINIMUM} or more`);
+      return;
+    }
     const confirmed = await showCODConfirmation();
     if (!confirmed) return;
   }
@@ -2843,38 +2789,7 @@ const showCODConfirmation = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Country
                   </label>
-                  {/* <select
-                    name="country"
-                    value={shippingAddress.country}
-                    onChange={handleAddressChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
-                  >
-                    <option value="India">India</option>
-                    <option value="US">United States</option>
-                    <option value="UK">United Kingdom</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Canada">Other</option>
-                  </select> */}
-
-
-                 {/* <select
-                  id="country"
-                  name="country"
-                  value={shippingAddress.country}
-                  onChange={handleAddressChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-blue-500"
-                  required
-                >
-                  <option value="">
-                    {loading ? 'Loading countries...' : 'Select Country'}
-                  </option>
-                  {countries.map((country) => (
-                    <option key={country} value={country}>
-                      {country}
-                    </option>
-                  ))}
-                  <option value="Other">Other</option>
-                </select> */}
+    
 
                  <input
             type="text"
@@ -3013,11 +2928,12 @@ const showCODConfirmation = () => {
                     value="cod"
                     checked={paymentMethod === 'cod'}
                     onChange={(e) => setPaymentMethod(e.target.value)}
+                     disabled={total < COD_MINIMUM}
                     className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                   />
                   <label htmlFor="cod" className="ml-3 flex items-center text-sm font-medium text-gray-700">
                     <Building2 className="w-5 h-5 mr-2" />
-                    Cash on Delivery
+                    Cash on Delivery {total < COD_MINIMUM && `(Minimum order value ₹${COD_MINIMUM}+)`}
                   </label>
                 </div>
               </div>
@@ -3032,14 +2948,7 @@ const showCODConfirmation = () => {
               </h2>
               
               <div className="space-y-3">
-                {/* <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">Subtotal</span>
-                  
-                  <span className="text-sm font-medium text-gray-600">
-                ₹{!isNaN(subtotal) ? subtotal.toFixed(2) : '0.00'}
-              </span>
-
-                </div> */}
+                
 
                  <div className="flex justify-between items-start">
                 <div>
@@ -3055,10 +2964,7 @@ const showCODConfirmation = () => {
 
 
                 
-                {/* <div className="flex justify-between">
-                  <span className="text-sm text-gray-600">GST (18%)</span>
-                  <span className="text-sm font-medium text-gray-600">₹{gst.toFixed(2)}</span>
-                </div> */}
+                 
                 
                 <div className="flex justify-between">
                   <span className="text-sm text-gray-600">Shipping</span>

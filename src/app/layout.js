@@ -3,12 +3,13 @@
 import './globals.css';
 import { Montserrat } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
-import Script from 'next/script'; 
 import TopHeader from './components/layout/TopHeader';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Script from 'next/script';
+// import Chatbot from './components/ChatBot/ChatBot';
 //  import { GoogleTagManager } from '@next/third-parties/google';
 
 // Load Montserrat font as CSS variable
@@ -105,10 +106,30 @@ export default function RootLayout({ children }) {
       />
         <Footer />
         {/* Vercel Analytics added here */}
-         <Analytics /> 
+        <Analytics /> 
 
           
          {/* <GoogleTagManager gtmId="491akEx-CPBtJVwJokQrfA0_7iDMJldPSHKc7YglHs4" />  */}
+
+         {/* Tidio Chatbot Script */}
+         {/* <Script src="//code.tidio.co/kfbc08xiz3aho0xm8umiuz1ru6lbz1p4.js" async></Script> */}
+         
+         {/* free tawk.io chat bot */}
+          {/* <Script id="tawkto-widget" strategy="afterInteractive">
+          {`
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+              s1.async=true;
+              s1.src='https://embed.tawk.to/6891a11ded02831924d166d9/1j1sdqn6u';
+              s1.charset='UTF-8';
+              s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
+            })();
+          `}
+        </Script> */}
+        {/* <Chatbot /> */}
+
       </body>
     </html>
   );
