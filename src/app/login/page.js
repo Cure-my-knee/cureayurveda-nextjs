@@ -8,7 +8,7 @@ import LoginPage from '../components/login/LoginPage';
 export const metadata = {
   title: 'Login - Cure Ayurvedic',
   description: 'Login your account for order on Cure Ayurvedic.',
-  robots: 'noindex, nofollow',
+  // robots: 'noindex, nofollow',
 };
 
 

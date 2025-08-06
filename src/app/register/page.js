@@ -8,7 +8,7 @@ import RegisterUser from '../components/register/RegisterUser';
  export const metadata = {
    title: 'Register User- Cure Ayurvedic',
    description: 'Register your account for new order on Cure Ayurvedic.',
-   robots: 'noindex, nofollow',
+  //  robots: 'noindex, nofollow',
  };
 
  const RegisterPage = () => {
