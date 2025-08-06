@@ -46,7 +46,7 @@ const BlogSection = () => {
   const cards = blogs.length
     ? blogs
     : Array(3).fill({
-        image: '',
+        image: null,
         title: 'Loading...',
         description: 'Please wait while blogs are loading...',
         readMoreLink: '/blogs/${blog._id}',

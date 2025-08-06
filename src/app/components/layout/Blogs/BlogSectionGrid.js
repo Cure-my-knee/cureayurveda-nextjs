@@ -220,7 +220,7 @@ const BlogSectionGrid = () => {
 
   // Loading skeleton cards
   const loadingCards = Array(4).fill({
-    image: '',
+    image: null,
     title: 'Loading...',
     description: 'Please wait while blogs are loading...',
     readMoreLink: '#',
