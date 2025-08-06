@@ -57,23 +57,7 @@ const Guarantee = () => {
         backgroundImage: "url('/images/banner/handmade-paper/whitetemplatepaper.jpg')", // replace with your actual image path
       }}
     >
-      {/* Decorative Leaves - Bottom Left */}
-      {/* <Image
-        src="/images/leaf/Leaf.png"
-        alt="leaf bottom left"
-        width={200}
-        height={200}
-        className="absolute bottom-0 left-0 z-0"
-      /> */}
-
-      {/* Decorative Leaves - Bottom Right */}
-      {/* <Image
-        src="/images/leaf/Leaf.png"
-        alt="leaf bottom right"
-        width={200}
-        height={200}
-        className="absolute bottom-0 right-0 z-0 transform scale-x-[-1]"
-      /> */}
+ 
 
       {/* Content */}
       <div className="relative z-10 text-center">

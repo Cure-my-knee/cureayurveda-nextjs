@@ -136,21 +136,21 @@ const tabsData = {
     description:
       'Strengthen your joints naturally with ayurvedic care enriched with calcium, supports joint flexibility, reduces pain and promotes long-term mobility. A holistic solution for joint nourishment, repair and lasting comfort.',
     image:
-      'https://res.cloudinary.com/dztmhmutv/image/upload/v1752571859/WhatsApp_Image_2025-07-15_at_14.33.09_24ff5c6c_foc45c.jpg',
+      'images/Combopack/ProductCombopack1.jpg',
   },
   "Diabetic Care": {
     title: "Diabetic Care",
     description:
       'Balance your blood sugar naturally with trusted ayurvedic formulations. Enriched with herbs that support insulin function and metabolic health. A gentle long-term solution for effective diabetes management.',
     image:
-      'https://res.cloudinary.com/dztmhmutv/image/upload/v1752571932/WhatsApp_Image_2025-07-15_at_14.33.09_3e8e4be1_w6ms5t.jpg',
+      'images/Combopack/ProductCombopack2.jpg',
   },
   "Energy Booster": {
     title: "Energy Booster",
     description:
       'Recharge your body and mind with the power of pure Ayurvedic shilajit which boosts stamina, strength and overall vitality naturally. A daily dose of energy, endurance and rejuvenation from within.',
     image:
-      'https://res.cloudinary.com/dztmhmutv/image/upload/v1753430332/Website_Box_zrwzh3.jpg',
+      'images/Combopack/ProductCombopack3.jpg',
   },
 };
 

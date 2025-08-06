@@ -32,8 +32,8 @@ const FaqPage = () => {
       <BreadCrumbBanner
         title="FAQ"
         breadcrumbs={faqBreadcrumbs}
-          backgroundImage="https://res.cloudinary.com/dztmhmutv/image/upload/v1753863001/Spoon_cjfcnh.jpg"
-              mobileBackgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753863001/Spoon_MOBILE_w25hhn.jpg"
+          backgroundImage="images/faq/Faqbreadcrumbannerdesktop.jpg"
+              mobileBackgroundImage = "images/faq/FaqBreadcrumbannermobile.jpg"
       />
 
       {/* Main content section with max width and 60/40 layout */}
@@ -73,7 +73,7 @@ const FaqPage = () => {
               {/* New Banner Image */}
               <div>
                 <img
-                  src="https://img.freepik.com/premium-photo/faq-banner_818056-1711.jpg" // 🔁 Change this to your image path
+                  src="https://res.cloudinary.com/dzoezcqqc/image/upload/v1754467240/faqbanner_xdmnqv.jpg" // 🔁 Change this to your image path
                   alt="FAQ Support Banner"
                   className="w-full h-auto rounded-xl shadow-lg object-cover"
                 />

@@ -459,9 +459,9 @@ export default function HeroSection() {
   const banners = [
     {
       id: 1,
-      backgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753185541/d_Vedic_Flx_bhybok.jpg",
-      tabletBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753256606/ipad_swbho7.jpg",
-      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753364792/d_Vedic_Flx_4_clbgpb.jpg",  
+      backgroundImage: "https://res.cloudinary.com/dzoezcqqc/image/upload/v1754466254/Herobannerdesktop1_t3mhpd.jpg",
+      tabletBackgroundImage: "https://res.cloudinary.com/dzoezcqqc/image/upload/v1754466253/Herobannertab1_el4zao.jpg",
+      mobileBackgroundImage: "https://res.cloudinary.com/dzoezcqqc/image/upload/v1754466253/Herobannermobile1_iiw05u.jpg",  
       subtitle: "Ayurvedic Joint Care",
       description: "Enhance the strength of your Bones & Muscles naturally with the blend of Herbal Wisdom.",
       buttonText: "Explore Products",
@@ -469,9 +469,9 @@ export default function HeroSection() {
     },
     {
       id: 2,
-      backgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753188799/sdgvdf_euoghr.jpg",
-      tabletBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753256606/ipad_3_lb6ybf.jpg",
-      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753175819/Banner-Web-2_fw4cd4.jpg",
+      backgroundImage: "https://res.cloudinary.com/dzoezcqqc/image/upload/v1754466253/Herobannerdesktop2_oxk5vl.jpg",
+      tabletBackgroundImage: "https://res.cloudinary.com/dzoezcqqc/image/upload/v1754466252/Herobannertab2_mfagvy.jpg",
+      mobileBackgroundImage: "https://res.cloudinary.com/dzoezcqqc/image/upload/v1754466252/Herobannermobile2_mrwdbq.jpg",
       subtitle: "Ayurvedic and Healthy Sugar Management",
       description: "Natural way to balance Sugar Level that helps to control your diabetes with Potent Herbs !",
       buttonText: "Explore Products",
@@ -479,9 +479,9 @@ export default function HeroSection() {
     },
     {
       id: 3,
-      backgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753437396/jbgjj3_szougp.jpg",
-      tabletBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753437313/Shilajit_tab_qlsv3s.jpg",
-      mobileBackgroundImage: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753437299/Shilajit_mobile_j5xhrv.jpg",
+      backgroundImage: "https://res.cloudinary.com/dzoezcqqc/image/upload/v1754466253/Herbannerdesktop3_sjrnfg.jpg",
+      tabletBackgroundImage: "https://res.cloudinary.com/dzoezcqqc/image/upload/v1754466252/Herobannertab3_j5mk2w.jpg",
+      mobileBackgroundImage: "https://res.cloudinary.com/dzoezcqqc/image/upload/v1754466252/Herobannermobile3_nmcq7h.jpg",
       subtitle: "Ayurvedic Shilajit",
       description: "Cure Ayurvedic's Vedic Shilajit is a concentrated ayurvedic formula that helps to boost power and energy and keeps you strong and focussed.",
       buttonText: "Explore Products",

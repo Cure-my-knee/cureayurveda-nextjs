@@ -20,8 +20,8 @@ export const metadata = {
      <div>
         <BreadCrumbBanner  title="Contact Us"
     breadcrumbs={contactBreadcrumbs} 
-    backgroundImage="https://res.cloudinary.com/dztmhmutv/image/upload/v1753884141/Contact_us_paqtwu.jpg"
-    mobileBackgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753884331/Contact_us_mobile_szu1kd.jpg"
+    backgroundImage="images/contactus/ContactusBreadcrumbannerDesktop.jpg"
+    mobileBackgroundImage = "images/contactus/ContactusBreadcrumbannerMobile.jpg"
     />
         <ContactUsPage />
         <AdditionalInfo />

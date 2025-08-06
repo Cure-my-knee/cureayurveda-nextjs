@@ -133,7 +133,7 @@ const SidebarBanner = () => {
         {/* ✅ ADDED: Banner section below popular posts */}
   <div className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
     <img
-      src="https://img.freepik.com/premium-photo/ayurvedic-background_1003030-9785.jpg?w=2000" // Replace with your actual banner image
+      src="https://res.cloudinary.com/dzoezcqqc/image/upload/v1754467241/blagbannersidebar_u4r9lx.jpg" // Replace with your actual banner image
       alt="Sidebar Banner"
       className="w-full h-auto object-cover"
     />

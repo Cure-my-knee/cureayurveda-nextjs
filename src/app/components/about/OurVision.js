@@ -58,7 +58,7 @@ const VisionScroll = () => {
         {`
           @media (max-width: 640px) {
             .scroll-bg {
-              background-image: url('https://res.cloudinary.com/dztmhmutv/image/upload/v1753940317/tab_xfmumg.jpg') !important;
+              background-image: url('images/aboutus/aboutusvisionbanner.jpg') !important;
             }
           }
         `}
@@ -74,7 +74,7 @@ const VisionScroll = () => {
         `}
         style={{
           backgroundImage:
-            'url("https://res.cloudinary.com/dztmhmutv/image/upload/v1753432232/c9ec5a56041fda07ff2c5e36b8b2ecde_1_p06fzt.jpg")',
+            'url("images/aboutus/aboutusvisionbannermobile.jpg")',
           backgroundSize: '100% 100%',
           backgroundPosition: 'center center',
            

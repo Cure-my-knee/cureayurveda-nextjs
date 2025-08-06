@@ -39,7 +39,7 @@ const AboutUsSection = () => {
              <div className="aspect-square bg-gradient-to-br rounded-3xl p-8 transform hover:scale-105 transition-transform duration-300">
                 <div
                     className="h-full bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center bg-cover bg-center"
-                    style={{ backgroundImage: "url('https://static.vecteezy.com/system/resources/previews/035/978/179/non_2x/ai-generated-indian-ayurveda-herbal-medicine-free-photo.jpg')" }}
+                    style={{ backgroundImage: "url('images/aboutus/aboutusbanner3.jpg')" }}
                 >
                     
                 </div>

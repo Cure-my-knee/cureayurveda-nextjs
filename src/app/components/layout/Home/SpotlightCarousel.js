@@ -564,42 +564,42 @@ const Title = ({ children }) => (
 const SLIDES_DATA = [
   {
     id: 1,
-    image: "https://res.cloudinary.com/dztmhmutv/image/upload/v1752579008/berries-green-gooseberry_oqaid7.jpg",
+    image: "images/spotlight/spotlightbanner1.jpg",
     title: "Amla Pericarp Extract",
     subtitle: "Ancient Berry, Modern Sugar Support",
     buttonText: "View Products"
   },
   {
     id: 2,
-    image: "https://res.cloudinary.com/dztmhmutv/image/upload/v1752580730/abstract-still-life-with-charcoal-close-up_1_-min_mcomkr.jpg",
+    image: "images/spotlight/spotlightbanner2.jpg",
     title: "Shilajit Extract",
     subtitle: "Unleash Ancient Energy With Shilajit",
     buttonText: "View Products"
   },
   {
     id: 3,
-    image: "https://res.cloudinary.com/dztmhmutv/image/upload/v1752580943/ghee-clarified-butter-jar-wooden-table-ai-generative-min_1_nqmeia.jpg",
+    image: "images/spotlight/spotlightbanner3.jpg",
     title: "Go-Ghruta",
     subtitle: "Revitalize with the Power of Desi Cow Ghee",
     buttonText: "View Products"
   },
   {
     id: 4,
-    image: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753092833/vertical-view-black-fresh-grapes-small-pots_bzff9y.jpg",
+    image: "images/spotlight/spotlightbanner4.jpg",
     title: "Jambu Fruit",
     subtitle: "A Herbal Remedy to Support Healthy Sugar Level",
     buttonText: "View Products"
   },
   {
     id: 5,
-    image: "https://res.cloudinary.com/dztmhmutv/image/upload/v1753105354/freepik__the-style-is-candid-image-photography-with-natural__55725_aehto3.png",
+    image: "images/spotlight/spotlightbanner5.jpg",
     title: "Khatika Powder",
     subtitle: "Naturally Restore Bone Density & Vitality",
     buttonText: "View Products"
   },
   {
     id: 6,
-    image: "https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/nirgundi-side-effects.jpg",
+    image: "images/spotlight/spotlightbanner6.jpg",
     title: "Nirgundi Oil",
     subtitle: "Anti-Inflammatory Herbal Support for Long-Term Relief",
     buttonText: "View Products"

@@ -28,8 +28,8 @@ const BlogPage = () => {
       <BreadCrumbBanner
         title="Blog"
         breadcrumbs={blogBreadcrumbs}
-        backgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753870781/Blog_web_pq8qnv.jpg"
-        mobileBackgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753870781/Blog_mobile_t7ggem.jpg"
+        backgroundImage = "images/blog/Blogbreadcrumbannerdesktop.jpg"
+        mobileBackgroundImage = "images/blog/Blogbreadcrumbannermobile.jpg"
         
       />
 

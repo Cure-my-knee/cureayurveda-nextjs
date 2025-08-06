@@ -967,8 +967,8 @@ useEffect(() => {
 
   return (
     <>
-      <BreadCrumbBanner title="Shop Now" breadcrumbs={shopBreadcrumbs} backgroundImage="https://res.cloudinary.com/dztmhmutv/image/upload/v1753883725/Shop_Now_fhm54b.jpg" 
-      mobileBackgroundImage = "https://res.cloudinary.com/dztmhmutv/image/upload/v1753883878/Shop_Now_mobile_ntcxmt.jpg" />
+      <BreadCrumbBanner title="Shop Now" breadcrumbs={shopBreadcrumbs} backgroundImage="images/shop/Shopbannerbreadcrumdesktop.jpg" 
+      mobileBackgroundImage = "images/shop/Shopbannerbreadcrummobile.jpg" />
       <section ref={sectionRef}  >
         <div className="min-h-screen bg-[#EDF1E1]  pt-8">
           <Title>
