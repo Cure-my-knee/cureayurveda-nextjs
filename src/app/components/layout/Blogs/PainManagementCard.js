@@ -102,7 +102,7 @@ const PainManagementCard = ({
           {description}
         </p> */}
                 
-        <Link
+        {/* <Link
           href={readMoreLink}
           className="inline-flex items-center text-black hover:text-[#82a133] font-medium text-sm sm:text-base transition-all duration-200 mt-auto group/link"
           aria-label={`Read more about ${title}`}
@@ -118,7 +118,7 @@ const PainManagementCard = ({
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

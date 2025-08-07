@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { authAPI } from '@/lib/api/endpoints';
 import Link from 'next/link';
+import { FileText } from 'lucide-react';
 
 const SidebarBanner = () => {
   const [popularPosts, setPopularPosts] = useState([]);
@@ -21,7 +22,7 @@ const SidebarBanner = () => {
         const blogArray = blogResponse.data;
         
         // Get top 3 popular posts
-        const popularPostsData = blogArray.slice(0, 3).map((blog) => ({
+        const popularPostsData = blogArray.slice(0, 6).map((blog) => ({
           id: blog._id,
           title: blog.title,
           image: blog.pictures?.[0] || '/images/banner/herobanner2.jpg',
@@ -83,14 +84,14 @@ const SidebarBanner = () => {
       <div className="sticky top-6 lg:top-8 space-y-6 lg:space-y-8">
         {/* Popular Posts Banner */}
         <div className="bg-gradient-to-br from-white to-gray-50 p-5 md:p-6 lg:p-8 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-          <div className="flex items-center mb-6">
+          <div className="flex items-center mb-2">
             <div className="w-1 h-8 bg-gradient-to-b from-[#586e20] to-[#82a133] rounded-full mr-4"></div>
             <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-black">Popular Posts</h3>
           </div>
           <div className="space-y-4 lg:space-y-6">
             {loading ? (
               // Enhanced Loading skeleton
-              Array(3).fill(0).map((_, index) => (
+              Array(6).fill(0).map((_, index) => (
                 <div key={index} className="flex items-start space-x-4 animate-pulse">
                   <div className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl flex-shrink-0"></div>
                   <div className="flex-1">
@@ -106,7 +107,7 @@ const SidebarBanner = () => {
                   href={post.readMoreLink}
                   className="flex items-start space-x-4 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 p-3 md:p-4 rounded-xl transition-all duration-300 transform hover:scale-105 group"
                 >
-                  <div className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl flex-shrink-0 overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
+                  {/* <div className="w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 bg-gradient-to-br from-gray-200 to-gray-300 rounded-2xl flex-shrink-0 overflow-hidden shadow-md group-hover:shadow-lg transition-shadow duration-300">
                     <img 
                       src={post.image} 
                       alt={post.title}
@@ -115,9 +116,13 @@ const SidebarBanner = () => {
                         e.target.src = '/images/banner/herobanner2.jpg';
                       }}
                     />
-                  </div>
+                  </div> */}
+
+                    <FileText className="w-5 h-5 justify-center text-gray-700 group-hover:text-[#586e20]" />
+
                   <div className="flex-1 min-w-0">
-                    <div className="text-base md:text-base lg:text-lg text-black line-clamp-2 leading-tight group-hover:text-from-[#586e20] to-[#82a133]  transition-colors duration-300">
+                   <div className="text-sm md:text-sm lg:text-base text-black line-clamp-2 leading-tight group-hover:text-from-[#586e20] to-[#82a133] transition-colors duration-300">
+
                       {post.title}
                     </div>
                     {/* <p className="text-xs md:text-sm text-gray-500 mt-2 font-medium">{post.date}</p> */}

@@ -129,6 +129,7 @@ import Button from "../../ui/Button";
 import Title from "../../ui/Title";
 import Subtitle from "../../ui/Subtitle";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const tabsData = {
   "Joint Care": {
@@ -185,14 +186,25 @@ const CBDProductLanding = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Product Image */}
           <div className="order-2 lg:order-1">
-            <div className="relative overflow-hidden shadow-lg h-96">
+            {/* <div className="relative overflow-hidden shadow-lg h-96">
               <div
                 className="absolute inset-0 bg-cover bg-center transition-all duration-700"
                 style={{
                   backgroundImage: `url(${image})`,
                 }}
               />
-            </div>
+            </div> */}
+            <div className="relative w-full h-100 rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="object-cover object-center transition-opacity duration-700"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority // Optional: only for first tab (above-the-fold)
+            />
+          </div>
+
           </div>
 
           {/* Text Content */}

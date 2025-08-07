@@ -18,6 +18,8 @@ import { ArrowLeft, Calendar, User, Tag,
   import { FaWhatsapp } from "react-icons/fa";
  
 import SidebarBanner from '@/app/components/layout/Blogs/SidebarBanner';
+import BreadCrumbBannerBlog from '../BreadCrmbBannerBlog';
+ 
  
 
 const BlogDetailPage = () => {
@@ -173,11 +175,25 @@ const renderHTMLContent = (htmlString) => {
     <> 
      
       <div className="min-h-screen bg-[#edf1e1] pt-12">
+
+        
         {/* Main container with responsive grid */}
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Main content - 70% on large screens, full width on mobile */}
             <div className="lg:col-span-8 mt-20">
+               {/* breadcrumb-banner */}
+        <div className='max-w-7xl mx-auto pb-4 rounded-lg'>
+          <BreadCrumbBannerBlog
+            title={blog.title}
+            breadcrumbs={[
+              // { label: 'Home', href: '/' },
+              { label: 'Blog', href: '/blogs' },
+              { label: blog.title }
+            ]}
+          />
+        </div>
+        {/* end */}
               <article className="bg-white rounded-lg shadow-sm overflow-hidden">
                 {/* Featured image */}
                 {blog.pictures && blog.pictures[0] && (
