@@ -184,7 +184,7 @@ const handleSubscribe = async (e) => {
              {/* Logo */}
             <div className="mb-4">
             <Image
-              src="/images/logo/cmklogo2.png"
+              src="/images/logo/CureayurvedicLogo2.png"
               alt="Cure Ayurvedic Logo"
               width={120}
               height={40}

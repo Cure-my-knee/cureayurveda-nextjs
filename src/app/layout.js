@@ -9,6 +9,7 @@ import Footer from './components/layout/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Script from 'next/script';
+// import FAQChatBot from './components/faq/FaqChatBot';
 // import Chatbot from './components/ChatBot/ChatBot';
 //  import { GoogleTagManager } from '@next/third-parties/google';
 
@@ -128,7 +129,39 @@ export default function RootLayout({ children }) {
             })();
           `}
         </Script> */}
+
+      {/* cureayurvedic website email */}
+        {/* <Script id="tawkto-widget" strategy="afterInteractive">
+          {`
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function(){
+              var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+              s1.async = true;
+              s1.src = 'https://embed.tawk.to/689584d71884dd1928e2f2bf/1j240tqo5';
+              s1.charset = 'UTF-8';
+              s1.setAttribute('crossorigin', '*');
+              s0.parentNode.insertBefore(s1, s0);
+            })();
+          `}
+        </Script> */}
         {/* <Chatbot /> */}
+
+         {/* JotForm Embed Script */}
+       {/* <Script id="jotform-agent" strategy="afterInteractive">
+        {`
+          (function(){
+            var s = document.createElement('script');
+            s.src = "https://cdn.jotfor.ms/agent/embedjs/0198888bfa7973ba92909ce6dc413878c83c/embed.js?skipWelcome=1&maximizable=1";
+            s.async = true;
+            document.body.appendChild(s);
+          })();
+        `}
+      </Script> */}
+
+      {/* chatbot Faq */}
+
+      {/* <FAQChatBot /> */}
+
 
       </body>
     </html>

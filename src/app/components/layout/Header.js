@@ -775,7 +775,7 @@ export default function Header() {
           <Link href="/" className="flex items-center group">
             <div className="w-20 h-20 relative transition-transform duration-200 group-hover:scale-105">
               <Image
-                src="/images/logo/cmklogo2.png"
+                src="/images/logo/CureayurvedicLogo4.png"
                 alt="Logo"
                 fill
                 className="object-contain"
