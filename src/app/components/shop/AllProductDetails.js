@@ -2484,7 +2484,7 @@ const ProductDetailsPage = () => {
               <div className="text-xl text-black mb-2">Quantity:</div>
               <div className="flex items-center space-x-3">
                 <button
-                  className="p-2 border-2 border-gray-300 rounded-lg hover:border-gray-400 disabled:opacity-50 transition-colors text-black"
+                  className="p-2 border-2 border-gray-300 rounded-lg hover:border-gray-400 disabled:opacity-50 transition-colors text-black cursor-pointer"
                   onClick={() => handleQuantityChange(-1)}
                   disabled={quantity <= 1}
                 >
@@ -2497,7 +2497,7 @@ const ProductDetailsPage = () => {
                   className="w-16 text-center border-2 border-gray-300 rounded-lg py-2 font-medium text-black"
                 />
                 <button
-                  className="p-2 border-2 border-gray-300 rounded-lg hover:border-gray-400 disabled:opacity-50 transition-colors text-black"
+                  className="p-2 border-2 border-gray-300 rounded-lg hover:border-gray-400 disabled:opacity-50 transition-colors text-black cursor-pointer"
                   onClick={() => handleQuantityChange(1)}
                   disabled={quantity >= product.stock}
                 >
@@ -2513,7 +2513,7 @@ const ProductDetailsPage = () => {
             <button 
               onClick={handleAddToCart} 
               disabled={product.stock === 0}
-              className={`flex-1 py-3 text-lg text-center rounded-md transition-all duration-300 
+              className={`flex-1 py-3 text-lg text-center rounded-md transition-all duration-300 cursor-pointer 
                 ${product.stock === 0 
                   ? 'bg-gray-400 text-white cursor-not-allowed' 
                   : 'bg-[#82a133] hover:bg-[#6f902c] text-white'
@@ -2525,7 +2525,7 @@ const ProductDetailsPage = () => {
             <button 
               onClick={handleBuyNow} 
               disabled={product.stock === 0}
-              className={`flex-1 py-3 text-lg text-center rounded-md transition-all duration-300 
+              className={`flex-1 py-3 text-lg text-center rounded-md transition-all duration-300 cursor-pointer
                 ${product.stock === 0 
                   ? 'bg-gray-400 text-white cursor-not-allowed' 
                   : 'bg-[#82a133] hover:bg-[#6f902c] text-white'

@@ -34,68 +34,7 @@ const generateCaptcha = () => {
 };
 
    
-
-  // post api for newsletter subscription
-
-//  const handleSubscribe = async (e) => {
-//     e.preventDefault();
-    
-//     // Reset previous states
-//     setError('');
-//     setIsSubscribed(false);
-    
-//     // Basic email validation
-//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     if (!email.trim()) {
-//       setError('Please enter an email address');
-//       return;
-//     }
-    
-//     if (!emailRegex.test(email.trim())) {
-//       setError('Please enter a valid email address');
-//       return;
-//     }
-
-//     setIsLoading(true);
-
-//     try {
-//       const subscribeData = {
-//         email: email.trim(),
-//         timestamp: new Date().toISOString(),
-//         source: 'newsletter_form'
-//       };
-
-//       const response = await authAPI.postSubscribe(subscribeData);
-      
-//       // Check if the response indicates success
-//       if (response && (response.success || response.status === 'success' || response.message)) {
-//         setIsSubscribed(true);
-//         setEmail('');
-        
-//         // Reset success state after 3 seconds
-//         setTimeout(() => {
-//           setIsSubscribed(false);
-//         }, 3000);
-//       } else {
-//         throw new Error('Subscription failed. Please try again.');
-//       }
-//     } catch (error) {
-//       console.error('Newsletter subscription error:', error);
-      
-//       // Handle different error types
-//       if (error.response?.data?.message) {
-//         setError(error.response.data.message);
-//       } else if (error.message) {
-//         setError(error.message);
-//       } else if (typeof error === 'string') {
-//         setError(error);
-//       } else {
-//         setError('Subscription failed. Please try again.');
-//       }
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
+ 
 
 const handleSubscribe = async (e) => {
   e.preventDefault();

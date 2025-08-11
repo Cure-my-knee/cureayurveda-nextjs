@@ -229,7 +229,7 @@ const CBDProductLanding = () => {
             <button
               key={tab}
               onClick={() => setSelectedTab(tab)}
-              className={`px-6 py-2 rounded-full text-sm font-medium tracking-wide transition-colors duration-200 ${
+              className={`px-6 py-2 rounded-full text-sm font-medium tracking-wide transition-colors duration-200 cursor-pointer ${
                 selectedTab === tab
                   ? "bg-gray-800 text-white"
                   : "bg-gray-100 text-gray-600"

@@ -63,6 +63,21 @@ export default function RootLayout({ children }) {
         </noscript>
 
          {/* Meta Pixel Code */}
+        {/* <Script id="facebook-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '754165870334583');
+            fbq('track', 'PageView');
+          `}
+        </Script> */}
+
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -75,6 +90,18 @@ export default function RootLayout({ children }) {
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '754165870334583');
             fbq('track', 'PageView');
+
+             fbq('track', 'ViewContent', {
+            content_ids: [
+              'jnp63ejcfn',
+              'kzlfynu3a6',
+              'u4c9isp7zj',
+              'wo5shs8k6p',
+              'ocya9ec6re',
+              'y5p48kmnq9'
+            ],
+            content_type: 'product'
+          });
           `}
         </Script>
           

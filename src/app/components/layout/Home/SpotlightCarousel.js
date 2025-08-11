@@ -554,6 +554,7 @@ import React, { useState, useCallback, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
+
 const Title = ({ children }) => (
   <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-gray-800">
     {children}
@@ -673,7 +674,7 @@ const SpotlightCarousel = () => {
           <button
             type="button"
             onClick={(e) => handleNavClick('prev', e)}
-            className="absolute left-1 sm:left-2 md:left-4 lg:left-8 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
+            className="absolute left-1 sm:left-2 md:left-4 lg:left-8 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110 cursor-pointer"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700" />
@@ -682,7 +683,7 @@ const SpotlightCarousel = () => {
           <button
             type="button"
             onClick={(e) => handleNavClick('next', e)}
-            className="absolute right-1 sm:right-2 md:right-4 lg:right-8 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
+            className="absolute right-1 sm:right-2 md:right-4 lg:right-8 z-30 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110 cursor-pointer"
             aria-label="Next slide"
           >
             <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700" />
@@ -732,7 +733,7 @@ const SpotlightCarousel = () => {
                       <button 
                         type="button"
                         onClick={handleShopClick}
-                        className="w-full bg-white/95 hover:bg-white text-black border border-white/50 rounded-full py-2 sm:py-1.5 md:py-2.5 px-4 sm:px-3 text-sm sm:text-xs md:text-base transition-all duration-300 hover:scale-105 shadow-lg"
+                        className="w-full bg-white/95 hover:bg-white text-black border border-white/50 rounded-full py-2 sm:py-1.5 md:py-2.5 px-4 sm:px-3 text-sm sm:text-xs md:text-base transition-all duration-300 hover:scale-105 shadow-lg cursor-pointer"
                       >
                         {slide.buttonText}
                       </button>
