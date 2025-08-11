@@ -63,7 +63,7 @@ export default function RootLayout({ children }) {
         </noscript>
 
          {/* Meta Pixel Code */}
-        {/* <Script id="facebook-pixel" strategy="afterInteractive">
+        <Script id="facebook-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -85,37 +85,9 @@ export default function RootLayout({ children }) {
             style={{ display: 'none' }}
             src="https://www.facebook.com/tr?id=754165870334583&ev=PageView&noscript=1"
           />
-        </noscript> */}
-
-        {/* Meta Pixel Code */}
-        <Script id="facebook-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-
-            fbq('init', '754165870334583');
-            fbq('track', 'ViewContent', {
-              content_ids: ['123'], // REQUIRED: array of product IDs
-              content_type: 'product', // RECOMMENDED: product or product_group
-            });
-          `}
-        </Script>
-
-        {/* NoScript fallback for users without JS */}
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=754165870334583&ev=ViewContent&noscript=1"
-          />
         </noscript>
+
+         
 
         
         <TopHeader />
