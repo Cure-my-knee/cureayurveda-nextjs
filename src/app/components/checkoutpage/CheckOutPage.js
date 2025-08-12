@@ -2750,6 +2750,7 @@ const showCODConfirmation = () => {
                     name="fullName"
                     value={shippingAddress.fullName}
                     onChange={handleAddressChange}
+                      onInput={(e) => e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '')} 
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
@@ -2799,6 +2800,7 @@ const showCODConfirmation = () => {
             onChange={handleSearchChange}
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
+            onInput={(e) => e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '')} 
             placeholder={loading ? 'Loading countries...' : 'Search for a country...'}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
             disabled={loading}
@@ -2842,7 +2844,7 @@ const showCODConfirmation = () => {
                     value={shippingAddress.address}
                     onChange={handleAddressChange}
                     rows={3}
-                    placeholder="e.g. H.No. 1234, 4th Floor,  Gaur City, Noida, Near AD Tower, U.P, 201001"
+                    placeholder="e.g. H.No. 1234, 4th Floor, A Tower, Abc City, Noida, Near AD Tower, U.P, 201001"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
@@ -2860,6 +2862,7 @@ const showCODConfirmation = () => {
                     name="city"
                     value={shippingAddress.city}
                     onChange={handleAddressChange}
+                    onInput={(e) => e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '')} 
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
@@ -2874,6 +2877,7 @@ const showCODConfirmation = () => {
                     name="state"
                     value={shippingAddress.state}
                     onChange={handleAddressChange}
+                    onInput={(e) => e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '')} 
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none text-black focus:ring-2 focus:ring-[#586e20]"
                     required
                   />
