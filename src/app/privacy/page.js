@@ -5,8 +5,8 @@ import Title from '../components/ui/Title';
 
 // seo meta tag
 export const metadata = {
-  title: 'Privacy - Cure Ayurvedic',
-  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+  title: 'Our Privacy Policy - Cure Ayurvedic',
+  description: 'Your privacy is very important to us. If you have any questions about our privacy practices, feel free to contact us through our website.',
   // robots: 'noindex, nofollow',
 };
 

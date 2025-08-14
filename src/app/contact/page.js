@@ -5,8 +5,8 @@ import AdditionalInfo from '../components/contactpage/AdditionalInfo'
 
 // seo meta tag
 export const metadata = {
-  title: 'Contact us - Cure Ayurvedic',
-  description: 'Contact Us for any queries.',
+  title: 'Contact Us - Cure Ayurvedic',
+  description: 'If you have any queries related to products or services offered by Cure Ayurvedic, you can call us. Our team is here to help you on your health wellness journey.',
   // robots: 'noindex, nofollow',
 };
  

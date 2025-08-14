@@ -9,9 +9,9 @@ import FaqPage from '../components/faq/FaqPage';
 // seo meta tag
 
 export const metadata = {
-  title: 'FAQ - Cure Ayurvedic',
-  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
-  robots: 'noindex, nofollow',
+  title: 'Patients Frequently Asked Questions (FAQ) - Cure Ayurvedic ',
+  description: 'FAQ related to ayurveda. Find answers to the most frequently asked questions about ayurveda and our natural products. ',
+  // robots: 'noindex, nofollow',
 };
 
 

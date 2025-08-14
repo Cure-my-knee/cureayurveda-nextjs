@@ -6,8 +6,8 @@ import Title from '../components/ui/Title';
 
 // seo meta tag
 export const metadata = {
-  title: 'Terms and Condition - Cure Ayurvedic',
-  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+  title: 'Our Terms and Conditions - Cure Ayurvedic',
+  description: ' Visit our website to read about terms and conditions, user security, warranties, charges, limitation of liability by Cure Ayurvedic.',
   // robots: 'noindex, nofollow',
 };
 

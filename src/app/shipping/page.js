@@ -6,8 +6,8 @@ import Title from '../components/ui/Title';
 
 // seo meta tag
 export const metadata = {
-  title: 'Shipping Policy - Cure Ayurvedic',
-  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+  title: 'Our Shipping Policy - Cure Ayurvedic',
+  description: ' We use reliable courier services to ship ayurvedic products for your health. Delivery time may vary depending on your location. Any query, call us.',
   // robots: 'noindex, nofollow',
 };
 

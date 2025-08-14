@@ -7,8 +7,8 @@ import SidebarBanner from '../components/layout/Blogs/SidebarBanner';
 // seo meta tag
 
 export const metadata = {
-  title: 'Latest Blog - Cure Ayurvedic',
-  description: 'Get our latest blog updates and insights on Ayurvedic practices.',
+  title: 'Read Our Latest Blog and News - Cure Ayurvedic',
+  description: 'Read our latest blogs and news articles on ayurveda, natural products, health and wellness tips at Cure Ayurvedic.',
   // robots: 'noindex, nofollow',
 };
 

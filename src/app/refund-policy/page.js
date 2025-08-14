@@ -5,8 +5,8 @@ import Title from '../components/ui/Title';
 
 // seo meta tag
 export const metadata = {
-  title: 'Refund Policy - Cure Ayurvedic',
-  description: 'Cure Ayurvedic is one of the best ayurvedic products company in India. Get affordable ayurvedic products for better health.',
+  title: 'Our Return and Refund Policy - Cure Ayurvedic',
+  description: 'We are always ready to help you. Please raise a return request within 7 days of delivery. Our products must be unused, unopened, and in the original packaging.',
   // robots: 'noindex, nofollow',
 };
 
