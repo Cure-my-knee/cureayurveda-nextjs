@@ -55,14 +55,14 @@ export async function generateMetadata({ params }) {
        
     },
     'dvedic-natural-ayurvedic-support-for-healthy-sugar-management': {
-      title: 'D‑Vedic: Natural Ayurvedic Support for Healthy Sugar Management',
-      description: 'D-Vedic works wonders for anyone who may have wanted regulated blood sugar levels, boosted energy, and absolute wellness as per the Ayurveda approach to lifestyle.',
+      title: 'D Vedic: Natural Ayurvedic Support for Healthy Sugar Management',
+      description: 'D Vedic works wonders for anyone who may have wanted regulated blood sugar levels, boosted energy, and absolute wellness as per the Ayurveda approach to lifestyle.',
       
     },
     
     // Add more products as needed
      'boost-your-well-being-with-cure-ayurvedics-vedic-shilajit': {
-      title: 'Boost Your Well-being with Cure Ayurvedics Vedic Shilajit',
+      title: 'Boost Your Well-being with Cure Ayurvedic Vedic Shilajit',
       description: 'Vedic Shilajit is crafted with care, following traditional Ayurvedic methods to retain the natural essence and effectiveness of this ancient remedy.',
        
     },
